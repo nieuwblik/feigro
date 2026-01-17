@@ -1,3 +1,6 @@
+# robots.txt voor FEIGRO Dakwerken
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap locatie
+Sitemap: https://feigrodakwerken.nl/sitemap.xml

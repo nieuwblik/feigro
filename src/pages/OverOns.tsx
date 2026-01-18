@@ -1,7 +1,9 @@
-import { CheckCircle, Users, Award, Heart } from 'lucide-react';
-import { MainLayout } from '@/components/layout/MainLayout';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle, Users, Award, Heart, ArrowRight } from 'lucide-react';
+import { PrimaryFlipButton } from '@/components/buttons';
+import { CTASection } from '@/components/home';
 import { SEO } from '@/components/SEO';
-import { CTAFooter } from '@/components/sections/CTAFooter';
 import { seoMetadata } from '@/data/seo-metadata';
 
 export default function OverOns() {
@@ -29,84 +31,145 @@ export default function OverOns() {
   ];
 
   return (
-    <MainLayout>
+    <div className="w-full">
       <SEO {...seoMetadata.overOns} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-feigro-dark to-feigro-dark/80 text-white py-20 md:py-28 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Over FEIGRO Dakwerken
-            </h1>
-            <p className="text-lg md:text-xl text-feigro-grey leading-relaxed">
-              Al meer dan 20 jaar uw betrouwbare partner voor professionele dakwerkzaamheden in Zuid-Holland.
-            </p>
-          </div>
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[40vh] flex items-center">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1628177142898-93e46b14b85d?q=80&w=2070&auto=format&fit=crop"
+            alt="Wie wij zijn"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
+
+        <div className="container mx-auto px-6 relative z-10 text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-4 mb-6"
+          >
+            <div className="w-12 h-[2px] bg-brand-green"></div>
+            <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Wie wij zijn</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+          >
+            Meesters in <br /><span className="text-brand-green italic">Dakwerken</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
+          >
+            Al meer dan 20 jaar de vertrouwde partner for hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <PrimaryFlipButton
+              label="Vraag offerte aan"
+              icon={<ArrowRight />}
+              size="large"
+              onClick={() => window.location.href = '/contact'}
+            />
+          </motion.div>
+        </div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
       {/* Company Story */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-6">
-                Onze Geschiedenis
+      <section className="py-24 md:py-32 bg-white relative">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-10 tracking-tight uppercase">
+                Onze <span className="text-brand-green italic">Missie</span>
               </h2>
-              <div className="space-y-4 text-base md:text-lg text-feigro-grey leading-relaxed">
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                 <p>
                   FEIGRO Dakwerken werd opgericht met één duidelijke missie: vakkundig dakwerk leveren
-                  met persoonlijke aandacht voor elke klant. Wat begon als een klein familiebedrijf is
-                  uitgegroeid tot een gerenommeerd dakdekkersbedrijf in Zuid-Holland.
+                  met persoonlijke aandacht for elke klant. Wat begon als een klein familiebedrijf is
+                  uitgegroeid tot een gerenommeerd dakdekkersbedrijf.
                 </p>
                 <p>
                   Met meer dan 20 jaar ervaring hebben we duizenden daken geïnspecteerd, onderhouden en
                   gerenoveerd. Van kleine particuliere woningen tot grote bedrijfspanden - elk project
-                  behandelen we met dezelfde toewijding en zorg voor detail.
+                  behandelen we met dezelfde toewijding en zorg for detail.
                 </p>
                 <p>
                   Ons team van gecertificeerde vakmensen blijft zich continu ontwikkelen om u de nieuwste
-                  technieken en materialen te kunnen bieden. Daarbij houden we vast aan onze kernwaarden:
-                  kwaliteit, betrouwbaarheid en persoonlijke service.
+                  technieken en materialen te kunnen bieden.
                 </p>
               </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/3] bg-feigro-grey/10 rounded-lg" />
-            </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-square lg:aspect-video rounded-[3rem] overflow-hidden border border-slate-200 shadow-2xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
+                alt="Expert roofers at work"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-4">
-              Onze Kernwaarden
+      <section className="py-24 md:py-32 bg-slate-100">
+        <div className="container mx-auto px-6">
+          <div className="text-left mb-20">
+            <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">
+              Onze <span className="text-brand-green italic">Kernwaarden</span>
             </h2>
-            <p className="text-lg md:text-xl text-feigro-grey max-w-3xl mx-auto">
-              Deze waarden vormen de basis van alles wat we doen.
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl font-light">
+              De fundamenten waar FEIGRO op gebouwd is.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-white rounded-lg p-8 shadow-sm border border-feigro-grey/20 hover:border-feigro-accent/50 transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-[2.5rem] p-10 border border-slate-200 hover:border-brand-green/30 hover:shadow-xl transition-all group select-none"
                 >
-                  <IconComponent className="h-12 w-12 text-feigro-accent mb-4" />
-                  <h3 className="text-2xl font-semibold text-feigro-dark mb-3">
+                  <div className="w-16 h-16 bg-brand-green rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-brand-green/20">
+                    <IconComponent className="h-8 w-8 text-black" />
+                  </div>
+                  <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
                     {value.title}
                   </h3>
-                  <p className="text-base text-feigro-grey leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed text-sm font-light">
                     {value.description}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -114,35 +177,52 @@ export default function OverOns() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-6">
-              Waarom Kiezen voor FEIGRO?
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              'Ruim 20 jaar ervaring in alle soorten dakwerkzaamheden',
-              'Gecertificeerde vakmensen met continue bijscholing',
-              '24/7 spoedservice voor acute problemen',
-              'Werken met A-merk materialen en fabrieksgarantie',
-              'Transparante prijzen zonder verborgen kosten',
-              'Persoonlijke begeleiding van start tot oplevering',
-              'Gratis advies en vrijblijvende offertes',
-              'Uitgebreide garanties op materiaal en arbeid',
-            ].map((item, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-                <span className="text-lg text-feigro-grey">{item}</span>
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-20 items-center">
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl md:text-7xl font-heading text-slate-900 mb-12 leading-none uppercase tracking-tighter">
+                Waarom Kiezen voor <span className="text-brand-green italic">FEIGRO?</span>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  '20+ Jaar Ervaring',
+                  'Gecertificeerde Vakmensen',
+                  '24/7 Spoedservice',
+                  'A-Merk Materialen',
+                  'Transparante Prijzen',
+                  'Gratis Advies',
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-4 group"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                      <CheckCircle size={14} className="text-brand-green group-hover:text-black transition-colors" />
+                    </div>
+                    <span className="text-lg text-slate-600 group-hover:text-slate-900 transition-colors font-light">{item}</span>
+                  </motion.div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <div className="bg-slate-100 p-12 md:p-16 rounded-[4rem] border border-slate-200 shadow-2xl">
+                <h3 className="text-3xl md:text-5xl font-heading text-slate-900 mb-8 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
+                <p className="text-slate-600 text-lg mb-10 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
+                <PrimaryFlipButton
+                  label="Bel voor advies"
+                  icon={<ArrowRight />}
+                  onClick={() => window.location.href = 'tel:+31612345678'}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      <CTAFooter />
-    </MainLayout>
+    </div>
   );
 }

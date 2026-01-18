@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
+import { MainLayout } from '@/components/layout/MainLayout';
 
 // Pages
 import Index from './pages/Index';
@@ -45,27 +46,29 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
-          <Routes>
-            {/* Main Pages */}
-            <Route path="/" element={<Index />} />
-            <Route path="/diensten" element={<Diensten />} />
-            <Route path="/over-ons" element={<OverOns />} />
-            <Route path="/projecten" element={<Projecten />} />
-            <Route path="/spoedservice" element={<Spoedservice />} />
-            <Route path="/contact" element={<Contact />} />
+          <MainLayout>
+            <Routes>
+              {/* Main Pages */}
+              <Route path="/" element={<Index />} />
+              <Route path="/diensten" element={<Diensten />} />
+              <Route path="/over-ons" element={<OverOns />} />
+              <Route path="/projecten" element={<Projecten />} />
+              <Route path="/spoedservice" element={<Spoedservice />} />
+              <Route path="/contact" element={<Contact />} />
 
-            {/* Service Pages */}
-            <Route path="/dakinspectie" element={<Dakinspectie />} />
-            <Route path="/dakonderhoud" element={<Dakonderhoud />} />
-            <Route path="/dakrenovatie" element={<Dakrenovatie />} />
-            <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
-            <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
-            <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
-            <Route path="/daklekkage" element={<Daklekkage />} />
+              {/* Service Pages */}
+              <Route path="/dakinspectie" element={<Dakinspectie />} />
+              <Route path="/dakonderhoud" element={<Dakonderhoud />} />
+              <Route path="/dakrenovatie" element={<Dakrenovatie />} />
+              <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
+              <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
+              <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
+              <Route path="/daklekkage" element={<Daklekkage />} />
 
-            {/* 404 - Must be last */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              {/* 404 - Must be last */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </MainLayout>
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

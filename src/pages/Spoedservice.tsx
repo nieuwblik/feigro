@@ -1,239 +1,205 @@
-import { Phone, Clock, Zap, Shield, AlertCircle, CheckCircle } from 'lucide-react';
-import { MainLayout } from '@/components/layout/MainLayout';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Phone, Clock, Zap, Shield, AlertCircle, CheckCircle, ArrowRight } from 'lucide-react';
+import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { seoMetadata } from '@/data/seo-metadata';
+
+import { CTASection } from '@/components/home';
 
 export default function Spoedservice() {
   const features = [
     {
       icon: Clock,
       title: '24/7 Bereikbaar',
-      description: 'Dag en nacht, ook in het weekend en op feestdagen staan we voor u klaar.',
+      description: 'Dag en nacht, ook in het weekend en op feestdagen staan we klaar voor spoedgevallen.',
     },
     {
       icon: Zap,
       title: 'Snelle Respons',
-      description: 'We streven ernaar binnen 2-4 uur ter plaatse te zijn bij acute lekkages.',
+      description: 'Wij streven ernaar binnen 2-4 uur ter plaatse te zijn bij acute daklekkages.',
     },
     {
       icon: Shield,
       title: 'Direct Actie',
-      description: 'Noodreparatie om verdere waterschade te voorkomen en uw huis te beschermen.',
+      description: 'Noodreparatie om verdere waterschade aan uw woning direct te voorkomen.',
     },
     {
       icon: Phone,
-      title: 'Deskundig Advies',
-      description: 'Ervaren dakspecialisten die precies weten wat er moet gebeuren.',
+      title: 'Expert Advies',
+      description: 'Ervaren dakspecialisten die direct weten wat er moet gebeuren om uw dak te redden.',
     },
   ];
 
   const steps = [
     {
-      number: '1',
+      number: '01',
       title: 'Bel Direct',
-      description: 'Bel ons spoednummer en beschrijf de situatie. We staan 24/7 voor u klaar.',
+      description: 'Bel ons spoednummer en beschrijf de situatie. Onze adviseurs staan 24/7 klaar.',
     },
     {
-      number: '2',
+      number: '02',
       title: 'Snelle Respons',
-      description: 'Onze monteur komt zo snel mogelijk naar u toe, meestal binnen 2-4 uur.',
+      description: 'Een monteur komt met spoed naar uw locatie in Zuid-Holland en omstreken.',
     },
     {
-      number: '3',
+      number: '03',
       title: 'Noodreparatie',
-      description: 'We voeren een noodreparatie uit om verdere schade te voorkomen.',
+      description: 'We stoppen de lekkage direct om de schade aan uw interieur te beperken.',
     },
     {
-      number: '4',
+      number: '04',
       title: 'Definitieve Oplossing',
-      description: 'We plannen een afspraak voor de definitieve, duurzame reparatie.',
+      description: 'We plannen direct een afspraak voor de definitieve en duurzame reparatie.',
     },
   ];
 
   return (
-    <MainLayout>
+    <div className="w-full bg-white">
       <SEO {...seoMetadata.spoedservice} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-20 md:py-28 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <div className="flex items-center space-x-3 mb-6">
-              <AlertCircle className="h-12 w-12 animate-pulse" />
-              <span className="text-lg font-semibold uppercase tracking-wide">
-                24/7 Spoedservice
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Acute Daklekkage?<br />Wij Staan Direct Klaar!
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Heeft u een daklekkage of andere acute dakproblemen? Aarzelniet en bel ons direct.
-              Onze spoedservice staat dag en nacht voor u klaar.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-red-600 hover:bg-white/90 text-xl px-10 py-6 h-auto"
-            >
-              <a href="tel:+31612345678" className="flex items-center space-x-3">
-                <Phone className="h-6 w-6" />
-                <span>Bel Nu: +31 6 1234 5678</span>
-              </a>
-            </Button>
-          </div>
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[40vh] flex items-center">
+        <div className="container mx-auto px-6 relative z-10 text-left">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-8 shadow-2xl"
+          >
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+            <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">24/7 Noodservice Actief</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+          >
+            Acute Lekkage? <br /><span className="text-brand-green italic">Bel Direct</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light"
+          >
+            Heeft u een daklekkage of andere acute dakproblemen? Aarzel niet. Onze specialisten zijn binnen enkele uren ter plaatse om uw woning te beschermen.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <PrimaryFlipButton
+              label="Nu direct bellen"
+              size="large"
+              icon={<Phone />}
+              onClick={() => window.location.href = 'tel:+31612345678'}
+            />
+          </motion.div>
         </div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/5 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-brand-green/5 blur-[150px] rounded-full -translate-x-1/4 translate-y-1/4 -z-0"></div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-4">
-              Waarom Onze Spoedservice?
-            </h2>
-            <p className="text-lg md:text-xl text-feigro-grey max-w-3xl mx-auto">
-              Bij acute dakproblemen heeft u snelle en professionele hulp nodig.
-            </p>
-          </div>
-
+      {/* Features Grid */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <Card
+                <motion.div
                   key={index}
-                  className="border-feigro-grey/20 text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-slate-50 border border-slate-200 rounded-[2.5rem] p-10 hover:border-brand-green transition-all group select-none shadow-sm hover:shadow-xl"
                 >
-                  <CardHeader>
-                    <div className="flex justify-center mb-4">
-                      <IconComponent className="h-12 w-12 text-feigro-accent" />
-                    </div>
-                    <CardTitle className="text-xl font-semibold text-feigro-dark">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base text-feigro-grey leading-relaxed">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                  <div className="w-16 h-16 bg-brand-green rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-brand-green/20">
+                    <IconComponent className="h-8 w-8 text-black" />
+                  </div>
+                  <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-sm font-light">
+                    {feature.description}
+                  </p>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* How it Works */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-4">
-              Hoe Werkt Het?
-            </h2>
-            <p className="text-lg md:text-xl text-feigro-grey">
-              Van melding tot oplossing in 4 eenvoudige stappen.
-            </p>
+      {/* Steps Section */}
+      <section className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-7xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">Onze <span className="text-brand-green italic">Werkwijze</span> bij Spoed</h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold opacity-40">Van melding tot oplossing</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+            {/* Lines between steps */}
+            <div className="hidden lg:block absolute top-[60px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+
             {steps.map((step, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-feigro-accent text-white rounded-full flex items-center justify-center text-xl font-bold">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative z-10 flex flex-col items-center text-center group"
+              >
+                <div className="w-16 h-16 rounded-full bg-white border-2 border-brand-green flex items-center justify-center text-brand-green font-heading text-xl mb-8 shadow-lg group-hover:bg-brand-green group-hover:text-black transition-all">
                   {step.number}
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-feigro-dark mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-base text-feigro-grey leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
+                <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">{step.title}</h3>
+                <p className="text-slate-600 leading-relaxed font-light">{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What to Do */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-6">
-              Wat Te Doen Bij Daklekkage?
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-feigro-dark mb-1">Bel direct onze spoedservice</h3>
-                <p className="text-feigro-grey">+31 6 1234 5678 - we staan 24/7 voor u klaar</p>
+      {/* What to Do Checklist */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-[4rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-heading text-slate-900 mb-12 text-center uppercase tracking-tighter">
+                Wat te doen bij <span className="text-red-500 italic">Lekkage?</span>
+              </h2>
+              <div className="grid gap-6">
+                {[
+                  { title: 'Bel onze spoedservice', desc: '+31 6 1234 5678 - 24/7 Bereikbaar' },
+                  { title: 'Plaats emmers/bakken', desc: 'Direct onder het lek om waterschade te beperken' },
+                  { title: 'Bescherm eigendommen', desc: 'Verplaats meubels and elektronica uit de buurt' },
+                  { title: 'Maak foto\'s de schade', desc: 'Belangrijk voor uw opstal- of inboedelverzekering' },
+                  { title: 'Ga niet zelf het dak op', desc: 'In de regen is een dak extreem glad and onveilig' }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-3xl border border-slate-100 hover:border-brand-green/20 transition-all select-none shadow-sm">
+                    <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center mt-1 shrink-0">
+                      <CheckCircle size={14} className="text-brand-green" />
+                    </div>
+                    <div>
+                      <h4 className="text-slate-900 font-bold mb-1 tracking-tight uppercase">{item.title}</h4>
+                      <p className="text-slate-500 text-sm font-light">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-feigro-dark mb-1">Plaats emmers/bakken</h3>
-                <p className="text-feigro-grey">Onder de lekkage om waterschade te beperken</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-feigro-dark mb-1">Verwijder waardevolle spullen</h3>
-                <p className="text-feigro-grey">Uit de buurt van de lekkage om schade te voorkomen</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-feigro-dark mb-1">Ga niet zelf het dak op</h3>
-                <p className="text-feigro-grey">Dit is gevaarlijk, laat het over aan onze professionals</p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-4">
-              <CheckCircle className="h-6 w-6 text-feigro-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-feigro-dark mb-1">Maak foto's</h3>
-                <p className="text-feigro-grey">Voor uw verzekering kan dit belangrijk zijn</p>
-              </div>
-            </div>
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-red-600/5 blur-[100px]"></div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-feigro-accent">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
-            Wacht Niet Langer Bij Daklekkage!
-          </h2>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-10">
-            Elke minuut telt bij een daklekkage. Hoe sneller we de lekkage stoppen,
-            hoe minder schade aan uw interieur. Bel nu!
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-white text-feigro-accent hover:bg-white/90 text-xl px-10 py-6 h-auto"
-          >
-            <a href="tel:+31612345678" className="flex items-center space-x-3">
-              <Phone className="h-6 w-6" />
-              <span>Bel Direct: +31 6 1234 5678</span>
-            </a>
-          </Button>
-        </div>
-      </section>
-    </MainLayout>
+      {/* Final Call to Action */}
+      <CTASection />
+    </div>
   );
 }

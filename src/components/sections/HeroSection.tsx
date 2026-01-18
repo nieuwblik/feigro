@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { PrimaryFlipButton } from '@/components/buttons';
 import { HeroData } from '@/types';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 interface HeroSectionProps extends HeroData {
   className?: string;
@@ -14,46 +15,80 @@ export function HeroSection({
   ctaText,
   ctaHref,
   backgroundImage,
-  backgroundClass = 'bg-gradient-to-br from-feigro-dark to-feigro-dark/80',
   className,
 }: HeroSectionProps) {
   return (
     <section
       className={cn(
-        'relative py-20 md:py-28 lg:py-36 px-4',
-        backgroundClass,
+        'relative bg-black pt-32 pb-20 md:pt-40 md:pb-20 px-6 overflow-hidden min-h-[40vh] flex items-center',
         className
       )}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `linear-gradient(rgba(46, 56, 63, 0.85), rgba(46, 56, 63, 0.85)), url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          : undefined
-      }
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-tight">
-            {title}
-          </h1>
-          <p className="text-lg md:text-xl text-feigro-grey mb-8 leading-relaxed">
-            {subtitle}
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-feigro-accent hover:bg-feigro-accent/90 text-white text-lg px-8"
+      {/* Background Image with Overlay */}
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={backgroundImage}
+            alt={title}
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+      )}
+
+      <div className="container mx-auto relative z-10 text-left">
+        <div className="max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-4 mb-6"
           >
-            <Link to={ctaHref} className="flex items-center space-x-2">
-              <span>{ctaText}</span>
-              <ArrowRight className="h-5 w-5" />
+            <div className="w-12 h-[2px] bg-brand-green"></div>
+            <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em]">Expertise</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+          >
+            {title.includes(' ') ? (
+              <>
+                {title.split(' ').slice(0, -1).join(' ')} <br />
+                <span className="text-brand-green italic">{title.split(' ').slice(-1)}</span>
+              </>
+            ) : title}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light"
+          >
+            {subtitle}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link to="/contact">
+              <PrimaryFlipButton
+                label="Vraag offerte aan"
+                icon={<ArrowRight />}
+                size="large"
+              />
             </Link>
-          </Button>
+          </motion.div>
         </div>
       </div>
+
+      {/* Background Accents */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
     </section>
   );
 }

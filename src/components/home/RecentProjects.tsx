@@ -63,7 +63,7 @@ export const RecentProjects = () => {
   };
 
   return (
-    <section id="projecten" className="py-24 md:py-32 bg-white overflow-hidden">
+    <section id="projecten" className="py-24 md:py-32 bg-white overflow-hidden relative border-t border-slate-100">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 md:mb-24">
           <div className="max-w-3xl">
@@ -71,11 +71,11 @@ export const RecentProjects = () => {
               <div className="w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-heading text-black leading-[1] tracking-tighter">
-              Recente <br /><span className="text-brand-green">Projecten</span>
+            <h2 className="text-5xl md:text-8xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+              Recente <br /><span className="text-brand-green italic">Projecten</span>
             </h2>
           </div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -84,7 +84,7 @@ export const RecentProjects = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -92,21 +92,20 @@ export const RecentProjects = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {projects.map((project, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={itemVariants}
-              className={`group relative rounded-[2rem] overflow-hidden bg-black select-none h-[450px] transition-all duration-500 ${
-                i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
-              }`}
+              className={`group relative rounded-[2rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500 shadow-sm hover:shadow-2xl ${i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+                }`}
             >
               {/* Background Image with Overlay */}
               <div className="absolute inset-0 z-0">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-40 transition-all duration-700 ease-out"
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
               </div>
 
               {/* Content */}
@@ -115,18 +114,17 @@ export const RecentProjects = () => {
                   <span className="bg-brand-green text-black font-bold text-[10px] uppercase tracking-[0.25em] px-5 py-2 rounded-lg shadow-lg">
                     {project.category}
                   </span>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl">
                     <ArrowUpRight size={24} />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 text-white/60 text-[10px] uppercase tracking-widest font-bold mb-4">
+                  <div className="flex items-center gap-2 text-white/70 text-[10px] uppercase tracking-widest font-bold mb-4">
                     <MapPin size={12} className="text-brand-green" /> {project.location}
                   </div>
-                  <h3 className={`text-white font-heading leading-tight tracking-tight group-hover:text-brand-green transition-colors ${
-                    i === 0 ? 'text-2xl md:text-4xl max-w-2xl' : 'text-lg md:text-2xl'
-                  }`}>
+                  <h3 className={`text-white font-heading leading-tight tracking-tight group-hover:text-brand-green transition-colors uppercase ${i === 0 ? 'text-2xl md:text-5xl max-w-2xl' : 'text-lg md:text-2xl'
+                    }`}>
                     {project.title}
                   </h3>
                 </div>

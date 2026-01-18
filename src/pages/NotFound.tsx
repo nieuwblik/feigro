@@ -1,8 +1,8 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { MainLayout } from '@/components/layout/MainLayout';
+import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,43 +12,48 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <MainLayout>
-      <div className="flex min-h-[60vh] items-center justify-center bg-gray-50 px-4 py-16">
-        <div className="text-center max-w-2xl">
-          <h1 className="mb-6 text-8xl md:text-9xl font-bold text-feigro-accent">404</h1>
-          <h2 className="mb-4 text-3xl md:text-4xl font-semibold text-feigro-dark">
-            Pagina Niet Gevonden
+    <div className="flex min-h-[80vh] items-center justify-center bg-black px-6 py-32 overflow-hidden relative">
+      <div className="text-center max-w-3xl relative z-10">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-6 text-[10rem] md:text-[15rem] font-heading font-bold text-white/5 leading-none"
+        >
+          404
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <h2 className="mb-6 text-4xl md:text-6xl font-heading text-white uppercase tracking-tighter">
+            Pagina <span className="text-brand-green">Verdwenen</span>
           </h2>
-          <p className="mb-8 text-lg md:text-xl text-feigro-grey">
-            De pagina die u zoekt bestaat niet of is verplaatst. Controleer de URL of ga terug naar de homepage.
+          <p className="mb-12 text-lg md:text-xl text-white/40 max-w-xl mx-auto font-light leading-relaxed">
+            De pagina die u zoekt is buiten bereik. Misschien is deze verhuisd naar een ander deel van het dak.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-feigro-accent hover:bg-feigro-accent/90 text-white"
-            >
-              <Link to="/" className="flex items-center space-x-2">
-                <Home className="h-5 w-5" />
-                <span>Terug naar Home</span>
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-feigro-grey/30"
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <Link to="/">
+              <PrimaryFlipButton
+                label="Terug naar Home"
+                icon={<Home size={18} />}
+                size="large"
+              />
+            </Link>
+            <InversedFlipButton
+              label="Stap Terug"
+              icon={<ArrowLeft size={18} />}
+              size="large"
               onClick={() => window.history.back()}
-            >
-              <button className="flex items-center space-x-2">
-                <ArrowLeft className="h-5 w-5" />
-                <span>Vorige Pagina</span>
-              </button>
-            </Button>
+            />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </MainLayout>
+
+      {/* Background Accents */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-brand-green/5 blur-[150px] rounded-full"></div>
+    </div>
   );
 };
 

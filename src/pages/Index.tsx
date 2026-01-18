@@ -1,15 +1,13 @@
-import { Header, Hero, Services, About, RecentProjects, CTASection, Footer } from '@/components/home';
+import { Hero, Services, About, RecentProjects, CTASection } from '@/components/home';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <div className="w-full">
       <Hero />
       <Services />
       <About />
       <RecentProjects />
       <CTASection />
-      <Footer />
     </div>
   );
 };

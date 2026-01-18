@@ -8,7 +8,7 @@ export interface FlipButtonProps {
 
 export interface FlipButtonPartProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'white' | 'whiteSolid' | 'ghost' | 'blackOutline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'white' | 'whiteSolid' | 'ghost' | 'blackOutline' | 'emergency';
   size?: 'default' | 'large' | 'icon' | 'small';
   className?: string;
 }

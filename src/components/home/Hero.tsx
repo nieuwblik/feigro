@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { PrimaryFlipButton } from '@/components/buttons';
+import { ArrowRight, Phone } from 'lucide-react';
+import { PrimaryFlipButton, EmergencyFlipButton } from '@/components/buttons';
 
 export const Hero = () => {
   const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
@@ -42,16 +42,16 @@ export const Hero = () => {
     <section className="relative min-h-screen w-full flex items-start overflow-hidden bg-black">
       {/* Hero Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" 
-          alt="Professional roofing work" 
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+          alt="Professional roofing work"
           className="w-full h-full object-cover opacity-40 animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="container mx-auto px-6 relative z-10 pt-32 md:pt-40 lg:pt-52 pb-20 flex flex-col items-start"
         variants={containerVariants}
         initial="hidden"
@@ -59,46 +59,55 @@ export const Hero = () => {
       >
         <div className="max-w-5xl flex flex-col items-start text-left">
           {/* Badge */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 md:gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-8 shadow-2xl"
+            className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-8 backdrop-blur-md"
           >
-            <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse shadow-[0_0_12px_rgba(76,178,110,0.9)]"></div>
-            <span className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Uw Gecertificeerde Dakspecialist</span>
+            <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse shadow-[0_0_12px_rgba(76,178,110,0.5)]"></div>
+            <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Uw Gecertificeerde Dakspecialist</span>
           </motion.div>
-          
+
           {/* Heading with Aldrich Font */}
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
-            className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-heading leading-[1] mb-8 md:mb-12 tracking-tighter"
+            className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-heading leading-[0.9] mb-8 md:mb-12 tracking-tighter uppercase"
           >
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
           </motion.h1>
-          
+
           {/* Paragraph */}
-          <motion.p 
+          <motion.p
             variants={itemVariants}
-            className="text-white/70 text-lg md:text-xl mb-10 md:mb-12 max-w-2xl leading-relaxed font-normal"
+            className="text-white/70 text-lg md:text-xl mb-10 md:mb-12 max-w-2xl leading-relaxed font-light"
           >
-            FEIGRO Dakwerken biedt duurzame bescherming voor elk gebouw. 
+            FEIGRO Dakwerken biedt duurzame bescherming voor elk gebouw.
             Van renovatie tot onderhoud, wij leveren vakmanschap van de hoogste plank.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-start justify-start gap-8 md:gap-10 w-full lg:w-auto"
           >
-            <PrimaryFlipButton 
-              label="Vraag Offerte" 
-              hoverLabel="Direct Advies"
-              size={buttonSize}
-              icon={<ArrowRight size={buttonSize === 'large' ? 22 : 18} className="-rotate-45" />}
-              onClick={() => {
-                const el = document.getElementById('contact');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            />
+            <div className="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
+              <PrimaryFlipButton
+                label="Vraag offerte aan"
+                hoverLabel="Direct Advies"
+                size={buttonSize}
+                icon={<ArrowRight size={buttonSize === 'large' ? 22 : 18} className="-rotate-45" />}
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              />
+
+              <EmergencyFlipButton
+                label="Spoedservice"
+                size={buttonSize}
+                icon={<Phone size={buttonSize === 'large' ? 22 : 18} className="animate-pulse" />}
+                onClick={() => window.location.href = '/spoedservice'}
+              />
+            </div>
 
             <div className="flex flex-col items-start group cursor-pointer" onClick={() => window.location.href = 'tel:+31612345678'}>
               <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-1">Liever bellen?</span>
@@ -107,28 +116,28 @@ export const Hero = () => {
           </motion.div>
 
           {/* Stats Bar */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="mt-16 md:mt-20 flex flex-wrap justify-start gap-10 md:gap-20 border-t border-white/10 pt-10 md:pt-12 w-full"
           >
             <div className="flex flex-col items-start">
-              <p className="text-brand-green text-3xl md:text-4xl font-heading mb-1 leading-none">100%</p>
-              <p className="text-white/30 text-[10px] uppercase tracking-widest font-bold">Lekkagevrij</p>
+              <p className="text-brand-green text-3xl md:text-5xl font-heading mb-1 leading-none tracking-tighter">100%</p>
+              <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Lekkagevrij</p>
             </div>
             <div className="flex flex-col items-start">
-              <p className="text-brand-green text-3xl md:text-4xl font-heading mb-1 leading-none">24u</p>
-              <p className="text-white/30 text-[10px] uppercase tracking-widest font-bold">Noodservice</p>
+              <p className="text-brand-green text-3xl md:text-5xl font-heading mb-1 leading-none tracking-tighter">24u</p>
+              <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Noodservice</p>
             </div>
             <div className="flex flex-col items-start">
-              <p className="text-brand-green text-3xl md:text-4xl font-heading mb-1 leading-none">15jr</p>
-              <p className="text-white/30 text-[10px] uppercase tracking-widest font-bold">Ervaring</p>
+              <p className="text-brand-green text-3xl md:text-5xl font-heading mb-1 leading-none tracking-tighter">15jr</p>
+              <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Ervaring</p>
             </div>
           </motion.div>
         </div>
       </motion.div>
 
       {/* Visual Accents */}
-      <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-brand-green/5 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4 -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-brand-green/10 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4 -z-10"></div>
     </section>
   );
 };

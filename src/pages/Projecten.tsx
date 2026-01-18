@@ -1,8 +1,11 @@
-import { MainLayout } from '@/components/layout/MainLayout';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, MapPin, Calendar, ArrowUpRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
-import { CTAFooter } from '@/components/sections/CTAFooter';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { seoMetadata } from '@/data/seo-metadata';
+
+import { PrimaryFlipButton } from '@/components/buttons';
+import { CTASection } from '@/components/home';
 
 export default function Projecten() {
   const projects = [
@@ -12,166 +15,192 @@ export default function Projecten() {
       description: 'Complete vervanging van oude bitumen dakbedekking naar hoogwaardig EPDM rubber. Inclusief nieuwe isolatie.',
       location: 'Rotterdam',
       year: '2024',
+      image: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop'
     },
     {
       title: 'Bedrijfspand Dordrecht',
       category: 'Dakrenovatie',
-      description: 'Grootschalige renovatie van 800m² plat dak met bitumen dakbedekking en verbeterde drainage.',
+      description: 'Grootschalige renovatie van 800m² plat dak met bitumen dakbedekking and verbeterde drainage.',
       location: 'Dordrecht',
       year: '2023',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop'
     },
     {
       title: 'Appartementencomplex Den Haag',
       category: 'Dakonderhoud',
-      description: 'Jaarlijks onderhoudscontract inclusief inspectie, reiniging en kleine reparaties.',
+      description: 'Jaarlijks onderhoudscontract inclusief inspectie, reiniging and kleine reparaties.',
       location: 'Den Haag',
       year: '2023',
+      image: 'https://images.unsplash.com/photo-1541976590-71394168159b?q=80&w=2070&auto=format&fit=crop'
     },
     {
       title: 'Villa Wassenaar',
       category: 'Daklekkage',
-      description: 'Acute lekkage verholpen en volledige dakrenovatie uitgevoerd met EPDM dakbedekking.',
+      description: 'Acute lekkage verholpen and volledige dakrenovatie uitgevoerd met EPDM dakbedekking.',
       location: 'Wassenaar',
       year: '2024',
-    },
-    {
-      title: 'Kantoorpand Zoetermeer',
-      category: 'Bitumen Dakbedekking',
-      description: 'Nieuwe bitumen dakbedekking op 450m² plat dak met 15 jaar garantie.',
-      location: 'Zoetermeer',
-      year: '2023',
-    },
-    {
-      title: 'Woonhuis Delft',
-      category: 'Dakinspectie',
-      description: 'Periodieke dakinspectie met uitgebreid rapport en advies over onderhoud.',
-      location: 'Delft',
-      year: '2024',
+      image: 'https://images.unsplash.com/photo-1628177142898-93e46b14b85d?q=80&w=2070&auto=format&fit=crop'
     },
   ];
 
   return (
-    <MainLayout>
+    <div className="w-full bg-white">
       <SEO {...seoMetadata.projecten} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-feigro-dark to-feigro-dark/80 text-white py-20 md:py-28 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Onze Projecten
-            </h1>
-            <p className="text-lg md:text-xl text-feigro-grey leading-relaxed">
-              Een selectie van recent uitgevoerde dakwerkzaamheden. Van kleine reparaties tot
-              complete renovaties - elk project met dezelfde toewijding uitgevoerd.
-            </p>
-          </div>
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[40vh] flex items-center">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
+            alt="Projecten"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
+
+        <div className="container mx-auto px-6 relative z-10 text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-4 mb-6"
+          >
+            <div className="w-12 h-[2px] bg-brand-green"></div>
+            <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Portfolio</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+          >
+            Projecten waar we <br /><span className="text-brand-green italic">Trots op Zijn</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
+          >
+            Een selectie van onze meest uitdagende and succesvolle projecten. Elk dak vertelt een verhaal van vakmanschap and kwaliteit.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <PrimaryFlipButton
+              label="Vraag offerte aan"
+              icon={<ArrowUpRight />}
+              size="large"
+              onClick={() => window.location.href = '/contact'}
+            />
+          </motion.div>
+        </div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             {projects.map((project, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="border-feigro-grey/20 hover:border-feigro-accent/50 transition-all duration-300 hover:shadow-lg"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group cursor-pointer select-none"
               >
-                <div className="aspect-video bg-feigro-grey/10" />
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-feigro-accent font-medium">
-                      {project.category}
-                    </span>
-                    <span className="text-sm text-feigro-grey">{project.year}</span>
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[3rem] mb-10 border border-slate-200 shadow-xl">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-colors duration-500"></div>
+                  <div className="absolute top-8 right-8 w-16 h-16 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-4 group-hover:translate-y-0 shadow-lg">
+                    <ArrowUpRight size={24} className="text-black" />
                   </div>
-                  <CardTitle className="text-xl font-semibold text-feigro-dark">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-feigro-grey leading-relaxed mb-4">
-                    {project.description}
-                  </CardDescription>
-                  <div className="text-sm text-feigro-grey">
-                    <span className="font-medium">Locatie:</span> {project.location}
+                  <div className="absolute bottom-10 left-10">
+                    <span className="bg-brand-green/90 text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">{project.category}</span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-3xl md:text-4xl font-heading text-slate-900 group-hover:text-brand-green transition-colors uppercase tracking-tight">{project.title}</h3>
+                    <div className="flex items-center gap-6 mt-2">
+                      <div className="flex items-center gap-2 text-slate-400">
+                        <MapPin size={14} className="text-brand-green" />
+                        <span className="text-xs uppercase tracking-widest font-bold">{project.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-400">
+                        <Calendar size={14} className="text-brand-green" />
+                        <span className="text-xs uppercase tracking-widest font-bold">{project.year}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl">{project.description}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-feigro-dark mb-4">
-              Wat Onze Klanten Zeggen
+      {/* Luxury Reviews Section */}
+      <section className="py-24 md:py-32 bg-slate-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="inline-flex items-center gap-1 mb-8"
+            >
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={20} className="fill-brand-green text-brand-green" />
+              ))}
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-16 tracking-tighter uppercase">
+              Wat Onze Klanten <span className="text-brand-green italic">Zeggen</span>
             </h2>
-          </div>
 
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-feigro-grey/20">
-              <p className="text-lg text-feigro-grey leading-relaxed mb-4 italic">
-                "FEIGRO heeft ons dak volledig gerenoveerd. Vakkundig werk, netjes afgewerkt, en het team
-                was zeer professioneel. We zijn zeer tevreden!"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-feigro-dark">Familie van der Berg</p>
-                  <p className="text-sm text-feigro-grey">Rotterdam</p>
-                </div>
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-feigro-accent">★</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-feigro-grey/20">
-              <p className="text-lg text-feigro-grey leading-relaxed mb-4 italic">
-                "Snelle en efficiënte service bij een acute daklekkage. Binnen 2 uur ter plaatse en het
-                probleem direct verholpen. Echt top!"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-feigro-dark">Jan Pietersen</p>
-                  <p className="text-sm text-feigro-grey">Den Haag</p>
-                </div>
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-feigro-accent">★</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-feigro-grey/20">
-              <p className="text-lg text-feigro-grey leading-relaxed mb-4 italic">
-                "Uitstekend werk geleverd aan ons bedrijfspand. Goede communicatie, transparante prijzen,
-                en het resultaat is perfect. Aanrader!"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-feigro-dark">Bakkerij Jansen</p>
-                  <p className="text-sm text-feigro-grey">Dordrecht</p>
-                </div>
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-feigro-accent">★</span>
-                  ))}
-                </div>
-              </div>
+            <div className="grid gap-12">
+              {[
+                {
+                  text: "FEIGRO heeft ons dak volledig gerenoveerd. Vakkundig werk, netjes afgewerkt, en het team was zeer professioneel. We zijn zeer tevreden!",
+                  author: "Familie van der Berg",
+                  city: "Rotterdam"
+                },
+                {
+                  text: "Snelle en efficiënte service bij een acute daklekkage. Binnen 2 uur ter plaatse en het probleem direct verholpen. Echt top!",
+                  author: "Jan Pietersen",
+                  city: "Den Haag"
+                }
+              ].map((review, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="relative p-12 bg-white border border-slate-200 rounded-[4rem] shadow-xl"
+                >
+                  <p className="text-2xl md:text-3xl text-slate-600 font-heading italic leading-relaxed mb-10">
+                    "{review.text}"
+                  </p>
+                  <div className="flex flex-col items-center">
+                    <span className="text-slate-900 font-bold text-lg mb-1 uppercase tracking-tight">{review.author}</span>
+                    <span className="text-brand-green text-xs uppercase tracking-[0.2em] font-bold">{review.city}</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-
-      <CTAFooter />
-    </MainLayout>
+      <CTASection />
+    </div>
   );
 }

@@ -140,3 +140,11 @@
    xl: 1280px
    2xl: 1536px
 */
+
+/* Card Interaction Optimization */
+.card, [class*="Grid"] > div, [class*="row"] > div {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

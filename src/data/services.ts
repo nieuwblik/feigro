@@ -8,6 +8,7 @@ export const dakinspectieData: ServicePageData = {
     subtitle: 'Een grondige dakinspectie voorkomt dure reparaties. Onze gecertificeerde dakspecialisten controleren uw dak op gebreken en advieseren over noodzakelijk onderhoud.',
     ctaText: 'Plan Inspectie',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop',
   },
   features: [
     {
@@ -81,6 +82,7 @@ export const dakonderhoudData: ServicePageData = {
     subtitle: 'Regelmatig onderhoud verlengt de levensduur van uw dak aanzienlijk. FEIGRO zorgt voor professioneel onderhoud aan alle type daken.',
     ctaText: 'Plan Onderhoud',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop',
   },
   features: [
     {
@@ -154,6 +156,7 @@ export const dakrenovatieData: ServicePageData = {
     subtitle: 'Is uw dak aan vernieuwing toe? FEIGRO verzorgt complete dakrenovaties van platte daken tot pannendaken. Duurzaam, professioneel en op maat.',
     ctaText: 'Vraag Offerte Aan',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop',
   },
   features: [
     {
@@ -227,6 +230,7 @@ export const dakbedekkingVervangenData: ServicePageData = {
     subtitle: 'Uw dakbedekking aan vervanging toe? FEIGRO vervangt professioneel alle soorten dakbedekkingen. EPDM, bitumen, PVC of pannen - wij doen het allemaal.',
     ctaText: 'Vraag Advies Aan',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop',
   },
   features: [
     {
@@ -300,6 +304,7 @@ export const bitumenDakbedekkingData: ServicePageData = {
     subtitle: 'Bitumen dakbedekking: betrouwbaar, betaalbaar en bewezen. FEIGRO is specialist in het aanbrengen van bitumen op platte daken.',
     ctaText: 'Meer Informatie',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1632759162403-12d8a4102948?q=80&w=2070&auto=format&fit=crop',
   },
   features: [
     {
@@ -373,6 +378,7 @@ export const epdmDakbedekkingData: ServicePageData = {
     subtitle: 'EPDM rubber dakbedekking: 50 jaar levensduur, onderhoudsarm en hoogwaardig. FEIGRO is gecertificeerd EPDM specialist.',
     ctaText: 'Ontdek EPDM',
     ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1632759162403-12d8a4102948?q=80&w=2070&auto=format&fit=crop',
   },
   features: [
     {
@@ -446,6 +452,7 @@ export const daklekkageData: ServicePageData = {
     subtitle: 'Acute daklekkage? FEIGRO staat 24/7 voor u klaar. Snelle respons, vakkundige reparatie. Bel ons direct en we komen in actie.',
     ctaText: 'Bel 24/7: +31 6 1234 5678',
     ctaHref: '/spoedservice',
+    backgroundImage: 'https://images.unsplash.com/photo-1516714819001-8ee7a13b71d7?q=80&w=2070&auto=format&fit=crop',
   },
   features: [
     {

@@ -10,6 +10,7 @@ const variantStyles: Record<string, string> = {
   whiteSolid: `bg-white text-black border-white`,
   ghost: `bg-transparent text-brand-green border-transparent`,
   blackOutline: `bg-transparent text-black border-black`,
+  emergency: `bg-red-500 text-white border-red-500`,
 };
 
 const sizeStyles: Record<string, string> = {
@@ -26,26 +27,26 @@ const translateOffsets: Record<string, string> = {
   small: '22px',
 };
 
-export const FlipButtonFront: React.FC<FlipButtonPartProps & { isHovered?: boolean }> = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'default', 
+export const FlipButtonFront: React.FC<FlipButtonPartProps & { isHovered?: boolean }> = ({
+  children,
+  variant = 'primary',
+  size = 'default',
   className = '',
-  isHovered 
+  isHovered
 }) => {
   const baseStyle = variantStyles[variant] || variantStyles.primary;
   const sizeStyle = sizeStyles[size] || sizeStyles.default;
   const offset = translateOffsets[size] || translateOffsets.default;
-  
+
   return (
-    <motion.div 
+    <motion.div
       className={`relative flex items-center justify-center gap-2 font-bold border-2 rounded-full select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
       initial={false}
-      animate={{ 
+      animate={{
         opacity: isHovered ? 0 : 1,
         transition: { duration: 0.2, ease: "easeInOut" }
       }}
-      style={{ 
+      style={{
         backfaceVisibility: 'hidden',
         transform: `translateZ(${offset})`,
         WebkitFontSmoothing: 'antialiased'
@@ -56,10 +57,10 @@ export const FlipButtonFront: React.FC<FlipButtonPartProps & { isHovered?: boole
   );
 };
 
-export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolean }> = ({ 
-  children, 
-  variant = 'secondary', 
-  size = 'default', 
+export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolean }> = ({
+  children,
+  variant = 'secondary',
+  size = 'default',
   className = '',
   isHovered
 }) => {
@@ -68,14 +69,14 @@ export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolea
   const offset = translateOffsets[size] || translateOffsets.default;
 
   return (
-    <motion.div 
+    <motion.div
       className={`absolute inset-0 flex items-center justify-center gap-2 font-bold border-2 rounded-full select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
       initial={false}
-      animate={{ 
+      animate={{
         opacity: isHovered ? 1 : 0,
         transition: { duration: 0.2, ease: "easeInOut" }
       }}
-      style={{ 
+      style={{
         backfaceVisibility: 'hidden',
         transform: `rotateX(-90deg) translateZ(${offset})`,
         WebkitFontSmoothing: 'antialiased'
@@ -86,9 +87,9 @@ export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolea
   );
 };
 
-export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large' | 'icon' | 'small' }> = ({ 
-  children, 
-  className = '', 
+export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large' | 'icon' | 'small' }> = ({
+  children,
+  className = '',
   onClick,
   size = 'default'
 }) => {
@@ -111,7 +112,7 @@ export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large'
       onClick={onClick}
       whileTap={{ scale: 0.96 }}
       className={`relative outline-none inline-block group w-fit min-w-fit ${className}`}
-      style={{ 
+      style={{
         height: height,
         minWidth: minWidth,
         perspective: '1000px',
@@ -119,14 +120,14 @@ export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large'
     >
       <motion.div
         className="relative w-full h-full"
-        style={{ 
+        style={{
           transformStyle: 'preserve-3d',
           transformOrigin: 'center center'
         }}
         animate={{ rotateX: isHovered ? 90 : 0 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 260, 
+        transition={{
+          type: "spring",
+          stiffness: 260,
           damping: 22,
           mass: 0.8
         }}

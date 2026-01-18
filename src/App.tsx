@@ -11,6 +11,7 @@ import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import OverOns from './pages/OverOns';
 import Projecten from './pages/Projecten';
+import Diensten from './pages/Diensten';
 import Spoedservice from './pages/Spoedservice';
 import Contact from './pages/Contact';
 
@@ -47,6 +48,7 @@ const App = () => (
           <Routes>
             {/* Main Pages */}
             <Route path="/" element={<Index />} />
+            <Route path="/diensten" element={<Diensten />} />
             <Route path="/over-ons" element={<OverOns />} />
             <Route path="/projecten" element={<Projecten />} />
             <Route path="/spoedservice" element={<Spoedservice />} />

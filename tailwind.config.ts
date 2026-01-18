@@ -71,9 +71,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        'brand-green': '#4CB26E',
       },
       fontFamily: {
-        sans: ['Inter', '"DM Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        heading: ['Aldrich', 'DM Sans', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -113,6 +115,15 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "slide-in-left": "slide-in-left 0.5s ease-out",
         "slide-in-right": "slide-in-right 0.5s ease-out",
+        "slow-zoom": "slow-zoom 20s ease-in-out infinite alternate",
+      },
+      keyframes: {
+        ...{
+          "slow-zoom": {
+            "0%": { transform: "scale(1)" },
+            "100%": { transform: "scale(1.1)" },
+          },
+        },
       },
     },
   },

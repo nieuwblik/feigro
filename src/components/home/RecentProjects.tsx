@@ -71,7 +71,7 @@ export const RecentProjects = () => {
               <div className="w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
               Recente <br /><span className="text-brand-green italic">Projecten</span>
             </h2>
           </div>

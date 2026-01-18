@@ -73,7 +73,7 @@ export const About = () => {
 
             <motion.h2
               variants={itemVariants}
-              className="text-5xl md:text-8xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-10 uppercase"
+              className="text-3xl md:text-5xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-10 uppercase"
             >
               Uw dak is bij ons <br /><span className="text-brand-green italic">In goede handen</span>
             </motion.h2>

@@ -60,7 +60,7 @@ export default function Projecten() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-left">
+        <div className="container mx-auto px-6 relative z-[1] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

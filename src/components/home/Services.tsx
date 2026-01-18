@@ -82,7 +82,7 @@ export const Services = () => {
             <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Onze Expertise</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+          <h2 className="text-3xl md:text-6xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
             Professionele <br /><span className="text-brand-green italic">Dakdiensten</span>
           </h2>
         </div>
@@ -92,7 +92,7 @@ export const Services = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {servicesList.map((service, i) => (
             <Link key={i} to={service.href} className="flex h-full">

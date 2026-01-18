@@ -157,7 +157,7 @@ export const Header = () => {
   );
 
   return (
-    <header className={`fixed w-full z-[100] transition-all duration-500 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'}`}>
+    <header className={`fixed w-full z-[9999] transition-all duration-500 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center relative z-[110]">
         <Logo />
 
@@ -248,7 +248,7 @@ export const Header = () => {
 
         {/* Mobile Toggle Button */}
         <button
-          className="lg:hidden text-white hover:text-brand-green transition-colors relative w-10 h-10 flex items-center justify-center z-[120]"
+          className="lg:hidden text-white hover:text-brand-green transition-colors relative w-10 h-10 flex items-center justify-center z-[10000]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >

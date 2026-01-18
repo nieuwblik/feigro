@@ -70,7 +70,7 @@ export const Hero = () => {
           {/* Heading with Aldrich Font */}
           <motion.h1
             variants={itemVariants}
-            className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-heading leading-[0.9] mb-8 md:mb-12 tracking-tighter uppercase"
+            className="text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-heading leading-[0.9] mb-8 md:mb-12 tracking-tighter uppercase"
           >
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
@@ -89,7 +89,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-start justify-start gap-8 md:gap-10 w-full lg:w-auto"
           >
-            <div className="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 w-full lg:w-auto">
               <PrimaryFlipButton
                 label="Vraag offerte aan"
                 hoverLabel="Direct Advies"

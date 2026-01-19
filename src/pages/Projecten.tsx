@@ -114,7 +114,7 @@ export default function Projecten() {
                 transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="group cursor-pointer select-none"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] mb-10 border border-slate-200 shadow-xl">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[1rem] mb-10 border border-slate-200 shadow-xl">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -185,7 +185,7 @@ export default function Projecten() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="relative p-12 bg-white border border-slate-200 rounded-[2rem] shadow-xl"
+                  className="relative p-12 bg-white border border-slate-200 rounded-[1rem] shadow-xl"
                 >
                   <p className="text-2xl md:text-3xl text-slate-600 font-heading italic leading-relaxed mb-10">
                     "{review.text}"

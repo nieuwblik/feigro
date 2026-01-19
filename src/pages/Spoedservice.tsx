@@ -115,9 +115,9 @@ export default function Spoedservice() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-slate-50 border border-slate-200 rounded-[2.5rem] p-10 hover:border-brand-green transition-all group select-none shadow-sm hover:shadow-xl"
+                  className="bg-white border border-slate-200 rounded-[1.25rem] p-10 hover:border-brand-green/30 transition-all duration-500 group select-none shadow-sm hover:shadow-xl"
                 >
-                  <div className="w-16 h-16 bg-brand-green rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-brand-green/20">
+                  <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
                     <IconComponent className="h-8 w-8 text-black" />
                   </div>
                   <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
@@ -168,7 +168,7 @@ export default function Spoedservice() {
       {/* What to Do Checklist */}
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-[4rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+          <div className="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-[2rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-heading text-slate-900 mb-12 text-center uppercase tracking-tighter">
                 Wat te doen bij <span className="text-red-500 italic">Lekkage?</span>
@@ -181,7 +181,7 @@ export default function Spoedservice() {
                   { title: 'Maak foto\'s de schade', desc: 'Belangrijk voor uw opstal- of inboedelverzekering' },
                   { title: 'Ga niet zelf het dak op', desc: 'In de regen is een dak extreem glad and onveilig' }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-3xl border border-slate-100 hover:border-brand-green/20 transition-all select-none shadow-sm">
+                  <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-slate-100 hover:border-brand-green/20 transition-all select-none shadow-sm">
                     <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center mt-1 shrink-0">
                       <CheckCircle size={14} className="text-brand-green" />
                     </div>

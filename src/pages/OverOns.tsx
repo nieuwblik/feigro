@@ -123,7 +123,7 @@ export default function OverOns() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[3rem] overflow-hidden border border-slate-200 shadow-2xl"
+              className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200 shadow-2xl"
             >
               <img
                 src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
@@ -158,9 +158,9 @@ export default function OverOns() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-[2.5rem] p-10 border border-slate-200 hover:border-brand-green/30 hover:shadow-xl transition-all group select-none"
+                  className="bg-white rounded-[1.25rem] p-10 border border-slate-200 hover:border-brand-green/30 hover:shadow-xl transition-all group select-none"
                 >
-                  <div className="w-16 h-16 bg-brand-green rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-brand-green/20">
+                  <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
                     <IconComponent className="h-8 w-8 text-black" />
                   </div>
                   <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
@@ -210,7 +210,7 @@ export default function OverOns() {
               </div>
             </div>
             <div className="lg:w-1/2 w-full">
-              <div className="bg-slate-100 p-12 md:p-16 rounded-[4rem] border border-slate-200 shadow-2xl">
+              <div className="bg-slate-100 p-12 md:p-16 rounded-[2rem] border border-slate-200 shadow-2xl">
                 <h3 className="text-3xl md:text-5xl font-heading text-slate-900 mb-8 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
                 <p className="text-slate-600 text-lg mb-10 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
                 <PrimaryFlipButton

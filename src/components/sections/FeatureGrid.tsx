@@ -34,28 +34,32 @@ export function FeatureGrid({ features, title, subtitle, className }: FeatureGri
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative bg-slate-50 border border-slate-200 p-10 md:p-12 rounded-[2.5rem] overflow-hidden hover:border-brand-green/30 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl"
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="group relative bg-white border border-slate-200 p-10 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 shadow-sm hover:shadow-xl"
             >
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-brand-green rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg shadow-brand-green/20">
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
                   {getIcon(feature.icon)}
                 </div>
-                <h3 className="text-2xl font-heading text-slate-900 mb-6 tracking-tight uppercase">
+                <h3 className="text-2xl font-heading text-slate-900 mb-4 tracking-tight uppercase group-hover:text-brand-green transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 text-base leading-relaxed font-light">
+                <p className="text-slate-600 text-sm leading-relaxed font-light mb-8 flex-grow">
                   {feature.description}
                 </p>
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors mt-auto pt-6 border-t border-slate-100">
+                  Meer Info
+                </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 via-transparent to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </div>

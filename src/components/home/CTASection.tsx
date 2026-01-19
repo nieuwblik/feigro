@@ -5,7 +5,7 @@ export const CTASection = () => {
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        <div className="bg-black rounded-[3rem] p-12 md:p-24 text-left relative overflow-hidden shadow-2xl border border-white/5">
+        <div className="bg-black rounded-[1.5rem] p-12 md:p-24 text-left relative overflow-hidden shadow-2xl border border-white/5">
           {/* Dynamic Background Elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px]"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-green/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[100px]"></div>

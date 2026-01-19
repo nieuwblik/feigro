@@ -98,7 +98,7 @@ export const Services = () => {
                 className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl hover:-translate-y-2 w-full"
               >
                 <div className="relative z-10 h-full flex flex-col">
-                  <div className="mb-10 text-brand-green group-hover:text-brand-green group-hover:scale-[1.15] transition-transform duration-300">
+                  <div className="mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                     {service.icon}
                   </div>
 

@@ -3,10 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, MapPin, Calendar, ArrowUpRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
-
 import { PrimaryFlipButton } from '@/components/buttons';
-import { CTASection } from '@/components/home';
-
 export default function Projecten() {
   const projects = [
     {
@@ -200,7 +197,6 @@ export default function Projecten() {
           </div>
         </div>
       </section>
-      <CTASection />
     </div>
   );
 }

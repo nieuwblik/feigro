@@ -4,7 +4,6 @@ import { Phone, Clock, Zap, Shield, CheckCircle } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
-import { CTASection } from '@/components/home';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function Spoedservice() {
@@ -202,8 +201,6 @@ export default function Spoedservice() {
           </FadeIn>
         </div>
       </section>
-
-      <CTASection />
     </div>
   );
 }

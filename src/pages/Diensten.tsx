@@ -117,7 +117,7 @@ const Diensten = () => {
                 className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
               >
                 <div className="relative z-10">
-                  <div className="text-brand-green mb-10 group-hover:scale-[1.15] transition-transform duration-300">
+                  <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                     {service.icon}
                   </div>
                   <h3 className="text-2xl md:text-3xl font-heading mb-6 text-slate-900 group-hover:text-brand-green transition-colors uppercase">{service.title}</h3>

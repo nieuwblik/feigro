@@ -146,13 +146,11 @@ export const Header = () => {
 
   const Logo = () => (
     <Link to="/" className="flex items-center gap-3 group cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-      <div className="w-10 h-10 bg-brand-green rounded-lg flex items-center justify-center shadow-lg shadow-brand-green/20 group-hover:scale-110 transition-transform">
-        <span className="text-black font-bold text-xl">F</span>
-      </div>
-      <div className="flex flex-col text-left">
-        <span className="text-white font-heading text-xl tracking-tight leading-none uppercase">FEIGRO</span>
-        <span className="text-brand-green font-semibold text-[9px] uppercase tracking-[0.25em] mt-1">Dakwerken</span>
-      </div>
+      <img 
+        src="/images/feigro-logo-wit.png" 
+        alt="FEIGRO Dakwerken" 
+        className="h-8 md:h-10 w-auto group-hover:scale-105 transition-transform"
+      />
     </Link>
   );
 
@@ -181,16 +179,16 @@ export const Header = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl p-2"
+                  className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl p-2"
                 >
                   <div className="flex flex-col gap-1">
                     {services.map((service) => (
                       <Link
                         key={service.name}
                         to={service.href}
-                        className="group flex items-center gap-4 px-4 py-3 hover:bg-white/5 rounded-2xl transition-all"
+                        className="group flex items-center gap-4 px-4 py-3 hover:bg-white/5 rounded-lg transition-all"
                       >
-                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-brand-green/20 transition-colors shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-brand-green/20 transition-colors shrink-0">
                           {service.icon}
                         </div>
                         <div className="flex flex-col flex-1">
@@ -324,7 +322,7 @@ export const Header = () => {
                             className="flex items-center gap-4 text-white/60 text-xl font-heading hover:text-brand-green transition-colors"
                             onClick={() => setIsMenuOpen(false)}
                           >
-                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+                            <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                               {service.icon}
                             </div>
                             {service.name}

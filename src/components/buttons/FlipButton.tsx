@@ -40,7 +40,7 @@ export const FlipButtonFront: React.FC<FlipButtonPartProps & { isHovered?: boole
 
   return (
     <motion.div
-      className={`relative flex items-center justify-center gap-2 font-bold border-2 rounded-full select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
+      className={`relative flex items-center justify-center gap-2 font-bold border-2 rounded-xl select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
       initial={false}
       animate={{
         opacity: isHovered ? 0 : 1,
@@ -70,7 +70,7 @@ export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolea
 
   return (
     <motion.div
-      className={`absolute inset-0 flex items-center justify-center gap-2 font-bold border-2 rounded-full select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
+      className={`absolute inset-0 flex items-center justify-center gap-2 font-bold border-2 rounded-xl select-none shadow-lg whitespace-nowrap ${baseStyle} ${sizeStyle} ${className}`}
       initial={false}
       animate={{
         opacity: isHovered ? 1 : 0,

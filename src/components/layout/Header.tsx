@@ -180,7 +180,8 @@ export const Header = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-4"
+                  className="absolute top-full mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-4"
+                  style={{ left: '50%', transform: 'translateX(-50%)' }}
                 >
                   <div className="grid grid-cols-2 gap-2">
                     {services.map((service, idx) => (

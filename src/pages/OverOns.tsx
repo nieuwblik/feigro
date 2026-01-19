@@ -1,10 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { CheckCircle, Users, Award, Heart, ArrowRight } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
-import { ParallaxImage } from '@/components/ui/ParallaxImage';
+import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function OverOns() {
   const values = [
@@ -35,7 +34,7 @@ export default function OverOns() {
       <SEO {...seoMetadata.overOns} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[60vh] md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage
@@ -49,43 +48,31 @@ export default function OverOns() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4 mb-6"
-          >
-            <div className="w-12 h-[2px] bg-brand-green"></div>
-            <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Wie wij zijn</span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
-          >
-            Meesters in <br /><span className="text-brand-green italic">Dakwerken</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
-          >
-            Al meer dan 20 jaar de vertrouwde partner for hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-left">
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[2px] bg-brand-green"></div>
+              <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Wie wij zijn</span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase">
+              Uw Partner in <br /><span className="text-brand-green italic">Dakwerken</span>
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10">
+              Al meer dan 20 jaar de vertrouwde partner for hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.3}>
             <PrimaryFlipButton
               label="Vraag offerte aan"
               icon={<ArrowRight />}
-              size="large"
+              size="default"
               onClick={() => window.location.href = '/contact'}
             />
-          </motion.div>
+          </FadeIn>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
@@ -94,39 +81,30 @@ export default function OverOns() {
       <section className="py-24 md:py-32 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-            >
-              <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-10 tracking-tight uppercase">
-                Onze <span className="text-brand-green italic">Missie</span>
-              </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
-                <p>
-                  FEIGRO Dakwerken werd opgericht met één duidelijke missie: vakkundig dakwerk leveren
-                  met persoonlijke aandacht for elke klant. Wat begon als een klein familiebedrijf is
-                  uitgegroeid tot een gerenommeerd dakdekkersbedrijf.
-                </p>
-                <p>
-                  Met meer dan 20 jaar ervaring hebben we duizenden daken geïnspecteerd, onderhouden en
-                  gerenoveerd. Van kleine particuliere woningen tot grote bedrijfspanden - elk project
-                  behandelen we met dezelfde toewijding en zorg for detail.
-                </p>
-                <p>
-                  Ons team van gecertificeerde vakmensen blijft zich continu ontwikkelen om u de nieuwste
-                  technieken en materialen te kunnen bieden.
-                </p>
+            <FadeIn direction="left">
+              <div>
+                <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-10 tracking-tight uppercase">
+                  Onze <span className="text-brand-green italic">Missie</span>
+                </h2>
+                <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
+                  <p>
+                    FEIGRO Dakwerken werd opgericht met één duidelijke missie: vakkundig dakwerk leveren
+                    met persoonlijke aandacht for elke klant. Wat begon als een klein familiebedrijf is
+                    uitgegroeid tot een gerenommeerd dakdekkersbedrijf.
+                  </p>
+                  <p>
+                    Met meer dan 20 jaar ervaring hebben we duizenden daken geïnspecteerd, onderhouden en
+                    gerenoveerd. Van kleine particuliere woningen tot grote bedrijfspanden - elk project
+                    behandelen we met dezelfde toewijding en zorg for detail.
+                  </p>
+                  <p>
+                    Ons team van gecertificeerde vakmensen blijft zich continu ontwikkelen om u de nieuwste
+                    technieken en materialen te kunnen bieden.
+                  </p>
+                </div>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200"
-            >
+            </FadeIn>
+            <FadeIn scale={0.95} className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200">
               <ParallaxImage
                 src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
                 alt="Expert roofers at work"
@@ -135,7 +113,7 @@ export default function OverOns() {
                 className="grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
-            </motion.div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -143,47 +121,44 @@ export default function OverOns() {
       {/* Values */}
       <section className="py-24 md:py-32 bg-slate-100">
         <div className="container mx-auto px-6">
-          <div className="text-left mb-20">
-            <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">
-              Onze <span className="text-brand-green italic">Kernwaarden</span>
-            </h2>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl font-light">
-              De fundamenten waar FEIGRO op gebouwd is.
-            </p>
-          </div>
+          <FadeIn className="text-left mb-20">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">
+                Onze <span className="text-brand-green italic">Kernwaarden</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-600 max-w-2xl font-light">
+                De fundamenten waar FEIGRO op gebouwd is.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none"
-                >
-                  <div className="relative z-10">
-                    <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
-                      <IconComponent size={40} />
-                    </div>
-                    <h3 className="text-2xl font-heading text-slate-900 mb-6 uppercase group-hover:text-brand-green transition-colors">
-                      {value.title}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed text-sm md:text-base font-light mb-10">
-                      {value.description}
-                    </p>
-                    <div className="flex justify-between items-center group/btn">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors font-heading">Onze Waarde</span>
-                      <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green transition-all duration-300">
-                        <CheckCircle size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                <FadeIn key={index} delay={index * 0.05} distance={20} className="h-full">
+                  <div className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none h-full">
+                    <div className="relative z-10">
+                      <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                        <IconComponent size={40} />
+                      </div>
+                      <h3 className="text-2xl font-heading text-slate-900 mb-6 uppercase group-hover:text-brand-green transition-colors">
+                        {value.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed text-sm md:text-base font-light mb-10">
+                        {value.description}
+                      </p>
+                      <div className="flex justify-between items-center group/btn">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors font-heading">Onze Waarde</span>
+                        <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green transition-all duration-300">
+                          <CheckCircle size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                        </div>
                       </div>
                     </div>
+                    {/* Hover Background Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 via-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  {/* Hover Background Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 via-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </motion.div>
+                </FadeIn>
               );
             })}
           </div>
@@ -195,9 +170,11 @@ export default function OverOns() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-20 items-center">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-7xl font-heading text-slate-900 mb-12 leading-none uppercase tracking-tighter">
-                Waarom Kiezen voor <span className="text-brand-green italic">FEIGRO?</span>
-              </h2>
+              <FadeIn>
+                <h2 className="text-4xl md:text-7xl font-heading text-slate-900 mb-12 leading-none uppercase tracking-tighter">
+                  Waarom Kiezen voor <span className="text-brand-green italic">FEIGRO?</span>
+                </h2>
+              </FadeIn>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {[
                   '20+ Jaar Ervaring',
@@ -207,24 +184,19 @@ export default function OverOns() {
                   'Transparante Prijzen',
                   'Gratis Advies',
                 ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-4 group"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center group-hover:bg-brand-green transition-colors">
-                      <CheckCircle size={14} className="text-brand-green group-hover:text-black transition-colors" />
+                  <FadeIn key={index} delay={index * 0.05} direction="left" distance={20}>
+                    <div className="flex items-center gap-4 group">
+                      <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center group-hover:bg-brand-green transition-colors">
+                        <CheckCircle size={14} className="text-brand-green group-hover:text-black transition-colors" />
+                      </div>
+                      <span className="text-lg text-slate-600 group-hover:text-slate-900 transition-colors font-light">{item}</span>
                     </div>
-                    <span className="text-lg text-slate-600 group-hover:text-slate-900 transition-colors font-light">{item}</span>
-                  </motion.div>
+                  </FadeIn>
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2 w-full">
-              <div className="bg-slate-100 p-12 md:p-16 rounded-[2rem] border border-slate-200 shadow-2xl">
+            <FadeIn className="lg:w-1/2 w-full" scale={0.98}>
+              <div className="bg-slate-100 p-12 md:p-16 rounded-[2rem] border border-slate-200">
                 <h3 className="text-3xl md:text-5xl font-heading text-slate-900 mb-8 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
                 <p className="text-slate-600 text-lg mb-10 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
                 <PrimaryFlipButton
@@ -233,7 +205,7 @@ export default function OverOns() {
                   onClick={() => window.location.href = 'tel:+31612345678'}
                 />
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>

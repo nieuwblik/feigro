@@ -18,7 +18,7 @@ export function InfoSection({
   className,
 }: InfoSectionProps) {
   return (
-    <section className={cn('py-24 md:py-32 px-6 bg-slate-50 relative overflow-hidden', className)}>
+    <section className={cn('py-24 md:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
       <div className="container mx-auto">
         <div
           className={cn(
@@ -34,19 +34,19 @@ export function InfoSection({
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className={cn(imagePosition === 'left' && 'lg:col-start-2')}
           >
-            <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-10 tracking-tighter leading-none uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
               {title}
             </h2>
             {description && (
-              <p className="text-xl md:text-2xl text-brand-green italic mb-8 font-light">
+              <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-6 md:mb-8 font-light">
                 {description}
               </p>
             )}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className="text-lg text-slate-600 leading-relaxed font-light"
+                  className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed font-light"
                 >
                   {paragraph}
                 </p>

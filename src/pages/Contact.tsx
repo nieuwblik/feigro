@@ -34,7 +34,7 @@ export default function Contact() {
       <SEO {...seoMetadata.contact} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[60vh] md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage
@@ -48,7 +48,7 @@ export default function Contact() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-[1] text-left">
+        <div className="container mx-auto px-4 md:px-6 relative z-[1] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Laten we <br /><span className="text-brand-green italic">Praten</span>
           </motion.h1>
@@ -69,7 +69,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
+            className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10"
           >
             Vragen, advies of een offerte? Ons team staat klaar om u te helpen.
             Eerlijk advies and een eerlijke prijs.
@@ -82,7 +82,7 @@ export default function Contact() {
             <PrimaryFlipButton
               label="Vraag offerte aan"
               icon={<Phone size={18} />}
-              size="large"
+              size="default"
               onClick={() => {
                 const el = document.getElementById('contact-form');
                 el?.scrollIntoView({ behavior: 'smooth' });

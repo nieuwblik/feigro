@@ -48,7 +48,7 @@ export default function Projecten() {
       <SEO {...seoMetadata.projecten} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[60vh] md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -60,7 +60,7 @@ export default function Projecten() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-[1] text-left">
+        <div className="container mx-auto px-4 md:px-6 relative z-[1] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function Projecten() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Projecten waar we <br /><span className="text-brand-green italic">Trots op Zijn</span>
           </motion.h1>
@@ -81,7 +81,7 @@ export default function Projecten() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
+            className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10"
           >
             Een selectie van onze meest uitdagende and succesvolle projecten. Elk dak vertelt een verhaal van vakmanschap and kwaliteit.
           </motion.p>
@@ -93,7 +93,7 @@ export default function Projecten() {
             <PrimaryFlipButton
               label="Vraag offerte aan"
               icon={<ArrowUpRight />}
-              size="large"
+              size="default"
               onClick={() => window.location.href = '/contact'}
             />
           </motion.div>

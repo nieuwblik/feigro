@@ -49,102 +49,83 @@ const servicesList = [
   }
 ];
 
+import { FadeIn } from '@/components/ui/ParallaxImage';
+
 export const Services = () => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <section id="diensten" className="py-24 md:py-32 bg-slate-50 overflow-hidden border-t border-slate-100 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16 md:mb-24">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[2px] bg-brand-green"></div>
-            <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Onze Expertise</span>
-          </div>
-          <h2 className="text-3xl md:text-6xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
-            Professionele <br /><span className="text-brand-green italic">Dakdiensten</span>
-          </h2>
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[2px] bg-brand-green"></div>
+              <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Onze Expertise</span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+              Professionele <br /><span className="text-brand-green italic">Dakdiensten</span>
+            </h2>
+          </FadeIn>
         </div>
 
-        <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {servicesList.map((service, i) => (
             <Link key={i} to={service.href} className="flex h-full">
-              <motion.div
-                variants={itemVariants}
-                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 w-full"
-              >
-                <div className="relative z-10 h-full flex flex-col">
-                  <div className="mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
-                    {service.icon}
+              <FadeIn delay={i * 0.05} distance={20}>
+                <div
+                  className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 w-full"
+                >
+                  <div className="relative z-10 h-full flex flex-col">
+                    <div className="mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                      {service.icon}
+                    </div>
+
+                    <h3 className="text-2xl font-heading mb-4 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-sm mb-8 flex-grow font-light">
+                      {service.desc}
+                    </p>
+                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors mt-auto pt-6 border-t border-slate-100">
+                      Meer Info <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
                   </div>
 
-                  <h3 className="text-2xl font-heading mb-4 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed text-sm mb-8 flex-grow font-light">
-                    {service.desc}
-                  </p>
-                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors mt-auto pt-6 border-t border-slate-100">
-                    Meer Info <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
+                  {/* Hover Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </motion.div>
+              </FadeIn>
             </Link>
           ))}
 
           {/* Action Card */}
-          <motion.div
-            variants={itemVariants}
-            className="group p-10 rounded-[1.25rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none"
-          >
-            <div className="relative z-10 flex flex-col items-center">
-              <h3 className="text-black text-4xl font-heading mb-6 uppercase tracking-tighter leading-none">Vrijblijvende <br />Inspectie?</h3>
-              <p className="text-black/60 text-sm mb-10 px-4 font-bold">
-                Ons team staat 24/7 klaar voor direct herstel en vakkundig advies.
-              </p>
-              <div
-                onClick={() => {
-                  const el = document.getElementById('contact');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  else window.location.href = '/contact';
-                }}
-                className="cursor-pointer"
-              >
-                <InversedFlipButton
-                  label="Direct Contact"
-                  size="default"
-                />
+          <FadeIn delay={servicesList.length * 0.05} distance={20} className="h-full">
+            <div
+              className="group p-10 rounded-[1.25rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none"
+            >
+              <div className="relative z-10 flex flex-col items-center">
+                <h3 className="text-black text-4xl font-heading mb-6 uppercase tracking-tighter leading-none">Vrijblijvende <br />Inspectie?</h3>
+                <p className="text-black/60 text-sm mb-10 px-4 font-bold">
+                  Ons team staat 24/7 klaar voor direct herstel en vakkundig advies.
+                </p>
+                <div
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else window.location.href = '/contact';
+                  }}
+                  className="cursor-pointer"
+                >
+                  <InversedFlipButton
+                    label="Direct Contact"
+                    size="default"
+                  />
+                </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

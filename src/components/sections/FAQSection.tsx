@@ -22,7 +22,7 @@ export function FAQSection({
   className,
 }: FAQSectionProps) {
   return (
-    <section className={cn('py-24 md:py-32 px-6 bg-white', className)}>
+    <section className={cn('py-24 md:py-32 px-4 md:px-6 bg-white', className)}>
       <div className="container mx-auto max-w-4xl">
         <div className="text-left mb-16 md:mb-20">
           <motion.div
@@ -44,7 +44,7 @@ export function FAQSection({
           )}
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="multiple" className="w-full space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}

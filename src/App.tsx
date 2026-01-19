@@ -38,38 +38,42 @@ function ScrollToTop() {
   return null;
 }
 
+import { ScrollManager } from '@/components/ui/ScrollManager';
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <MainLayout>
-            <Routes>
-              {/* Main Pages */}
-              <Route path="/" element={<Index />} />
-              <Route path="/diensten" element={<Diensten />} />
-              <Route path="/over-ons" element={<OverOns />} />
-              <Route path="/projecten" element={<Projecten />} />
-              <Route path="/spoedservice" element={<Spoedservice />} />
-              <Route path="/contact" element={<Contact />} />
+        <ScrollManager>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <MainLayout>
+              <Routes>
+                {/* Main Pages */}
+                <Route path="/" element={<Index />} />
+                <Route path="/diensten" element={<Diensten />} />
+                <Route path="/over-ons" element={<OverOns />} />
+                <Route path="/projecten" element={<Projecten />} />
+                <Route path="/spoedservice" element={<Spoedservice />} />
+                <Route path="/contact" element={<Contact />} />
 
-              {/* Service Pages */}
-              <Route path="/dakinspectie" element={<Dakinspectie />} />
-              <Route path="/dakonderhoud" element={<Dakonderhoud />} />
-              <Route path="/dakrenovatie" element={<Dakrenovatie />} />
-              <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
-              <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
-              <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
-              <Route path="/daklekkage" element={<Daklekkage />} />
+                {/* Service Pages */}
+                <Route path="/dakinspectie" element={<Dakinspectie />} />
+                <Route path="/dakonderhoud" element={<Dakonderhoud />} />
+                <Route path="/dakrenovatie" element={<Dakrenovatie />} />
+                <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
+                <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
+                <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
+                <Route path="/daklekkage" element={<Daklekkage />} />
 
-              {/* 404 - Must be last */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </MainLayout>
-        </BrowserRouter>
+                {/* 404 - Must be last */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </MainLayout>
+          </BrowserRouter>
+        </ScrollManager>
       </TooltipProvider>
     </HelmetProvider>
   </QueryClientProvider>

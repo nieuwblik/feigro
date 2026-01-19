@@ -20,7 +20,7 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        'relative bg-black pt-32 pb-20 md:pt-40 md:pb-20 px-6 overflow-hidden min-h-screen md:min-h-[40vh] flex items-center',
+        'relative bg-black pt-24 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden min-h-[60vh] md:min-h-[40vh] flex items-center',
         className
       )}
     >
@@ -52,7 +52,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             {title.includes(' ') ? (
               <>
@@ -66,7 +66,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light"
+            className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 md:mb-10 font-light"
           >
             {subtitle}
           </motion.p>
@@ -80,7 +80,7 @@ export function HeroSection({
               <PrimaryFlipButton
                 label="Vraag offerte aan"
                 icon={<ArrowRight />}
-                size="large"
+                size="default"
               />
             </Link>
           </motion.div>

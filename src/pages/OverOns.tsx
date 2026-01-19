@@ -158,17 +158,27 @@ export default function OverOns() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="bg-white rounded-[1.25rem] p-10 border border-slate-200 hover:border-brand-green/30 hover:shadow-xl transition-all duration-300 group select-none hover:-translate-y-2"
+                  className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
                 >
-                  <div className="mb-10 text-brand-green group-hover:scale-[1.15] transition-transform duration-300">
-                    <IconComponent className="h-8 w-8" />
+                  <div className="relative z-10">
+                    <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                      <IconComponent size={40} />
+                    </div>
+                    <h3 className="text-2xl font-heading text-slate-900 mb-6 uppercase group-hover:text-brand-green transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-sm md:text-base font-light mb-10">
+                      {value.description}
+                    </p>
+                    <div className="flex justify-between items-center group/btn">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors font-heading">Onze Waarde</span>
+                      <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green transition-all duration-300">
+                        <CheckCircle size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
-                    {value.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed text-sm font-light">
-                    {value.description}
-                  </p>
+                  {/* Hover Background Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 via-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </motion.div>
               );
             })}

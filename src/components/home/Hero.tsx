@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 import { PrimaryFlipButton, EmergencyFlipButton } from '@/components/buttons';
 
 export const Hero = () => {
@@ -101,12 +103,18 @@ export const Hero = () => {
                 }}
               />
 
-              <EmergencyFlipButton
-                label="Spoedservice"
-                size={buttonSize}
-                icon={<Phone size={buttonSize === 'large' ? 22 : 18} className="animate-pulse" />}
-                onClick={() => window.location.href = '/spoedservice'}
-              />
+              <Link
+                to="/spoedservice"
+                className={cn(
+                  "group flex items-center gap-3 bg-red-950/20 border border-red-500/20 px-6 h-[56px] md:h-[72px] rounded-2xl md:rounded-3xl hover:bg-red-500/10 transition-all duration-300",
+                  buttonSize === 'large' ? 'px-8' : 'px-6'
+                )}
+              >
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.5)]"></div>
+                <span className="text-red-500 font-bold text-xs md:text-sm uppercase tracking-[0.2em] whitespace-nowrap">
+                  SPOEDSERVICE ACTIEF
+                </span>
+              </Link>
             </div>
 
             <div className="flex flex-col items-start group cursor-pointer" onClick={() => window.location.href = 'tel:+31612345678'}>

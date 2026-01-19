@@ -141,26 +141,78 @@ export default function Spoedservice() {
             <p className="text-slate-600 text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold opacity-40">Van melding tot oplossing</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-            {/* Lines between steps */}
-            <div className="hidden lg:block absolute top-[60px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-
-            {steps.map((step, index) => (
+          <div className="relative">
+            {/* Animated Progress Line (Synchronized & 30% Faster) */}
+            <div className="hidden lg:block absolute top-[40px] left-[12.5%] right-[12.5%] h-[2px] bg-slate-200 overflow-hidden z-0">
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative z-10 flex flex-col items-center text-center group"
-              >
-                <div className="w-16 h-16 rounded-full bg-white border-2 border-brand-green flex items-center justify-center text-brand-green font-heading text-xl mb-8 shadow-lg group-hover:bg-brand-green group-hover:text-black transition-all">
-                  {step.number}
-                </div>
-                <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed font-light">{step.description}</p>
-              </motion.div>
-            ))}
+                transition={{ duration: 2.8, ease: "linear" }}
+                className="w-full h-full bg-brand-green origin-left"
+              />
+            </div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10"
+            >
+              {steps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }
+                    }
+                  }}
+                  className="relative flex flex-col items-center text-center group"
+                >
+                  {/* Step Circle with automated activation and hover */}
+                  <motion.div
+                    variants={{
+                      hidden: { backgroundColor: "rgba(255, 255, 255, 1)", color: "#22c55e", scale: 1 },
+                      visible: {
+                        backgroundColor: ["rgba(255, 255, 255, 1)", "rgba(34, 197, 94, 1)", "rgba(255, 255, 255, 1)"],
+                        color: ["#22c55e", "#ffffff", "#22c55e"],
+                        scale: [1, 1.15, 1],
+                        transition: {
+                          duration: 0.8,
+                          delay: index * 0.933 // Total 2.8s / 3 gaps = 0.933s per gap
+                        }
+                      }
+                    }}
+                    className="w-20 h-20 rounded-full border-2 border-brand-green flex items-center justify-center text-brand-green font-heading text-2xl mb-8 shadow-xl group-hover:bg-brand-green group-hover:text-black group-hover:scale-110 transition-all duration-500 relative bg-white"
+                  >
+                    {step.number}
+                    {/* Active Pulse Ring */}
+                    <motion.div
+                      variants={{
+                        hidden: { scale: 0.8, opacity: 0 },
+                        visible: {
+                          scale: [1, 1.5, 1],
+                          opacity: [0, 0.5, 0],
+                          transition: {
+                            duration: 0.8,
+                            delay: index * 0.933
+                          }
+                        }
+                      }}
+                      className="absolute inset-0 rounded-full border-2 border-brand-green"
+                    />
+                  </motion.div>
+                  <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase tracking-tighter group-hover:text-brand-green transition-colors">{step.title}</h3>
+                  <p className="text-slate-600 leading-relaxed font-light">{step.description}</p>
+
+                  {/* Mobile/Tablet indicator */}
+                  <div className="lg:hidden w-[2px] h-12 bg-gradient-to-b from-brand-green to-transparent mt-8 last:hidden opacity-20"></div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Search, Settings, Hammer, Layers, Flame, ShieldCheck } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Settings, Hammer, Layers, Flame, ShieldCheck, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
 import { Link, useLocation } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -146,9 +147,9 @@ export const Header = () => {
 
   const Logo = () => (
     <Link to="/" className="flex items-center gap-3 group cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-      <img 
-        src="/images/feigro-logo-wit.png" 
-        alt="FEIGRO Dakwerken" 
+      <img
+        src="/images/feigro-logo-wit.png"
+        alt="FEIGRO Dakwerken"
         className="h-8 md:h-10 w-auto group-hover:scale-105 transition-transform"
       />
     </Link>
@@ -179,35 +180,49 @@ export const Header = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl p-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-4"
                 >
-                  <div className="flex flex-col gap-1">
-                    {services.map((service) => (
-                      <Link
+                  <div className="grid grid-cols-2 gap-2">
+                    {services.map((service, idx) => (
+                      <motion.div
                         key={service.name}
-                        to={service.href}
-                        className="group flex items-center gap-4 px-4 py-3 hover:bg-white/5 rounded-lg transition-all"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05, duration: 0.4 }}
                       >
-                        <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-brand-green/20 transition-colors shrink-0">
-                          {service.icon}
-                        </div>
-                        <div className="flex flex-col flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-white font-bold text-[12px] uppercase tracking-wide group-hover:text-brand-green transition-colors">
-                              {service.name}
-                            </span>
-                            {service.badge && (
-                              <span className="text-[9px] bg-brand-green/20 text-brand-green px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">
-                                {service.badge}
-                              </span>
-                            )}
+                        <Link
+                          to={service.href}
+                          className="group flex items-start gap-4 px-4 py-4 hover:bg-white/5 rounded-xl transition-all duration-300"
+                        >
+                          <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-brand-green/20 group-hover:scale-110 transition-all duration-500 shrink-0">
+                            {React.cloneElement(service.icon as React.ReactElement, { size: 24 })}
                           </div>
-                          <span className="text-white/40 text-[10px] font-medium leading-tight mt-0.5">
-                            {service.desc}
-                          </span>
-                        </div>
-                      </Link>
+                          <div className="flex flex-col flex-1 pt-1">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-white font-bold text-[13px] uppercase tracking-wider group-hover:text-brand-green transition-colors">
+                                {service.name}
+                              </span>
+                              {service.badge && (
+                                <span className="text-[8px] bg-brand-green/10 text-brand-green border border-brand-green/20 px-2 py-0.5 rounded-full font-black uppercase tracking-widest">
+                                  {service.badge}
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-white/40 text-[11px] font-medium leading-relaxed group-hover:text-white/60 transition-colors">
+                              {service.desc}
+                            </span>
+                          </div>
+                        </Link>
+                      </motion.div>
                     ))}
+                  </div>
+
+                  {/* Bottom Strip */}
+                  <div className="mt-4 pt-4 border-t border-white/5 flex justify-between items-center px-4">
+                    <p className="text-white/20 text-[10px] uppercase tracking-widest font-bold">FEIGRO Dakwerken — Kwaliteit over de hele linie</p>
+                    <Link to="/contact" className="text-brand-green text-[10px] uppercase tracking-widest font-black hover:text-white transition-colors flex items-center gap-2">
+                      VRAAG ADVIES <ArrowRight size={12} />
+                    </Link>
                   </div>
                 </motion.div>
               )}
@@ -333,27 +348,42 @@ export const Header = () => {
                   </AnimatePresence>
                 </div>
 
-                {navLinks.map((link) => (
+                {navLinks.filter(link => !link.isEmergency).map((link) => (
                   <motion.div key={link.name} variants={itemVariants}>
                     <Link
                       to={link.href}
-                      className={`text-4xl md:text-6xl font-heading hover:text-brand-green transition-colors tracking-tighter uppercase flex items-center gap-4 ${link.isEmergency ? 'text-red-500' : 'text-white'
-                        }`}
+                      className="text-4xl md:text-6xl font-heading text-white hover:text-brand-green transition-colors tracking-tighter uppercase flex items-center gap-4"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {link.isEmergency && <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse" />}
                       {link.name}
                     </Link>
                   </motion.div>
                 ))}
 
-                <motion.div variants={itemVariants} className="mt-12">
-                  <PrimaryFlipButton
-                    label="Offerte Aanvragen"
-                    onClick={() => { setIsMenuOpen(false); window.location.href = '/contact'; }}
-                    className="w-full sm:max-w-md"
-                  />
-                </motion.div>
+                <div className="flex flex-col gap-6 mt-12 pb-12">
+                  <motion.div variants={itemVariants}>
+                    <PrimaryFlipButton
+                      label="Offerte Aanvragen"
+                      onClick={() => { setIsMenuOpen(false); window.location.href = '/contact'; }}
+                      className="w-full sm:max-w-md"
+                    />
+                  </motion.div>
+
+                  {navLinks.filter(link => link.isEmergency).map((link) => (
+                    <motion.div key={link.name} variants={itemVariants}>
+                      <Link
+                        to={link.href}
+                        className="group flex items-center justify-center gap-3 bg-red-950/20 border border-red-500/20 px-6 h-[56px] rounded-2xl md:rounded-3xl hover:bg-red-500/10 transition-all duration-300 w-full sm:max-w-md"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.5)]"></div>
+                        <span className="text-red-500 font-bold text-xs uppercase tracking-[0.2em] whitespace-nowrap">
+                          SPOEDSERVICE ACTIEF
+                        </span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
 
                 <motion.div variants={itemVariants} className="mt-auto pb-12 pt-10">
                   <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-4">Neem contact op</p>

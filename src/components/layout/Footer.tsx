@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Mail, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "0%"]);
 
   const services = [
     { name: 'Dakinspectie', href: '/dakinspectie' },
@@ -44,13 +52,14 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-black min-h-screen flex flex-col overflow-hidden">
+    <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
       {/* Top Section with Background Image */}
       <div className="relative h-[45vh] lg:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
-        <img
+        <motion.img
           src="/images/footer_bg_roofing.png"
           alt="Modern Roofing"
-          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-105"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-110"
+          style={{ y: backgroundY }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
@@ -179,7 +188,7 @@ export const Footer = () => {
             {galleryImages.map((src, idx) => (
               <div
                 key={idx}
-                className="aspect-[4/5] md:aspect-[5/6] rounded-xl overflow-hidden bg-white/5 border border-white/5 shadow-2xl"
+                className="aspect-[4/5] md:aspect-[5/6] rounded-xl overflow-hidden bg-white/5 border border-white/5"
               >
                 <img
                   src={src}

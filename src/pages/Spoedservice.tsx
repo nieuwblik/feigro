@@ -1,13 +1,22 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Phone, Clock, Zap, Shield, AlertCircle, CheckCircle, ArrowRight } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
-
 import { CTASection } from '@/components/home';
+import { ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function Spoedservice() {
+  const containerRef = React.useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   const features = [
     {
       icon: Clock,
@@ -50,7 +59,7 @@ export default function Spoedservice() {
     {
       number: '04',
       title: 'Definitieve Oplossing',
-      description: 'We plannen direct een afspraak voor de definitieve en duurzame reparatie.',
+      description: 'We plannen direct een afspraak for de definitieve en duurzame reparatie.',
     },
   ];
 
@@ -59,15 +68,26 @@ export default function Spoedservice() {
       <SEO {...seoMetadata.spoedservice} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+      <section ref={containerRef} className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+        {/* Parallax Background */}
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
+            alt="Daklekkage spoed"
+            className="w-full h-full object-cover opacity-30"
+            style={{ y: backgroundY }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+        </div>
+
         <div className="container mx-auto px-6 relative z-10 text-left">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-8 shadow-2xl"
+            className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-8"
           >
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-            <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">24/7 Noodservice Actief</span>
+            <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">SPOEDSERVICE ACTIEF</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

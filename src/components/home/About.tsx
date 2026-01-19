@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { InversedFlipButton } from '@/components/buttons';
 
+import { ParallaxImage } from '@/components/ui/ParallaxImage';
+
 export const About = () => {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -39,16 +41,18 @@ export const About = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="relative"
           >
-            <div className="aspect-[4/5] md:aspect-square rounded-[0.75rem] md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group shadow-2xl">
-              <img
+            <div className="aspect-[4/5] md:aspect-square rounded-[0.75rem] md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group">
+              <ParallaxImage
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
                 alt="Dakwerker aan het werk"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                speed={60}
+                containerClassName="h-full w-full"
+                className="grayscale group-hover:grayscale-0 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
             {/* Experience badge */}
-            <div className="absolute -bottom-6 -right-6 md:-right-12 bg-white border border-slate-200 text-slate-900 p-8 md:p-12 rounded-[0.5rem] md:rounded-[0.75rem] z-20 shadow-2xl">
+            <div className="absolute -bottom-6 -right-6 md:-right-12 bg-white border border-slate-200 text-slate-900 p-8 md:p-12 rounded-[0.5rem] md:rounded-[0.75rem] z-20">
               <p className="text-brand-green text-5xl md:text-7xl font-heading mb-1 leading-none tracking-tighter">15+</p>
               <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400">Jaar Innovatie</p>
             </div>

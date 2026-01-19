@@ -95,7 +95,7 @@ export const Services = () => {
             <Link key={i} to={service.href} className="flex h-full">
               <motion.div
                 variants={itemVariants}
-                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl hover:-translate-y-2 w-full"
+                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 w-full"
               >
                 <div className="relative z-10 h-full flex flex-col">
                   <div className="mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
@@ -122,7 +122,7 @@ export const Services = () => {
           {/* Action Card */}
           <motion.div
             variants={itemVariants}
-            className="group p-10 rounded-[1.25rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none shadow-2xl shadow-brand-green/20"
+            className="group p-10 rounded-[1.25rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none"
           >
             <div className="relative z-10 flex flex-col items-center">
               <h3 className="text-black text-4xl font-heading mb-6 uppercase tracking-tighter leading-none">Vrijblijvende <br />Inspectie?</h3>

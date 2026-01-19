@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, Variants } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -7,6 +7,14 @@ import { PrimaryFlipButton, EmergencyFlipButton } from '@/components/buttons';
 
 export const Hero = () => {
   const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,13 +49,14 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex items-start overflow-hidden bg-black">
-      {/* Hero Background */}
+    <section ref={containerRef} className="relative min-h-screen w-full flex items-start overflow-hidden bg-black">
+      {/* Hero Background with Parallax */}
       <div className="absolute inset-0 z-0">
-        <img
+        <motion.img
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
           alt="Professional roofing work"
           className="w-full h-full object-cover opacity-40 animate-slow-zoom"
+          style={{ y: backgroundY }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         <div className="absolute inset-0 bg-black/40"></div>
@@ -65,7 +74,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-8 backdrop-blur-md"
           >
-            <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse shadow-[0_0_12px_rgba(76,178,110,0.5)]"></div>
+            <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></div>
             <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Uw Gecertificeerde Dakspecialist</span>
           </motion.div>
 
@@ -110,7 +119,7 @@ export const Hero = () => {
                   buttonSize === 'large' ? 'px-8' : 'px-6'
                 )}
               >
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.5)]"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></div>
                 <span className="text-red-500 font-bold text-xs md:text-sm uppercase tracking-[0.2em] whitespace-nowrap">
                   SPOEDSERVICE ACTIEF
                 </span>

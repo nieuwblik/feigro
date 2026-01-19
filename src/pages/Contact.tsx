@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { seoMetadata } from '@/data/seo-metadata';
-
 import { CTASection } from '@/components/home';
+import { ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,10 +37,12 @@ export default function Contact() {
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
+          <ParallaxImage
             src="https://images.unsplash.com/photo-1541976590-71394168159b?q=80&w=2070&auto=format&fit=crop"
             alt="Contact"
-            className="w-full h-full object-cover opacity-30"
+            speed={80}
+            containerClassName="w-full h-full"
+            className="opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>
@@ -118,7 +120,7 @@ export default function Contact() {
                   { icon: Clock, label: 'Werktijden', value: '08:00 - 18:00', sub: 'Weekend op afspraak', href: '#' }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 group select-none">
-                    <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300 shadow-sm">
+                    <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300">
                       <item.icon size={24} className="text-brand-green group-hover:text-black transition-colors" />
                     </div>
                     <div>
@@ -130,7 +132,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="p-10 bg-slate-50 border border-slate-200 rounded-[1.5rem] shadow-xl">
+              <div className="p-10 bg-slate-50 border border-slate-200 rounded-[1.5rem]">
                 <div className="flex items-center gap-4 mb-6">
                   <CheckCircle className="text-brand-green" />
                   <span className="text-slate-900 font-bold tracking-tight uppercase">Gecertificeerd Vakmanschap</span>
@@ -148,7 +150,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-slate-50 border border-slate-200 p-10 md:p-16 rounded-[2rem] relative z-10 shadow-2xl select-none" id="contact-form">
+              <div className="bg-slate-50 border border-slate-200 p-10 md:p-16 rounded-[2rem] relative z-10 select-none" id="contact-form">
                 <h3 className="text-3xl font-heading text-slate-900 mb-8 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -161,7 +163,7 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="Uw naam"
                         required
-                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors shadow-sm"
+                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
@@ -173,7 +175,7 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="uw@email.nl"
                         required
-                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors shadow-sm"
+                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
                       />
                     </div>
                   </div>
@@ -186,7 +188,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Waar gaat het over?"
                       required
-                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors shadow-sm"
+                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
@@ -198,7 +200,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Uw bericht..."
                       required
-                      className="w-full bg-white border border-slate-200 rounded-3xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors shadow-sm resize-none"
+                      className="w-full bg-white border border-slate-200 rounded-3xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none"
                     ></textarea>
                   </div>
 

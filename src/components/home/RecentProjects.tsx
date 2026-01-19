@@ -94,7 +94,7 @@ export const RecentProjects = () => {
             <motion.div
               key={i}
               variants={itemVariants}
-              className={`group relative rounded-[1rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500 shadow-sm hover:shadow-2xl ${i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+              className={`group relative rounded-[1rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500 ${i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
                 }`}
             >
               {/* Background Image with Overlay */}
@@ -110,10 +110,10 @@ export const RecentProjects = () => {
               {/* Content */}
               <div className="absolute inset-0 z-10 p-8 md:p-10 flex flex-col justify-between">
                 <div className="flex justify-between items-start">
-                  <span className="bg-brand-green text-black font-bold text-[10px] uppercase tracking-[0.25em] px-5 py-2 rounded-lg shadow-lg">
+                  <span className="bg-brand-green text-black font-bold text-[10px] uppercase tracking-[0.25em] px-5 py-2 rounded-lg">
                     {project.category}
                   </span>
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl">
+                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                     <ArrowUpRight size={24} />
                   </div>
                 </div>

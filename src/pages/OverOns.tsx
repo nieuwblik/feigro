@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Users, Award, Heart, ArrowRight } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { CTASection } from '@/components/home';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
+import { ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function OverOns() {
   const values = [
@@ -38,10 +38,12 @@ export default function OverOns() {
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
+          <ParallaxImage
             src="https://images.unsplash.com/photo-1628177142898-93e46b14b85d?q=80&w=2070&auto=format&fit=crop"
             alt="Wie wij zijn"
-            className="w-full h-full object-cover opacity-30"
+            speed={80}
+            containerClassName="w-full h-full"
+            className="opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>
@@ -123,14 +125,16 @@ export default function OverOns() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200 shadow-2xl"
+              className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200"
             >
-              <img
+              <ParallaxImage
                 src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
                 alt="Expert roofers at work"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                speed={50}
+                containerClassName="h-full w-full"
+                className="grayscale hover:grayscale-0 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
             </motion.div>
           </div>
         </div>
@@ -158,7 +162,7 @@ export default function OverOns() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
+                  className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none"
                 >
                   <div className="relative z-10">
                     <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">

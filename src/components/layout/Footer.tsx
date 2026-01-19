@@ -8,11 +8,12 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-brand-green rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-xl">F</span>
-              </div>
-              <span className="text-white font-heading text-xl tracking-tight uppercase">FEIGRO</span>
+            <div className="mb-6">
+              <img 
+                src="/images/feigro-logo-wit.png" 
+                alt="FEIGRO Dakwerken" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
               Uw specialist in duurzame dakwerken door heel Nederland. Kwaliteit, innovatie en service staan bij ons op de eerste plaats.

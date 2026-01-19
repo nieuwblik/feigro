@@ -34,7 +34,7 @@ export function BackToTop() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-lg shadow-lg flex items-center justify-center hover:bg-primary/90 transition-colors"
           aria-label="Terug naar boven"
         >
           <ArrowUp className="w-5 h-5" />

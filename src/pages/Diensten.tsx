@@ -52,7 +52,7 @@ const Diensten = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1632759162403-12d8a4102948?q=80&w=2070&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
             alt="Vakmanschap"
             className="w-full h-full object-cover opacity-30"
           />
@@ -100,7 +100,7 @@ const Diensten = () => {
           </motion.div>
         </div>
         {/* Abstract Background Accents */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
       {/* Services Grid */}
@@ -114,7 +114,7 @@ const Diensten = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative bg-slate-50 border border-slate-200 p-10 md:p-12 rounded-[2.5rem] overflow-hidden hover:border-brand-green/30 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl select-none"
+                className="group relative bg-slate-50 border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl select-none"
               >
                 <div className="relative z-10">
                   <div className="text-brand-green mb-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">

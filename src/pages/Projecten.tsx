@@ -15,7 +15,7 @@ export default function Projecten() {
       description: 'Complete vervanging van oude bitumen dakbedekking naar hoogwaardig EPDM rubber. Inclusief nieuwe isolatie.',
       location: 'Rotterdam',
       year: '2024',
-      image: 'https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop'
     },
     {
       title: 'Bedrijfspand Dordrecht',
@@ -23,7 +23,7 @@ export default function Projecten() {
       description: 'Grootschalige renovatie van 800m² plat dak met bitumen dakbedekking and verbeterde drainage.',
       location: 'Dordrecht',
       year: '2023',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=2070&auto=format&fit=crop'
     },
     {
       title: 'Appartementencomplex Den Haag',
@@ -52,7 +52,7 @@ export default function Projecten() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop"
             alt="Projecten"
             className="w-full h-full object-cover opacity-30"
           />
@@ -98,7 +98,7 @@ export default function Projecten() {
             />
           </motion.div>
         </div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
       {/* Projects Grid */}
@@ -114,7 +114,7 @@ export default function Projecten() {
                 transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="group cursor-pointer select-none"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[3rem] mb-10 border border-slate-200 shadow-xl">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] mb-10 border border-slate-200 shadow-xl">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -125,7 +125,7 @@ export default function Projecten() {
                     <ArrowUpRight size={24} className="text-black" />
                   </div>
                   <div className="absolute bottom-10 left-10">
-                    <span className="bg-brand-green/90 text-black px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">{project.category}</span>
+                    <span className="bg-brand-green/90 text-black px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-lg">{project.category}</span>
                   </div>
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export default function Projecten() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="relative p-12 bg-white border border-slate-200 rounded-[4rem] shadow-xl"
+                  className="relative p-12 bg-white border border-slate-200 rounded-[2rem] shadow-xl"
                 >
                   <p className="text-2xl md:text-3xl text-slate-600 font-heading italic leading-relaxed mb-10">
                     "{review.text}"

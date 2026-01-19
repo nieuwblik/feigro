@@ -34,7 +34,7 @@ export default function Contact() {
       <SEO {...seoMetadata.contact} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[40vh] flex items-center">
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -59,7 +59,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Laten we <br /><span className="text-brand-green italic">Praten</span>
           </motion.h1>

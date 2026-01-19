@@ -59,7 +59,7 @@ export default function Spoedservice() {
       <SEO {...seoMetadata.spoedservice} />
 
       {/* Hero */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-[40vh] flex items-center">
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
         <div className="container mx-auto px-6 relative z-10 text-left">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

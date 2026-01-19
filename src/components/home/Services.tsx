@@ -55,21 +55,18 @@ export const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.05
+        staggerChildren: 0.05
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.98, y: 20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      scale: 1,
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: "easeOut"
+        duration: 0.5
       }
     }
   };
@@ -98,11 +95,10 @@ export const Services = () => {
             <Link key={i} to={service.href} className="flex h-full">
               <motion.div
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl w-full"
+                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl hover:-translate-y-2 w-full"
               >
                 <div className="relative z-10 h-full flex flex-col">
-                  <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
+                  <div className="mb-10 text-brand-green group-hover:text-brand-green group-hover:scale-[1.15] transition-transform duration-300">
                     {service.icon}
                   </div>
 

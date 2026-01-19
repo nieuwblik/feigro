@@ -110,14 +110,14 @@ const Diensten = () => {
             {servicesDetail.map((service, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative bg-slate-50 border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl select-none"
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
               >
                 <div className="relative z-10">
-                  <div className="text-brand-green mb-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                  <div className="text-brand-green mb-10 group-hover:scale-[1.15] transition-transform duration-300">
                     {service.icon}
                   </div>
                   <h3 className="text-2xl md:text-3xl font-heading mb-6 text-slate-900 group-hover:text-brand-green transition-colors uppercase">{service.title}</h3>

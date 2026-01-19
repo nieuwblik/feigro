@@ -13,7 +13,7 @@ interface FeatureGridProps {
 export function FeatureGrid({ features, title, subtitle, className }: FeatureGridProps) {
   const getIcon = (iconName: string) => {
     const IconComponent = (LucideIcons as any)[iconName];
-    return IconComponent ? <IconComponent size={32} className="text-black" /> : null;
+    return IconComponent ? <IconComponent size={32} /> : null;
   };
 
   return (
@@ -38,15 +38,14 @@ export function FeatureGrid({ features, title, subtitle, className }: FeatureGri
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -10 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="group relative bg-white border border-slate-200 p-10 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 shadow-sm hover:shadow-xl"
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="group relative bg-white border border-slate-200 p-10 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2"
             >
               <div className="relative z-10 h-full flex flex-col">
-                <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
+                <div className="mb-10 text-brand-green group-hover:scale-[1.15] transition-transform duration-300">
                   {getIcon(feature.icon)}
                 </div>
                 <h3 className="text-2xl font-heading text-slate-900 mb-4 tracking-tight uppercase group-hover:text-brand-green transition-colors">

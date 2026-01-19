@@ -20,7 +20,7 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        'relative bg-black pt-24 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden min-h-[60vh] md:min-h-[40vh] flex items-center',
+        'relative bg-black pt-24 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-screen flex items-center',
         className
       )}
     >

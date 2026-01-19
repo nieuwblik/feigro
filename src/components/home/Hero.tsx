@@ -28,7 +28,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen w-full flex items-start overflow-hidden bg-black">
+    <section ref={containerRef} className="relative h-screen w-full flex items-start overflow-hidden bg-black">
       {/* Hero Background with Parallax */}
       <div className="absolute inset-0 z-0">
         <motion.img
@@ -45,7 +45,7 @@ export const Hero = () => {
         <div className="max-w-5xl flex flex-col items-start text-left">
           {/* Badge */}
           <FadeIn distance={20}>
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-8 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-5 md:mb-6 backdrop-blur-md">
               <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></div>
               <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Uw Gecertificeerde Dakspecialist</span>
             </div>
@@ -53,7 +53,7 @@ export const Hero = () => {
 
           {/* Heading with Aldrich Font */}
           <FadeIn delay={0.1}>
-            <h1 className="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading leading-[0.9] mb-8 md:mb-12 tracking-tighter uppercase">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase">
               Meesters in <br />
               <span className="text-brand-green italic">Dakwerken</span>
             </h1>
@@ -61,15 +61,15 @@ export const Hero = () => {
 
           {/* Paragraph */}
           <FadeIn delay={0.2}>
-            <p className="text-white/70 text-lg md:text-xl mb-10 md:mb-12 max-w-2xl leading-relaxed font-light">
+            <p className="text-white/70 text-sm md:text-base lg:text-lg mb-6 md:mb-8 max-w-2xl leading-relaxed font-light">
               FEIGRO Dakwerken biedt duurzame bescherming voor elk gebouw.
               Van renovatie tot onderhoud, wij leveren vakmanschap van de hoogste plank.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.3} className="w-full">
-            <div className="flex flex-col sm:flex-row items-start justify-start gap-8 md:gap-10 w-full lg:w-auto">
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row items-start justify-start gap-4 md:gap-8 w-full lg:w-auto">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 w-full lg:w-auto">
                 <PrimaryFlipButton
                   label="Vraag offerte aan"
                   hoverLabel="Direct Advies"
@@ -84,11 +84,11 @@ export const Hero = () => {
                 <Link
                   to="/spoedservice"
                   className={cn(
-                    "group flex items-center gap-3 bg-red-950/20 border border-red-500/20 px-6 h-[56px] md:h-[72px] rounded-2xl md:rounded-3xl hover:bg-red-500/10 transition-all duration-300",
-                    buttonSize === 'large' ? 'px-8' : 'px-6'
+                    "group flex items-center gap-2 md:gap-3 bg-red-950/20 border border-red-500/20 px-4 md:px-6 h-[48px] md:h-[72px] rounded-xl md:rounded-3xl hover:bg-red-500/10 transition-all duration-300",
+                    buttonSize === 'large' ? 'md:px-8' : 'md:px-6'
                   )}
                 >
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></div>
+                  <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500 animate-pulse"></div>
                   <span className="text-red-500 font-bold text-xs md:text-sm uppercase tracking-[0.2em] whitespace-nowrap">
                     SPOEDSERVICE ACTIEF
                   </span>
@@ -97,13 +97,13 @@ export const Hero = () => {
 
               <div className="flex flex-col items-start group cursor-pointer" onClick={() => window.location.href = 'tel:+31612345678'}>
                 <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-1">Liever bellen?</span>
-                <a href="tel:+31612345678" className="text-white font-bold text-xl md:text-2xl group-hover:text-brand-green transition-colors">+31 (0) 6 123 456 78</a>
+                <a href="tel:+31612345678" className="text-white font-bold text-lg md:text-2xl group-hover:text-brand-green transition-colors">+31 (0) 6 123 456 78</a>
               </div>
             </div>
           </FadeIn>
 
           {/* Stats Bar */}
-          <div className="mt-16 md:mt-20 flex flex-wrap justify-start gap-10 md:gap-20 border-t border-white/10 pt-10 md:pt-12 w-full">
+          <div className="mt-10 md:mt-12 flex flex-wrap justify-start gap-8 md:gap-16 border-t border-white/10 pt-8 md:pt-10 w-full">
             {[
               { val: '100%', label: 'Lekkagevrij' },
               { val: '24u', label: 'Noodservice' },

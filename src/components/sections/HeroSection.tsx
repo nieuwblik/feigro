@@ -20,7 +20,7 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        'relative bg-black pt-32 pb-20 md:pt-40 md:pb-20 px-6 overflow-hidden min-h-[40vh] flex items-center',
+        'relative bg-black pt-32 pb-20 md:pt-40 md:pb-20 px-6 overflow-hidden min-h-screen md:min-h-[40vh] flex items-center',
         className
       )}
     >
@@ -52,7 +52,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white text-5xl md:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             {title.includes(' ') ? (
               <>

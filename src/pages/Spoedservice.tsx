@@ -114,11 +114,11 @@ export default function Spoedservice() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white border border-slate-200 rounded-[1.25rem] p-10 hover:border-brand-green/30 transition-all duration-500 group select-none shadow-sm hover:shadow-xl"
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="bg-white border border-slate-200 rounded-[1.25rem] p-10 hover:border-brand-green/30 transition-all duration-300 group select-none shadow-sm hover:shadow-xl hover:-translate-y-2"
                 >
-                  <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
-                    <IconComponent className="h-8 w-8 text-black" />
+                  <div className="mb-10 text-brand-green group-hover:scale-[1.15] transition-transform duration-300">
+                    <IconComponent className="h-8 w-8" />
                   </div>
                   <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase">
                     {feature.title}

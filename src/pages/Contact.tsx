@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { seoMetadata } from '@/data/seo-metadata';
-import { CTASection } from '@/components/home';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
 
 export default function Contact() {
@@ -220,7 +219,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      <CTASection />
     </div>
   );
 }

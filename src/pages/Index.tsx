@@ -1,4 +1,4 @@
-import { Hero, Services, About, RecentProjects, CTASection } from '@/components/home';
+import { Hero, Services, About, RecentProjects } from '@/components/home';
 
 const Index = () => {
   return (
@@ -7,7 +7,6 @@ const Index = () => {
       <Services />
       <About />
       <RecentProjects />
-      <CTASection />
     </div>
   );
 };

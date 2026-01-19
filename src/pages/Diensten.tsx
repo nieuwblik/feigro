@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { Search, Settings, Hammer, Layers, Flame, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { CTASection } from '@/components/home';
-
 const servicesDetail = [
   {
     title: 'Dakinspectie',
@@ -136,9 +134,6 @@ const Diensten = () => {
           </div>
         </div>
       </section>
-
-      {/* Modern CTA section */}
-      <CTASection />
     </div>
   );
 };

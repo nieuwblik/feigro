@@ -41,10 +41,10 @@ export function CTAFooter({
 
           <div className="relative z-10 max-w-4xl">
             <h2 className="text-white text-5xl md:text-7xl lg:text-8xl font-heading mb-8 leading-[1] tracking-tighter uppercase">
-              Klaar voor een <br /><span className="text-brand-green italic">nieuw dak?</span>
+              Klaar om uw dak te <br /><span className="text-brand-green italic">laten renoveren?</span>
             </h2>
             <p className="text-white/60 text-lg md:text-2xl mb-14 leading-relaxed max-w-2xl font-light">
-              Ontvang binnen 24 uur een vrijblijvende offerte voor uw dakwerken. Geen verrassingen achteraf, enkel puur vakmanschap.
+              Neem vandaag nog contact met ons op voor een vrijblijvende offerte of een gratis dakinspectie.
             </p>
             <div className="flex flex-col md:flex-row justify-start items-start gap-10">
               <Link to="/contact">

@@ -62,7 +62,7 @@ export function InfoSection({
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}
           >
-            <div className="relative aspect-[4/3] rounded-[3rem] overflow-hidden border border-slate-200 group shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">
               <img
                 src={image}
                 alt={imageAlt}

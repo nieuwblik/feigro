@@ -95,7 +95,7 @@ export const RecentProjects = () => {
             <motion.div
               key={i}
               variants={itemVariants}
-              className={`group relative rounded-[2rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500 shadow-sm hover:shadow-2xl ${i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+              className={`group relative rounded-[1rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500 shadow-sm hover:shadow-2xl ${i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
                 }`}
             >
               {/* Background Image with Overlay */}
@@ -131,7 +131,7 @@ export const RecentProjects = () => {
               </div>
 
               {/* Subtle Border Glow on Hover */}
-              <div className="absolute inset-0 z-[5] border border-white/5 group-hover:border-brand-green/30 rounded-[2rem] transition-all duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 z-[5] border border-white/5 group-hover:border-brand-green/30 rounded-[1rem] transition-all duration-500 pointer-events-none"></div>
             </motion.div>
           ))}
         </motion.div>

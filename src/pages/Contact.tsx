@@ -130,7 +130,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="p-10 bg-slate-50 border border-slate-200 rounded-[3rem] shadow-xl">
+              <div className="p-10 bg-slate-50 border border-slate-200 rounded-[1.5rem] shadow-xl">
                 <div className="flex items-center gap-4 mb-6">
                   <CheckCircle className="text-brand-green" />
                   <span className="text-slate-900 font-bold tracking-tight uppercase">Gecertificeerd Vakmanschap</span>
@@ -148,7 +148,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-slate-50 border border-slate-200 p-10 md:p-16 rounded-[4rem] relative z-10 shadow-2xl select-none" id="contact-form">
+              <div className="bg-slate-50 border border-slate-200 p-10 md:p-16 rounded-[2rem] relative z-10 shadow-2xl select-none" id="contact-form">
                 <h3 className="text-3xl font-heading text-slate-900 mb-8 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

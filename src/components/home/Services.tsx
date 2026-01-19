@@ -99,7 +99,7 @@ export const Services = () => {
               <motion.div
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="group relative p-10 rounded-[2.5rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl w-full"
+                className="group relative p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none shadow-sm hover:shadow-xl w-full"
               >
                 <div className="relative z-10 h-full flex flex-col">
                   <div className="mb-10 text-brand-green inline-block group-hover:scale-110 transition-transform duration-500">
@@ -126,7 +126,7 @@ export const Services = () => {
           {/* Action Card */}
           <motion.div
             variants={itemVariants}
-            className="group p-10 rounded-[2.5rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none shadow-2xl shadow-brand-green/20"
+            className="group p-10 rounded-[1.25rem] bg-brand-green border border-brand-green flex flex-col justify-center items-center text-center relative overflow-hidden h-full min-h-[400px] select-none shadow-2xl shadow-brand-green/20"
           >
             <div className="relative z-10 flex flex-col items-center">
               <h3 className="text-black text-4xl font-heading mb-6 uppercase tracking-tighter leading-none">Vrijblijvende <br />Inspectie?</h3>

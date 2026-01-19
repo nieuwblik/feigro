@@ -39,7 +39,7 @@ export const About = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="relative"
           >
-            <div className="aspect-[4/5] md:aspect-square rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-slate-200 relative z-10 group shadow-2xl">
+            <div className="aspect-[4/5] md:aspect-square rounded-[0.75rem] md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
                 alt="Dakwerker aan het werk"
@@ -48,7 +48,7 @@ export const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             {/* Experience badge */}
-            <div className="absolute -bottom-6 -right-6 md:-right-12 bg-white border border-slate-200 text-slate-900 p-8 md:p-12 rounded-[1rem] md:rounded-[1.5rem] z-20 shadow-2xl">
+            <div className="absolute -bottom-6 -right-6 md:-right-12 bg-white border border-slate-200 text-slate-900 p-8 md:p-12 rounded-[0.5rem] md:rounded-[0.75rem] z-20 shadow-2xl">
               <p className="text-brand-green text-5xl md:text-7xl font-heading mb-1 leading-none tracking-tighter">15+</p>
               <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400">Jaar Innovatie</p>
             </div>

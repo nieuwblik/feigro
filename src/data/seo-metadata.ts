@@ -2,7 +2,7 @@ import { PageSEO } from '@/types';
 
 export const seoMetadata: Record<string, PageSEO> = {
   home: {
-    title: 'FEIGRO Dakwerken - Professionele Dakdekker Zuid-Holland',
+    title: 'FEIGRO Dakwerken - Professionele Dakdekker Noord-Holland',
     description:
       'FEIGRO Dakwerken: specialist in dakrenovatie, dakonderhoud en daklekkage. 24/7 spoedservice. Vraag vrijblijvend advies aan.',
     canonical: '/',

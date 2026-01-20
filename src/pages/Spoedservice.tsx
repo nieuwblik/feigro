@@ -41,7 +41,7 @@ export default function Spoedservice() {
     {
       number: '02',
       title: 'Snelle Respons',
-      description: 'Een monteur komt met spoed naar uw locatie in Zuid-Holland en omstreken.',
+      description: 'Een monteur komt met spoed naar uw locatie in Noord-Holland (West-Friesland) en omstreken.',
     },
     {
       number: '03',

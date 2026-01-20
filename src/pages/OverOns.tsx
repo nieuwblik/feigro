@@ -62,7 +62,7 @@ export default function OverOns() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10">
-              Al meer dan 20 jaar de vertrouwde partner for hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
+              Met ruim 20 jaar ervaring zijn wij uw vertrouwde partner voor hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -84,22 +84,23 @@ export default function OverOns() {
             <FadeIn direction="left">
               <div>
                 <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-10 tracking-tight uppercase">
-                  Onze <span className="text-brand-green italic">Missie</span>
+                  Het Verhaal van <span className="text-brand-green italic">Feigro</span>
                 </h2>
                 <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                   <p>
-                    FEIGRO Dakwerken werd opgericht met één duidelijke missie: vakkundig dakwerk leveren
-                    met persoonlijke aandacht for elke klant. Wat begon als een klein familiebedrijf is
-                    uitgegroeid tot een gerenommeerd dakdekkersbedrijf.
+                    Feigro Dakwerken is uw gespecialiseerde dakdekkersbedrijf voor Noord-Holland (West-Friesland).
+                    Tommie Feitsma en Jan Groen staan als gezamenlijke eigenaren aan het roer van de organisatie. Met hun gedeelde passie voor het vak
+                    en jarenlange ervaring in de dakbedekking, waarborgen zij persoonlijk de kwaliteit en service waar Feigro voor staat.
                   </p>
                   <p>
-                    Met meer dan 20 jaar ervaring hebben we duizenden daken geïnspecteerd, onderhouden en
-                    gerenoveerd. Van kleine particuliere woningen tot grote bedrijfspanden - elk project
-                    behandelen we met dezelfde toewijding en zorg for detail.
+                    Bij Feigro staat persoonlijk contact centraal. Omdat we korte lijnen hanteren, kunnen we snel schakelen
+                    en direct inspelen op uw wensen. Of het nu gaat om het verhelpen van een daklekkage, planmatig onderhoud
+                    of een complete dakrenovatie: wij gaan graag het gesprek aan om de beste oplossing voor uw situatie te vinden.
                   </p>
                   <p>
-                    Ons team van gecertificeerde vakmensen blijft zich continu ontwikkelen om u de nieuwste
-                    technieken en materialen te kunnen bieden.
+                    Ons team van gediplomeerde en gecertificeerde dakdekkers staat voor kwaliteit, duurzaamheid en betrouwbaarheid.
+                    Wij zetten onze passie voor het vak in om u volledig te ontzorgen en een resultaat te leveren waar u jarenlang
+                    op kunt bouwen.
                   </p>
                 </div>
               </div>

@@ -199,7 +199,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Uw bericht..."
                       required
-                      className="w-full bg-white border border-slate-200 rounded-3xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none"
+                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none"
                     ></textarea>
                   </div>
 

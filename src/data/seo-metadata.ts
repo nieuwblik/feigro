@@ -84,4 +84,18 @@ export const seoMetadata: Record<string, PageSEO> = {
       'Neem contact op met FEIGRO Dakwerken voor een vrijblijvende offerte. Bel, mail of vul het contactformulier in. Snelle reactie gegarandeerd.',
     canonical: '/contact',
   },
+
+  dakreparatie: {
+    title: 'Dakreparatie | Snelle en Vakkundige Reparaties | FEIGRO Dakwerken',
+    description:
+      'Professionele dakreparatie door FEIGRO. Van kleine lekkages tot grote schades - wij repareren snel en vakkundig. Bel voor spoedservice!',
+    canonical: '/dakreparatie',
+  },
+
+  valbeveiligingssysteem: {
+    title: 'Valbeveiligingssysteem | Veilig Werken op Hoogte | FEIGRO Dakwerken',
+    description:
+      'Professionele valbeveiligingssystemen van FEIGRO. Gecertificeerde installatie volgens NEN-normen. Veilig werken op hoogte gegarandeerd.',
+    canonical: '/valbeveiligingssysteem',
+  },
 };

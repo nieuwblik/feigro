@@ -39,40 +39,28 @@ export const Header = () => {
 
   const services = [
     {
-      name: 'Dakinspectie',
-      href: '/dakinspectie',
-      desc: 'Grondige controle van uw dakconditie.',
-      icon: <Search size={20} className="text-brand-green" />,
+      name: 'Dakonderhoud',
+      href: '/dakonderhoud',
+      desc: 'Regelmatig onderhoud voor een duurzaam dak.',
+      icon: <Settings size={20} className="text-brand-green" />,
       badge: 'Populair'
     },
     {
-      name: 'Dakonderhoud',
-      href: '/dakonderhoud',
-      desc: 'Voorkom schade door tijdig onderhoud.',
-      icon: <Settings size={20} className="text-brand-green" />
+      name: 'Dakreparatie',
+      href: '/dakreparatie',
+      desc: 'Snelle en vakkundige reparatie van dakschade.',
+      icon: <Hammer size={20} className="text-brand-green" />
     },
     {
       name: 'Dakrenovatie',
       href: '/dakrenovatie',
       desc: 'Complete vernieuwing van uw dak.',
-      icon: <Hammer size={20} className="text-brand-green" />
-    },
-    {
-      name: 'Dakbedekking Vervangen',
-      href: '/dakbedekking-vervangen',
-      desc: 'Nieuwe toplaag voor jarenlange bescherming.',
       icon: <Layers size={20} className="text-brand-green" />
     },
     {
-      name: 'Bitumen Dakbedekking',
-      href: '/bitumen-dakbedekking',
-      desc: 'Specialist in bitumineuze daken.',
-      icon: <Flame size={20} className="text-brand-green" />
-    },
-    {
-      name: 'EPDM Dakbedekking',
-      href: '/epdm-dakbedekking',
-      desc: 'Duurzame rubberen dakbedekking.',
+      name: 'Valbeveiligingssysteem',
+      href: '/valbeveiligingssysteem',
+      desc: 'Veilig werken op hoogte met gecertificeerde systemen.',
       icon: <ShieldCheck size={20} className="text-brand-green" />
     }
   ];

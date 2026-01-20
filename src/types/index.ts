@@ -47,6 +47,8 @@ export interface ServicePageData {
   seo: PageSEO;
   hero: HeroData;
   features: FeatureItem[];
+  featureTitle?: string;
+  featureSubtitle?: string;
   info: InfoSectionData;
   faqs: FAQItem[];
 }

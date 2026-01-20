@@ -3,20 +3,20 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { FAQSection } from '@/components/sections/FAQSection';
-import { CTAFooter } from '@/components/sections/CTAFooter';
+
 import { dakinspectieData } from '@/data/services';
 
 export default function Dakinspectie() {
-  const { seo, hero, features, info, faqs } = dakinspectieData;
+  const { seo, hero, features, featureTitle, info, faqs } = dakinspectieData;
 
   return (
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} />
+      <FeatureGrid features={features} title={featureTitle} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
-      <CTAFooter />
+
     </>
   );
 }

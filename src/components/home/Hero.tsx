@@ -71,13 +71,12 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row items-start justify-start gap-4 md:gap-8 w-full lg:w-auto">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 w-full lg:w-auto">
                 <PrimaryFlipButton
-                  label="Vraag offerte aan"
-                  hoverLabel="Direct Advies"
+                  label="Gratis Dakinspectie"
+                  hoverLabel="Plan Inspectie"
                   size={buttonSize}
                   icon={<ArrowRight size={buttonSize === 'large' ? 22 : 18} className="-rotate-45" />}
                   onClick={() => {
-                    const el = document.getElementById('contact');
-                    el?.scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = '/dakinspectie';
                   }}
                 />
 

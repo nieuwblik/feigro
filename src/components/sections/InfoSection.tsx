@@ -28,10 +28,10 @@ export function InfoSection({
         >
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: imagePosition === 'right' ? -30 : 30 }}
+            initial={{ opacity: 0, x: imagePosition === 'right' ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className={cn(imagePosition === 'left' && 'lg:col-start-2')}
           >
             <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
@@ -44,22 +44,26 @@ export function InfoSection({
             )}
             <div className="space-y-4 md:space-y-6">
               {paragraphs.map((paragraph, index) => (
-                <p
+                <motion.p
                   key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
                   className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed font-light"
                 >
                   {paragraph}
-                </p>
+                </motion.p>
               ))}
             </div>
           </motion.div>
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, rotate: imagePosition === 'right' ? 2 : -2 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}
           >
             <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">

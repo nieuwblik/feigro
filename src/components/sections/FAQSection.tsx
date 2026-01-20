@@ -44,18 +44,18 @@ export function FAQSection({
           )}
         </div>
 
-        <Accordion type="multiple" className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <AccordionItem
                 value={`item-${index}`}
-                className="border border-slate-200 bg-slate-50 rounded-3xl px-8 hover:border-brand-green/30 hover:bg-white transition-all overflow-hidden shadow-sm hover:shadow-md"
+                className="border border-slate-200 bg-slate-50/50 rounded-3xl px-8 hover:border-brand-green/30 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01]"
               >
                 <AccordionTrigger className="text-left text-lg md:text-xl font-heading text-slate-900 hover:text-brand-green hover:no-underline py-6 uppercase">
                   {faq.question}

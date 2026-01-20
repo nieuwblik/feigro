@@ -3,20 +3,20 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { FAQSection } from '@/components/sections/FAQSection';
-import { CTAFooter } from '@/components/sections/CTAFooter';
+
 import { bitumenDakbedekkingData } from '@/data/services';
 
 export default function BitumenDakbedekking() {
-  const { seo, hero, features, info, faqs } = bitumenDakbedekkingData;
+  const { seo, hero, features, featureTitle, info, faqs } = bitumenDakbedekkingData;
 
   return (
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} />
+      <FeatureGrid features={features} title={featureTitle} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
-      <CTAFooter />
+
     </>
   );
 }

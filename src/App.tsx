@@ -19,11 +19,9 @@ import Contact from './pages/Contact';
 // Service Pages
 import Dakinspectie from './pages/services/Dakinspectie';
 import Dakonderhoud from './pages/services/Dakonderhoud';
+import Dakreparatie from './pages/services/Dakreparatie';
 import Dakrenovatie from './pages/services/Dakrenovatie';
-import DakbedekkingVervangen from './pages/services/DakbedekkingVervangen';
-import BitumenDakbedekking from './pages/services/BitumenDakbedekking';
-import EpdmDakbedekking from './pages/services/EpdmDakbedekking';
-import Daklekkage from './pages/services/Daklekkage';
+import Valbeveiligingssysteem from './pages/services/Valbeveiligingssysteem';
 
 const queryClient = new QueryClient();
 
@@ -62,11 +60,9 @@ const App = () => (
                 {/* Service Pages */}
                 <Route path="/dakinspectie" element={<Dakinspectie />} />
                 <Route path="/dakonderhoud" element={<Dakonderhoud />} />
+                <Route path="/dakreparatie" element={<Dakreparatie />} />
                 <Route path="/dakrenovatie" element={<Dakrenovatie />} />
-                <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
-                <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
-                <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
-                <Route path="/daklekkage" element={<Daklekkage />} />
+                <Route path="/valbeveiligingssysteem" element={<Valbeveiligingssysteem />} />
 
                 {/* 404 - Must be last */}
                 <Route path="*" element={<NotFound />} />

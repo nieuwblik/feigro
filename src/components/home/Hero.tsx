@@ -50,7 +50,7 @@ export const Hero = () => {
 
         {/* Heading with Aldrich Font */}
         <FadeIn delay={0.1}>
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words">
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
           </h1>
@@ -93,7 +93,7 @@ export const Hero = () => {
         </FadeIn>
 
         {/* Stats Bar */}
-        <div className="mt-10 md:mt-12 flex flex-wrap justify-start gap-8 md:gap-16 border-t border-white/10 pt-8 md:pt-10 w-full">
+        <div className="mt-8 md:mt-12 flex flex-wrap justify-start gap-6 sm:gap-8 md:gap-16 border-t border-white/10 pt-6 md:pt-10 w-full">
           {[{
             val: '100%',
             label: 'Lekkagevrij'
@@ -105,8 +105,8 @@ export const Hero = () => {
             label: 'Ervaring'
           }].map((stat, i) => <FadeIn key={i} delay={0.4 + i * 0.1} distance={20}>
             <div className="flex flex-col items-start">
-              <p className="text-brand-green text-3xl md:text-5xl font-heading mb-1 leading-none tracking-tighter">{stat.val}</p>
-              <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold">{stat.label}</p>
+              <p className="text-brand-green text-2xl sm:text-3xl md:text-5xl font-heading mb-1 leading-none tracking-tighter">{stat.val}</p>
+              <p className="text-white/40 text-[9px] sm:text-[10px] uppercase tracking-widest font-bold">{stat.label}</p>
             </div>
           </FadeIn>)}
         </div>

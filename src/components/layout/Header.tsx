@@ -122,12 +122,14 @@ export const Header = () => {
     hidden: {
       opacity: 0,
       y: 10,
+      x: "-50%",
       scale: 0.95,
       transition: { duration: 0.2, ease: "easeOut" }
     },
     visible: {
       opacity: 1,
       y: 0,
+      x: "-50%",
       scale: 1,
       transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
     }
@@ -169,7 +171,7 @@ export const Header = () => {
                   exit="hidden"
                   variants={dropdownVariants}
                   className="absolute top-full mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-4"
-                  style={{ left: '50%', transform: 'translateX(-50%)' }}
+                  style={{ left: '50%' }}
                 >
                   <div className="grid grid-cols-2 gap-2">
                     {services.map((service, idx) => (

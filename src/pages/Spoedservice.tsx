@@ -5,6 +5,7 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import imgHero from '@/assets/Lekkage-Feitsma.jpg';
 
 export default function Spoedservice() {
   const containerRef = React.useRef<HTMLElement>(null);
@@ -64,7 +65,7 @@ export default function Spoedservice() {
         {/* Parallax Background */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
+            src={imgHero}
             alt="Daklekkage spoed"
             speed={56}
             containerClassName="w-full h-full"

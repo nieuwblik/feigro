@@ -2,6 +2,10 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import footerImg1 from '@/assets/dakrenovatie-noordholland.jpg';
+import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
+import footerImg3 from '@/assets/Lekkage-Feitsma.jpg';
+import footerImg4 from '@/assets/dak-valbeveiliging-montage.jpg';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,10 +49,10 @@ export const Footer = () => {
   ];
 
   const galleryImages = [
-    '/images/roof_gallery_1.png',
-    '/images/roof_gallery_2.png',
-    '/images/roof_gallery_3.png',
-    '/images/roof_gallery_4.png',
+    footerImg1,
+    footerImg2,
+    footerImg3,
+    footerImg4,
   ];
 
   return (
@@ -83,8 +87,8 @@ export const Footer = () => {
               <div className="text-left lg:text-right">
                 <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black block mb-2">LOCATIE</span>
                 <address className="text-white/60 not-italic text-sm lg:text-base border-r-0 lg:border-r lg:pr-4 border-brand-green/30">
-                  Amsterdam, Nederland<br />
-                  Business Center Noord
+                  Noord-Holland<br />
+                  West-Friesland
                 </address>
               </div>
             </FadeIn>

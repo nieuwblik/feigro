@@ -4,6 +4,8 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import imgHero from '@/assets/dakrenovatie-noordholland.jpg';
+import imgStory from '@/assets/lekvrij-dak-nederland.jpg';
 
 export default function OverOns() {
   const values = [
@@ -38,7 +40,7 @@ export default function OverOns() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1628177142898-93e46b14b85d?q=80&w=2070&auto=format&fit=crop"
+            src={imgHero}
             alt="Wie wij zijn"
             speed={80}
             containerClassName="w-full h-full"
@@ -107,7 +109,7 @@ export default function OverOns() {
             </FadeIn>
             <FadeIn scale={0.95} className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200">
               <ParallaxImage
-                src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop"
+                src={imgStory}
                 alt="Expert roofers at work"
                 speed={50}
                 containerClassName="h-full w-full"

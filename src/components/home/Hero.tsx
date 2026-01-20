@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
+import heroImage from '@/assets/herosectiefeigro.jpg';
+
 export const Hero = () => {
   const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
   const containerRef = useRef<HTMLElement>(null);
@@ -28,7 +30,7 @@ export const Hero = () => {
   return <section ref={containerRef} className="relative h-screen w-full flex items-start overflow-hidden bg-black">
     {/* Hero Background with Parallax */}
     <div className="absolute inset-0 z-0">
-      <motion.img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Professional roofing work" className="w-full h-[130%] object-cover opacity-40 animate-slow-zoom" style={{
+      <motion.img src={heroImage} alt="Professional roofing work" className="w-full h-[130%] object-cover brightness-50 animate-slow-zoom" style={{
         y: backgroundY,
         top: "-15%"
       }} />

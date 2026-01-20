@@ -5,6 +5,7 @@ import { SEO } from '@/components/SEO';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
+import imgHero from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export default function Contact() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage
-            src="https://images.unsplash.com/photo-1541976590-71394168159b?q=80&w=2070&auto=format&fit=crop"
+            src={imgHero}
             alt="Contact"
             speed={80}
             containerClassName="w-full h-full"

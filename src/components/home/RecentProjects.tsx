@@ -1,51 +1,104 @@
-import React from 'react';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { InversedFlipButton } from '@/components/buttons';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
-const projects = [
-  {
-    title: 'Complete Dakrenovatie Villa',
-    location: 'Laren',
-    category: 'Renovatie',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
-    size: 'large'
-  },
-  {
-    title: 'Bedrijfsdak Bitumen',
-    location: 'Amsterdam-Noord',
-    category: 'Bitumen',
-    image: 'https://images.unsplash.com/photo-1513584684374-8bdb74838a0f?q=80&w=2070&auto=format&fit=crop',
-    size: 'small'
-  },
-  {
-    title: 'Luxe EPDM Afwerking',
-    location: 'Haarlem',
-    category: 'EPDM',
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop',
-    size: 'small'
-  },
-  {
-    title: 'Schoorsteen Restauratie',
-    location: 'Leiden Centrum',
-    category: 'Restauratie',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop',
-    size: 'small'
-  },
-  {
-    title: 'Modern Appartementencomplex',
-    location: 'Utrecht',
-    category: 'Nieuwbouw',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
-    size: 'small'
-  }
+// Asset Imports
+import img1 from '@/assets/Dakwerk-Feitsmadakwerken-2-1.jpg';
+import img2 from '@/assets/Feigro dakwerken.jpg';
+import img3 from '@/assets/Lekkage-Feitsma.jpg';
+import img4 from '@/assets/dak-laan-project-dakdekking.jpg';
+import img5 from '@/assets/dak-valbeveiliging-montage.jpg';
+import img6 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
+import img7 from '@/assets/dakinspectie-noord-holland.jpg';
+import img8 from '@/assets/dakrenovatie-noordholland.jpg';
+import img9 from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
+import img10 from '@/assets/feigro-dakdekking-westfriesland.jpg';
+import img11 from '@/assets/lekvrij-dak-nederland.jpg';
+
+// --- CONFIGURATION ---
+const COL_MULTIPLIERS = [1.0, 0.9, 1.1]; // Reduced spread for subtler movement
+const BASE_DEVIATION = 180; // Reduced (was 280) for less intense parallax
+const INITIAL_OFFSET_FIRST = 120; // Left column starts slightly lower in 3-col
+const INITIAL_OFFSET_MIDDLE = 20; // Lowered middle column (was -60)
+const INITIAL_OFFSET_RIGHT = -10; // Lowered right column (was -90)
+
+const IMAGES_POOL = [
+  { url: img2 },
+  { url: img4 },
+  { url: img6 },
+  { url: img10 },
+  { url: img9 },
+  { url: img10 }, // Replaced duplicate img2 with img10
+  { url: img8 },  // Dakrenovatie
+  { url: img7 },  // Replaced img11 with img7 (dakinspectie)
+  { url: img4 },
 ];
 
-export const RecentProjects = () => {
+const GalleryItem: React.FC<{
+  item: { url: string };
+  aspectRatio: string;
+}> = ({ item, aspectRatio }) => {
   return (
-    <section id="projecten" className="py-24 md:py-32 bg-white overflow-hidden relative border-t border-slate-100">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 md:mb-24">
+    <div className={`relative overflow-hidden w-full ${aspectRatio} bg-stone-800`}>
+      <img
+        src={item.url}
+        alt="Feigro Project"
+        className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700"
+        loading="lazy"
+      />
+    </div>
+  );
+};
+
+export const RecentProjects = () => {
+  const navigate = useNavigate();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [numCols, setNumCols] = useState(3);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const startTrigger = windowHeight;
+      const endTrigger = -rect.height;
+      const current = rect.top;
+      const totalRange = startTrigger - endTrigger;
+      const progress = 1 - (current - endTrigger) / totalRange;
+      setScrollProgress(Math.min(Math.max(progress, 0), 1));
+    };
+
+    const handleResize = () => {
+      // Mobile: 2 cols, Tablet/Desktop: 3 cols
+      if (window.innerWidth < 640) {
+        setNumCols(2);
+      } else {
+        setNumCols(3);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+    handleScroll();
+    handleResize();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const colConfigs = [
+    { height: 'aspect-[4/6]' },
+    { height: 'aspect-square' },
+    { height: 'aspect-[4/5]' },
+  ];
+
+  return (
+    <section ref={sectionRef} id="projecten" className="pt-24 md:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-24">
           <div className="max-w-3xl">
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
@@ -60,55 +113,69 @@ export const RecentProjects = () => {
             </FadeIn>
           </div>
           <FadeIn delay={0.2} direction="none" className="parallax-fast" style={{ '--parallax-speed': '0.05' } as any}>
-            <InversedFlipButton label="Alle Projecten" size="default" />
+            <InversedFlipButton
+              label="Alle Projecten"
+              size="default"
+              onClick={() => navigate('/projecten')}
+            />
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, i) => (
-            <FadeIn key={i} delay={i * 0.1} distance={20} className={i === 0 ? 'md:col-span-2 lg:col-span-2' : ''}>
-              <div
-                className="group relative rounded-[1rem] overflow-hidden bg-slate-100 select-none h-[450px] transition-all duration-500"
-              >
-                {/* Background Image with Parallax */}
-                <ParallaxImage
-                  src={project.image}
-                  alt={project.title}
-                  speed={40}
-                  containerClassName="absolute inset-0 z-0 h-full w-full"
-                  className="grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none"></div>
-
-                {/* Content */}
-                <div className="absolute inset-0 z-10 p-8 md:p-10 flex flex-col justify-between">
-                  <div className="flex justify-between items-start">
-                    <span className="bg-brand-green text-black font-bold text-[10px] uppercase tracking-[0.25em] px-5 py-2 rounded-lg">
-                      {project.category}
-                    </span>
-                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <ArrowUpRight size={24} />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2 text-white/70 text-[10px] uppercase tracking-widest font-bold mb-4">
-                      <MapPin size={12} className="text-brand-green" /> {project.location}
-                    </div>
-                    <h3 className={`text-white font-heading leading-tight tracking-tight group-hover:text-brand-green transition-colors uppercase ${i === 0 ? 'text-2xl md:text-5xl max-w-2xl' : 'text-lg md:text-2xl'
-                      }`}>
-                      {project.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Subtle Border Glow on Hover */}
-                <div className="absolute inset-0 z-[5] border border-white/5 group-hover:border-brand-green/30 rounded-[1rem] transition-all duration-500 pointer-events-none"></div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
       </div>
+
+      {/* Masonry Gallery Implementation - Full Width */}
+      <div className="relative w-full h-[1200px] sm:h-[1500px] md:h-[1800px] overflow-hidden">
+        <div className={`grid ${numCols === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-1 w-full`}>
+          {Array.from({ length: numCols }).map((_, colIndex) => {
+            const multiplier = COL_MULTIPLIERS[colIndex % 3];
+            const parallaxOffset = BASE_DEVIATION * (multiplier - 1) * (1 - scrollProgress) * 4;
+
+            // Initial offsets
+            let initialOffset = 0;
+            if (numCols === 3) {
+              if (colIndex === 0) initialOffset = INITIAL_OFFSET_FIRST;
+              if (colIndex === 1) initialOffset = INITIAL_OFFSET_MIDDLE;
+              if (colIndex === 2) initialOffset = INITIAL_OFFSET_RIGHT;
+            } else {
+              // In 2 columns mode (Mobile)
+              if (colIndex === 0) initialOffset = 20;
+              if (colIndex === 1) initialOffset = 140;
+            }
+
+            const totalOffset = parallaxOffset + initialOffset;
+
+            // Verdeel de beelden over de beschikbare kolommen
+            const colImages = IMAGES_POOL.filter((_, idx) => idx % numCols === colIndex);
+
+            return (
+              <div
+                key={colIndex}
+                className="flex flex-col gap-1 transition-transform duration-300 ease-out will-change-transform"
+                style={{ transform: `translate3d(0, ${totalOffset}px, 0)` }}
+              >
+                {colImages.map((item, rowIdx) => (
+                  <GalleryItem
+                    key={`${colIndex}-${rowIdx}`}
+                    item={item}
+                    aspectRatio={colConfigs[rowIdx % 3].height}
+                  />
+                ))}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Deep Fade Overlay */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-1/4 pointer-events-none z-20"
+          style={{
+            background: 'linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.) 50%, transparent 100%)'
+          }}
+        ></div>
+      </div>
+
+      {/* Background Decorative Text */}
+      {/* END Background Decorative Text - REMOVED */}
     </section>
   );
 };

@@ -44,6 +44,7 @@ const servicesList = [
 ];
 
 import { FadeIn } from '@/components/ui/ParallaxImage';
+import ctaImage from '@/assets/renovatiedakenkhuizen.jpg';
 
 export const Services = () => {
   return (
@@ -133,7 +134,7 @@ export const Services = () => {
             <FadeIn delay={0.2}>
               <div className="relative rounded-[1.25rem] overflow-hidden shadow-2xl">
                 <img
-                  src="/assets/feigro-worker.jpg"
+                  src={ctaImage}
                   alt="FEIGRO Dakwerken professional"
                   className="w-full h-[500px] md:h-[600px] object-cover"
                 />

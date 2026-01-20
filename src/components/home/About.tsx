@@ -1,6 +1,7 @@
 import React from 'react';
 import { InversedFlipButton } from '@/components/buttons';
 import { ParallaxImage, FadeIn } from '@/components/ui/ParallaxImage';
+import aboutImage from '@/assets/dakrenovatie.jpg';
 
 export const About = () => {
   return (
@@ -13,7 +14,7 @@ export const About = () => {
             <FadeIn scale={0.95}>
               <div className="aspect-[4/5] md:aspect-square rounded-[0.75rem] md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group">
                 <ParallaxImage
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+                  src={aboutImage}
                   alt="Dakwerker aan het werk"
                   speed={60}
                   containerClassName="h-full w-full"

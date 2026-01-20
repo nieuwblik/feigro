@@ -6,6 +6,8 @@ import { FAQSection } from '@/components/sections/FAQSection';
 
 import { dakonderhoudData } from '@/data/services';
 
+import { ServiceCTA } from '@/components/sections/ServiceCTA';
+
 export default function Dakonderhoud() {
   const { seo, hero, features, featureTitle, info, faqs } = dakonderhoudData;
 
@@ -16,7 +18,7 @@ export default function Dakonderhoud() {
       <FeatureGrid features={features} title={featureTitle} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
-
+      <ServiceCTA />
     </>
   );
 }

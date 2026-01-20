@@ -75,7 +75,7 @@ export default {
       },
       fontFamily: {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        heading: ['Aldrich', 'DM Sans', 'sans-serif'],
+        heading: ['Lustra', 'Aldrich', 'DM Sans', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

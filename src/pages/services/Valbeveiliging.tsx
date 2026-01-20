@@ -4,12 +4,12 @@ import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 
-import { dakreparatieData } from '@/data/services';
+import { valbeveiligingssysteemData } from '@/data/services';
 
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
-export default function Dakreparatie() {
-    const { seo, hero, features, featureTitle, info, faqs } = dakreparatieData;
+export default function Valbeveiliging() {
+    const { seo, hero, features, featureTitle, info, faqs } = valbeveiligingssysteemData;
 
     return (
         <>

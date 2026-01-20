@@ -39,28 +39,40 @@ export const Header = () => {
 
   const services = [
     {
-      name: 'Dakonderhoud',
-      href: '/dakonderhoud',
-      desc: 'Regelmatig onderhoud voor een duurzaam dak.',
-      icon: <Settings size={20} className="text-brand-green" />,
-      badge: 'Populair'
+      name: 'VVE & Vastgoedbeheer',
+      href: '/vve-vastgoedbeheer',
+      desc: 'Professioneel dakbeheer voor VVE\'s en vastgoedbeheerders.',
+      icon: <Settings size={20} className="text-brand-green" />
+    },
+    {
+      name: 'Daklekkage',
+      href: '/daklekkage',
+      desc: 'Snelle detectie en reparatie van daklekkages.',
+      icon: <Hammer size={20} className="text-brand-green" />
     },
     {
       name: 'Dakreparatie',
       href: '/dakreparatie',
-      desc: 'Snelle en vakkundige reparatie van dakschade.',
-      icon: <Hammer size={20} className="text-brand-green" />
+      desc: 'Efficiënte dakreparaties met duurzame materialen.',
+      icon: <Hammer size={20} className="text-brand-green" />,
+      badge: 'Populair'
+    },
+    {
+      name: 'Dakonderhoud',
+      href: '/dakonderhoud',
+      desc: 'Voorkom verrassingen met periodiek dakonderhoud.',
+      icon: <Settings size={20} className="text-brand-green" />
     },
     {
       name: 'Dakrenovatie',
       href: '/dakrenovatie',
-      desc: 'Complete vernieuwing van uw dak.',
+      desc: 'Complete dakrenovaties voor comfort en energiebesparing.',
       icon: <Layers size={20} className="text-brand-green" />
     },
     {
-      name: 'Valbeveiligingssysteem',
-      href: '/valbeveiligingssysteem',
-      desc: 'Veilig werken op hoogte met gecertificeerde systemen.',
+      name: 'Valbeveiliging',
+      href: '/valbeveiliging',
+      desc: 'Veilige werkplekken met gecertificeerde valbeveiliging.',
       icon: <ShieldCheck size={20} className="text-brand-green" />
     }
   ];
@@ -158,10 +170,13 @@ export const Header = () => {
             onMouseEnter={() => setActiveDropdown('diensten')}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center gap-1.5 text-white/90 hover:text-brand-green transition-colors text-[10px] font-bold uppercase tracking-widest outline-none py-2">
+            <Link
+              to="/diensten"
+              className="flex items-center gap-1.5 text-white/90 hover:text-brand-green transition-colors text-[10px] font-bold uppercase tracking-widest outline-none py-2"
+            >
               Diensten
               <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'diensten' ? 'rotate-180' : ''}`} />
-            </button>
+            </Link>
 
             <AnimatePresence>
               {activeDropdown === 'diensten' && (

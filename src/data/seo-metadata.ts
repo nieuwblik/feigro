@@ -92,10 +92,17 @@ export const seoMetadata: Record<string, PageSEO> = {
     canonical: '/dakreparatie',
   },
 
-  valbeveiligingssysteem: {
-    title: 'Valbeveiligingssysteem | Veilig Werken op Hoogte | FEIGRO Dakwerken',
+  valbeveiliging: {
+    title: 'Valbeveiliging | Veilig Werken op Hoogte | FEIGRO Dakwerken',
     description:
       'Professionele valbeveiligingssystemen van FEIGRO. Gecertificeerde installatie volgens NEN-normen. Veilig werken op hoogte gegarandeerd.',
-    canonical: '/valbeveiligingssysteem',
+    canonical: '/valbeveiliging',
+  },
+
+  vveVastgoedbeheer: {
+    title: 'VVE & Vastgoedbeheer Dakonderhoud | FEIGRO Dakwerken',
+    description:
+      'Professioneel dakbeheer voor VVE’s en Vastgoedbeheerders. Kostenefficiënt onderhoud, meerjarenplannen en snelle service door FEIGRO.',
+    canonical: '/vve-vastgoedbeheer',
   },
 };

@@ -17,11 +17,12 @@ import Spoedservice from './pages/Spoedservice';
 import Contact from './pages/Contact';
 
 // Service Pages
-import Dakinspectie from './pages/services/Dakinspectie';
-import Dakonderhoud from './pages/services/Dakonderhoud';
+import VveVastgoedbeheer from './pages/services/VveVastgoedbeheer';
+import Daklekkage from './pages/services/Daklekkage';
 import Dakreparatie from './pages/services/Dakreparatie';
+import Dakonderhoud from './pages/services/Dakonderhoud';
 import Dakrenovatie from './pages/services/Dakrenovatie';
-import Valbeveiligingssysteem from './pages/services/Valbeveiligingssysteem';
+import Valbeveiliging from './pages/services/Valbeveiliging';
 
 const queryClient = new QueryClient();
 
@@ -58,11 +59,12 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
 
                 {/* Service Pages */}
-                <Route path="/dakinspectie" element={<Dakinspectie />} />
-                <Route path="/dakonderhoud" element={<Dakonderhoud />} />
+                <Route path="/vve-vastgoedbeheer" element={<VveVastgoedbeheer />} />
+                <Route path="/daklekkage" element={<Daklekkage />} />
                 <Route path="/dakreparatie" element={<Dakreparatie />} />
+                <Route path="/dakonderhoud" element={<Dakonderhoud />} />
                 <Route path="/dakrenovatie" element={<Dakrenovatie />} />
-                <Route path="/valbeveiligingssysteem" element={<Valbeveiligingssysteem />} />
+                <Route path="/valbeveiliging" element={<Valbeveiliging />} />
 
                 {/* 404 - Must be last */}
                 <Route path="*" element={<NotFound />} />

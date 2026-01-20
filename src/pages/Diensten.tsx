@@ -1,44 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Settings, Hammer, Layers, Flame, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PrimaryFlipButton } from '@/components/buttons';
+
 const servicesDetail = [
   {
-    title: 'Dakinspectie',
-    desc: 'Voorkom onverwachte kosten. Onze experts voeren een grondige nulmeting uit van uw gehele dakconstructie, inclusief isolatie en afwatering.',
-    icon: <Search size={40} />,
-    href: '/dakinspectie'
+    title: 'VVE & Vastgoedbeheer',
+    desc: 'Professioneel dakbeheer voor VVE\'s en vastgoedbeheerders, gericht op duurzame oplossingen en kostenbesparing.',
+    icon: <Settings size={40} />,
+    href: '/vve-vastgoedbeheer'
+  },
+  {
+    title: 'Daklekkage',
+    desc: 'Snelle detectie en reparatie van daklekkages, om verdere schade te voorkomen en uw dak waterdicht te houden.',
+    icon: <AlertTriangle size={40} />,
+    href: '/daklekkage'
+  },
+  {
+    title: 'Dakreparatie',
+    desc: 'Efficiënte dakreparaties met duurzame materialen, voor een langere levensduur van uw dak en bescherming tegen weersinvloeden.',
+    icon: <Hammer size={40} />,
+    href: '/dakreparatie'
   },
   {
     title: 'Dakonderhoud',
-    desc: 'Verleng de levensduur van uw dak. Wij verwijderen vuil, controleren naden en zorgen dat uw dak in topconditie blijft tegen alle weersinvloeden.',
+    desc: 'Voorkom verrassingen met periodiek dakonderhoud, verlengt de levensduur en voorkomt dure reparaties.',
     icon: <Settings size={40} />,
     href: '/dakonderhoud'
   },
   {
     title: 'Dakrenovatie',
-    desc: 'Is uw dak aan vervanging toe? Wij renoveren daken van A tot Z, met oog voor moderne isolatiewaarden en esthetische afwerking.',
-    icon: <Hammer size={40} />,
+    desc: 'Complete dakrenovaties, van isolatie tot vernieuwing, voor comfort en energiebesparing.',
+    icon: <Layers size={40} />,
     href: '/dakrenovatie'
   },
   {
-    title: 'Bitumen & EPDM',
-    desc: 'Specialisten in platte daken. Of u nu kiest voor de robuustheid van bitumen of de duurzaamheid van EPDM, wij garanderen 100% waterdichtheid.',
-    icon: <Flame size={40} />,
-    href: '/bitumen-dakbedekking'
-  },
-  {
-    title: 'Lood- & Zinkwerk',
-    desc: 'Vakmanschap in de kleinste details. Wij verzorgen al het zinkwerk, van dakgoten tot dakkapelafwerking, voor een klassieke en duurzame look.',
-    icon: <Layers size={40} />,
-    href: '/dakbedekking-vervangen'
-  },
-  {
-    title: 'Spoedservice',
-    desc: 'Lekkage? Onze 24/7 noodservice staat klaar om verdere schade aan uw woning direct te voorkomen. Snel, vakkundig en betrouwbaar.',
-    icon: <AlertTriangle size={40} />,
-    href: '/spoedservice'
+    title: 'Valbeveiliging',
+    desc: 'Veilige werkplekken met gecertificeerde valbeveiliging, volgens de laatste veiligheidsnormen.',
+    icon: <ShieldCheck size={40} />,
+    href: '/valbeveiliging'
   }
 ];
 

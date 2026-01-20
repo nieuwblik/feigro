@@ -1,6 +1,101 @@
 import { ServicePageData } from '@/types';
 import { seoMetadata } from './seo-metadata';
 
+export const vveVastgoedbeheerData: ServicePageData = {
+  seo: seoMetadata.vveVastgoedbeheer,
+  hero: {
+    title: 'VVE en Vastgoedbeheerders in Nederland',
+    subtitle: 'Een samenwerking met Feigro Dakwerken biedt uw VvE en Vastgoed de garantie van duurzame dakduurzaamheid, kostenefficiënte oplossingen en snelle service voor alle onderhouds- en herstelwerkzaamheden.',
+    ctaText: 'Neem Contact Op',
+    ctaHref: '/contact',
+    backgroundImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+  },
+  featureTitle: 'Voordelen voor VVE en Vastgoedbeheerders',
+  features: [
+    {
+      icon: 'TrendingUp',
+      title: 'Efficiëntere planning en uitvoering van renovaties',
+      description: 'Gestructureerde aanpak voor optimale planning en uitvoering.',
+    },
+    {
+      icon: 'FileText',
+      title: 'Deskundig advies en technische ondersteuning',
+      description: 'Professioneel advies voor alle dakgerelateerde vraagstukken.',
+    },
+    {
+      icon: 'DollarSign',
+      title: 'Kostenbesparing door preventief onderhoud',
+      description: 'Voorkom dure reparaties door regelmatig onderhoud.',
+    },
+    {
+      icon: 'Calendar',
+      title: 'Verlenging van de levensduur van daken',
+      description: 'Maximale levensduur door professioneel beheer.',
+    },
+    {
+      icon: 'Zap',
+      title: 'Snelle respondtijd bij noodsituaties',
+      description: '24/7 beschikbaar voor acute dakproblemen.',
+    },
+    {
+      icon: 'CheckCircle',
+      title: 'Compliance en verzekeringsvereisten',
+      description: 'Voldoen aan alle wettelijke eisen en verzekeringen.',
+    },
+    {
+      icon: 'Shield',
+      title: 'Kwaliteitsborging en duurzaamheid',
+      description: 'Gegarandeerde kwaliteit en duurzame oplossingen.',
+    },
+    {
+      icon: 'Award',
+      title: 'Kostenvoordeel door schaalgrootte',
+      description: 'Aantrekkelijke prijzen door efficiënte werkwijze.',
+    },
+    {
+      icon: 'TrendingUp',
+      title: 'Hogere waarde van vastgoed',
+      description: 'Goed onderhouden daken verhogen de vastgoedwaarde.',
+    },
+    {
+      icon: 'Users',
+      title: 'Langdurige samenwerking',
+      description: 'Betrouwbare partner voor de lange termijn.',
+    },
+  ],
+  info: {
+    title: 'Uw daken onder onze hoede',
+    description: 'Onze diensten helpen Vastgoedbeheerders en Verenigingen van Eigenaren om optimaal rendement te behalen uit hun vastgoed.',
+    paragraphs: [
+      'Naast aanzienlijke kostenbesparingen, dragen we ook bij aan de waardevermeerdering van uw eigendommen. Door zowel te zorgen voor zaken die direct deze waarde vergroten als door te bieden aan duurzame oplossingen, waarbij wij de volledige verantwoordelijkheid voor uw daken uit handen nemen.',
+      'Feigro Dakwerken verzorgt professioneel onderhoud en voert volledige renovaties uit, wat resulteert in besparingen op zowel energie- als onderhoudskosten. Daarnaast voegen wij extra waarde toe door slimme daksystemen, waarmee de leefbaarheid voor uw huurders of bewoners wordt verbeterd.',
+      'Elk dak is uniek, daarom bieden wij maatwerk dat volledig is afgestemd op uw specifieke eisen en behoeften. Samen verkennen we alle mogelijkheden op het gebied van duurzaamheid, waarbij we zowel kansen als uitdagingen in kaart brengen om zo een gedetailleerd plan te ontwikkelen. Of u nu een daktuin, dakterras of energieopwekkend dak voor ogen heeft, wij zorgen ervoor dat uw beschikbare dakoppervlak in stedelijke gebieden optimaal wordt benut.',
+    ],
+  },
+  faqs: [
+    {
+      question: 'Wat zijn de voordelen van een samenwerking met Feigro?',
+      answer: 'Kostenbesparingen, hogere vastgoedwaarde, professioneel advies, en een betrouwbare partner voor al uw dakwerkzaamheden.',
+    },
+    {
+      question: 'Hoe vaak moet een VVE-dak worden geïnspecteerd?',
+      answer: 'We adviseren minimaal een jaarlijkse inspectie om problemen tijdig te signaleren en dure reparaties te voorkomen.',
+    },
+    {
+      question: 'Kunnen jullie ook spoedservice leveren?',
+      answer: 'Ja, we zijn 24/7 bereikbaar voor noodsituaties en kunnen snel ter plaatse zijn bij acute problemen.',
+    },
+    {
+      question: 'Werken jullie met onderhoudscontracten?',
+      answer: 'Ja, we bieden meerjarige onderhoudscontracten aan voor VVE\'s en vastgoedbeheerders met vaste afspraken en tarieven.',
+    },
+    {
+      question: 'Hoe zit het met garanties op het werk?',
+      answer: 'We geven uitgebreide garanties op zowel materiaal als uitvoering, afhankelijk van het type werkzaamheden.',
+    },
+  ],
+};
+
 export const dakinspectieData: ServicePageData = {
   seo: seoMetadata.dakinspectie,
   hero: {
@@ -607,7 +702,7 @@ export const dakreparatieData: ServicePageData = {
 };
 
 export const valbeveiligingssysteemData: ServicePageData = {
-  seo: seoMetadata.valbeveiligingssysteem,
+  seo: seoMetadata.valbeveiliging,
   hero: {
     title: 'Valbeveiligingssysteem',
     subtitle: 'Veilig werken op hoogte met gecertificeerde valbeveiligingssystemen. FEIGRO installeert professionele systemen volgens de nieuwste NEN-normen.',

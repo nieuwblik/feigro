@@ -6,6 +6,8 @@ import { FAQSection } from '@/components/sections/FAQSection';
 
 import { dakrenovatieData } from '@/data/services';
 
+import { ServiceCTA } from '@/components/sections/ServiceCTA';
+
 export default function Dakrenovatie() {
   const { seo, hero, features, featureTitle, info, faqs } = dakrenovatieData;
 
@@ -16,7 +18,7 @@ export default function Dakrenovatie() {
       <FeatureGrid features={features} title={featureTitle} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
-
+      <ServiceCTA />
     </>
   );
 }

@@ -5,6 +5,8 @@ const Index = () => {
     <div className="w-full">
       <Hero />
       <Services />
+
+
       <About />
       <RecentProjects />
     </div>

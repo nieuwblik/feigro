@@ -96,14 +96,14 @@ export const RecentProjects = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="projecten" className="pt-24 md:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-24">
+    <section ref={sectionRef} id="projecten" className="pt-16 md:pt-24 lg:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-24">
           <div className="max-w-3xl">
             <FadeIn>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[2px] bg-brand-green"></div>
-                <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
+              <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
+                <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -124,7 +124,7 @@ export const RecentProjects = () => {
       </div>
 
       {/* Masonry Gallery Implementation - Full Width */}
-      <div className="relative w-full h-[1200px] sm:h-[1500px] md:h-[1800px] overflow-hidden">
+      <div className="relative w-full h-[900px] sm:h-[1200px] md:h-[1500px] lg:h-[1800px] overflow-hidden">
         <div className={`grid ${numCols === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-1 w-full`}>
           {Array.from({ length: numCols }).map((_, colIndex) => {
             const multiplier = COL_MULTIPLIERS[colIndex % 3];

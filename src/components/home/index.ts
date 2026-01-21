@@ -4,3 +4,4 @@ export * from './Services';
 export * from './About';
 export * from './RecentProjects';
 export * from './Footer';
+export * from './Testimonials';

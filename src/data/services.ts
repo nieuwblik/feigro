@@ -649,7 +649,7 @@ export const dakreparatieData: ServicePageData = {
     {
       icon: 'Zap',
       title: 'Snelle Service',
-      description: 'Bij urgente reparaties zijn we er snel. Spoedservice binnen 24 uur beschikbaar.',
+      description: 'Bij urgente reparaties zijn we er snel. Snelle service binnen 24 uur beschikbaar.',
     },
     {
       icon: 'Wrench',

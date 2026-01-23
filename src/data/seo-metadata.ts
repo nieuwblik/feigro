@@ -51,7 +51,7 @@ export const seoMetadata: Record<string, PageSEO> = {
   },
 
   daklekkage: {
-    title: 'Daklekkage Verhelpen - 24/7 Spoedservice | FEIGRO',
+    title: 'Daklekkage Verhelpen - Lekkage melden | FEIGRO',
     description:
       'Daklekkage? Bel FEIGRO direct! 24/7 spoedservice voor acute lekkages. Snelle reparatie, vakkundig uitgevoerd. Tel. beschikbaar.',
     canonical: '/daklekkage',
@@ -72,9 +72,9 @@ export const seoMetadata: Record<string, PageSEO> = {
   },
 
   spoedservice: {
-    title: 'Spoedservice 24/7 - Directe Hulp bij Lekkage | FEIGRO',
+    title: 'Lekkage Melden - Directe Hulp bij Lekkage | FEIGRO',
     description:
-      'Acute daklekkage? FEIGRO\'s 24/7 spoedservice staat direct voor u klaar. Ook in het weekend en op feestdagen. Bel nu!',
+      'Acute daklekkage? Meld uw lekkage direct bij FEIGRO. 24/7 spoedservice staat klaar. Ook in het weekend en op feestdagen. Meld nu!',
     canonical: '/spoedservice',
   },
 

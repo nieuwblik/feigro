@@ -66,7 +66,7 @@ export const footerServices: NavigationItem[] = [
 export const footerCompany: NavigationItem[] = [
   { label: 'Over Ons', href: '/over-ons' },
   { label: 'Projecten', href: '/projecten' },
-  { label: 'Spoedservice 24/7', href: '/spoedservice' },
+  { label: 'Lekkage melden', href: '/spoedservice' },
   { label: 'Contact', href: '/contact' },
 ];
 

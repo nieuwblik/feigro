@@ -80,7 +80,7 @@ export const Header = () => {
   const navLinks = [
     { name: 'Over Ons', href: '/over-ons' },
     { name: 'Projecten', href: '/projecten' },
-    { name: 'Spoedservice', href: '/spoedservice', isEmergency: true },
+    { name: 'Lekkage melden', href: '/spoedservice', isEmergency: true },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -248,7 +248,7 @@ export const Header = () => {
           <Link to="/spoedservice" className="hidden lg:flex items-center gap-2 group">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse group-hover:scale-110 transition-transform" />
             <span className="text-white font-bold text-[10px] uppercase tracking-widest group-hover:text-red-500 transition-colors">
-              Spoed
+              Lekkage melden
             </span>
           </Link>
           <PrimaryFlipButton
@@ -384,7 +384,7 @@ export const Header = () => {
                       >
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.5)]"></div>
                         <span className="text-red-500 font-bold text-xs uppercase tracking-[0.2em] whitespace-nowrap">
-                          SPOEDSERVICE ACTIEF
+                          LEKKAGE MELDEN
                         </span>
                       </Link>
                     </motion.div>

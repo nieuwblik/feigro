@@ -114,7 +114,7 @@ export default function Contact() {
 
               <div className="grid gap-8">
                 {[
-                  { icon: Phone, label: 'Telefoon', value: '+31 (0) 6 123 456 78', sub: '24/7 Spoedservice', href: 'tel:+31612345678' },
+                  { icon: Phone, label: 'Telefoon', value: '+31 (0) 6 123 456 78', sub: 'Lekkage melden', href: 'tel:+31612345678' },
                   { icon: Mail, label: 'Email', value: 'info@feigro.nl', sub: 'Voor offertes en advies', href: 'mailto:info@feigro.nl' },
                   { icon: MapPin, label: 'Locatie', value: 'Regio Noord-Holland (West-Friesland)', sub: 'Actief in heel Nederland', href: '#' },
                   { icon: Clock, label: 'Werktijden', value: '08:00 - 18:00', sub: 'Weekend op afspraak', href: '#' }

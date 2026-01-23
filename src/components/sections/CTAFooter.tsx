@@ -26,7 +26,7 @@ export function CTAFooter({
     href: '/contact',
   },
   secondaryCTA = {
-    text: 'Spoedservice 24/7',
+    text: 'Lekkage melden',
     href: '/spoedservice',
   },
   className,

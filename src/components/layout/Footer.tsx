@@ -29,7 +29,7 @@ export const Footer = () => {
   const navigation = [
     { name: 'Over Ons', href: '/over-ons' },
     { name: 'Onze Projecten', href: '/projecten' },
-    { name: 'Spoedservice 24/7', href: '/spoedservice' },
+    { name: 'Lekkage melden', href: '/spoedservice' },
     { name: 'Contact Opnemen', href: '/contact' },
   ];
 
@@ -123,9 +123,9 @@ export const Footer = () => {
                 <ul className="space-y-2 md:space-y-4">
                   {col.items.map((item) => (
                     <li key={item.name}>
-                        <Link
-                          to={'href' in item ? (item as any).href : '#'}
-                          className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium"
+                      <Link
+                        to={'href' in item ? (item as any).href : '#'}
+                        className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium"
                       >
                         {item.name}
                       </Link>

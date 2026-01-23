@@ -86,7 +86,7 @@ export function MobileNav() {
                 className="flex items-center justify-center space-x-2"
               >
                 <Phone className="h-4 w-4" />
-                <span>Spoedservice 24/7</span>
+                <span>Lekkage melden</span>
               </Link>
             </Button>
           </div>

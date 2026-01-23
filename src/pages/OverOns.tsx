@@ -182,7 +182,7 @@ export default function OverOns() {
                 {[
                   '20+ Jaar Ervaring',
                   'Gecertificeerde Vakmensen',
-                  '24/7 Spoedservice',
+                  'Lekkage melden',
                   'A-Merk Materialen',
                   'Transparante Prijzen',
                   'Gratis Advies',

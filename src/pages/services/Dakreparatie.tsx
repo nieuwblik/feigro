@@ -9,13 +9,13 @@ import { dakreparatieData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Dakreparatie() {
-    const { seo, hero, features, featureTitle, info, faqs } = dakreparatieData;
+    const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakreparatieData;
 
     return (
         <>
             <SEO {...seo} />
             <HeroSection {...hero} />
-            <FeatureGrid features={features} title={featureTitle} />
+            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
             <InfoSection {...info} />
             <FAQSection faqs={faqs} />
             <ServiceCTA />

@@ -50,6 +50,7 @@ export interface ServicePageData {
   hero: HeroData;
   features: FeatureItem[];
   featureTitle?: string;
+  featureHighlight?: string;
   featureSubtitle?: string;
   info: InfoSectionData;
   faqs: FAQItem[];

@@ -647,6 +647,7 @@ export const dakreparatieData: ServicePageData = {
     backgroundImage: imgReparatie,
   },
   featureTitle: 'Zekerheid bij reparatie',
+  featureHighlight: 'Zekerheid',
   features: [
     {
       icon: 'Zap',

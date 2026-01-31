@@ -601,7 +601,7 @@ export const daklekkageData: ServicePageData = {
   ],
   info: {
     title: 'Wat Te Doen Bij Daklekkage?',
-    titleHighlight: 'Daklekkage',
+    titleHighlight: 'Daklekkage?',
     description: 'Snelhandelen bij daklekkage voorkomt grote schade aan uw interieur.',
     paragraphs: [
       'Bij daklekkage is snelheid cruciaal. Water kan grote schade aanrichten aan plafonds, muren, isolatie en zelfs aan de constructie. Ook kan schimmelvorming ontstaan, wat gezondheidsrisico\'s met zich meebrengt.',

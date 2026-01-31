@@ -565,6 +565,7 @@ export const daklekkageData: ServicePageData = {
     ctaText: 'Bel 24/7: +31 6 1234 5678',
     ctaHref: '/spoedservice',
     backgroundImage: imgLekkage,
+    highlightWordCount: 2,
   },
   featureTitle: 'Onze lekkage aanpak',
   featureHighlight: 'lekkage',

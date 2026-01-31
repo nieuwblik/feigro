@@ -52,7 +52,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             {title.includes(' ') ? (
               <>

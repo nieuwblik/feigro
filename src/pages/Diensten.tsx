@@ -72,7 +72,7 @@ const Diensten = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Vakmanschap <br /><span className="text-brand-green italic">Op Hoog Niveau</span>
           </motion.h1>

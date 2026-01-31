@@ -58,7 +58,7 @@ export default function OverOns() {
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase">
               Uw Partner in <br /><span className="text-brand-green italic">Dakwerken</span>
             </h1>
           </FadeIn>
@@ -85,7 +85,7 @@ export default function OverOns() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn direction="left">
               <div>
-                <h2 className="text-4xl font-heading text-slate-900 mb-6 md:mb-10 tracking-tight uppercase">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-10 tracking-tight uppercase">
                   Het Verhaal van <span className="text-brand-green italic">Feigro</span>
                 </h2>
                 <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 leading-relaxed font-light">
@@ -132,7 +132,7 @@ export default function OverOns() {
               </span>
               <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             </div>
-            <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">
               De Kracht van <span className="text-brand-green italic">Twee</span>
             </h2>
             <p className="text-slate-600 text-base md:text-lg lg:text-xl max-w-3xl mx-auto font-light">
@@ -216,7 +216,7 @@ export default function OverOns() {
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn className="text-left mb-12 md:mb-20">
             <div>
-              <h2 className="text-4xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
                 Onze <span className="text-brand-green italic">Kernwaarden</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl font-light">
@@ -266,7 +266,7 @@ export default function OverOns() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="lg:w-1/2">
               <FadeIn>
-                <h2 className="text-4xl font-heading text-slate-900 mb-8 md:mb-12 leading-none uppercase tracking-tighter">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-12 leading-none uppercase tracking-tighter">
                   Waarom Kiezen voor <span className="text-brand-green italic">FEIGRO?</span>
                 </h2>
               </FadeIn>

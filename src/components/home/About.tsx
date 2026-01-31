@@ -48,7 +48,7 @@ export const About = () => {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-6 md:mb-10 uppercase">
+              <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-6 md:mb-10 uppercase">
                 Uw dak is bij ons <br /><span className="text-brand-green italic">In goede handen</span>
               </h2>
             </FadeIn>
@@ -62,7 +62,6 @@ export const About = () => {
             <FadeIn delay={0.3}>
               <InversedFlipButton
                 label="Ontdek Onze Werking"
-                size="large"
                 onClick={() => {
                   const el = document.getElementById('diensten');
                   el?.scrollIntoView({ behavior: 'smooth' });

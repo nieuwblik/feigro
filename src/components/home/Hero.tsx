@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { FadeIn } from '@/components/ui/ParallaxImage';
 import heroImage from '@/assets/herosectiefeigro.jpg';
 
 export const Hero = () => {
-  const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
   const containerRef = useRef<HTMLElement>(null);
   const {
     scrollYProgress
@@ -19,14 +18,6 @@ export const Hero = () => {
 
   // Background parallax speed set to ~0.7x (moves 30% of scroll distance)
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  useEffect(() => {
-    const handleResize = () => {
-      setButtonSize(window.innerWidth >= 1024 ? 'large' : 'default');
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   return <section ref={containerRef} className="relative h-screen w-full flex items-start overflow-hidden bg-black">
     {/* Hero Background with Parallax */}
     <div className="absolute inset-0 z-0">
@@ -50,7 +41,7 @@ export const Hero = () => {
 
         {/* Heading with Aldrich Font */}
         <FadeIn delay={0.1}>
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words">
+          <h1 className="text-white text-4xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words">
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
           </h1>
@@ -70,14 +61,13 @@ export const Hero = () => {
               <PrimaryFlipButton
                 label="Gratis Dakinspectie"
                 hoverLabel="Plan Inspectie"
-                size={buttonSize}
-                icon={<ArrowRight size={buttonSize === 'large' ? 22 : 18} className="-rotate-45" />}
+                icon={<ArrowRight size={18} className="-rotate-45" />}
                 onClick={() => {
                   window.location.href = '/dakinspectie';
                 }}
               />
 
-              <Link to="/spoedservice" className={cn("group flex items-center gap-2 md:gap-3 bg-red-950/20 border border-red-500/20 px-4 md:px-6 h-[48px] md:h-[72px] rounded-xl md:rounded-3xl hover:bg-red-500/10 transition-all duration-300", buttonSize === 'large' ? 'md:px-8' : 'md:px-6')}>
+              <Link to="/spoedservice" className="group flex items-center gap-2 md:gap-3 bg-red-950/20 border border-red-500/20 px-4 md:px-6 h-[52px] rounded-xl hover:bg-red-500/10 transition-all duration-300">
                 <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500 animate-pulse"></div>
                 <span className="text-red-500 font-bold text-xs md:text-sm uppercase tracking-[0.2em] whitespace-nowrap">
                   SPOEDSERVICE

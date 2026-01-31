@@ -21,6 +21,7 @@ export interface HeroData {
   ctaHref: string;
   backgroundImage?: string;
   backgroundClass?: string;
+  highlightWordCount?: number;
 }
 
 export interface FeatureItem {

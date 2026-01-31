@@ -99,8 +99,8 @@ export default function Projecten() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
             {projects.map((project, index) => (
               <motion.div
@@ -126,20 +126,20 @@ export default function Projecten() {
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-3xl md:text-4xl font-heading text-slate-900 group-hover:text-brand-green transition-colors uppercase tracking-tight">{project.title}</h3>
-                    <div className="flex items-center gap-6 mt-2">
+                  <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-4 mb-4">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading text-slate-900 group-hover:text-brand-green transition-colors uppercase tracking-tight">{project.title}</h3>
+                    <div className="flex items-center gap-4 sm:gap-6 mt-1 sm:mt-2">
                       <div className="flex items-center gap-2 text-slate-400">
                         <MapPin size={14} className="text-brand-green" />
-                        <span className="text-xs uppercase tracking-widest font-bold">{project.location}</span>
+                        <span className="text-[10px] sm:text-xs uppercase tracking-widest font-bold">{project.location}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-400">
                         <Calendar size={14} className="text-brand-green" />
-                        <span className="text-xs uppercase tracking-widest font-bold">{project.year}</span>
+                        <span className="text-[10px] sm:text-xs uppercase tracking-widest font-bold">{project.year}</span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl">{project.description}</p>
+                  <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed max-w-2xl">{project.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -148,8 +148,8 @@ export default function Projecten() {
       </section>
 
       {/* Luxury Reviews Section */}
-      <section className="py-24 md:py-32 bg-slate-50">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-24 lg:py-32 bg-slate-50">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0 }}
@@ -160,11 +160,11 @@ export default function Projecten() {
                 <Star key={i} size={20} className="fill-brand-green text-brand-green" />
               ))}
             </motion.div>
-            <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-16 tracking-tighter uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-12 md:mb-16 tracking-tighter uppercase">
               Wat Onze Klanten <span className="text-brand-green italic">Zeggen</span>
             </h2>
 
-            <div className="grid gap-12">
+            <div className="grid gap-6 md:gap-12">
               {[
                 {
                   text: "FEIGRO heeft ons dak volledig gerenoveerd. Vakkundig werk, netjes afgewerkt, en het team was zeer professioneel. We zijn zeer tevreden!",
@@ -182,9 +182,9 @@ export default function Projecten() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="relative p-12 bg-white border border-slate-200 rounded-[1rem] shadow-xl"
+                  className="relative p-8 md:p-12 bg-white border border-slate-200 rounded-xl md:rounded-[1rem] shadow-xl"
                 >
-                  <p className="text-2xl md:text-3xl text-slate-600 font-heading italic leading-relaxed mb-10">
+                  <p className="text-lg md:text-2xl lg:text-3xl text-slate-600 font-heading italic leading-relaxed mb-6 md:mb-10">
                     "{review.text}"
                   </p>
                   <div className="flex flex-col items-center">

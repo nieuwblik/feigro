@@ -47,7 +47,7 @@ const Diensten = () => {
   return (
     <div className="w-full">
       {/* Page Header */}
-      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center">
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen md:min-h-[40vh] flex items-center px-4 md:px-6">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -59,7 +59,7 @@ const Diensten = () => {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-left">
+        <div className="container mx-auto relative z-10 text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,15 +72,15 @@ const Diensten = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
-            Vakmanschap <br /><span className="text-brand-green italic">op Hoog Niveau</span>
+            Vakmanschap <br /><span className="text-brand-green italic">Op Hoog Niveau</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed font-light mb-10"
+            className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10"
           >
             Van preventieve inspecties tot complete dakrenovaties. FEIGRO biedt duurzame oplossingen for elk type dak.
           </motion.p>
@@ -103,8 +103,8 @@ const Diensten = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 md:py-32 bg-white relative">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-24 lg:py-32 bg-white relative">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesDetail.map((service, i) => (
               <motion.div

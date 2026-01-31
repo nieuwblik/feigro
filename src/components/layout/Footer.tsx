@@ -140,14 +140,44 @@ export const Footer = () => {
         {/* Row 2: Contact on left, Photos on right */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-12">
           {/* Contact Column (aligned with logo) */}
-          <FadeIn className="lg:col-span-1 space-y-8 md:space-y-12">
+          <FadeIn className="lg:col-span-1 space-y-6 md:space-y-8">
             <div>
-              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-bold mb-4 md:mb-8">CONTACT</h4>
-              <div className="space-y-4 md:space-y-6">
+              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-bold mb-4 md:mb-6">CONTACT</h4>
+              <div className="space-y-5 md:space-y-6">
+                {/* Algemeen */}
                 <div>
+                  <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-1">Algemeen</span>
                   <a href="mailto:info@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">info@feigro.nl</a>
                 </div>
+                
+                {/* Spoed & Service */}
                 <div>
+                  <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-1">Spoed & Service</span>
+                  <a href="mailto:service@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
+                </div>
+                
+                {/* Facturatie */}
+                <div>
+                  <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-1">Facturatie</span>
+                  <a href="mailto:facturen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
+                </div>
+                
+                {/* Direct Contact */}
+                <div>
+                  <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-1">Direct Contact</span>
+                  <div className="space-y-1">
+                    <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
+                      <span className="text-white/70">Jan Groen</span> — jgroen@feigro.nl
+                    </a>
+                    <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
+                      <span className="text-white/70">Tommie Feitsma</span> — tfeitsma@feigro.nl
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Telefoon */}
+                <div>
+                  <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-1">Telefoon</span>
                   <a href="tel:+31612345678" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 (0) 6 123 456 78</a>
                 </div>
               </div>

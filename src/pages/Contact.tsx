@@ -94,9 +94,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Grid */}
-      <section className="py-24 md:py-32 bg-white border-t border-slate-100">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <section className="py-16 md:py-24 lg:py-32 bg-white border-t border-slate-100">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left Column: Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -105,39 +105,40 @@ export default function Contact() {
               className="space-y-12"
             >
               <div>
-                <h2 className="text-4xl md:text-5xl font-heading text-slate-900 mb-8 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
-                <p className="text-slate-600 text-lg leading-relaxed mb-12 font-light">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
+                <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-light">
                   U kunt ons direct bellen for spoed of mailen for algemene vragen.
                   We reageren doorgaans binnen één werkdag.
                 </p>
               </div>
 
-              <div className="grid gap-8">
+              <div className="grid gap-6 md:gap-8">
                 {[
                   { icon: Phone, label: 'Telefoon', value: '+31 (0) 6 123 456 78', sub: 'Lekkage melden', href: 'tel:+31612345678' },
                   { icon: Mail, label: 'Email', value: 'info@feigro.nl', sub: 'Voor offertes en advies', href: 'mailto:info@feigro.nl' },
                   { icon: MapPin, label: 'Locatie', value: 'Regio Noord-Holland (West-Friesland)', sub: 'Actief in heel Nederland', href: '#' },
                   { icon: Clock, label: 'Werktijden', value: '08:00 - 18:00', sub: 'Weekend op afspraak', href: '#' }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-6 group select-none">
-                    <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300">
-                      <item.icon size={24} className="text-brand-green group-hover:text-black transition-colors" />
+                  <div key={i} className="flex items-center gap-4 md:gap-6 group select-none">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300 shrink-0">
+                      <item.icon size={20} className="text-brand-green group-hover:text-black transition-colors md:hidden" />
+                      <item.icon size={24} className="text-brand-green group-hover:text-black transition-colors hidden md:block" />
                     </div>
-                    <div>
-                      <p className="text-slate-400 text-[10px] uppercase tracking-widest font-bold mb-1">{item.label}</p>
-                      <a href={item.href} className="text-xl text-slate-900 font-heading hover:text-brand-green transition-colors uppercase tracking-tight">{item.value}</a>
-                      <p className="text-slate-400 text-xs mt-1 font-light">{item.sub}</p>
+                    <div className="min-w-0">
+                      <p className="text-slate-400 text-[9px] md:text-[10px] uppercase tracking-widest font-bold mb-1">{item.label}</p>
+                      <a href={item.href} className="text-base md:text-xl text-slate-900 font-heading hover:text-brand-green transition-colors uppercase tracking-tight break-words">{item.value}</a>
+                      <p className="text-slate-400 text-[10px] md:text-xs mt-1 font-light">{item.sub}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="p-10 bg-slate-50 border border-slate-200 rounded-[1.5rem]">
-                <div className="flex items-center gap-4 mb-6">
-                  <CheckCircle className="text-brand-green" />
-                  <span className="text-slate-900 font-bold tracking-tight uppercase">Gecertificeerd Vakmanschap</span>
+              <div className="p-6 md:p-10 bg-slate-50 border border-slate-200 rounded-xl md:rounded-[1.5rem]">
+                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <CheckCircle className="text-brand-green w-5 h-5 md:w-6 md:h-6" />
+                  <span className="text-slate-900 font-bold tracking-tight uppercase text-sm md:text-base">Gecertificeerd Vakmanschap</span>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed font-light">
+                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-light">
                   Al onze medewerkers zijn VCA-gecertificeerd en werken volgens de strengste veiligheidsnormen.
                 </p>
               </div>
@@ -150,12 +151,12 @@ export default function Contact() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-slate-50 border border-slate-200 p-10 md:p-16 rounded-[2rem] relative z-10 select-none" id="contact-form">
-                <h3 className="text-3xl font-heading text-slate-900 mb-8 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-slate-50 border border-slate-200 p-6 md:p-10 lg:p-16 rounded-xl md:rounded-[2rem] relative z-10 select-none" id="contact-form">
+                <h3 className="text-2xl md:text-3xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
+                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Naam</label>
+                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Naam</label>
                       <input
                         type="text"
                         name="name"
@@ -163,11 +164,11 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="Uw naam"
                         required
-                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
+                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Email</label>
+                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Email</label>
                       <input
                         type="email"
                         name="email"
@@ -175,12 +176,12 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="uw@email.nl"
                         required
-                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
+                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Onderwerp</label>
+                    <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Onderwerp</label>
                     <input
                       type="text"
                       name="subject"
@@ -188,11 +189,11 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Waar gaat het over?"
                       required
-                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors"
+                      className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Bericht</label>
+                    <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Bericht</label>
                     <textarea
                       rows={5}
                       name="message"
@@ -200,7 +201,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Uw bericht..."
                       required
-                      className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none"
+                      className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none text-sm md:text-base"
                     ></textarea>
                   </div>
 

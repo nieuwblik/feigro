@@ -18,11 +18,11 @@ export function InfoSection({
   className,
 }: InfoSectionProps) {
   return (
-    <section className={cn('py-24 md:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
+    <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
       <div className="container mx-auto">
         <div
           className={cn(
-            'grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center',
+            'grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center',
             imagePosition === 'left' && 'lg:grid-flow-dense'
           )}
         >

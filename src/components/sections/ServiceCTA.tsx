@@ -1,10 +1,8 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-
 export const ServiceCTA = () => {
-    return (
-        <section className="bg-slate-50 py-24 md:py-32 px-6 border-t border-slate-100">
+  return <section className="bg-slate-50 py-24 md:py-32 px-6 border-t border-slate-100">
             <div className="container mx-auto max-w-5xl">
                 <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
 
@@ -16,7 +14,7 @@ export const ServiceCTA = () => {
                     </div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-8 leading-[1.1] uppercase tracking-tighter">
-                        Klaar voor een <span className="text-brand-green">Zorgeloos Dak?</span>
+                        Kies voor     <span className="text-brand-green">​Garantie </span>
                     </h2>
 
                     <p className="text-xl md:text-2xl text-slate-600 font-light mb-16 max-w-2xl leading-relaxed">
@@ -85,15 +83,10 @@ export const ServiceCTA = () => {
                     </p>
 
                     <div onClick={() => window.location.href = '/contact'}>
-                    <PrimaryFlipButton
-                        label="Maak een afspraak"
-                        icon={<ArrowRight />}
-                        className="w-full md:w-auto"
-                    />
+                    <PrimaryFlipButton label="Maak een afspraak" icon={<ArrowRight />} className="w-full md:w-auto" />
                     </div>
 
                 </div>
             </div>
-        </section>
-    );
+        </section>;
 };

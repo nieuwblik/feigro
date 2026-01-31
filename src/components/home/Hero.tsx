@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import heroImage from '@/assets/herosectiefeigro.jpg';
-
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const {
@@ -41,7 +40,7 @@ export const Hero = () => {
 
         {/* Heading with Aldrich Font */}
         <FadeIn delay={0.1}>
-          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words">
+          <h1 className="text-white text-3xl md:text-4xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words lg:text-7xl">
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
           </h1>
@@ -58,14 +57,9 @@ export const Hero = () => {
         <FadeIn delay={0.3} className="w-full">
           <div className="flex flex-col sm:flex-row items-start justify-start gap-4 md:gap-8 w-full lg:w-auto">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 w-full lg:w-auto">
-              <PrimaryFlipButton
-                label="Gratis Dakinspectie"
-                hoverLabel="Plan Inspectie"
-                icon={<ArrowRight size={18} className="-rotate-45" />}
-                onClick={() => {
-                  window.location.href = '/dakinspectie';
-                }}
-              />
+              <PrimaryFlipButton label="Gratis Dakinspectie" hoverLabel="Plan Inspectie" icon={<ArrowRight size={18} className="-rotate-45" />} onClick={() => {
+                window.location.href = '/dakinspectie';
+              }} />
 
               <Link to="/spoedservice" className="group flex items-center gap-2 md:gap-3 bg-red-950/20 border border-red-500/20 px-4 md:px-6 h-[52px] rounded-xl hover:bg-red-500/10 transition-all duration-300">
                 <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500 animate-pulse"></div>

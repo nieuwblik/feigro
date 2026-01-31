@@ -19,7 +19,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
     ctaHref: '/contact',
     backgroundImage: imgWestfriesland,
   },
-  featureTitle: 'Voordelen voor VVE en Vastgoedbeheerders',
+  featureTitle: 'Uw Voordelen',
   features: [
     {
       icon: 'TrendingUp',

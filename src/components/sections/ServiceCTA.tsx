@@ -14,7 +14,7 @@ export const ServiceCTA = () => {
                     </div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-8 leading-[1.1] uppercase tracking-tighter">
-                        Kies voor     <span className="text-brand-green">​Garantie </span>
+                        Kies voor     <span className="text-brand-green italic">​Garantie </span>
                     </h2>
 
                     <p className="text-xl md:text-2xl text-slate-600 font-light mb-16 max-w-2xl leading-relaxed">

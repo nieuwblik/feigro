@@ -1,13 +1,11 @@
 import { InfoSectionData } from '@/types';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-
 interface InfoSectionProps extends InfoSectionData {
   className?: string;
   imageAlt?: string;
   imagePosition?: 'left' | 'right';
 }
-
 export function InfoSection({
   title,
   titleHighlight,
@@ -16,76 +14,71 @@ export function InfoSection({
   image = "https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop",
   imageAlt = 'FEIGRO Dakwerken',
   imagePosition = 'right',
-  className,
+  className
 }: InfoSectionProps) {
   const renderTitle = () => {
     if (!titleHighlight) return title;
     const parts = title.split(new RegExp(`(${titleHighlight})`, 'i'));
-    return parts.map((part, index) =>
-      part.toLowerCase() === titleHighlight.toLowerCase() ? (
-        <span key={index} className="text-brand-green italic">{part}</span>
-      ) : (
-        <span key={index}>{part}</span>
-      )
-    );
+    return parts.map((part, index) => part.toLowerCase() === titleHighlight.toLowerCase() ? <span key={index} className="text-brand-green italic">{part}</span> : <span key={index}>{part}</span>);
   };
-
-  return (
-    <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
+  return <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
       <div className="container mx-auto">
-        <div
-          className={cn(
-            'grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center',
-            imagePosition === 'left' && 'lg:grid-flow-dense'
-          )}
-        >
+        <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center', imagePosition === 'left' && 'lg:grid-flow-dense')}>
           {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: imagePosition === 'right' ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className={cn(imagePosition === 'left' && 'lg:col-start-2')}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: imagePosition === 'right' ? -50 : 50
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true,
+          margin: "-100px"
+        }} transition={{
+          duration: 0.8,
+          ease: "easeOut"
+        }} className={cn(imagePosition === 'left' && 'lg:col-start-2')}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
               {renderTitle()}
             </h2>
-            {description && (
-              <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-6 md:mb-8 font-light">
+            {description && <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-6 md:mb-8 font-light">
                 {description}
-              </p>
-            )}
+              </p>}
             <div className="space-y-4 md:space-y-6">
-              {paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                  className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed font-light"
-                >
+              {paragraphs.map((paragraph, index) => <motion.p key={index} initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2 + index * 0.1,
+              duration: 0.5
+            }} className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed font-light">
                   {paragraph}
-                </motion.p>
-              ))}
+                </motion.p>)}
             </div>
           </motion.div>
 
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: imagePosition === 'right' ? 2 : -2 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.9,
+          rotate: imagePosition === 'right' ? 2 : -2
+        }} whileInView={{
+          opacity: 1,
+          scale: 1,
+          rotate: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 1,
+          ease: [0.16, 1, 0.3, 1]
+        }} className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}>
             <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
-                loading="lazy"
-              />
+              <img src={image} alt={imageAlt} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
             </div>
             {/* Visual Accent */}
@@ -93,6 +86,5 @@ export function InfoSection({
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

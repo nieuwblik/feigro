@@ -70,12 +70,9 @@ export function FeatureGrid({ features, title, titleHighlight, subtitle, classNa
                 <h3 className="text-base md:text-lg lg:text-xl font-heading text-slate-900 mb-2 md:mb-3 lg:mb-4 tracking-tight uppercase group-hover:text-brand-green transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-light mb-4 md:mb-6 lg:mb-8 flex-grow">
+                <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-light flex-grow">
                   {feature.description}
                 </p>
-                <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors mt-auto pt-3 md:pt-4 lg:pt-6 border-t border-slate-100">
-                  Meer Info
-                </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>

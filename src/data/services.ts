@@ -567,6 +567,7 @@ export const daklekkageData: ServicePageData = {
     backgroundImage: imgLekkage,
   },
   featureTitle: 'Onze lekkage aanpak',
+  featureHighlight: 'lekkage',
   features: [
     {
       icon: 'Phone',

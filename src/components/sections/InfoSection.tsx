@@ -34,7 +34,7 @@ export function InfoSection({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className={cn(imagePosition === 'left' && 'lg:col-start-2')}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
               {title}
             </h2>
             {description && (

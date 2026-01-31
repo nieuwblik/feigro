@@ -34,7 +34,7 @@ export function FAQSection({
             <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Support</span>
           </motion.div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
             {title}
           </h2>
           {subtitle && (

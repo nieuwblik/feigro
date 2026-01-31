@@ -32,6 +32,7 @@ export interface FeatureItem {
 
 export interface InfoSectionData {
   title: string;
+  titleHighlight?: string;
   description: string;
   paragraphs: string[];
   image?: string;

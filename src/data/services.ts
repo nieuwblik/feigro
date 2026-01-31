@@ -681,6 +681,7 @@ export const dakreparatieData: ServicePageData = {
   ],
   info: {
     title: 'Wanneer is Dakreparatie Nodig?',
+    titleHighlight: 'Dakreparatie',
     description: 'Tijdige reparatie voorkomt grotere schade en hogere kosten.',
     paragraphs: [
       'Dakschade kan ontstaan door storm, hagel, veroudering of gebrekkig onderhoud. Kleine scheurtjes of losse dakpannen lijken misschien onschuldig, maar kunnen leiden tot waterinfiltratie en grote schade aan de onderconstructie.',

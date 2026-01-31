@@ -6,72 +6,88 @@ import footerImg1 from '@/assets/dakrenovatie-noordholland.jpg';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import footerImg3 from '@/assets/Lekkage-Feitsma.jpg';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.jpg';
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
+  const {
+    scrollYProgress
+  } = useScroll({
     target: footerRef,
     offset: ["start end", "end end"]
   });
-
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "0%"]);
-
-  const services = [
-    { name: 'Dakinspectie', href: '/dakinspectie' },
-    { name: 'Dakonderhoud', href: '/dakonderhoud' },
-    { name: 'Dakrenovatie', href: '/dakrenovatie' },
-    { name: 'Dakbedekking Vervangen', href: '/dakbedekking-vervangen' },
-    { name: 'EPDM Dakbedekking', href: '/epdm-dakbedekking' },
-  ];
-
-  const navigation = [
-    { name: 'Over Ons', href: '/over-ons' },
-    { name: 'Onze Projecten', href: '/projecten' },
-    { name: 'Lekkage melden', href: '/spoedservice' },
-    { name: 'Contact Opnemen', href: '/contact' },
-  ];
-
-  const resources = [
-    { name: 'Blog', href: '#' },
-    { name: 'Carrière', href: '#' },
-    { name: 'Privacybeleid', href: '#' },
-    { name: 'Algemene Voorwaarden', href: '#' },
-  ];
-
-  const socialLinks = [
-    { name: 'Instagram', href: '#' },
-    { name: 'Facebook', href: '#' },
-    { name: 'LinkedIn', href: '#' },
-    { name: 'Twitter', href: '#' },
-    { name: 'Youtube', href: '#' },
-  ];
-
-  const galleryImages = [
-    footerImg1,
-    footerImg2,
-    footerImg3,
-    footerImg4,
-  ];
-
-  return (
-    <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
+  const services = [{
+    name: 'Dakinspectie',
+    href: '/dakinspectie'
+  }, {
+    name: 'Dakonderhoud',
+    href: '/dakonderhoud'
+  }, {
+    name: 'Dakrenovatie',
+    href: '/dakrenovatie'
+  }, {
+    name: 'Dakbedekking Vervangen',
+    href: '/dakbedekking-vervangen'
+  }, {
+    name: 'EPDM Dakbedekking',
+    href: '/epdm-dakbedekking'
+  }];
+  const navigation = [{
+    name: 'Over Ons',
+    href: '/over-ons'
+  }, {
+    name: 'Onze Projecten',
+    href: '/projecten'
+  }, {
+    name: 'Lekkage melden',
+    href: '/spoedservice'
+  }, {
+    name: 'Contact Opnemen',
+    href: '/contact'
+  }];
+  const resources = [{
+    name: 'Blog',
+    href: '#'
+  }, {
+    name: 'Carrière',
+    href: '#'
+  }, {
+    name: 'Privacybeleid',
+    href: '#'
+  }, {
+    name: 'Algemene Voorwaarden',
+    href: '#'
+  }];
+  const socialLinks = [{
+    name: 'Instagram',
+    href: '#'
+  }, {
+    name: 'Facebook',
+    href: '#'
+  }, {
+    name: 'LinkedIn',
+    href: '#'
+  }, {
+    name: 'Twitter',
+    href: '#'
+  }, {
+    name: 'Youtube',
+    href: '#'
+  }];
+  const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
+  return <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
       {/* Top Section with Background Image */}
       <div className="relative h-[40vh] md:h-[45vh] lg:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
-        <motion.img
-          src="/images/footer_bg_roofing.png"
-          alt="Modern Roofing"
-          className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-110"
-          style={{ y: backgroundY }}
-        />
+        <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-110" style={{
+        y: backgroundY
+      }} />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
         <div className="relative container mx-auto px-4 md:px-6 h-full flex flex-col justify-end pb-8 md:pb-12 lg:pb-16 pt-20 md:pt-24">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 md:gap-10">
             <div className="max-w-3xl text-left">
               <FadeIn>
-                <h2 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading font-medium leading-[0.85] tracking-tighter uppercase mb-4 md:mb-8">
+                <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-heading font-medium leading-[0.85] tracking-tighter uppercase mb-4 md:mb-8 lg:text-5xl">
                   KLAAR VOOR EEN <br />
                   <span className="text-brand-green italic">DUURZAAM</span> DAK?
                 </h2>
@@ -103,38 +119,34 @@ export const Footer = () => {
           {/* Brand Column */}
           <FadeIn className="lg:col-span-1 col-span-2 sm:col-span-2">
             <Link to="/" className="inline-block mb-6 md:mb-10 group">
-              <img
-                src="/images/feigro-logo-wit.png"
-                alt="FEIGRO"
-                className="h-8 md:h-10 w-auto group-hover:brightness-125 transition-all"
-              />
+              <img src="/images/feigro-logo-wit.png" alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:brightness-125 transition-all" />
             </Link>
           </FadeIn>
 
-          {[
-            { title: 'DIENSTEN', items: services },
-            { title: 'ONTDEK', items: navigation },
-            { title: 'SUPPORT', items: resources },
-            { title: 'SOCIAL MEDIA', items: socialLinks }
-          ].map((col, i) => (
-            <FadeIn key={col.title} delay={i * 0.05}>
+          {[{
+          title: 'DIENSTEN',
+          items: services
+        }, {
+          title: 'ONTDEK',
+          items: navigation
+        }, {
+          title: 'SUPPORT',
+          items: resources
+        }, {
+          title: 'SOCIAL MEDIA',
+          items: socialLinks
+        }].map((col, i) => <FadeIn key={col.title} delay={i * 0.05}>
               <div>
                 <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-bold mb-4 md:mb-8">{col.title}</h4>
                 <ul className="space-y-2 md:space-y-4">
-                  {col.items.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        to={'href' in item ? (item as any).href : '#'}
-                        className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium"
-                      >
+                  {col.items.map(item => <li key={item.name}>
+                      <Link to={'href' in item ? (item as any).href : '#'} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium">
                         {item.name}
                       </Link>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
-            </FadeIn>
-          ))}
+            </FadeIn>)}
         </div>
 
         {/* Row 2: Contact on left, Photos on right */}
@@ -186,19 +198,13 @@ export const Footer = () => {
 
           {/* Photos Row (next 4 columns) */}
           <div className="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-            {galleryImages.map((src, idx) => (
-              <FadeIn key={idx} delay={idx * 0.1} distance={20} className="parallax-fast" style={{ '--parallax-speed': (0.05 + idx * 0.02) } as any}>
+            {galleryImages.map((src, idx) => <FadeIn key={idx} delay={idx * 0.1} distance={20} className="parallax-fast" style={{
+            '--parallax-speed': 0.05 + idx * 0.02
+          } as any}>
                 <div className="aspect-[4/5] md:aspect-[5/6] rounded-lg md:rounded-xl overflow-hidden bg-white/5 border border-white/5 h-full">
-                  <ParallaxImage
-                    src={src}
-                    alt={`Project ${idx + 1}`}
-                    speed={30}
-                    containerClassName="h-full w-full"
-                    className="grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
-                  />
+                  <ParallaxImage src={src} alt={`Project ${idx + 1}`} speed={30} containerClassName="h-full w-full" className="grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
                 </div>
-              </FadeIn>
-            ))}
+              </FadeIn>)}
           </div>
         </div>
 
@@ -210,17 +216,11 @@ export const Footer = () => {
 
           <div className="flex items-center gap-2 md:gap-3">
             <span className="text-white/20 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium">MADE BY</span>
-            <a
-              href="https://www.nieuwblik.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-black hover:text-brand-green transition-all"
-            >
+            <a href="https://www.nieuwblik.com" target="_blank" rel="noopener noreferrer" className="text-white text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-black hover:text-brand-green transition-all">
               NIEUWBLIK
             </a>
           </div>
         </FadeIn>
       </div>
-    </footer>
-  );
+    </footer>;
 };

@@ -104,29 +104,27 @@ export const RecentProjects = () => {
   }, {
     height: 'aspect-[4/5]'
   }];
-  return <section ref={sectionRef} id="projecten" className="pt-16 md:pt-24 lg:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
+  return <section ref={sectionRef} id="projecten" className="pt-12 md:pt-24 lg:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="md:flex-row md:items-end md:gap-8 md:mb-24 flex-col flex items-start justify-between gap-[24px] mb-0 pl-0">
+        {/* Mobile: Stacked layout with button inline after title */}
+        <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between md:gap-8 md:mb-16 lg:mb-24">
           <div className="max-w-3xl">
             <FadeIn>
-              <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
+              <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
+                <div className="w-6 md:w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
-                Recente  <br /><span className="text-brand-green italic">Projecten</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.95] tracking-tighter uppercase">
+                Recente <span className="text-brand-green italic">Projecten</span>
               </h2>
             </FadeIn>
           </div>
-          <FadeIn delay={0.2} direction="none" className="parallax-fast" style={{
-          '--parallax-speed': '0.05'
-        } as any}>
+          <FadeIn delay={0.2} direction="none" className="shrink-0">
             <InversedFlipButton label="Alle Projecten" size="default" onClick={() => navigate('/projecten')} />
           </FadeIn>
         </div>
-
       </div>
 
       {/* Masonry Gallery Implementation - Full Width */}

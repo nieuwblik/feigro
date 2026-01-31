@@ -1,193 +1,144 @@
 
-# Plan: Feigro Website Verbeteringen
+# Plan: Consistente Typography & Button Sizing
 
-Dit plan omvat vijf hoofdonderdelen: Google Reviews integratie, Over Ons pagina update, responsive layout optimalisatie, footer e-mailadressen, en mobiele audit met typografie consistentie.
-
----
-
-## 1. Google Business Reviews Integratie
-
-### Wat gaat er gebeuren
-- Koppeling met de Google Places API om reviews automatisch op te halen
-- Reviews worden live bijgewerkt zonder handmatige aanpassingen
-- Toevoegen van een "Plaats een review" knop die linkt naar Google
-
-### Benodigdheden
-- **Google Places API sleutel** (moet je aanmaken via Google Cloud Console)
-- Edge function voor veilige API-communicatie
-
-### Technische aanpak
-1. **Edge Function aanmaken** (`supabase/functions/google-reviews/index.ts`)
-   - Haalt reviews op via Google Places API
-   - Cached resultaten om API-kosten te beperken
-   - Retourneert reviewer naam, rating, tekst en datum
-
-2. **Reviews component updaten** (`src/components/home/Reviews.tsx`)
-   - Vervangt hardcoded reviews met API-data
-   - Laadt reviews bij page load via de edge function
-   - Fallback naar huidige statische reviews bij API-fout
-
-3. **"Review Plaatsen" knop toevoegen**
-   - Link naar: `https://search.google.com/local/writereview?placeid={PLACE_ID}`
+## Doel
+Alle H1 en H2 headings standaardiseren naar `text-4xl` en alle buttons naar dezelfde grootte voor visuele consistentie over de gehele website.
 
 ---
 
-## 2. Over Ons Pagina: Feitsma + Groen Verhaal
+## 1. Typography Standaardisatie
 
-### Huidige situatie
-De pagina vermeldt Tommie Feitsma en Jan Groen, maar legt niet uit dat FEIGRO een samenvoeging is van hun bedrijven.
-
-### Wijzigingen
-1. **Nieuwe sectie toevoegen** na "Het Verhaal van Feigro"
-   - Titel: "De Kracht van Twee"
-   - Uitleg: FEI = Feitsma, GRO = Groen
-   - Links naar beide websites met visuele kaarten
-
-2. **Content structuur**
-```text
-┌─────────────────────────────────────────────────────────┐
-│ DE KRACHT VAN TWEE                                      │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│ Feigro is ontstaan uit de samenwerking van twee        │
-│ gevestigde dakdekkersbedrijven:                        │
-│                                                         │
-│ ┌─────────────────────┐  ┌─────────────────────┐       │
-│ │ FEITSMA DAKWERKEN   │  │ GROEN DAKWERKEN     │       │
-│ │ feitsmadakwerken.nl │  │ groendakwerken.nl   │       │
-│ │ [Bezoek Website →]  │  │ [Bezoek Website →]  │       │
-│ └─────────────────────┘  └─────────────────────┘       │
-│                                                         │
-│ Door onze krachten te bundelen bieden wij nu als       │
-│ FEIGRO de beste service in heel West-Friesland.        │
-└─────────────────────────────────────────────────────────┘
+### Nieuwe standaard voor H1 & H2
+Alle headings worden aangepast naar:
+```
+text-4xl font-heading uppercase tracking-tighter
 ```
 
----
-
-## 3. Footer Update: E-mailadressen
-
-### Huidige situatie
-Footer toont alleen `info@feigro.nl` en één telefoonnummer.
-
-### Nieuwe structuur
-De CONTACT kolom wordt uitgebreid met alle e-mailadressen:
-
-| E-mail | Doel |
-|--------|------|
-| info@feigro.nl | Algemene vragen |
-| service@feigro.nl | Spoed & noodreparaties |
-| facturen@feigro.nl | Facturatie |
-| jgroen@feigro.nl | Contact Jan Groen |
-| tfeitsma@feigro.nl | Contact Tommie Feitsma |
-
-### Visuele weergave
-```text
-CONTACT                          
-─────────────────────────────────
-Algemeen
-  info@feigro.nl
-
-Spoed & Service  
-  service@feigro.nl
-
-Facturatie
-  facturen@feigro.nl
-
-Direct Contact
-  Jan Groen — jgroen@feigro.nl
-  Tommie Feitsma — tfeitsma@feigro.nl
-
-Telefoon
-  +31 (0) 6 123 456 78
-```
-
----
-
-## 4. Responsive Layout Optimalisatie (Mobiel & Tablet)
-
-### Globale aanpassingen
-Alle componenten worden gecontroleerd op de volgende punten:
-
-| Aspect | Aanpassing |
-|--------|------------|
-| Padding | Consistente `px-4` op mobiel |
-| Font sizes | Responsive scaling met Tailwind breakpoints |
-| Tekst wrapping | `break-words` toevoegen waar nodig |
-| Grid layouts | Aanpassen naar `grid-cols-1` op mobiel |
-| Spacing | Kleinere margins/padding onder 768px |
-| Buttons | `w-full` op mobiel waar nodig |
-
-### Specifieke componenten
-- **Hero sectie**: Stats bar beter gestapeld op mobiel
-- **Services cards**: Kleinere padding, compactere weergave
-- **Footer**: E-mail kolom reorganiseren voor mobiel
-- **Forms**: Full-width inputs, verbeterde touch targets
-
----
-
-## 5. Mobiele Audit & Typografie Consistentie
-
-### Pagina's die worden doorgelopen
-1. Homepage (`/`)
-2. Diensten (`/diensten`)
-3. Over Ons (`/over-ons`)
-4. Projecten (`/projecten`)
-5. Contact (`/contact`)
-6. Spoedservice (`/spoedservice`)
-7. Alle 11 service subpagina's (`/vve-vastgoedbeheer`, `/dakinspectie`, etc.)
-
-### Typografie regels
-| Element | Stijl |
-|---------|-------|
-| H1 | `uppercase`, responsive: `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` |
-| H2 | `uppercase`, responsive: `text-2xl sm:text-3xl md:text-5xl lg:text-6xl` |
-| H3 | `uppercase`, consistent per component |
-| Labels/Tags | `uppercase tracking-widest` |
-
-### Audit checklist per pagina
-- Geen horizontale scroll
-- Tekst blijft binnen viewport
-- Headings consistent in hoofdletters
-- Afbeeldingen niet buiten containers
-- Touch-vriendelijke buttons (min 44px)
-- Consistente verticale spacing
-
----
-
-## Implementatievolgorde
-
-1. **Footer e-mailadressen** (snelle update)
-2. **Over Ons pagina** (nieuwe Feitsma/Groen sectie)
-3. **Typografie audit** (uppercase headings consistent maken)
-4. **Mobiele layout fixes** (responsive optimalisaties)
-5. **Google Reviews API** (edge function + component update)
-
----
-
-## Technische Details
+Dit vervangt de huidige variaties zoals `text-2xl sm:text-3xl md:text-5xl lg:text-7xl`.
 
 ### Bestanden die worden aangepast
 
-| Bestand | Wijziging |
-|---------|-----------|
-| `src/components/layout/Footer.tsx` | E-mailadressen toevoegen |
-| `src/pages/OverOns.tsx` | Feitsma/Groen sectie toevoegen |
-| `src/components/home/Reviews.tsx` | API integratie + review button |
-| `src/components/home/Hero.tsx` | Mobiele spacing fixes |
-| `src/components/home/Services.tsx` | Mobiele padding optimalisatie |
-| `src/pages/Diensten.tsx` | Uppercase headings |
-| `src/pages/Contact.tsx` | Mobiele form fixes |
-| `src/pages/Projecten.tsx` | Responsive grid |
-| `src/pages/Spoedservice.tsx` | Mobiele optimalisatie |
-| `src/pages/services/*.tsx` | Alle 11 service pagina's |
+| Component | Huidige H1/H2 | Nieuwe standaard |
+|-----------|---------------|------------------|
+| `Hero.tsx` | `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` | `text-4xl` |
+| `Services.tsx` | `text-3xl sm:text-4xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `About.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `Reviews.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `RecentProjects.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `CTAFooter.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl` | `text-4xl` |
+| `OverOns.tsx` | Diverse variaties | `text-4xl` |
+| `Diensten.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `Contact.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `Projecten.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| `Spoedservice.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
+| Service subpagina's (11x) | Diverse variaties | `text-4xl` |
 
-### Nieuwe bestanden
+---
 
-| Bestand | Doel |
-|---------|------|
-| `supabase/functions/google-reviews/index.ts` | Google Places API edge function |
+## 2. Button Size Standaardisatie
 
-### Benodigde secrets
-- `GOOGLE_PLACES_API_KEY` - Voor Google Reviews API
-- `GOOGLE_PLACE_ID` - Feigro's Google Business Place ID
+### Nieuwe standaard
+Alle PrimaryFlipButton en InversedFlipButton worden aangepast naar `size="default"` (52px hoogte).
+
+Hiermee vervalt het wisselende gebruik van `size="large"` en `size="default"`.
+
+### Huidige button sizes in FlipButton.tsx
+```text
+default: h-[52px] px-6 text-lg    ← STANDAARD
+large:   h-[68px] px-10 text-2xl  ← WORDT VERWIJDERD
+small:   h-[44px] px-5 text-base  ← OPTIONEEL BEHOUDEN
+```
+
+### Bestanden met buttons die worden aangepast
+
+| Bestand | Huidige size | Nieuwe size |
+|---------|--------------|-------------|
+| `Hero.tsx` | dynamisch (large op desktop) | `default` |
+| `Services.tsx` | `large` | `default` |
+| `About.tsx` | `large` | `default` |
+| `RecentProjects.tsx` | `default` | `default` (geen wijziging) |
+| `CTAFooter.tsx` | `large` | `default` |
+| `Diensten.tsx` | `large` | `default` |
+| `OverOns.tsx` | `default` / geen | `default` |
+| Alle andere pagina's | variatie | `default` |
+
+---
+
+## 3. Technische Aanpassingen
+
+### 3.1 Hero.tsx - Verwijder dynamische button sizing
+De huidige logica:
+```typescript
+const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
+useEffect(() => {
+  const handleResize = () => {
+    setButtonSize(window.innerWidth >= 1024 ? 'large' : 'default');
+  };
+  // ...
+}, []);
+```
+
+Wordt vervangen door een vaste `size="default"`.
+
+### 3.2 Alle componenten
+- Alle `size="large"` props worden verwijderd of veranderd naar `size="default"`
+- Alle responsive heading classes worden vervangen door `text-4xl`
+
+---
+
+## 4. Samenvatting Wijzigingen
+
+### Homepage Componenten (5 bestanden)
+1. `src/components/home/Hero.tsx`
+2. `src/components/home/Services.tsx`
+3. `src/components/home/About.tsx`
+4. `src/components/home/Reviews.tsx`
+5. `src/components/home/RecentProjects.tsx`
+
+### Pagina's (6 bestanden)
+1. `src/pages/OverOns.tsx`
+2. `src/pages/Diensten.tsx`
+3. `src/pages/Contact.tsx`
+4. `src/pages/Projecten.tsx`
+5. `src/pages/Spoedservice.tsx`
+6. `src/components/sections/CTAFooter.tsx`
+
+### Service Pagina's (11 bestanden)
+1. `src/pages/services/BitumenDakbedekking.tsx`
+2. `src/pages/services/DakbedekkingVervangen.tsx`
+3. `src/pages/services/Dakinspectie.tsx`
+4. `src/pages/services/Daklekkage.tsx`
+5. `src/pages/services/Dakonderhoud.tsx`
+6. `src/pages/services/Dakrenovatie.tsx`
+7. `src/pages/services/Dakreparatie.tsx`
+8. `src/pages/services/EpdmDakbedekking.tsx`
+9. `src/pages/services/Valbeveiliging.tsx`
+10. `src/pages/services/Valbeveiligingssysteem.tsx`
+11. `src/pages/services/VveVastgoedbeheer.tsx`
+
+### Shared Componenten
+1. `src/components/sections/HeroSection.tsx`
+2. `src/components/sections/FeatureGrid.tsx`
+3. `src/components/sections/InfoSection.tsx`
+4. `src/components/sections/FAQSection.tsx`
+5. `src/components/sections/ServiceCTA.tsx`
+
+---
+
+## 5. Visueel Resultaat
+
+### Voor
+```text
+Heading sizes: 24px → 72px+ (variabel per breakpoint)
+Button heights: 44px / 52px / 68px (wisselend)
+```
+
+### Na
+```text
+Heading sizes: 36px (2.25rem = text-4xl) consistent
+Button heights: 52px consistent
+```
+
+---
+
+## Totaal: ~25 bestanden worden aangepast

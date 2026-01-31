@@ -10,6 +10,7 @@ interface InfoSectionProps extends InfoSectionData {
 
 export function InfoSection({
   title,
+  titleHighlight,
   description,
   paragraphs,
   image = "https://images.unsplash.com/photo-1635424710928-0544e8512eae?q=80&w=2071&auto=format&fit=crop",
@@ -17,6 +18,18 @@ export function InfoSection({
   imagePosition = 'right',
   className,
 }: InfoSectionProps) {
+  const renderTitle = () => {
+    if (!titleHighlight) return title;
+    const parts = title.split(new RegExp(`(${titleHighlight})`, 'i'));
+    return parts.map((part, index) =>
+      part.toLowerCase() === titleHighlight.toLowerCase() ? (
+        <span key={index} className="text-brand-green italic">{part}</span>
+      ) : (
+        <span key={index}>{part}</span>
+      )
+    );
+  };
+
   return (
     <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
       <div className="container mx-auto">
@@ -35,7 +48,7 @@ export function InfoSection({
             className={cn(imagePosition === 'left' && 'lg:col-start-2')}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
-              {title}
+              {renderTitle()}
             </h2>
             {description && (
               <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-6 md:mb-8 font-light">

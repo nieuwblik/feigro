@@ -75,6 +75,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
   ],
   info: {
     title: 'Uw daken onder onze hoede',
+    titleHighlight: 'daken',
     description: 'Onze diensten helpen Vastgoedbeheerders en Verenigingen van Eigenaren om optimaal rendement te behalen uit hun vastgoed.',
     paragraphs: [
       'Naast aanzienlijke kostenbesparingen, dragen we ook bij aan de waardevermeerdering van uw eigendommen. Door zowel te zorgen voor zaken die direct deze waarde vergroten als door te bieden aan duurzame oplossingen, waarbij wij de volledige verantwoordelijkheid voor uw daken uit handen nemen.',

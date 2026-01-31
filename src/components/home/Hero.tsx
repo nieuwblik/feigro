@@ -40,7 +40,7 @@ export const Hero = () => {
 
         {/* Heading with Aldrich Font */}
         <FadeIn delay={0.1}>
-          <h1 className="text-white text-3xl md:text-4xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words lg:text-7xl">
+          <h1 className="text-white md:text-4xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words lg:text-7xl text-4xl">
             Meesters in <br />
             <span className="text-brand-green italic">Dakwerken</span>
           </h1>

@@ -14,7 +14,7 @@ export default function VveVastgoedbeheer() {
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} title={featureTitle} />
+      <FeatureGrid features={features} title={featureTitle} titleHighlight="Voordelen" />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
       <ServiceCTA />

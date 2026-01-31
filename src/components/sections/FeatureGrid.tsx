@@ -2,18 +2,37 @@ import * as LucideIcons from 'lucide-react';
 import { FeatureItem } from '@/types';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 interface FeatureGridProps {
   features: FeatureItem[];
   title?: string;
+  titleHighlight?: string; // Word(s) to highlight in green italic
   subtitle?: string;
   className?: string;
 }
 
-export function FeatureGrid({ features, title, subtitle, className }: FeatureGridProps) {
+export function FeatureGrid({ features, title, titleHighlight, subtitle, className }: FeatureGridProps) {
   const getIcon = (iconName: string) => {
     const IconComponent = (LucideIcons as any)[iconName];
     return IconComponent ? <IconComponent size={32} /> : null;
+  };
+
+  // Render title with optional highlighted word
+  const renderTitle = () => {
+    if (!title) return null;
+    if (!titleHighlight) return title;
+    
+    const parts = title.split(titleHighlight);
+    if (parts.length === 1) return title;
+    
+    return (
+      <>
+        {parts[0]}
+        <span className="text-brand-green italic">{titleHighlight}</span>
+        {parts[1]}
+      </>
+    );
   };
 
   return (
@@ -23,7 +42,7 @@ export function FeatureGrid({ features, title, subtitle, className }: FeatureGri
           <div className="text-left mb-12 md:mb-20 lg:mb-24">
             {title && (
               <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
-                {title}
+                {renderTitle()}
               </h2>
             )}
             {subtitle && (

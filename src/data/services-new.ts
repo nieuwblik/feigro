@@ -45,7 +45,7 @@ export const dakreparatieData: ServicePageData = {
             description: 'Onze ervaren dakdekkers werken volgens de hoogste kwaliteitsnormen.',
         },
         {
-            icon: 'DollarSign',
+            icon: 'Euro',
             title: 'Eerlijke Prijzen',
             description: 'Transparante prijzen zonder verrassingen. U weet vooraf wat de reparatie kost.',
         },

@@ -40,7 +40,7 @@ export function CTAFooter({
           <div className="absolute bottom-0 left-0 w-48 md:w-96 h-48 md:h-96 bg-brand-green/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[80px] md:blur-[100px]"></div>
 
           <div className="relative z-10 max-w-4xl">
-            <h2 className="text-white text-4xl font-heading mb-4 md:mb-8 leading-[1] tracking-tighter uppercase break-words">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading mb-4 md:mb-8 leading-[1] tracking-tighter uppercase break-words">
               Klaar om uw dak te <br /><span className="text-brand-green italic">laten renoveren?</span>
             </h2>
             <p className="text-white/60 text-sm sm:text-base md:text-lg lg:text-2xl mb-8 md:mb-14 leading-relaxed max-w-2xl font-light">

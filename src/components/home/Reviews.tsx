@@ -111,7 +111,7 @@ export const Reviews = () => {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-4 md:mb-6 uppercase">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-4 md:mb-6 uppercase">
               Wat onze klanten <br className="hidden sm:block" /><span className="text-brand-green italic">zeggen</span>
             </h2>
           </FadeIn>

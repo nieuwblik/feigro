@@ -61,7 +61,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Laten we <br /><span className="text-brand-green italic">Praten</span>
           </motion.h1>
@@ -105,7 +105,7 @@ export default function Contact() {
               className="space-y-12"
             >
               <div>
-                <h2 className="text-4xl font-heading text-slate-900 mb-6 md:mb-8 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
                 <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-light">
                   U kunt ons direct bellen for spoed of mailen for algemene vragen.
                   We reageren doorgaans binnen één werkdag.

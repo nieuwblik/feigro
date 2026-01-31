@@ -15,7 +15,7 @@ export const ServiceCTA = () => {
                         <div className="w-12 h-[2px] bg-brand-green/30"></div>
                     </div>
 
-                    <h2 className="text-4xl font-heading font-bold text-slate-900 mb-8 leading-[1.1] uppercase tracking-tighter">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-8 leading-[1.1] uppercase tracking-tighter">
                         Klaar voor een <span className="text-brand-green">Zorgeloos Dak?</span>
                     </h2>
 

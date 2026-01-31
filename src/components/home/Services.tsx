@@ -59,7 +59,7 @@ export const Services = () => {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
                 Professionele <br /><span className="text-brand-green italic">Dakdiensten</span>
               </h2>
             </FadeIn>
@@ -108,7 +108,7 @@ export const Services = () => {
                 <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gratis Advies</span>
               </div>
-              <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">
                 Vrijblijvende <br /><span className="text-brand-green italic">Inspectie</span>
               </h2>
               <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6 md:mb-10 max-w-xl">

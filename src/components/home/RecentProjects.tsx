@@ -107,7 +107,7 @@ export const RecentProjects = () => {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="text-4xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase">
                 Recente <br /><span className="text-brand-green italic">Projecten</span>
               </h2>
             </FadeIn>

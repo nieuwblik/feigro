@@ -33,7 +33,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
       description: 'Professioneel advies voor alle dakgerelateerde vraagstukken.',
     },
     {
-      icon: 'DollarSign',
+      icon: 'Euro',
       title: 'Kostenbesparing door preventief onderhoud',
       description: 'Voorkom dure reparaties door regelmatig onderhoud.',
     },
@@ -364,7 +364,7 @@ export const dakbedekkingVervangenData: ServicePageData = {
       description: 'We werken met de nieuwste technieken en materialen voor het beste resultaat.',
     },
     {
-      icon: 'DollarSign',
+      icon: 'Euro',
       title: 'Scherpe Prijzen',
       description: 'Door directe inkoop bij fabrikanten kunnen we scherpe prijzen bieden zonder in te boeten op kwaliteit.',
     },
@@ -424,7 +424,7 @@ export const bitumenDakbedekkingData: ServicePageData = {
       description: 'Bitumen is volledig waterdicht en beschermt uw dak optimaal tegen regen en vocht.',
     },
     {
-      icon: 'DollarSign',
+      icon: 'Euro',
       title: 'Kosteneffectief',
       description: 'Bitumen biedt een uitstekende prijs-kwaliteitverhouding voor platte daken.',
     },
@@ -675,7 +675,7 @@ export const dakreparatieData: ServicePageData = {
       description: 'Onze ervaren dakdekkers werken volgens de hoogste kwaliteitsnormen.',
     },
     {
-      icon: 'DollarSign',
+      icon: 'Euro',
       title: 'Eerlijke Prijzen',
       description: 'Transparante prijzen zonder verrassingen. U weet vooraf wat de reparatie kost.',
     },

@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 interface FAQSectionProps {
   faqs: FAQItem[];
   title?: string;
+  titleHighlight?: string;
   subtitle?: string;
   className?: string;
 }
@@ -18,9 +19,22 @@ interface FAQSectionProps {
 export function FAQSection({
   faqs,
   title = 'Veelgestelde Vragen',
+  titleHighlight = 'Vragen',
   subtitle,
   className,
 }: FAQSectionProps) {
+  const renderTitle = () => {
+    if (!titleHighlight) return title;
+    const parts = title.split(new RegExp(`(${titleHighlight})`, 'i'));
+    return parts.map((part, index) =>
+      part.toLowerCase() === titleHighlight.toLowerCase() ? (
+        <span key={index} className="text-brand-green italic">{part}</span>
+      ) : (
+        <span key={index}>{part}</span>
+      )
+    );
+  };
+
   return (
     <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-white', className)}>
       <div className="container mx-auto max-w-4xl">
@@ -35,7 +49,7 @@ export function FAQSection({
             <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Support</span>
           </motion.div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
-            {title}
+            {renderTitle()}
           </h2>
           {subtitle && (
             <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl font-light">

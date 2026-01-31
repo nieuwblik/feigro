@@ -15,7 +15,7 @@ export const ServiceCTA = () => {
                         <div className="w-12 h-[2px] bg-brand-green/30"></div>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-slate-900 mb-8 leading-[1.1]">
+                    <h2 className="text-4xl font-heading font-bold text-slate-900 mb-8 leading-[1.1] uppercase tracking-tighter">
                         Klaar voor een <span className="text-brand-green">Zorgeloos Dak?</span>
                     </h2>
 
@@ -85,12 +85,11 @@ export const ServiceCTA = () => {
                     </p>
 
                     <div onClick={() => window.location.href = '/contact'}>
-                        <PrimaryFlipButton
-                            label="Maak een afspraak"
-                            icon={<ArrowRight />}
-                            size="large"
-                            className="w-full md:w-auto"
-                        />
+                    <PrimaryFlipButton
+                        label="Maak een afspraak"
+                        icon={<ArrowRight />}
+                        className="w-full md:w-auto"
+                    />
                     </div>
 
                 </div>

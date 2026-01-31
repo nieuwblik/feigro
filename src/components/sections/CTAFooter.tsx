@@ -40,7 +40,7 @@ export function CTAFooter({
           <div className="absolute bottom-0 left-0 w-48 md:w-96 h-48 md:h-96 bg-brand-green/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[80px] md:blur-[100px]"></div>
 
           <div className="relative z-10 max-w-4xl">
-            <h2 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-heading mb-4 md:mb-8 leading-[1] tracking-tighter uppercase break-words">
+            <h2 className="text-white text-4xl font-heading mb-4 md:mb-8 leading-[1] tracking-tighter uppercase break-words">
               Klaar om uw dak te <br /><span className="text-brand-green italic">laten renoveren?</span>
             </h2>
             <p className="text-white/60 text-sm sm:text-base md:text-lg lg:text-2xl mb-8 md:mb-14 leading-relaxed max-w-2xl font-light">
@@ -51,8 +51,7 @@ export function CTAFooter({
                 <PrimaryFlipButton
                   label="Vraag offerte aan"
                   hoverLabel="Direct contact"
-                  size="large"
-                  className="w-full sm:w-auto sm:!min-w-[240px] md:!min-w-[280px]"
+                  className="w-full sm:w-auto"
                 />
               </Link>
               <div className="flex flex-col items-start group cursor-pointer" onClick={() => window.location.href = 'tel:+31612345678'}>

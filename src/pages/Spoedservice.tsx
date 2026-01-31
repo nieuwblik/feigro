@@ -83,7 +83,7 @@ export default function Spoedservice() {
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase">
+            <h1 className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase">
               Lekkage <br /><span className="text-brand-green italic">Melden</span>
             </h1>
           </FadeIn>
@@ -152,7 +152,7 @@ export default function Spoedservice() {
         <div className="container mx-auto px-6">
           <FadeIn className="text-center mb-20">
             <div>
-              <h2 className="text-4xl md:text-7xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">Onze <span className="text-brand-green italic">Werkwijze</span> bij Lekkage</h2>
+              <h2 className="text-4xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">Onze <span className="text-brand-green italic">Werkwijze</span> bij Lekkage</h2>
               <p className="text-slate-600 text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold opacity-40">Van melding tot oplossing</p>
             </div>
           </FadeIn>
@@ -190,7 +190,7 @@ export default function Spoedservice() {
         <div className="container mx-auto px-6">
           <FadeIn scale={0.98} className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-[2rem] p-12 md:p-20 relative overflow-hidden">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-heading text-slate-900 mb-12 text-center uppercase tracking-tighter">
+              <h2 className="text-4xl font-heading text-slate-900 mb-12 text-center uppercase tracking-tighter">
                 Wat te doen bij <span className="text-red-500 italic">Lekkage?</span>
               </h2>
               <div className="grid gap-6">

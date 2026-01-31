@@ -70,7 +70,7 @@ export default function Projecten() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-4xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
             Projecten waar we <br /><span className="text-brand-green italic">Trots op Zijn</span>
           </motion.h1>
@@ -160,7 +160,7 @@ export default function Projecten() {
                 <Star key={i} size={20} className="fill-brand-green text-brand-green" />
               ))}
             </motion.div>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-12 md:mb-16 tracking-tighter uppercase">
+            <h2 className="text-4xl font-heading text-slate-900 mb-12 md:mb-16 tracking-tighter uppercase">
               Wat Onze Klanten <span className="text-brand-green italic">Zeggen</span>
             </h2>
 

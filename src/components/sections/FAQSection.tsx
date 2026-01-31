@@ -22,29 +22,29 @@ export function FAQSection({
   className,
 }: FAQSectionProps) {
   return (
-    <section className={cn('py-24 md:py-32 px-4 md:px-6 bg-white', className)}>
+    <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-white', className)}>
       <div className="container mx-auto max-w-4xl">
-        <div className="text-left mb-16 md:mb-20">
+        <div className="text-left mb-10 md:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-4 mb-6"
+            className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
           >
-            <div className="w-12 h-[2px] bg-brand-green"></div>
-            <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Support</span>
+            <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
+            <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Support</span>
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-light">
+            <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl font-light">
               {subtitle}
             </p>
           )}
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-3 md:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -55,12 +55,12 @@ export function FAQSection({
             >
               <AccordionItem
                 value={`item-${index}`}
-                className="border border-slate-200 bg-slate-50/50 rounded-3xl px-8 hover:border-brand-green/30 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01]"
+                className="border border-slate-200 bg-slate-50/50 rounded-xl md:rounded-3xl px-4 md:px-8 hover:border-brand-green/30 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01]"
               >
-                <AccordionTrigger className="text-left text-lg md:text-xl font-heading text-slate-900 hover:text-brand-green hover:no-underline py-6 uppercase">
+                <AccordionTrigger className="text-left text-base md:text-lg lg:text-xl font-heading text-slate-900 hover:text-brand-green hover:no-underline py-4 md:py-6 uppercase">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-slate-600 leading-relaxed font-light pb-8">
+                <AccordionContent className="text-sm md:text-base text-slate-600 leading-relaxed font-light pb-4 md:pb-8">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

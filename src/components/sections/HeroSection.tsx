@@ -15,8 +15,13 @@ export function HeroSection({
   ctaText,
   ctaHref,
   backgroundImage,
+  highlightWordCount = 1,
   className,
 }: HeroSectionProps) {
+  const words = title.split(' ');
+  const mainText = words.slice(0, -highlightWordCount).join(' ');
+  const highlightText = words.slice(-highlightWordCount).join(' ');
+
   return (
     <section
       className={cn(
@@ -54,12 +59,12 @@ export function HeroSection({
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
           >
-            {title.includes(' ') ? (
+            {mainText && (
               <>
-                {title.split(' ').slice(0, -1).join(' ')} <br />
-                <span className="text-brand-green italic">{title.split(' ').slice(-1)}</span>
+                {mainText} <br />
               </>
-            ) : title}
+            )}
+            <span className="text-brand-green italic">{highlightText}</span>
           </motion.h1>
 
           <motion.p

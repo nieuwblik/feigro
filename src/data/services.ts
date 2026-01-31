@@ -18,6 +18,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
     ctaText: 'Neem Contact Op',
     ctaHref: '/contact',
     backgroundImage: imgWestfriesland,
+    highlightWordCount: 3,
   },
   featureTitle: 'Uw Voordelen',
   features: [

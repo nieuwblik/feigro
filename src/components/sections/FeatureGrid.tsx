@@ -41,7 +41,7 @@ export function FeatureGrid({ features, title, titleHighlight, subtitle, classNa
         {(title || subtitle) && (
           <div className="text-left mb-12 md:mb-20 lg:mb-24">
             {title && (
-              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
                 {renderTitle()}
               </h2>
             )}

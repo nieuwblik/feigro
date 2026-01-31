@@ -13,7 +13,7 @@ import imgReparatie from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
 export const vveVastgoedbeheerData: ServicePageData = {
   seo: seoMetadata.vveVastgoedbeheer,
   hero: {
-    title: 'VVE en Vastgoedbeheerders in Nederland',
+    title: 'Samenwerk mogelijkheden voor VVE en Vastgoedbeheer',
     subtitle: 'Een samenwerking met Feigro Dakwerken biedt uw VvE en Vastgoed de garantie van duurzame dakduurzaamheid, kostenefficiënte oplossingen en snelle service voor alle onderhouds- en herstelwerkzaamheden.',
     ctaText: 'Neem Contact Op',
     ctaHref: '/contact',

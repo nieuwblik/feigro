@@ -24,7 +24,7 @@ const INITIAL_OFFSET_MIDDLE = 20; // Lowered middle column (was -60)
 const INITIAL_OFFSET_RIGHT = -10; // Lowered right column (was -90)
 
 const IMAGES_POOL = [{
-  url: img2
+  url: img1
 }, {
   url: img4
 }, {

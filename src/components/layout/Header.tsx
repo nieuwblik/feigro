@@ -163,7 +163,7 @@ export const Header = () => {
         <Logo />
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-12">
           {/* Diensten Dropdown */}
           <div
             className="relative"
@@ -185,10 +185,10 @@ export const Header = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute top-full mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-4"
+                  className="absolute top-full mt-4 w-[680px] bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6"
                   style={{ left: '50%' }}
                 >
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-3">
                     {services.map((service, idx) => (
                       <motion.div
                         key={service.name}
@@ -198,7 +198,7 @@ export const Header = () => {
                       >
                         <Link
                           to={service.href}
-                          className="group flex items-start gap-4 px-4 py-4 hover:bg-white/5 rounded-xl transition-all duration-300"
+                          className="group flex items-start gap-4 px-5 py-5 hover:bg-white/5 rounded-xl transition-all duration-300"
                         >
                           <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-brand-green/20 group-hover:scale-110 transition-all duration-500 shrink-0">
                             {React.cloneElement(service.icon as React.ReactElement, { size: 24 })}

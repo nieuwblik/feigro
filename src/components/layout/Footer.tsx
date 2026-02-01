@@ -18,7 +18,7 @@ export const Footer = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "0%"]);
   const services = [{
     name: 'Dakinspectie',
-    href: '/dakinspectie'
+    href: '/contact'
   }, {
     name: 'Dakonderhoud',
     href: '/dakonderhoud'
@@ -28,9 +28,6 @@ export const Footer = () => {
   }, {
     name: 'Dakbedekking Vervangen',
     href: '/dakbedekking-vervangen'
-  }, {
-    name: 'EPDM Dakbedekking',
-    href: '/epdm-dakbedekking'
   }];
   const navigation = [{
     name: 'Over Ons',
@@ -77,7 +74,7 @@ export const Footer = () => {
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
   return <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
-    <div className="relative h-[40vh] md:h-[45vh] lg:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
+    <div className="relative h-[40vh] md:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
       <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-110" style={{
         y: backgroundY
       }} />
@@ -113,9 +110,9 @@ export const Footer = () => {
     </div>
 
     {/* Main Content Area */}
-    <div className="flex-grow container mx-auto px-4 md:px-6 py-12 md:py-20 lg:py-24">
+    <div className="flex-grow container mx-auto px-4 md:px-6 py-16 md:py-24 lg:py-28">
       {/* Row 1: Logo and Link Columns */}
-      <div className="flex flex-col gap-10 mb-16 md:mb-20">
+      <div className="flex flex-col gap-10 mb-20 md:mb-24">
         {/* Brand Column */}
         <FadeIn>
           <Link to="/" className="inline-block mb-2 group">
@@ -123,7 +120,7 @@ export const Footer = () => {
           </Link>
         </FadeIn>
 
-        <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-10 lg:gap-y-0 gap-x-8">
+        <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-12 lg:gap-y-0 gap-x-10">
           {[{
             title: 'DIENSTEN',
             items: services
@@ -138,7 +135,7 @@ export const Footer = () => {
             items: socialLinks
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
             <div className="text-left">
-              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-6 md:mb-8">{col.title}</h4>
+              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
               <ul className="space-y-3 md:space-y-4">
                 {col.items.map(item => <li key={item.name}>
                   <Link to={item.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium">
@@ -152,7 +149,7 @@ export const Footer = () => {
       </div>
 
       {/* Row 2: Contact info on left, Photos on right */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 border-t border-white/5 pt-12 md:pt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 border-t border-white/5 pt-16 md:pt-24">
         {/* Contact Section (Spans 3 columns to align with Logo/Services/Explore) */}
         <FadeIn className="lg:col-span-3" delay={0.3}>
           <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>

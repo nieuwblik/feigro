@@ -63,7 +63,7 @@ const Diensten = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4 mb-6"
+            className="flex items-center gap-4 mb-6 md:mb-8"
           >
             <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Onze Expertise</span>
@@ -72,7 +72,7 @@ const Diensten = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase"
           >
             Vakmanschap <br /><span className="text-brand-green italic">Op Hoog Niveau</span>
           </motion.h1>
@@ -102,9 +102,9 @@ const Diensten = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white relative">
+      <section className="py-20 md:py-28 lg:py-36 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {servicesDetail.map((service, i) => (
               <motion.div
                 key={i}
@@ -112,14 +112,14 @@ const Diensten = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="group relative bg-white border border-slate-200 p-10 md:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
+                className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
               >
                 <div className="relative z-10">
-                  <div className="text-brand-green mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                  <div className="text-brand-green mb-8 md:mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-heading mb-6 text-slate-900 group-hover:text-brand-green transition-colors uppercase">{service.title}</h3>
-                  <p className="text-slate-600 leading-relaxed mb-10 text-sm md:text-base font-light">{service.desc}</p>
+                  <h3 className="text-2xl md:text-3xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">{service.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-8 md:mb-10 text-sm md:text-base font-light">{service.desc}</p>
                   <Link to={service.href} className="flex justify-between items-center group/btn">
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors">Bekijk Dienst</span>
                     <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green transition-all duration-300">

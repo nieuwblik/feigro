@@ -5,9 +5,9 @@ import aboutImage from '@/assets/dakrenovatie.jpg';
 
 export const About = () => {
   return (
-    <section id="over" className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden relative">
+    <section id="over" className="py-20 md:py-28 lg:py-36 bg-white overflow-hidden relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 lg:gap-28 items-center">
 
           {/* Left Side: Image with floating element */}
           <div className="relative">
@@ -39,7 +39,7 @@ export const About = () => {
           {/* Right Side: Content */}
           <div className="flex flex-col">
             <FadeIn>
-              <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+              <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
                 <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
                   VAKMANSCHAP
@@ -48,13 +48,13 @@ export const About = () => {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-6 md:mb-10 uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter mb-8 md:mb-12 uppercase">
                 Uw dak is bij ons <br /><span className="text-brand-green italic">In goede handen</span>
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="text-slate-600 text-base md:text-lg lg:text-xl mb-8 md:mb-12 leading-relaxed max-w-xl font-light">
+              <p className="text-slate-600 text-base md:text-lg lg:text-xl mb-10 md:mb-14 leading-relaxed max-w-xl font-light">
                 Bij FEIGRO Dakwerken staat kwaliteit centraal. Wij combineren traditioneel vakmanschap met de nieuwste technieken om uw woning optimaal te beschermen tegen de elementen.
               </p>
             </FadeIn>

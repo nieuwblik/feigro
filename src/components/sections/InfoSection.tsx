@@ -21,11 +21,11 @@ export function InfoSection({
     const parts = title.split(new RegExp(`(${titleHighlight})`, 'i'));
     return parts.map((part, index) => part.toLowerCase() === titleHighlight.toLowerCase() ? <span key={index} className="text-brand-green italic">{part}</span> : <span key={index}>{part}</span>);
   };
-  return <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
-      <div className="container mx-auto">
-        <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center', imagePosition === 'left' && 'lg:grid-flow-dense')}>
-          {/* Text Content */}
-          <motion.div initial={{
+  return <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>
+    <div className="container mx-auto">
+      <div className={cn('grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 lg:gap-28 items-center', imagePosition === 'left' && 'lg:grid-flow-dense')}>
+        {/* Text Content */}
+        <motion.div initial={{
           opacity: 0,
           x: imagePosition === 'right' ? -50 : 50
         }} whileInView={{
@@ -38,14 +38,14 @@ export function InfoSection({
           duration: 0.8,
           ease: "easeOut"
         }} className={cn(imagePosition === 'left' && 'lg:col-start-2')}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tighter leading-none uppercase">
-              {renderTitle()}
-            </h2>
-            {description && <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-6 md:mb-8 font-light">
-                {description}
-              </p>}
-            <div className="space-y-4 md:space-y-6">
-              {paragraphs.map((paragraph, index) => <motion.p key={index} initial={{
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-12 tracking-tighter leading-none uppercase">
+            {renderTitle()}
+          </h2>
+          {description && <p className="text-lg md:text-xl lg:text-2xl text-brand-green italic mb-8 md:mb-10 font-light">
+            {description}
+          </p>}
+          <div className="space-y-6 md:space-y-8">
+            {paragraphs.map((paragraph, index) => <motion.p key={index} initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -57,13 +57,13 @@ export function InfoSection({
               delay: 0.2 + index * 0.1,
               duration: 0.5
             }} className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed font-light">
-                  {paragraph}
-                </motion.p>)}
-            </div>
-          </motion.div>
+              {paragraph}
+            </motion.p>)}
+          </div>
+        </motion.div>
 
-          {/* Image */}
-          <motion.div initial={{
+        {/* Image */}
+        <motion.div initial={{
           opacity: 0,
           scale: 0.9,
           rotate: imagePosition === 'right' ? 2 : -2
@@ -77,14 +77,14 @@ export function InfoSection({
           duration: 1,
           ease: [0.16, 1, 0.3, 1]
         }} className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}>
-            <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">
-              <img src={image} alt={imageAlt} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
-            </div>
-            {/* Visual Accent */}
-            <div className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-brand-green/10 blur-[120px] rounded-full -z-10"></div>
-          </motion.div>
-        </div>
+          <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">
+            <img src={image} alt={imageAlt} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
+          </div>
+          {/* Visual Accent */}
+          <div className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-brand-green/10 blur-[120px] rounded-full -z-10"></div>
+        </motion.div>
       </div>
-    </section>;
+    </div>
+  </section>;
 }

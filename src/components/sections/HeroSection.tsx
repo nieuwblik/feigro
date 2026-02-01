@@ -47,7 +47,7 @@ export function HeroSection({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4 mb-6"
+            className="flex items-center gap-4 mb-6 md:mb-8"
           >
             <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em]">Expertise</span>
@@ -57,7 +57,7 @@ export function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase"
           >
             {mainText && (
               <>

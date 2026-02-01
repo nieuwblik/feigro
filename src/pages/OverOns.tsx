@@ -52,13 +52,13 @@ export default function OverOns() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-left">
           <FadeIn>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
               <div className="w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Wie wij zijn</span>
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">
               Uw Partner in <br /><span className="text-brand-green italic">Dakwerken</span>
             </h1>
           </FadeIn>
@@ -80,15 +80,15 @@ export default function OverOns() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white relative">
+      <section className="py-20 md:py-28 lg:py-36 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 lg:gap-28 items-center">
             <FadeIn direction="left">
               <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-10 tracking-tight uppercase">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-12 tracking-tight uppercase">
                   Het Verhaal van <span className="text-brand-green italic">Feigro</span>
                 </h2>
-                <div className="space-y-4 md:space-y-6 text-base md:text-lg text-slate-600 leading-relaxed font-light">
+                <div className="space-y-6 md:space-y-8 text-base md:text-lg text-slate-600 leading-relaxed font-light">
                   <p>
                     Feigro Dakwerken is uw gespecialiseerde dakdekkersbedrijf voor Noord-Holland (West-Friesland).
                     Tommie Feitsma en Jan Groen staan als gezamenlijke eigenaren aan het roer van de organisatie. Met hun gedeelde passie voor het vak
@@ -122,36 +122,36 @@ export default function OverOns() {
       </section>
 
       {/* De Kracht van Twee - Feitsma + Groen */}
-      <section className="py-16 md:py-24 lg:py-32 bg-slate-50 border-y border-slate-100">
+      <section className="py-20 md:py-28 lg:py-36 bg-slate-50 border-y border-slate-100">
         <div className="container mx-auto px-4 md:px-6">
-          <FadeIn className="text-center mb-12 md:mb-16">
-            <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
+          <FadeIn className="text-center mb-12 md:mb-20">
+            <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
               <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
                 ONZE OORSPRONG
               </span>
               <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-6 md:mb-8">
               De Kracht van <span className="text-brand-green italic">Twee</span>
             </h2>
             <p className="text-slate-600 text-base md:text-lg lg:text-xl max-w-3xl mx-auto font-light">
-              FEIGRO is ontstaan uit de samenwerking van twee gevestigde dakdekkersbedrijven. 
-              <span className="font-bold text-slate-900"> FEI</span> = Feitsma en 
+              FEIGRO is ontstaan uit de samenwerking van twee gevestigde dakdekkersbedrijven.
+              <span className="font-bold text-slate-900"> FEI</span> = Feitsma en
               <span className="font-bold text-slate-900"> GRO</span> = Groen.
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-12 md:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto mb-16 md:mb-20">
             {/* Feitsma Card */}
             <FadeIn delay={0.1}>
-              <a 
-                href="https://feitsmadakwerken.nl" 
-                target="_blank" 
+              <a
+                href="https://feitsmadakwerken.nl"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
               >
-                <div className="flex items-center gap-4 mb-4 md:mb-6">
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
                     <span className="text-brand-green font-heading text-xl md:text-2xl font-bold">FEI</span>
                   </div>
@@ -162,7 +162,7 @@ export default function OverOns() {
                     <p className="text-slate-400 text-xs md:text-sm">feitsmadakwerken.nl</p>
                   </div>
                 </div>
-                <p className="text-slate-600 text-sm md:text-base font-light mb-4 md:mb-6">
+                <p className="text-slate-600 text-sm md:text-base font-light mb-6 md:mb-8">
                   Onder leiding van Tommie Feitsma heeft dit bedrijf jarenlange expertise opgebouwd in dakwerk en lekkageoplossingen.
                 </p>
                 <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors">
@@ -173,13 +173,13 @@ export default function OverOns() {
 
             {/* Groen Card */}
             <FadeIn delay={0.2}>
-              <a 
-                href="https://groendakwerken.nl" 
-                target="_blank" 
+              <a
+                href="https://groendakwerken.nl"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
+                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-8 md:p-10 lg:p-12 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
               >
-                <div className="flex items-center gap-4 mb-4 md:mb-6">
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
                     <span className="text-brand-green font-heading text-xl md:text-2xl font-bold">GRO</span>
                   </div>
@@ -190,7 +190,7 @@ export default function OverOns() {
                     <p className="text-slate-400 text-xs md:text-sm">groendakwerken.nl</p>
                   </div>
                 </div>
-                <p className="text-slate-600 text-sm md:text-base font-light mb-4 md:mb-6">
+                <p className="text-slate-600 text-sm md:text-base font-light mb-6 md:mb-8">
                   Jan Groen bracht zijn uitgebreide kennis en ervaring in dakonderhoud en renovatie mee naar deze samenwerking.
                 </p>
                 <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors">
@@ -203,7 +203,7 @@ export default function OverOns() {
           <FadeIn delay={0.3}>
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed">
-                Door onze krachten te bundelen bieden wij nu als <span className="font-bold text-brand-green">FEIGRO</span> de beste service in heel West-Friesland. 
+                Door onze krachten te bundelen bieden wij nu als <span className="font-bold text-brand-green">FEIGRO</span> de beste service in heel West-Friesland.
                 Twee bedrijven, één missie: uw dak in topconditie houden.
               </p>
             </div>
@@ -212,11 +212,11 @@ export default function OverOns() {
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-24 lg:py-32 bg-slate-100">
+      <section className="py-20 md:py-28 lg:py-36 bg-slate-100">
         <div className="container mx-auto px-4 md:px-6">
-          <FadeIn className="text-left mb-12 md:mb-20">
+          <FadeIn className="text-left mb-16 md:mb-24">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">
                 Onze <span className="text-brand-green italic">Kernwaarden</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl font-light">
@@ -225,21 +225,21 @@ export default function OverOns() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
                 <FadeIn key={index} delay={index * 0.05} distance={20} className="h-full">
-                  <div className="group relative bg-white border border-slate-200 p-6 md:p-8 lg:p-10 xl:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none h-full">
+                  <div className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none h-full">
                     <div className="relative z-10">
-                      <div className="text-brand-green mb-6 md:mb-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                      <div className="text-brand-green mb-8 md:mb-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                         <IconComponent size={32} className="md:hidden" />
                         <IconComponent size={40} className="hidden md:block" />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-heading text-slate-900 mb-4 md:mb-6 uppercase group-hover:text-brand-green transition-colors">
+                      <h3 className="text-xl md:text-2xl font-heading text-slate-900 mb-4 md:mb-5 uppercase group-hover:text-brand-green transition-colors">
                         {value.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed text-sm md:text-base font-light mb-6 md:mb-10">
+                      <p className="text-slate-600 leading-relaxed text-sm md:text-base font-light mb-8 md:mb-10">
                         {value.description}
                       </p>
                       <div className="flex justify-between items-center group/btn">
@@ -261,16 +261,16 @@ export default function OverOns() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white">
+      <section className="py-20 md:py-28 lg:py-36 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          <div className="flex flex-col lg:flex-row gap-12 md:gap-20 lg:gap-28 items-center">
             <div className="lg:w-1/2">
               <FadeIn>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-12 leading-none uppercase tracking-tighter">
                   Waarom Kiezen voor <span className="text-brand-green italic">FEIGRO?</span>
                 </h2>
               </FadeIn>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                 {[
                   '20+ Jaar Ervaring',
                   'Gecertificeerde Vakmensen',
@@ -293,8 +293,8 @@ export default function OverOns() {
             </div>
             <FadeIn className="lg:w-1/2 w-full" scale={0.98}>
               <div className="bg-slate-100 p-8 md:p-12 lg:p-16 rounded-xl md:rounded-[2rem] border border-slate-200">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
-                <p className="text-slate-600 text-base md:text-lg mb-6 md:mb-10 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
+                <p className="text-slate-600 text-base md:text-lg mb-8 md:mb-12 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
                 <PrimaryFlipButton
                   label="Bel voor advies"
                   icon={<ArrowRight />}

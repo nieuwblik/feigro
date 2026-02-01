@@ -52,7 +52,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4 mb-6"
+            className="flex items-center gap-4 mb-6 md:mb-8"
           >
             <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Contact</span>
@@ -61,7 +61,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase"
+            className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase"
           >
             Laten we <br /><span className="text-brand-green italic">Praten</span>
           </motion.h1>
@@ -94,9 +94,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Grid */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white border-t border-slate-100">
+      <section className="py-20 md:py-28 lg:py-36 bg-white border-t border-slate-100">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 lg:gap-28">
             {/* Left Column: Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -105,14 +105,14 @@ export default function Contact() {
               className="space-y-12"
             >
               <div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 md:mb-12 font-light">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 tracking-tight uppercase">Onze <span className="text-brand-green italic">Gegevens</span></h2>
+                <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-10 md:mb-14 font-light">
                   U kunt ons direct bellen for spoed of mailen for algemene vragen.
                   We reageren doorgaans binnen één werkdag.
                 </p>
               </div>
 
-              <div className="grid gap-6 md:gap-8">
+              <div className="grid gap-8 md:gap-10">
                 {[
                   { icon: Phone, label: 'Telefoon', value: '+31 (0) 6 123 456 78', sub: 'Lekkage melden', href: 'tel:+31612345678' },
                   { icon: Mail, label: 'Email', value: 'info@feigro.nl', sub: 'Voor offertes en advies', href: 'mailto:info@feigro.nl' },
@@ -133,8 +133,8 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="p-6 md:p-10 bg-slate-50 border border-slate-200 rounded-xl md:rounded-[1.5rem]">
-                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+              <div className="p-8 md:p-12 bg-slate-50 border border-slate-200 rounded-xl md:rounded-[1.5rem]">
+                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
                   <CheckCircle className="text-brand-green w-5 h-5 md:w-6 md:h-6" />
                   <span className="text-slate-900 font-bold tracking-tight uppercase text-sm md:text-base">Gecertificeerd Vakmanschap</span>
                 </div>
@@ -151,8 +151,8 @@ export default function Contact() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-slate-50 border border-slate-200 p-6 md:p-10 lg:p-16 rounded-xl md:rounded-[2rem] relative z-10 select-none" id="contact-form">
-                <h3 className="text-2xl md:text-3xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
+              <div className="bg-slate-50 border border-slate-200 p-8 md:p-12 lg:p-16 rounded-xl md:rounded-[2rem] relative z-10 select-none" id="contact-form">
+                <h3 className="text-2xl md:text-3xl font-heading text-slate-900 mb-8 md:mb-10 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
                 <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-2">

@@ -77,13 +77,13 @@ export default function Spoedservice() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-left">
           <FadeIn scale={0.9}>
-            <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-8">
+            <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-6 md:mb-8">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
               <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">LEKKAGE MELDEN</span>
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-8 uppercase">
+            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">
               Lekkage <br /><span className="text-brand-green italic">Melden</span>
             </h1>
           </FadeIn>
@@ -106,7 +106,7 @@ export default function Spoedservice() {
       </section>
 
       {/* Form Section */}
-      <section className="py-24 md:py-32 bg-white relative">
+      <section className="py-20 md:py-28 lg:py-36 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
@@ -117,19 +117,19 @@ export default function Spoedservice() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 md:py-32 bg-slate-50 border-y border-slate-100">
+      <section className="py-20 md:py-28 lg:py-36 bg-slate-50 border-y border-slate-100">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
                 <FadeIn key={index} delay={index * 0.05} distance={20}>
-                  <div className="group relative p-8 md:p-10 rounded-xl md:rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2">
+                  <div className="group relative p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2">
                     <div className="relative z-10 h-full flex flex-col">
-                      <div className="mb-6 md:mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15] [&>svg]:w-8 [&>svg]:h-8">
+                      <div className="mb-8 md:mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15] [&>svg]:w-8 [&>svg]:h-8">
                         <IconComponent />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-heading mb-4 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
+                      <h3 className="text-xl md:text-2xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
                         {feature.title}
                       </h3>
                       <p className="text-slate-600 leading-relaxed text-sm font-light">
@@ -148,11 +148,11 @@ export default function Spoedservice() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section className="py-20 md:py-28 lg:py-36 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <FadeIn className="text-center mb-20">
+          <FadeIn className="text-center mb-16 md:mb-20">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 uppercase tracking-tighter">Onze <span className="text-brand-green italic">Werkwijze</span> bij Lekkage</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">Onze <span className="text-brand-green italic">Werkwijze</span> bij Lekkage</h2>
               <p className="text-slate-600 text-lg max-w-2xl mx-auto uppercase tracking-widest font-bold opacity-40">Van melding tot oplossing</p>
             </div>
           </FadeIn>
@@ -169,13 +169,13 @@ export default function Spoedservice() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
               {steps.map((step, index) => (
                 <FadeIn key={index} delay={index * 0.1} distance={30} className="relative flex flex-col items-center text-center group">
-                  <div className="w-20 h-20 rounded-full border-2 border-brand-green flex items-center justify-center text-brand-green font-heading text-2xl mb-8 group-hover:bg-brand-green group-hover:text-black group-hover:scale-110 transition-all duration-500 bg-white z-10">
+                  <div className="w-20 h-20 rounded-full border-2 border-brand-green flex items-center justify-center text-brand-green font-heading text-2xl mb-6 md:mb-8 group-hover:bg-brand-green group-hover:text-black group-hover:scale-110 transition-all duration-500 bg-white z-10">
                     {step.number}
                   </div>
-                  <h3 className="text-2xl font-heading text-slate-900 mb-4 uppercase tracking-tighter group-hover:text-brand-green transition-colors">{step.title}</h3>
+                  <h3 className="text-2xl font-heading text-slate-900 mb-4 md:mb-5 uppercase tracking-tighter group-hover:text-brand-green transition-colors">{step.title}</h3>
                   <p className="text-slate-600 leading-relaxed font-light">{step.description}</p>
                   <div className="lg:hidden w-[2px] h-12 bg-gradient-to-b from-brand-green to-transparent mt-8 last:hidden opacity-20"></div>
                 </FadeIn>
@@ -186,14 +186,14 @@ export default function Spoedservice() {
       </section>
 
       {/* What to Do Checklist */}
-      <section className="py-24 md:py-32 bg-slate-50">
+      <section className="py-20 md:py-28 lg:py-36 bg-slate-50">
         <div className="container mx-auto px-6">
-          <FadeIn scale={0.98} className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-[2rem] p-12 md:p-20 relative overflow-hidden">
+          <FadeIn scale={0.98} className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-[2rem] px-6 md:px-12 py-12 md:py-16 relative overflow-hidden">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-12 text-center uppercase tracking-tighter">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-12 md:mb-16 text-center uppercase tracking-tighter">
                 Wat te doen bij <span className="text-red-500 italic">Lekkage?</span>
               </h2>
-              <div className="grid gap-6">
+              <div className="grid gap-6 md:gap-8">
                 {[
                   { title: 'Vul het lekkageformulier in', desc: 'Directe intake van uw situatie voor een snelle respons' },
                   { title: 'Plaats emmers/bakken', desc: 'Direct onder het lek om waterschade te beperken' },
@@ -202,7 +202,7 @@ export default function Spoedservice() {
                   { title: 'Ga niet zelf het dak op', desc: 'In de regen is een dak extreem glad and onveilig' }
                 ].map((item, i) => (
                   <FadeIn key={i} delay={i * 0.05} direction="left" distance={20}>
-                    <div className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-green/20 transition-all select-none">
+                    <div className="flex items-start gap-3 px-4 py-5 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-green/20 transition-all select-none">
                       <div className="w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center mt-1 shrink-0">
                         <CheckCircle size={14} className="text-brand-green" />
                       </div>

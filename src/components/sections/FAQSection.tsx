@@ -36,19 +36,19 @@ export function FAQSection({
   };
 
   return (
-    <section className={cn('py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-white', className)}>
+    <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-white', className)}>
       <div className="container mx-auto max-w-4xl">
-        <div className="text-left mb-10 md:mb-16 lg:mb-20">
+        <div className="text-left mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
+            className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8"
           >
             <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Support</span>
           </motion.div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-4 md:mb-6 uppercase tracking-tighter">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">
             {renderTitle()}
           </h2>
           {subtitle && (
@@ -58,7 +58,7 @@ export function FAQSection({
           )}
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-3 md:space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-4 md:space-y-5">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}

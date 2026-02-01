@@ -107,10 +107,10 @@ export const RecentProjects = () => {
   }, {
     height: 'aspect-[4/5]'
   }];
-  return <section ref={sectionRef} id="projecten" className="pt-12 md:pt-24 lg:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
+  return <section ref={sectionRef} id="projecten" className="pt-20 md:pt-28 lg:pt-36 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
     <div className="container mx-auto px-4 md:px-6 relative z-10">
       {/* Mobile: Stacked layout with button inline after title */}
-      <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between md:gap-8 md:mb-16 lg:mb-24">
+      <div className="flex flex-col gap-4 mb-12 md:mb-20 md:flex-row md:items-end md:justify-between md:gap-8">
         <div className="max-w-3xl">
           <FadeIn>
             <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">

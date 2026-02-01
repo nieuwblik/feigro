@@ -87,12 +87,18 @@ export const Hero = () => {
           }, {
             val: '15jr',
             label: 'Ervaring'
-          }].map((stat, i) => <FadeIn key={i} delay={0.4 + i * 0.1} distance={20}>
-            <div className="flex flex-col items-start">
+          }].map((stat, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-start"
+            >
               <p className="text-brand-green text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading mb-1 leading-none tracking-tighter">{stat.val}</p>
               <p className="text-white/40 text-[8px] sm:text-[9px] md:text-[10px] uppercase tracking-widest font-bold">{stat.label}</p>
-            </div>
-          </FadeIn>)}
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

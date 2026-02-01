@@ -115,86 +115,81 @@ export const Footer = () => {
     {/* Main Content Area */}
     <div className="flex-grow container mx-auto px-4 md:px-6 py-12 md:py-20 lg:py-24">
       {/* Row 1: Logo and Link Columns */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 lg:gap-12 mb-16 md:mb-20">
+      <div className="flex flex-col gap-10 mb-16 md:mb-20">
         {/* Brand Column */}
-        <FadeIn className="col-span-2 md:col-span-1 lg:col-span-1">
-          <Link to="/" className="inline-block mb-8 group">
+        <FadeIn>
+          <Link to="/" className="inline-block mb-2 group">
             <img src="/images/feigro-logo-wit.png" alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:brightness-125 transition-all" />
           </Link>
         </FadeIn>
 
-        {[{
-          title: 'DIENSTEN',
-          items: services
-        }, {
-          title: 'ONTDEK',
-          items: navigation
-        }, {
-          title: 'SUPPORT',
-          items: resources
-        }, {
-          title: 'SOCIAL MEDIA',
-          items: socialLinks
-        }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05}>
-          <div>
-            <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-6 md:mb-8">{col.title}</h4>
-            <ul className="space-y-3 md:space-y-4">
-              {col.items.map(item => <li key={item.name}>
-                <Link to={item.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium">
-                  {item.name}
-                </Link>
-              </li>)}
-            </ul>
-          </div>
-        </FadeIn>)}
+        <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-10 lg:gap-y-0 gap-x-8">
+          {[{
+            title: 'DIENSTEN',
+            items: services
+          }, {
+            title: 'ONTDEK',
+            items: navigation
+          }, {
+            title: 'SUPPORT',
+            items: resources
+          }, {
+            title: 'SOCIAL MEDIA',
+            items: socialLinks
+          }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
+            <div className="text-left">
+              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-6 md:mb-8">{col.title}</h4>
+              <ul className="space-y-3 md:space-y-4">
+                {col.items.map(item => <li key={item.name}>
+                  <Link to={item.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium">
+                    {item.name}
+                  </Link>
+                </li>)}
+              </ul>
+            </div>
+          </FadeIn>)}
+        </div>
       </div>
 
       {/* Row 2: Contact info on left, Photos on right */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 border-t border-white/5 pt-16 md:pt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 border-t border-white/5 pt-12 md:pt-20">
         {/* Contact Section (Spans 3 columns to align with Logo/Services/Explore) */}
         <FadeIn className="lg:col-span-3" delay={0.3}>
-          <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">CONTACT</h4>
+          <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-            {/* Column 1: Algemeen & Telefoon */}
-            <div className="space-y-8">
-              <div>
-                <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Algemeen</span>
-                <a href="mailto:info@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">info@feigro.nl</a>
-              </div>
-              <div>
-                <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Telefoon</span>
-                <a href="tel:+31612345678" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 (0) 6 123 456 78</a>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
+            {/* Row 1: Algemeen & Spoed */}
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Algemeen</span>
+              <a href="mailto:info@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">info@feigro.nl</a>
+            </div>
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Spoed & Service</span>
+              <a href="mailto:service@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
             </div>
 
-            {/* Column 2: Spoed & Facturatie */}
-            <div className="space-y-8">
-              <div>
-                <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Spoed & Service</span>
-                <a href="mailto:service@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
-              </div>
-              <div>
-                <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Facturatie</span>
-                <a href="mailto:facturen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
-              </div>
+            {/* Row 2: Telefoon & Facturatie */}
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Telefoon</span>
+              <a href="tel:+31612345678" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 (0) 6 123 456 78</a>
+            </div>
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Facturatie</span>
+              <a href="mailto:facturen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
             </div>
 
-            {/* Column 3: Direct Contact */}
-            <div className="space-y-8">
-              <div>
-                <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Direct Contact</span>
-                <div className="space-y-3">
-                  <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
-                    <span className="text-white/70">Jan Groen</span> <br />
-                    <span className="text-[11px] opacity-70">jgroen@feigro.nl</span>
-                  </a>
-                  <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
-                    <span className="text-white/70">Tommie Feitsma</span> <br />
-                    <span className="text-[11px] opacity-70">tfeitsma@feigro.nl</span>
-                  </a>
-                </div>
-              </div>
+            {/* Row 3: Direct Contact Links */}
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Jan Groen</span>
+              <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
+                <span className="text-[11px] opacity-70">jgroen@feigro.nl</span>
+              </a>
+            </div>
+            <div>
+              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Tommie Feitsma</span>
+              <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
+                <span className="text-[11px] opacity-70">tfeitsma@feigro.nl</span>
+              </a>
             </div>
           </div>
         </FadeIn>

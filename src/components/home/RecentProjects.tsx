@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InversedFlipButton } from '@/components/buttons';
+import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 // Asset Imports
@@ -57,15 +57,16 @@ const GalleryItem: React.FC<{
   item,
   aspectRatio
 }) => {
-  return <div className={`relative overflow-hidden w-full ${aspectRatio} bg-stone-800`}>
+    return <div className={`relative overflow-hidden w-full ${aspectRatio} bg-stone-800`}>
       <img src={item.url} alt="Feigro Project" className="w-full h-full object-cover grayscale-[0.1] hover:grayscale-0 transition-all duration-700" loading="lazy" />
     </div>;
-};
+  };
 export const RecentProjects = () => {
   const navigate = useNavigate();
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [numCols, setNumCols] = useState(3);
+  const [buttonSize, setButtonSize] = useState<'default' | 'large'>('large');
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -80,10 +81,12 @@ export const RecentProjects = () => {
     };
     const handleResize = () => {
       // Mobile: 2 cols, Tablet/Desktop: 3 cols
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 768) {
         setNumCols(2);
+        setButtonSize('default');
       } else {
         setNumCols(3);
+        setButtonSize('large');
       }
     };
     window.addEventListener('scroll', handleScroll, {
@@ -105,32 +108,29 @@ export const RecentProjects = () => {
     height: 'aspect-[4/5]'
   }];
   return <section ref={sectionRef} id="projecten" className="pt-12 md:pt-24 lg:pt-32 pb-0 bg-white overflow-hidden relative border-t border-slate-100">
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Mobile: Stacked layout with button inline after title */}
-        <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between md:gap-8 md:mb-16 lg:mb-24">
-          <div className="max-w-3xl">
-            <FadeIn>
-              <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-                <div className="w-6 md:w-12 h-[2px] bg-brand-green"></div>
-                <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.95] tracking-tighter uppercase">
-                Recente <span className="text-brand-green italic">Projecten</span>
-              </h2>
-            </FadeIn>
-          </div>
-          <FadeIn delay={0.2} direction="none" className="shrink-0">
-            <InversedFlipButton label="Alle Projecten" size="default" onClick={() => navigate('/projecten')} />
+    <div className="container mx-auto px-4 md:px-6 relative z-10">
+      {/* Mobile: Stacked layout with button inline after title */}
+      <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between md:gap-8 md:mb-16 lg:mb-24">
+        <div className="max-w-3xl">
+          <FadeIn>
+            <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
+              <div className="w-6 md:w-12 h-[2px] bg-brand-green"></div>
+              <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.95] tracking-tighter uppercase">
+              Recente <span className="text-brand-green italic">Projecten</span>
+            </h2>
           </FadeIn>
         </div>
       </div>
+    </div>
 
-      {/* Masonry Gallery Implementation - Full Width */}
-      <div className="relative w-full h-[900px] sm:h-[1200px] md:h-[1500px] lg:h-[1800px] overflow-hidden">
-        <div className={`grid ${numCols === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-1 w-full`}>
-          {Array.from({
+    {/* Masonry Gallery Implementation - Full Width */}
+    <div className="relative w-full h-[900px] sm:h-[1200px] md:h-[1500px] lg:h-[1800px] overflow-hidden">
+      <div className={`grid ${numCols === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-1 w-full`}>
+        {Array.from({
           length: numCols
         }).map((_, colIndex) => {
           const multiplier = COL_MULTIPLIERS[colIndex % 3];
@@ -154,18 +154,25 @@ export const RecentProjects = () => {
           return <div key={colIndex} className="flex flex-col gap-1 transition-transform duration-300 ease-out will-change-transform" style={{
             transform: `translate3d(0, ${totalOffset}px, 0)`
           }}>
-                {colImages.map((item, rowIdx) => <GalleryItem key={`${colIndex}-${rowIdx}`} item={item} aspectRatio={colConfigs[rowIdx % 3].height} />)}
-              </div>;
+            {colImages.map((item, rowIdx) => <GalleryItem key={`${colIndex}-${rowIdx}`} item={item} aspectRatio={colConfigs[rowIdx % 3].height} />)}
+          </div>;
         })}
-        </div>
-
-        {/* Deep Fade Overlay */}
-        <div className="absolute bottom-0 left-0 w-full h-1/4 pointer-events-none z-20" style={{
-        background: 'linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.) 50%, transparent 100%)'
-      }}></div>
       </div>
 
-      {/* Background Decorative Text */}
-      {/* END Background Decorative Text - REMOVED */}
-    </section>;
+      {/* Deep Fade Overlay */}
+      <div className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none z-20 flex items-end justify-center pb-24 md:pb-40" style={{
+        background: 'linear-gradient(to top, white 0%, white 10%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0) 100%)'
+      }}>
+        {/* Bottom Button - Inside Overlay for better control */}
+        <div className="relative z-30 pointer-events-auto">
+          <FadeIn delay={0.1}>
+            <PrimaryFlipButton label="Alle Projecten" size={buttonSize} onClick={() => navigate('/projecten')} />
+          </FadeIn>
+        </div>
+      </div>
+    </div>
+
+    {/* Background Decorative Text */}
+    {/* END Background Decorative Text - REMOVED */}
+  </section >;
 };

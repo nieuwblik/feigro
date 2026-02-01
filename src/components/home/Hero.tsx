@@ -17,7 +17,7 @@ export const Hero = () => {
 
   // Background parallax speed set to ~0.7x (moves 30% of scroll distance)
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  return <section ref={containerRef} className="relative h-screen w-full flex items-center overflow-hidden bg-black">
+  return <section ref={containerRef} className="relative h-screen w-full flex items-start overflow-hidden bg-black">
     {/* Hero Background with Parallax */}
     <div className="absolute inset-0 z-0">
       <motion.img src={heroImage} alt="Professional roofing work" className="w-full h-[130%] object-cover brightness-50 animate-slow-zoom" style={{
@@ -28,7 +28,7 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
     </div>
 
-    <div className="container mx-auto px-6 relative z-10 pt-20 pb-12 flex flex-col items-start">
+    <div className="container mx-auto px-6 relative z-10 pt-32 md:pt-40 lg:pt-52 xl:pt-60 pb-20 flex flex-col items-start">
       <div className="max-w-5xl flex flex-col items-start text-left">
         {/* Badge */}
         <FadeIn distance={20}>
@@ -77,7 +77,7 @@ export const Hero = () => {
         </FadeIn>
 
         {/* Stats Bar */}
-        <div className="mt-8 md:mt-12 flex flex-wrap justify-start gap-6 sm:gap-8 md:gap-12 lg:gap-16 border-t border-white/10 pt-6 md:pt-10 w-full">
+        <div className="mt-12 md:mt-16 flex flex-wrap justify-start gap-6 sm:gap-8 md:gap-12 lg:gap-16 border-t border-white/10 pt-6 md:pt-10 w-full">
           {[{
             val: '100%',
             label: 'Lekkagevrij'

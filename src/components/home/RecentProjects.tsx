@@ -19,9 +19,9 @@ import img11 from '@/assets/lekvrij-dak-nederland.jpg';
 // --- CONFIGURATION ---
 const COL_MULTIPLIERS = [1.0, 0.9, 1.1]; // Reduced spread for subtler movement
 const BASE_DEVIATION = 180; // Reduced (was 280) for less intense parallax
-const INITIAL_OFFSET_FIRST = 120; // Left column starts slightly lower in 3-col
-const INITIAL_OFFSET_MIDDLE = 20; // Lowered middle column (was -60)
-const INITIAL_OFFSET_RIGHT = -10; // Lowered right column (was -90)
+const INITIAL_OFFSET_FIRST = 0; // Left column starts at top to ensure visibility
+const INITIAL_OFFSET_MIDDLE = 60; // Middle column offset
+const INITIAL_OFFSET_RIGHT = 30; // Right column offset
 
 const IMAGES_POOL = [{
   url: img2

@@ -258,16 +258,22 @@ export default function ProjectDetail() {
                 <p className="text-slate-600 mb-6">
                   Wij staan klaar om uw dakproject vakkundig uit te voeren. Neem contact op voor een vrijblijvende offerte.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-3">
                   <PrimaryFlipButton
                     label="Vraag offerte aan"
                     icon={<ArrowUpRight size={18} />}
                     onClick={() => navigate('/contact')}
                   />
-                  <InversedFlipButton
-                    label="Bel 0228-564017"
-                    onClick={() => window.location.href = 'tel:0228564017'}
-                  />
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <InversedFlipButton
+                      label="Jan: +31 6 37158612"
+                      onClick={() => window.location.href = 'tel:+31637158612'}
+                    />
+                    <InversedFlipButton
+                      label="Tommie: +31 6 13731303"
+                      onClick={() => window.location.href = 'tel:+31613731303'}
+                    />
+                  </div>
                 </div>
               </motion.div>
             </div>

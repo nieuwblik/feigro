@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
@@ -395,37 +395,140 @@ export default function BlogDetail() {
         </div>
       </section>
 
-      {/* Article Content */}
+      {/* Article Content with Sidebar */}
       <article className="py-16 md:py-24 px-4 md:px-6 bg-white">
-        <div className="container mx-auto max-w-3xl">
-          <div className="space-y-6">
-            {post.sections.map((section, index) => renderSection(section, index))}
-          </div>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <div className="space-y-6">
+                {post.sections.map((section, index) => renderSection(section, index))}
+              </div>
 
-          {/* Author & Share */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center">
-                <span className="text-brand-green font-bold text-lg">F</span>
-              </div>
-              <div>
-                <p className="text-slate-900 font-bold">{post.author}</p>
-                <p className="text-slate-500 text-sm">Dakwerken Specialist</p>
-              </div>
+              {/* Author & Share */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center">
+                    <span className="text-brand-green font-bold text-lg">F</span>
+                  </div>
+                  <div>
+                    <p className="text-slate-900 font-bold">{post.author}</p>
+                    <p className="text-slate-500 text-sm">Dakwerken Specialist</p>
+                  </div>
+                </div>
+                <Link to="/contact">
+                  <PrimaryFlipButton
+                    label="Vraag advies aan"
+                    icon={<ArrowRight size={16} />}
+                    size="small"
+                  />
+                </Link>
+              </motion.div>
             </div>
-            <Link to="/contact">
-              <PrimaryFlipButton
-                label="Vraag advies aan"
-                icon={<ArrowRight size={16} />}
-                size="small"
-              />
-            </Link>
-          </motion.div>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-1">
+              <div className="sticky top-32 space-y-6">
+                {/* Contact Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-black rounded-2xl p-8 text-white"
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center">
+                      <Phone size={20} className="text-brand-green" />
+                    </div>
+                    <div>
+                      <p className="text-white/50 text-xs uppercase tracking-wider">Direct contact</p>
+                      <p className="font-bold text-lg">FEIGRO</p>
+                    </div>
+                  </div>
+                  <p className="text-white/70 text-sm mb-6 font-light leading-relaxed">
+                    Hulp nodig bij uw dak? Onze specialisten staan klaar voor advies, inspectie of reparatie.
+                  </p>
+                  <a 
+                    href="tel:+31612345678" 
+                    className="block w-full bg-brand-green hover:bg-white hover:text-black text-center py-4 rounded-xl font-bold text-sm uppercase tracking-wider transition-all"
+                  >
+                    Bel: 06 123 456 78
+                  </a>
+                </motion.div>
+
+                {/* Services Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-slate-50 rounded-2xl p-8 border border-slate-200"
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <Wrench size={20} className="text-brand-green" />
+                    <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Onze Diensten</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {[
+                      { name: 'Dakreparatie', href: '/dakreparatie' },
+                      { name: 'Dakonderhoud', href: '/dakonderhoud' },
+                      { name: 'Dakrenovatie', href: '/dakrenovatie' },
+                      { name: 'Daklekkage', href: '/daklekkage' },
+                      { name: 'Valbeveiliging', href: '/valbeveiliging' },
+                    ].map((service) => (
+                      <li key={service.name}>
+                        <Link 
+                          to={service.href}
+                          className="flex items-center gap-2 text-slate-600 hover:text-brand-green transition-colors text-sm font-light"
+                        >
+                          <ArrowRight size={12} />
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+
+                {/* Werkgebied Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-brand-green/10 rounded-2xl p-8 border border-brand-green/20"
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <MapPin size={20} className="text-brand-green" />
+                    <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Werkgebied</h3>
+                  </div>
+                  <p className="text-slate-600 text-sm font-light mb-4">
+                    FEIGRO is actief in:
+                  </p>
+                  <ul className="space-y-2">
+                    {['Noord-Holland', 'Flevoland', 'Utrecht'].map((region) => (
+                      <li key={region} className="flex items-center gap-2 text-slate-900 font-medium text-sm">
+                        <CheckCircle2 size={14} className="text-brand-green" />
+                        {region}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 pt-6 border-t border-brand-green/20">
+                    <Link 
+                      to="/contact"
+                      className="text-brand-green text-xs font-bold uppercase tracking-wider hover:text-slate-900 transition-colors flex items-center gap-2"
+                    >
+                      Offerte aanvragen <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            </aside>
+          </div>
         </div>
       </article>
 

@@ -51,6 +51,9 @@ export const Hero = () => {
           <p className="text-white/70 text-sm md:text-base lg:text-lg mb-4 md:mb-6 max-w-2xl leading-relaxed font-light">
             FEIGRO Dakwerken biedt duurzame bescherming voor elk gebouw.
             Van renovatie tot onderhoud, wij leveren vakmanschap van de hoogste plank.
+            <span className="block mt-2 text-white/50 text-xs md:text-sm">
+              Werkzaam in Noord-Holland, Flevoland en Utrecht.
+            </span>
           </p>
         </FadeIn>
 

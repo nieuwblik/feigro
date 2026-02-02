@@ -65,6 +65,9 @@ export default function OverOns() {
           <FadeIn delay={0.2}>
             <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10">
               Met ruim 20 jaar ervaring zijn wij uw vertrouwde partner voor hoogwaardige dakoplossingen. Wij combineren traditioneel vakmanschap met moderne innovatie.
+              <span className="block mt-3 text-white/50 text-sm">
+                Werkzaam in Noord-Holland, Flevoland en Utrecht.
+              </span>
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -90,7 +93,7 @@ export default function OverOns() {
                 </h2>
                 <div className="space-y-6 md:space-y-8 text-base md:text-lg text-slate-600 leading-relaxed font-light">
                   <p>
-                    Feigro Dakwerken is uw gespecialiseerde dakdekkersbedrijf voor Noord-Holland (West-Friesland).
+                    Feigro Dakwerken is uw gespecialiseerde dakdekkersbedrijf, actief in Noord-Holland, Flevoland en Utrecht.
                     Tommie Feitsma en Jan Groen staan als gezamenlijke eigenaren aan het roer van de organisatie. Met hun gedeelde passie voor het vak
                     en jarenlange ervaring in de dakbedekking, waarborgen zij persoonlijk de kwaliteit en service waar Feigro voor staat.
                   </p>
@@ -203,7 +206,7 @@ export default function OverOns() {
           <FadeIn delay={0.3}>
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed">
-                Door onze krachten te bundelen bieden wij nu als <span className="font-bold text-brand-green">FEIGRO</span> de beste service in heel West-Friesland.
+                Door onze krachten te bundelen bieden wij nu als <span className="font-bold text-brand-green">FEIGRO</span> de beste service in Noord-Holland, Flevoland en Utrecht.
                 Twee bedrijven, één missie: uw dak in topconditie houden.
               </p>
             </div>

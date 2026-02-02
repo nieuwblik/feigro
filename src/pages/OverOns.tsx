@@ -4,6 +4,7 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import imgHero from '@/assets/dakrenovatie-noordholland.jpg';
 import imgStory from '@/assets/lekvrij-dak-nederland.jpg';
 
@@ -145,7 +146,7 @@ export default function OverOns() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto mb-16 md:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto mb-10 md:mb-14">
             {/* Feitsma Card */}
             <FadeIn delay={0.1}>
               <a
@@ -180,7 +181,7 @@ export default function OverOns() {
                 href="https://groendakwerken.nl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-8 md:p-10 lg:p-12 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
+                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
               >
                 <div className="flex items-center gap-4 mb-6 md:mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
@@ -202,6 +203,29 @@ export default function OverOns() {
               </a>
             </FadeIn>
           </div>
+
+          {/* Google Review Cards */}
+          <FadeIn className="mb-10 md:mb-14">
+            <div className="text-center mb-6 md:mb-8">
+              <p className="text-slate-500 text-sm md:text-base font-light">
+                Ontdek de beoordelingen van beide bedrijven vóór de samenwerking
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
+              <GoogleReviewCard
+                companyName="Feitsma Dakwerken"
+                rating={4.9}
+                reviewCount={47}
+                googleUrl="https://www.google.com/search?sxsrf=ANbL-n66AiS6rGRTdIEQ-jXw2FZlag3S-Q:1770033470519&q=FEITSMA+DAKWERKEN&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfXETfLpu6FeggdPhBHaypUTIcTOg5gRUkEfKdDv1Y5R5om9_jjiEQzwnTxqsfMs15mTV3E%3D&uds=ALYpb_lYhTQoihMExfBHVPUjHWLhoOxWyfFds83MA55BVXMRHqxBLhl8h49aUHvvd1Xo4BXc72j5L0Xvh64CnVJjPFgFLIz6dmEDd8caAGLRISFe44r7DN0&aic=0"
+              />
+              <GoogleReviewCard
+                companyName="Groen Dakwerken"
+                rating={5.0}
+                reviewCount={32}
+                googleUrl="https://www.google.com/search?sca_esv=358352e6032d6e12&sxsrf=ANbL-n6vCdS9U7A0_YII1si5z16TEDjSWg:1770033263112&q=groen+dakwerken&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVNddeclMJ1hYx2VBoGNsJgArN7hZobVuA2K6bmQG3LEdaIBLSyKajtTyIkaifBrTQJRcQQ%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWc8DiUuVMlava_ObHRlkvsWcrqqDA_hwTS-Ux5q0UTQUmLz6XpTVmpvuLPVDuwTyVGOQKuHoSDkIzWlOM6cszs4UzRls&sa=X&ved=2ahUKEwjJuY3f37qSAxUHgf0HHbchOQ8Q3PALegQIHBAE&biw=1413&bih=983&dpr=0.9&aic=0"
+              />
+            </div>
+          </FadeIn>
 
           <FadeIn delay={0.3}>
             <div className="text-center max-w-2xl mx-auto">

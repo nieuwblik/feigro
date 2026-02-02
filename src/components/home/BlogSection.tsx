@@ -88,7 +88,7 @@ export const BlogSection = () => {
           delay: 0.1
         }} className="lg:row-span-2">
             <Link to={`/nieuws/${featuredPost.slug}`} className="group block h-full">
-              <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-feigro-dark">
+              <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-feigro-dark shadow-xl shadow-feigro-dark/20 group-hover:shadow-2xl group-hover:shadow-feigro-dark/30 transition-shadow duration-500">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -150,7 +150,7 @@ export const BlogSection = () => {
           delay: 0.2 + index * 0.1
         }}>
               <Link to={`/nieuws/${post.slug}`} className="group block">
-                <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-feigro-dark/5 border border-feigro-dark/10 hover:border-brand-green/30 hover:bg-feigro-dark/10 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-feigro-dark/5 border border-feigro-dark/10 shadow-md shadow-feigro-dark/5 hover:shadow-lg hover:shadow-feigro-dark/10 hover:border-brand-green/30 hover:bg-feigro-dark/10 transition-all duration-300">
                   {/* Image */}
                   <div className="relative w-full sm:w-32 lg:w-full h-40 sm:h-24 lg:h-40 rounded-xl overflow-hidden shrink-0">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />

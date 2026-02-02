@@ -5,64 +5,61 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
 import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.jpg';
-
-const blogPosts = [
-  {
-    slug: 'epdm-dakbedekking',
-    title: 'EPDM Dakbedekking',
-    excerpt: 'EPDM is een van de meest duurzame opties voor platte daken met een levensduur van 40-50 jaar.',
-    date: '2026-02-02',
-    readTime: '5 min',
-    category: 'Materialen',
-    image: imgEPDM,
-    featured: true,
-  },
-  {
-    slug: 'duurzame-dakbedekking-trends-2026',
-    title: 'Duurzame Dakbedekking',
-    excerpt: 'Een van de grootste trends in 2026 is de opkomst van duurzame dakbedekkingen.',
-    date: '2026-02-02',
-    readTime: '4 min',
-    category: 'Trends',
-    image: imgDuurzaam,
-    featured: false,
-  },
-  {
-    slug: 'geintegreerde-zonnepanelen',
-    title: 'Geïntegreerde Zonnepanelen',
-    excerpt: 'Een opkomende innovatie waarbij zonnepanelen naadloos in de dakconstructie worden verwerkt.',
-    date: '2026-02-02',
-    readTime: '6 min',
-    category: 'Innovatie',
-    image: imgZonnepanelen,
-    featured: false,
-  },
-];
-
+const blogPosts = [{
+  slug: 'epdm-dakbedekking',
+  title: 'EPDM Dakbedekking',
+  excerpt: 'EPDM is een van de meest duurzame opties voor platte daken met een levensduur van 40-50 jaar.',
+  date: '2026-02-02',
+  readTime: '5 min',
+  category: 'Materialen',
+  image: imgEPDM,
+  featured: true
+}, {
+  slug: 'duurzame-dakbedekking-trends-2026',
+  title: 'Duurzame Dakbedekking',
+  excerpt: 'Een van de grootste trends in 2026 is de opkomst van duurzame dakbedekkingen.',
+  date: '2026-02-02',
+  readTime: '4 min',
+  category: 'Trends',
+  image: imgDuurzaam,
+  featured: false
+}, {
+  slug: 'geintegreerde-zonnepanelen',
+  title: 'Geïntegreerde Zonnepanelen',
+  excerpt: 'Een opkomende innovatie waarbij zonnepanelen naadloos in de dakconstructie worden verwerkt.',
+  date: '2026-02-02',
+  readTime: '6 min',
+  category: 'Innovatie',
+  image: imgZonnepanelen,
+  featured: false
+}];
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString('nl-NL', { day: '2-digit', month: 'short', year: 'numeric' });
+  return date.toLocaleDateString('nl-NL', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
 };
-
 export const BlogSection = () => {
   const featuredPost = blogPosts[0];
   const otherPosts = blogPosts.slice(1);
-
-  return (
-    <section className="py-16 md:py-24 bg-black overflow-hidden">
+  return <section className="py-16 md:py-24 bg-black overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.6
+      }} className="mb-12 md:mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-brand-green/10 flex items-center justify-center">
-              <Sparkles size={20} className="text-brand-green" />
-            </div>
+            
             <span className="text-brand-green text-xs font-bold uppercase tracking-[0.2em]">
               Nieuws & Inzichten
             </span>
@@ -78,25 +75,23 @@ export const BlogSection = () => {
         {/* Blog Grid - Mobile: stacked, Desktop: featured + sidebar */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* Featured Post - Large Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:row-span-2"
-          >
-            <Link
-              to={`/nieuws/${featuredPost.slug}`}
-              className="group block h-full"
-            >
+          <motion.div initial={{
+          opacity: 0,
+          y: 40
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6,
+          delay: 0.1
+        }} className="lg:row-span-2">
+            <Link to={`/nieuws/${featuredPost.slug}`} className="group block h-full">
               <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-slate-900">
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img
-                    src={featuredPost.image}
-                    alt={featuredPost.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
 
@@ -143,26 +138,23 @@ export const BlogSection = () => {
           </motion.div>
 
           {/* Other Posts - Compact Cards */}
-          {otherPosts.map((post, index) => (
-            <motion.div
-              key={post.slug}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-            >
-              <Link
-                to={`/nieuws/${post.slug}`}
-                className="group block"
-              >
+          {otherPosts.map((post, index) => <motion.div key={post.slug} initial={{
+          opacity: 0,
+          y: 40
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.6,
+          delay: 0.2 + index * 0.1
+        }}>
+              <Link to={`/nieuws/${post.slug}`} className="group block">
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-green/30 hover:bg-white/10 transition-all duration-300">
                   {/* Image */}
                   <div className="relative w-full sm:w-32 lg:w-full h-40 sm:h-24 lg:h-40 rounded-xl overflow-hidden shrink-0">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                     
                     {/* Category Badge */}
@@ -197,23 +189,26 @@ export const BlogSection = () => {
                   </div>
                 </div>
               </Link>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 md:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.6,
+        delay: 0.4
+      }} className="mt-12 md:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link to="/nieuws">
             <PrimaryFlipButton label="Bekijk alle artikelen" />
           </Link>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };

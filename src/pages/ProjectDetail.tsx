@@ -264,15 +264,16 @@ export default function ProjectDetail() {
                     icon={<ArrowUpRight size={18} />}
                     onClick={() => navigate('/contact')}
                   />
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <InversedFlipButton
-                      label="Jan: +31 6 37158612"
-                      onClick={() => window.location.href = 'tel:+31637158612'}
-                    />
-                    <InversedFlipButton
-                      label="Tommie: +31 6 13731303"
-                      onClick={() => window.location.href = 'tel:+31613731303'}
-                    />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 pt-2">
+                    <span className="text-slate-400 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
+                    <div className="flex flex-row gap-4 sm:gap-6">
+                      <a href="tel:+31637158612" className="text-slate-900 font-bold text-sm md:text-base hover:text-brand-green transition-colors">
+                        <span className="text-slate-400 text-xs block sm:inline">Jan:</span> +31 6 37158612
+                      </a>
+                      <a href="tel:+31613731303" className="text-slate-900 font-bold text-sm md:text-base hover:text-brand-green transition-colors">
+                        <span className="text-slate-400 text-xs block sm:inline">Tommie:</span> +31 6 13731303
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>

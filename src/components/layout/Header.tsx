@@ -370,7 +370,7 @@ export const Header = () => {
                 <div className="flex flex-col gap-6 mt-12 pb-12">
                   <motion.div variants={itemVariants}>
                     <PrimaryFlipButton
-                      label="Offerte Aanvragen"
+                      label="Offerte aanvragen"
                       onClick={() => { setIsMenuOpen(false); window.location.href = '/contact'; }}
                       className="w-full sm:max-w-md"
                     />

@@ -61,7 +61,7 @@ export const About = () => {
 
             <FadeIn delay={0.3}>
               <InversedFlipButton
-                label="Ontdek Onze Diensten"
+                label="Ontdek onze diensten"
                 onClick={() => {
                   const el = document.getElementById('diensten');
                   el?.scrollIntoView({ behavior: 'smooth' });

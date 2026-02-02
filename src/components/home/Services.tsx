@@ -123,7 +123,7 @@ export const Services = () => {
                 className="cursor-pointer inline-block"
               >
                 <PrimaryFlipButton
-                  label="Direct Contact"
+                  label="Direct contact"
                   icon={<ArrowRight />}
                 />
               </div>

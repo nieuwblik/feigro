@@ -58,7 +58,7 @@ export default function Nieuws() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden min-h-[50vh] md:h-[45vh] flex items-center">
+      <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden h-screen flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-brand-green/10"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/5 blur-[150px] rounded-full"></div>
         

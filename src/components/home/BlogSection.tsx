@@ -59,7 +59,7 @@ export const BlogSection = () => {
         duration: 0.6
       }} className="mb-12 md:mb-16">
           <div className="flex items-center gap-3 mb-4">
-            
+            <span className="w-12 h-[2px] bg-brand-green" />
             <span className="text-brand-green text-xs font-bold uppercase tracking-[0.2em]">
               Nieuws & Inzichten
             </span>

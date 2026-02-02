@@ -3,27 +3,24 @@ import { ArrowRight, Star } from 'lucide-react';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
-
 const COMPANY_DATA = {
   feitsma: {
     name: 'Feitsma Dakwerken',
     abbr: 'FEI',
     rating: 4.7,
     reviewCount: '19+',
-    googleUrl: 'https://www.google.com/search?sxsrf=ANbL-n66AiS6rGRTdIEQ-jXw2FZlag3S-Q:1770033470519&q=FEITSMA+DAKWERKEN&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfXETfLpu6FeggdPhBHaypUTIcTOg5gRUkEfKdDv1Y5R5om9_jjiEQzwnTxqsfMs15mTV3E%3D&uds=ALYpb_lYhTQoihMExfBHVPUjHWLhoOxWyfFds83MA55BVXMRHqxBLhl8h49aUHvvd1Xo4BXc72j5L0Xvh64CnVJjPFgFLIz6dmEDd8caAGLRISFe44r7DN0&aic=0',
+    googleUrl: 'https://www.google.com/search?sxsrf=ANbL-n66AiS6rGRTdIEQ-jXw2FZlag3S-Q:1770033470519&q=FEITSMA+DAKWERKEN&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfXETfLpu6FeggdPhBHaypUTIcTOg5gRUkEfKdDv1Y5R5om9_jjiEQzwnTxqsfMs15mTV3E%3D&uds=ALYpb_lYhTQoihMExfBHVPUjHWLhoOxWyfFds83MA55BVXMRHqxBLhl8h49aUHvvd1Xo4BXc72j5L0Xvh64CnVJjPFgFLIz6dmEDd8caAGLRISFe44r7DN0&aic=0'
   },
   groen: {
     name: 'Groen Dakwerken',
     abbr: 'GRO',
     rating: 5.0,
     reviewCount: '130+',
-    googleUrl: 'https://www.google.com/search?sca_esv=358352e6032d6e12&sxsrf=ANbL-n6vCdS9U7A0_YII1si5z16TEDjSWg:1770033263112&q=groen+dakwerken&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVNddeclMJ1hYx2VBoGNsJgArN7hZobVuA2K6bmQG3LEdaIBLSyKajtTyIkaifBrTQJRcQQ%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWc8DiUuVMlava_ObHRlkvsWcrqqDA_hwTS-Ux5q0UTQUmLz6XpTVmpvuLPVDuwTyVGOQKuHoSDkIzWlOM6cszs4UzRls&sa=X&ved=2ahUKEwjJuY3f37qSAxUHgf0HHbchOQ8Q3PALegQIHBAE&biw=1413&bih=983&dpr=0.9&aic=0',
-  },
+    googleUrl: 'https://www.google.com/search?sca_esv=358352e6032d6e12&sxsrf=ANbL-n6vCdS9U7A0_YII1si5z16TEDjSWg:1770033263112&q=groen+dakwerken&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVNddeclMJ1hYx2VBoGNsJgArN7hZobVuA2K6bmQG3LEdaIBLSyKajtTyIkaifBrTQJRcQQ%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWc8DiUuVMlava_ObHRlkvsWcrqqDA_hwTS-Ux5q0UTQUmLz6XpTVmpvuLPVDuwTyVGOQKuHoSDkIzWlOM6cszs4UzRls&sa=X&ved=2ahUKEwjJuY3f37qSAxUHgf0HHbchOQ8Q3PALegQIHBAE&biw=1413&bih=983&dpr=0.9&aic=0'
+  }
 };
-
 export const CompanyHeritage = () => {
-  return (
-    <section className="py-20 md:py-28 lg:py-36 bg-gradient-to-br from-[#2E383F] via-[#3a464d] to-[#2E383F] overflow-hidden relative">
+  return <section className="py-20 md:py-28 lg:py-36 bg-gradient-to-br from-[#2E383F] via-[#3a464d] to-[#2E383F] overflow-hidden relative">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#91A3AB]/15 via-transparent to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#91A3AB]/10 blur-[120px] rounded-full"></div>
@@ -65,7 +62,7 @@ export const CompanyHeritage = () => {
             </div>
             <div className="text-white/40 text-3xl md:text-4xl">=</div>
             <div className="px-6 py-3 bg-brand-green rounded-lg">
-              <span className="text-slate-900 font-heading text-2xl md:text-3xl font-bold tracking-tight">FEIGRO</span>
+              <span className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-black">FEIGRO</span>
             </div>
           </div>
         </FadeIn>
@@ -73,20 +70,10 @@ export const CompanyHeritage = () => {
         {/* Review Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto mb-12 md:mb-16">
           <FadeIn delay={0.2}>
-            <GoogleReviewCard
-              companyName={COMPANY_DATA.feitsma.name}
-              rating={COMPANY_DATA.feitsma.rating}
-              reviewCount={COMPANY_DATA.feitsma.reviewCount}
-              googleUrl={COMPANY_DATA.feitsma.googleUrl}
-            />
+            <GoogleReviewCard companyName={COMPANY_DATA.feitsma.name} rating={COMPANY_DATA.feitsma.rating} reviewCount={COMPANY_DATA.feitsma.reviewCount} googleUrl={COMPANY_DATA.feitsma.googleUrl} />
           </FadeIn>
           <FadeIn delay={0.3}>
-            <GoogleReviewCard
-              companyName={COMPANY_DATA.groen.name}
-              rating={COMPANY_DATA.groen.rating}
-              reviewCount={COMPANY_DATA.groen.reviewCount}
-              googleUrl={COMPANY_DATA.groen.googleUrl}
-            />
+            <GoogleReviewCard companyName={COMPANY_DATA.groen.name} rating={COMPANY_DATA.groen.rating} reviewCount={COMPANY_DATA.groen.reviewCount} googleUrl={COMPANY_DATA.groen.googleUrl} />
           </FadeIn>
         </div>
 
@@ -94,9 +81,7 @@ export const CompanyHeritage = () => {
         <FadeIn delay={0.4}>
           <div className="text-center bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-6 md:p-8 max-w-2xl mx-auto mb-10 md:mb-12">
             <div className="flex items-center justify-center gap-1 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={20} className="text-[#FBBC05] fill-[#FBBC05]" />
-              ))}
+              {[...Array(5)].map((_, i) => <Star key={i} size={20} className="text-[#FBBC05] fill-[#FBBC05]" />)}
             </div>
             <p className="text-white/80 text-lg md:text-xl mb-2">
               <span className="font-bold text-white">149+ tevreden klanten</span> gaven ons gemiddeld
@@ -107,13 +92,8 @@ export const CompanyHeritage = () => {
 
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center">
-          <PrimaryFlipButton
-            label="Ontdek ons verhaal"
-            icon={<ArrowRight />}
-            onClick={() => window.location.href = '/over-ons'}
-          />
+          <PrimaryFlipButton label="Ontdek ons verhaal" icon={<ArrowRight />} onClick={() => window.location.href = '/over-ons'} />
         </FadeIn>
       </div>
-    </section>
-  );
+    </section>;
 };

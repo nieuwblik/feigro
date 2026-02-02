@@ -6,3 +6,4 @@ export * from './Reviews';
 export * from './RecentProjects';
 export * from './Footer';
 export * from './Testimonials';
+export * from './BlogSection';

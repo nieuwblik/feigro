@@ -5,7 +5,7 @@ import aboutImage from '@/assets/dakrenovatie.jpg';
 
 export const About = () => {
   return (
-    <section id="over" className="py-20 md:py-28 lg:py-36 bg-white overflow-hidden relative">
+    <section id="over" className="py-20 md:py-28 lg:py-36 bg-brand-grey/10 overflow-hidden relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20 lg:gap-28 items-center">
 

@@ -10,6 +10,9 @@ import bitumensysteemAlmere1 from '@/assets/projects/bitumensysteem-almere-1.web
 import bitumensysteemAlmere2 from '@/assets/projects/bitumensysteem-almere-2.webp';
 import bitumensysteemAlmere3 from '@/assets/projects/bitumensysteem-almere-3.webp';
 import bitumensysteemAlmere4 from '@/assets/projects/bitumensysteem-almere-4.webp';
+import dakrenovatieHoogwoud1 from '@/assets/projects/dakrenovatie-hoogwoud-1.webp';
+import dakrenovatieHoogwoud2 from '@/assets/projects/dakrenovatie-hoogwoud-2.webp';
+import dakrenovatieHoogwoud3 from '@/assets/projects/dakrenovatie-hoogwoud-3.webp';
 
 export interface Project {
   slug: string;
@@ -27,6 +30,26 @@ export interface Project {
 }
 
 export const projects: Record<string, Project> = {
+  'dakrenovatie-hoogwoud': {
+    slug: 'dakrenovatie-hoogwoud',
+    title: 'Dakrenovatie Hoogwoud - Bouwbedrijf Ronald Bos',
+    category: 'Dakrenovatie',
+    location: 'Hoogwoud',
+    date: '2026-02-02',
+    size: 'Volledig dak',
+    shortDescription: 'Volledige dakvernieuwing met tweelaags Garantgum dakbedekkingssysteem met witte mineraal.',
+    description: 'In samenwerking met Bouwbedrijf Ronald Bos heeft Feigro dit dak volledig vernieuwd. We hebben een tweelaags Garantgum dakbedekkingssysteem met witte mineraal aangebracht, een duurzame en strakke oplossing voor jarenlang onderhoudsvrij dakcomfort.\n\nHet bouwbedrijf heeft vooraf het volledige dakbeschot verwijderd en nieuwe isolatie met een RC-waarde van 6 tussen de draagbalken geplaatst. Daarna is er een nieuw dakbeschot aangebracht, waarop wij ons vakwerk hebben geleverd.\n\nTrots op deze mooie samenwerking en het strakke eindbeeld. Bedankt voor de opdracht!',
+    highlights: [
+      'Tweelaags Garantgum dakbedekkingssysteem',
+      'Witte mineraal afwerking',
+      'Samenwerking met Bouwbedrijf Ronald Bos',
+      'Nieuwe isolatie met RC-waarde 6',
+      'Volledig nieuw dakbeschot'
+    ],
+    imageBefore: dakrenovatieHoogwoud1,
+    imageAfter: dakrenovatieHoogwoud1,
+    images: [dakrenovatieHoogwoud1, dakrenovatieHoogwoud2, dakrenovatieHoogwoud3]
+  },
   'bitumensysteem-almere': {
     slug: 'bitumensysteem-almere',
     title: '2-Laags Bitumensysteem Bedrijfspand Almere',

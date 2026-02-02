@@ -15,6 +15,9 @@ import Projecten from './pages/Projecten';
 import Diensten from './pages/Diensten';
 import Spoedservice from './pages/Spoedservice';
 import Contact from './pages/Contact';
+import Nieuws from './pages/Nieuws';
+import Vacatures from './pages/Vacatures';
+import Cookies from './pages/Cookies';
 
 // Service Pages
 import VveVastgoedbeheer from './pages/services/VveVastgoedbeheer';
@@ -62,6 +65,9 @@ const App = () => (
                 <Route path="/projecten" element={<Projecten />} />
                 <Route path="/spoedservice" element={<Spoedservice />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/nieuws" element={<Nieuws />} />
+                <Route path="/vacatures" element={<Vacatures />} />
+                <Route path="/cookies" element={<Cookies />} />
 
                 {/* Service Pages */}
                 <Route path="/vve-vastgoedbeheer" element={<VveVastgoedbeheer />} />

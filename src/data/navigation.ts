@@ -48,6 +48,10 @@ export const mainNavigation: NavigationItem[] = [
     href: '/projecten',
   },
   {
+    label: 'Nieuws',
+    href: '/nieuws',
+  },
+  {
     label: 'Contact',
     href: '/contact',
   },

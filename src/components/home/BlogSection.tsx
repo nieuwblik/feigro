@@ -64,10 +64,10 @@ export const BlogSection = () => {
               Nieuws & Inzichten
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter text-white uppercase">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter text-feigro-dark uppercase">
             LAATSTE <span className="text-brand-green italic">NIEUWS</span>
           </h2>
-          <p className="text-white/60 mt-4 max-w-xl text-sm md:text-base font-light">
+          <p className="text-feigro-dark/60 mt-4 max-w-xl text-sm md:text-base font-light">
             Blijf op de hoogte van de nieuwste ontwikkelingen in dakwerken, materialen en duurzaamheid.
           </p>
         </motion.div>
@@ -88,7 +88,7 @@ export const BlogSection = () => {
           delay: 0.1
         }} className="lg:row-span-2">
             <Link to={`/nieuws/${featuredPost.slug}`} className="group block h-full">
-              <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-slate-900">
+              <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-feigro-dark">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -150,7 +150,7 @@ export const BlogSection = () => {
           delay: 0.2 + index * 0.1
         }}>
               <Link to={`/nieuws/${post.slug}`} className="group block">
-                <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-green/30 hover:bg-white/10 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-feigro-dark/5 border border-feigro-dark/10 hover:border-brand-green/30 hover:bg-feigro-dark/10 transition-all duration-300">
                   {/* Image */}
                   <div className="relative w-full sm:w-32 lg:w-full h-40 sm:h-24 lg:h-40 rounded-xl overflow-hidden shrink-0">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -166,14 +166,14 @@ export const BlogSection = () => {
 
                   {/* Content */}
                   <div className="flex-1 flex flex-col">
-                    <h3 className="text-lg md:text-xl font-heading text-white uppercase tracking-tight mb-2 group-hover:text-brand-green transition-colors">
+                    <h3 className="text-lg md:text-xl font-heading text-feigro-dark uppercase tracking-tight mb-2 group-hover:text-brand-green transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-white/50 text-sm font-light line-clamp-2 mb-3 flex-1">
+                    <p className="text-feigro-dark/60 text-sm font-light line-clamp-2 mb-3 flex-1">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3 text-white/40 text-xs">
+                      <div className="flex items-center gap-3 text-feigro-dark/50 text-xs">
                         <div className="flex items-center gap-1">
                           <Calendar size={10} />
                           <span>{formatDate(post.date)}</span>

@@ -413,8 +413,8 @@ export default function BlogDetail() {
                 className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center">
-                    <span className="text-brand-green font-bold text-lg">F</span>
+                  <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center overflow-hidden">
+                    <img src="/images/feigro-logo-wit.png" alt="Feigro" className="w-8 h-8 object-contain" />
                   </div>
                   <div>
                     <p className="text-slate-900 font-bold">{post.author}</p>

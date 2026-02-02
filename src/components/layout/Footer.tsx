@@ -168,11 +168,7 @@ export const Footer = () => {
               <a href="mailto:service@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
             </div>
 
-            {/* Row 2: Telefoon & Facturatie */}
-            <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Telefoon</span>
-              <a href="tel:+31612345678" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 (0) 6 123 456 78</a>
-            </div>
+            {/* Row 2: Facturatie */}
             <div>
               <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Facturatie</span>
               <a href="mailto:facturen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
@@ -181,15 +177,13 @@ export const Footer = () => {
             {/* Row 3: Direct Contact Links */}
             <div>
               <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Jan Groen</span>
-              <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
-                <span className="text-[11px] opacity-70">jgroen@feigro.nl</span>
-              </a>
+              <a href="tel:+31637158612" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 6 37158612</a>
+              <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-[11px] font-medium block mt-1">jgroen@feigro.nl</a>
             </div>
             <div>
               <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Tommie Feitsma</span>
-              <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">
-                <span className="text-[11px] opacity-70">tfeitsma@feigro.nl</span>
-              </a>
+              <a href="tel:+31613731303" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 6 13731303</a>
+              <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-[11px] font-medium block mt-1">tfeitsma@feigro.nl</a>
             </div>
           </div>
         </FadeIn>

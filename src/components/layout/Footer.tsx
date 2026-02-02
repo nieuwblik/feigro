@@ -18,7 +18,7 @@ export const Footer = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "0%"]);
   const services = [{
     name: 'Dakinspectie',
-    href: '/contact'
+    href: '/dakinspectie'
   }, {
     name: 'Dakonderhoud',
     href: '/dakonderhoud'
@@ -28,6 +28,15 @@ export const Footer = () => {
   }, {
     name: 'Dakbedekking Vervangen',
     href: '/dakbedekking-vervangen'
+  }, {
+    name: 'Bitumen Dakbedekking',
+    href: '/bitumen-dakbedekking'
+  }, {
+    name: 'EPDM Dakbedekking',
+    href: '/epdm-dakbedekking'
+  }, {
+    name: 'Daklekkage',
+    href: '/daklekkage'
   }];
   const navigation = [{
     name: 'Over Ons',
@@ -43,17 +52,20 @@ export const Footer = () => {
     href: '/contact'
   }];
   const resources = [{
-    name: 'Blog',
-    href: '#'
+    name: 'Dakdekkers Nieuws',
+    href: '/nieuws'
   }, {
-    name: 'Carrière',
-    href: '#'
+    name: 'Vacatures',
+    href: '/vacatures'
   }, {
     name: 'Privacybeleid',
-    href: '#'
+    href: '/privacy'
   }, {
     name: 'Algemene Voorwaarden',
-    href: '#'
+    href: '/voorwaarden'
+  }, {
+    name: 'Cookies',
+    href: '/cookies'
   }];
   const socialLinks = [{
     name: 'Instagram',
@@ -63,12 +75,6 @@ export const Footer = () => {
     href: '#'
   }, {
     name: 'LinkedIn',
-    href: '#'
-  }, {
-    name: 'Twitter',
-    href: '#'
-  }, {
-    name: 'Youtube',
     href: '#'
   }];
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];

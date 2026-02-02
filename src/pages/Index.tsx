@@ -1,4 +1,4 @@
-import { Hero, Services, About, RecentProjects, Testimonials, BlogSection } from '@/components/home';
+import { Hero, Services, About, RecentProjects, Testimonials, BlogSection, CompanyHeritage } from '@/components/home';
 
 const Index = () => {
   return (
@@ -6,6 +6,7 @@ const Index = () => {
       <Hero />
       <Services />
       <About />
+      <CompanyHeritage />
       <Testimonials />
       <BlogSection />
       <RecentProjects />

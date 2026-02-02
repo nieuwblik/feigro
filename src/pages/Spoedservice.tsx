@@ -94,7 +94,7 @@ export default function Spoedservice() {
           </FadeIn>
           <FadeIn delay={0.3}>
             <PrimaryFlipButton
-              label="Direct lekkage melden"
+              label="Naar het formulier"
               size="default"
               icon={<Phone />}
               onClick={() => {

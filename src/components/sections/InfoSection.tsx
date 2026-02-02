@@ -18,7 +18,9 @@ export function InfoSection({
 }: InfoSectionProps) {
   const renderTitle = () => {
     if (!titleHighlight) return title;
-    const parts = title.split(new RegExp(`(${titleHighlight})`, 'i'));
+    // Escape special regex characters in titleHighlight
+    const escapedHighlight = titleHighlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const parts = title.split(new RegExp(`(${escapedHighlight})`, 'i'));
     return parts.map((part, index) => part.toLowerCase() === titleHighlight.toLowerCase() ? <span key={index} className="text-brand-green italic">{part}</span> : <span key={index}>{part}</span>);
   };
   return <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-slate-50 relative overflow-hidden', className)}>

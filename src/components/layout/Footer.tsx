@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import footerImg1 from '@/assets/dakrenovatie-noordholland.jpg';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
-import footerImg3 from '@/assets/Lekkage-Feitsma.jpg';
+import footerImg3 from '@/assets/dakdekker-werk.webp';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.jpg';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

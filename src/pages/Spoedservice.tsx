@@ -93,22 +93,15 @@ export default function Spoedservice() {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:+31637158612" className="group flex items-center gap-3 bg-red-500/10 border border-red-500/30 px-5 py-3 rounded-xl hover:bg-red-500/20 transition-all">
-                <Phone size={18} className="text-red-500" />
-                <div className="flex flex-col">
-                  <span className="text-white/50 text-[10px] uppercase tracking-wider">Jan Groen</span>
-                  <span className="text-white font-bold text-sm">+31 6 37158612</span>
-                </div>
-              </a>
-              <a href="tel:+31613731303" className="group flex items-center gap-3 bg-red-500/10 border border-red-500/30 px-5 py-3 rounded-xl hover:bg-red-500/20 transition-all">
-                <Phone size={18} className="text-red-500" />
-                <div className="flex flex-col">
-                  <span className="text-white/50 text-[10px] uppercase tracking-wider">Tommie Feitsma</span>
-                  <span className="text-white font-bold text-sm">+31 6 13731303</span>
-                </div>
-              </a>
-            </div>
+            <PrimaryFlipButton
+              label="Direct lekkage melden"
+              size="default"
+              icon={<Phone />}
+              onClick={() => {
+                const el = document.getElementById('lekkage-form');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            />
           </FadeIn>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/5 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
@@ -116,7 +109,7 @@ export default function Spoedservice() {
       </section>
 
       {/* Form Section */}
-      <section className="py-20 md:py-28 lg:py-36 bg-white relative">
+      <section id="lekkage-form" className="py-20 md:py-28 lg:py-36 bg-white relative scroll-mt-20">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
@@ -203,7 +196,7 @@ export default function Spoedservice() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-12 md:mb-16 text-center uppercase tracking-tighter">
                 Wat te doen bij <span className="text-red-500 italic">Lekkage?</span>
               </h2>
-              <div className="grid gap-6 md:gap-8">
+              <div className="grid gap-6 md:gap-8 mb-12 md:mb-16">
                 {[
                   { title: 'Vul het lekkageformulier in', desc: 'Directe intake van uw situatie voor een snelle respons' },
                   { title: 'Plaats emmers/bakken', desc: 'Direct onder het lek om waterschade te beperken' },
@@ -223,6 +216,35 @@ export default function Spoedservice() {
                     </div>
                   </FadeIn>
                 ))}
+              </div>
+
+              {/* Emergency Call Section */}
+              <div className="border-t border-slate-200 pt-10 md:pt-12">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-4">
+                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">SPOED? BEL DIRECT</span>
+                  </div>
+                  <p className="text-slate-600 text-sm md:text-base font-light max-w-md mx-auto">
+                    Kan het niet wachten? Bel direct één van onze specialisten voor acute hulp.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <a href="tel:+31637158612" className="group flex items-center justify-center gap-4 bg-red-500/5 border border-red-500/20 px-6 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/40 transition-all">
+                    <Phone size={20} className="text-red-500" />
+                    <div className="text-left">
+                      <span className="text-slate-400 text-[10px] uppercase tracking-wider block">Jan Groen</span>
+                      <span className="text-slate-900 font-bold text-lg group-hover:text-red-500 transition-colors">+31 6 37158612</span>
+                    </div>
+                  </a>
+                  <a href="tel:+31613731303" className="group flex items-center justify-center gap-4 bg-red-500/5 border border-red-500/20 px-6 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/40 transition-all">
+                    <Phone size={20} className="text-red-500" />
+                    <div className="text-left">
+                      <span className="text-slate-400 text-[10px] uppercase tracking-wider block">Tommie Feitsma</span>
+                      <span className="text-slate-900 font-bold text-lg group-hover:text-red-500 transition-colors">+31 6 13731303</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="absolute top-0 right-0 w-1/3 h-full bg-red-600/5 blur-[100px]"></div>

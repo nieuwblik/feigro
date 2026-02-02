@@ -25,12 +25,12 @@ export const ServiceCTA = () => {
                 <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mb-16 md:mb-20 w-full text-left">
 
                     {/* Card 1 */}
-                    <div className="group relative p-8 md:p-10 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 shadow-sm hover:shadow-xl">
+                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 shadow-sm hover:shadow-xl">
                         <div className="relative z-10 h-full flex flex-col items-center text-center">
-                            <div className="mb-6 md:mb-8 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
+                            <div className="mb-6 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                                 <CheckCircle2 size={32} />
                             </div>
-                            <h3 className="text-xl font-heading mb-4 text-slate-900 group-hover:text-brand-green transition-colors uppercase font-bold">
+                            <h3 className="text-xl font-heading mb-3 text-slate-900 group-hover:text-brand-green transition-colors uppercase font-bold">
                                 Gecertificeerd
                             </h3>
                             <p className="text-slate-600 leading-relaxed text-sm font-light">

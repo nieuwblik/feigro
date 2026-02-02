@@ -166,7 +166,7 @@ export const RecentProjects = () => {
         {/* Bottom Button - Inside Overlay for better control */}
         <div className="relative z-30 pointer-events-auto">
           <FadeIn delay={0.1}>
-            <PrimaryFlipButton label="Alle Projecten" size={buttonSize} onClick={() => navigate('/projecten')} />
+            <PrimaryFlipButton label="Alle projecten" size={buttonSize} onClick={() => navigate('/projecten')} />
           </FadeIn>
         </div>
       </div>

@@ -36,13 +36,13 @@ const NotFound = () => {
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <Link to="/">
               <PrimaryFlipButton
-                label="Terug naar Home"
+                label="Terug naar home"
                 icon={<Home size={18} />}
                 size="large"
               />
             </Link>
             <InversedFlipButton
-              label="Stap Terug"
+              label="Stap terug"
               icon={<ArrowLeft size={18} />}
               size="large"
               onClick={() => window.history.back()}

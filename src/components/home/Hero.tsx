@@ -61,7 +61,7 @@ export const Hero = () => {
           <div className="flex flex-col gap-4 md:gap-6 w-full lg:w-auto">
             {/* Buttons Row */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 w-full lg:w-auto">
-              <PrimaryFlipButton label="Gratis Dakinspectie" hoverLabel="Plan Inspectie" icon={<ArrowRight size={18} className="-rotate-45" />} onClick={() => {
+              <PrimaryFlipButton label="Gratis dakinspectie" hoverLabel="Plan inspectie" icon={<ArrowRight size={18} className="-rotate-45" />} onClick={() => {
                 window.location.href = '/contact';
               }} />
 

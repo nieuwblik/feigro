@@ -93,7 +93,7 @@ export default function Projecten() {
                   transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <Link
-                    to={`/project-${project.slug}`}
+                    to={`/projecten/${project.slug}`}
                     className="group block"
                   >
                     {/* Image Container */}

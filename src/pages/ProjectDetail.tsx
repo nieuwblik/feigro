@@ -40,11 +40,11 @@ export default function ProjectDetail() {
       <SEO 
         title={`${project.title} | Feigro Dakwerken`}
         description={project.shortDescription}
-        canonical={`/project-${project.slug}`}
+        canonical={`/projecten/${project.slug}`}
       />
 
       {/* Hero Section */}
-      <section className="bg-black pt-24 pb-16 md:pt-32 md:pb-20 relative overflow-hidden min-h-[60vh] md:min-h-[50vh] flex items-end">
+      <section className="bg-black relative overflow-hidden h-screen flex items-end">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -209,8 +209,8 @@ export default function ProjectDetail() {
                     onClick={() => navigate('/contact')}
                   />
                   <InversedFlipButton
-                    label="Bel direct"
-                    onClick={() => window.location.href = 'tel:+31612345678'}
+                    label="Bel 0228-564017"
+                    onClick={() => window.location.href = 'tel:0228564017'}
                   />
                 </div>
               </motion.div>
@@ -261,7 +261,7 @@ export default function ProjectDetail() {
                     {otherProjects.map((p) => (
                       <Link
                         key={p.slug}
-                        to={`/project-${p.slug}`}
+                        to={`/projecten/${p.slug}`}
                         className="group flex gap-4 items-center"
                       >
                         <img

@@ -64,7 +64,7 @@ export const Testimonials = () => {
 
                     <FadeIn delay={0.3}>
                         <div className="flex flex-col sm:flex-row gap-3 mb-12">
-                            <PrimaryFlipButton label="Bekijk alle reviews" size="default" onClick={() => window.open('https://www.google.com/search?client=firefox-b-d&hs=fpCp&sca_esv=20541e4f21a9d7f7&q=Feitsma+Dakwerken+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2NDMxtzAxMDE0MbMwMTU3MjIy38DI-IpR0i01s6Q4N1HBJTG7PLUoOzVPISi1LDO1vHgRK245AKTYdrtSAAAA&rldimm=9647840414684572227&tbm=lcl&hl=nl-NL&sa=X&ved=2ahUKEwjN6eaW95ySAxVd3AIHHfHbKcMQ9fQKegQIMBAG&biw=2422&bih=1171&dpr=1.54&aic=0#lkt=LocalPoiReviews', '_blank')} />
+                            <PrimaryFlipButton label="Plaats review voor FEIGRO" size="default" onClick={() => window.open('https://www.google.com/search?client=firefox-b-d&hs=fpCp&sca_esv=20541e4f21a9d7f7&q=Feitsma+Dakwerken+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2NDMxtzAxMDE0MbMwMTU3MjIy38DI-IpR0i01s6Q4N1HBJTG7PLUoOzVPISi1LDO1vHgRK245AKTYdrtSAAAA&rldimm=9647840414684572227&tbm=lcl&hl=nl-NL&sa=X&ved=2ahUKEwjN6eaW95ySAxVd3AIHHfHbKcMQ9fQKegQIMBAG&biw=2422&bih=1171&dpr=1.54&aic=0#lkt=LocalPoiReviews', '_blank')} />
                             
                         </div>
                     </FadeIn>

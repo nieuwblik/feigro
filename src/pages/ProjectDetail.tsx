@@ -281,7 +281,7 @@ export default function ProjectDetail() {
                 viewport={{ once: true }}
                 className="bg-slate-900 text-white rounded-2xl p-6 md:p-8 mb-6 sticky top-24"
               >
-                <h3 className="text-lg font-heading mb-6 uppercase tracking-tight">Projectgegevens</h3>
+                <h3 className="text-lg font-heading mb-6 uppercase tracking-tight text-white">Projectgegevens</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b border-slate-700 pb-3">
                     <span className="text-slate-400 text-sm">Locatie</span>

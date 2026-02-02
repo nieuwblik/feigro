@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { projects, projectsList } from '@/data/projects';
 import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
@@ -10,6 +10,19 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const project = slug ? projects[slug] : null;
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    if (project) {
+      setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (project) {
+      setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    }
+  };
 
   if (!project) {
     return (
@@ -125,37 +138,76 @@ export default function ProjectDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Before/After Images */}
+              {/* Image Gallery Slider */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-14"
+                className="mb-10 md:mb-14"
               >
-                <div className="relative">
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-black/80 text-white px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest">
-                      Voor
-                    </span>
+                {/* Main Image */}
+                <div className="relative overflow-hidden rounded-xl border border-slate-200 mb-4">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImageIndex}
+                      src={project.images[currentImageIndex]}
+                      alt={`${project.title} - Foto ${currentImageIndex + 1}`}
+                      className="w-full aspect-[16/10] object-cover"
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -50 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </AnimatePresence>
+                  
+                  {/* Navigation Arrows */}
+                  {project.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all"
+                        aria-label="Vorige foto"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all"
+                        aria-label="Volgende foto"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </>
+                  )}
+                  
+                  {/* Image Counter */}
+                  <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                    {currentImageIndex + 1} / {project.images.length}
                   </div>
-                  <img
-                    src={project.imageBefore}
-                    alt={`${project.title} - Voor`}
-                    className="w-full aspect-[4/3] object-cover rounded-xl border border-slate-200"
-                  />
                 </div>
-                <div className="relative">
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-brand-green text-black px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest">
-                      Na
-                    </span>
+                
+                {/* Thumbnail Strip */}
+                {project.images.length > 1 && (
+                  <div className="flex gap-2 overflow-x-auto pb-2">
+                    {project.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                          idx === currentImageIndex 
+                            ? 'border-brand-green ring-2 ring-brand-green/20' 
+                            : 'border-slate-200 hover:border-slate-400'
+                        }`}
+                      >
+                        <img
+                          src={img}
+                          alt={`${project.title} - Thumbnail ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
                   </div>
-                  <img
-                    src={project.imageAfter}
-                    alt={`${project.title} - Na`}
-                    className="w-full aspect-[4/3] object-cover rounded-xl border border-slate-200"
-                  />
-                </div>
+                )}
               </motion.div>
 
               {/* Description */}
@@ -168,9 +220,9 @@ export default function ProjectDetail() {
                 <h2 className="text-2xl md:text-3xl font-heading text-slate-900 mb-6 uppercase tracking-tight">
                   Over dit project
                 </h2>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                <div className="text-slate-600 text-base md:text-lg leading-relaxed whitespace-pre-line">
                   {project.description}
-                </p>
+                </div>
               </motion.div>
 
               {/* Highlights */}

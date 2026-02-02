@@ -72,9 +72,16 @@ export const Hero = () => {
               </Link>
             </div>
 
-            <div className="hidden sm:flex flex-col items-start group cursor-pointer" onClick={() => window.location.href = 'tel:+31612345678'}>
-              <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-1">Liever bellen?</span>
-              <a href="tel:+31612345678" className="text-white font-bold text-base md:text-lg lg:text-2xl group-hover:text-brand-green transition-colors">+31 (0) 6 123 456 78</a>
+            <div className="hidden sm:flex flex-col items-start gap-1">
+              <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
+              <div className="flex flex-col gap-0.5">
+                <a href="tel:+31637158612" className="text-white font-bold text-sm md:text-base group hover:text-brand-green transition-colors">
+                  <span className="text-white/50 text-xs">Jan:</span> +31 6 37158612
+                </a>
+                <a href="tel:+31613731303" className="text-white font-bold text-sm md:text-base group hover:text-brand-green transition-colors">
+                  <span className="text-white/50 text-xs">Tommie:</span> +31 6 13731303
+                </a>
+              </div>
             </div>
           </div>
         </FadeIn>

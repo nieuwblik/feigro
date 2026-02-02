@@ -93,12 +93,22 @@ export default function Spoedservice() {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <PrimaryFlipButton
-              label="Nu direct bellen"
-              size="default"
-              icon={<Phone />}
-              onClick={() => window.location.href = 'tel:+31612345678'}
-            />
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="tel:+31637158612" className="group flex items-center gap-3 bg-red-500/10 border border-red-500/30 px-5 py-3 rounded-xl hover:bg-red-500/20 transition-all">
+                <Phone size={18} className="text-red-500" />
+                <div className="flex flex-col">
+                  <span className="text-white/50 text-[10px] uppercase tracking-wider">Jan Groen</span>
+                  <span className="text-white font-bold text-sm">+31 6 37158612</span>
+                </div>
+              </a>
+              <a href="tel:+31613731303" className="group flex items-center gap-3 bg-red-500/10 border border-red-500/30 px-5 py-3 rounded-xl hover:bg-red-500/20 transition-all">
+                <Phone size={18} className="text-red-500" />
+                <div className="flex flex-col">
+                  <span className="text-white/50 text-[10px] uppercase tracking-wider">Tommie Feitsma</span>
+                  <span className="text-white font-bold text-sm">+31 6 13731303</span>
+                </div>
+              </a>
+            </div>
           </FadeIn>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/5 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>

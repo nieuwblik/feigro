@@ -1,4 +1,4 @@
-import { Hero, Services, About, Testimonials, BlogSection, CompanyHeritage } from '@/components/home';
+import { Hero, Services, About, Testimonials, BlogSection, CompanyHeritage, FeaturedProjects } from '@/components/home';
 
 const Index = () => {
   return (
@@ -6,9 +6,10 @@ const Index = () => {
       <Hero />
       <Services />
       <About />
+      <FeaturedProjects />
       <CompanyHeritage />
-      <Testimonials />
       <BlogSection />
+      <Testimonials />
     </div>
   );
 };

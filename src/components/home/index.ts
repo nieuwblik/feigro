@@ -8,3 +8,4 @@ export * from './Footer';
 export * from './Testimonials';
 export * from './BlogSection';
 export * from './CompanyHeritage';
+export * from './FeaturedProjects';

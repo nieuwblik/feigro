@@ -35,7 +35,7 @@ export const FeaturedProjects = () => {
           
           <FadeIn delay={0.1} className="mt-6 lg:mt-0">
             <Link to="/projecten">
-              <PrimaryFlipButton label="Alle projecten" icon={<ArrowRight />} />
+              
             </Link>
           </FadeIn>
         </div>

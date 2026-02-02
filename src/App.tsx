@@ -19,6 +19,7 @@ import Nieuws from './pages/Nieuws';
 import BlogDetail from './pages/BlogDetail';
 import Vacatures from './pages/Vacatures';
 import Cookies from './pages/Cookies';
+import ProjectDetail from './pages/ProjectDetail';
 
 // Service Pages
 import VveVastgoedbeheer from './pages/services/VveVastgoedbeheer';
@@ -64,6 +65,7 @@ const App = () => (
                 <Route path="/diensten" element={<Diensten />} />
                 <Route path="/over-ons" element={<OverOns />} />
                 <Route path="/projecten" element={<Projecten />} />
+                <Route path="/project-:slug" element={<ProjectDetail />} />
                 <Route path="/spoedservice" element={<Spoedservice />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/nieuws" element={<Nieuws />} />

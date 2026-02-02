@@ -84,7 +84,7 @@ export default function Spoedservice() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">
-              Lekkage <br /><span className="text-brand-green italic">Melden</span>
+              Neem direct contact <br />bij <span className="text-brand-green italic">Spoed!</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>

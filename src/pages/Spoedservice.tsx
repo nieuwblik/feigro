@@ -75,33 +75,69 @@ export default function Spoedservice() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-left">
-          <FadeIn scale={0.9}>
-            <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-6 md:mb-8">
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-              <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">LEKKAGE MELDEN</span>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left Column: Text Content */}
+            <div className="text-left">
+              <FadeIn scale={0.9}>
+                <div className="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-6 md:mb-8">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                  <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">LEKKAGE MELDEN</span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">
+                  Neem direct contact <br />bij <span className="text-brand-green italic">Spoed!</span>
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <p className="text-white/60 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 md:mb-10 font-light">
+                  Heeft u een daklekkage of andere acute dakproblemen? Aarzel niet. Onze specialisten zijn binnen enkele uren ter plaatse om uw woning te beschermen.
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.3}>
+                <PrimaryFlipButton
+                  label="Naar het formulier"
+                  size="default"
+                  onClick={() => {
+                    const el = document.getElementById('lekkage-form');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                />
+              </FadeIn>
             </div>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">
-              Neem direct contact <br />bij <span className="text-brand-green italic">Spoed!</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-white/60 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 md:mb-10 font-light">
-              Heeft u een daklekkage of andere acute dakproblemen? Aarzel niet. Onze specialisten zijn binnen enkele uren ter plaatse om uw woning te beschermen.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <PrimaryFlipButton
-              label="Naar het formulier"
-              size="default"
-              onClick={() => {
-                const el = document.getElementById('lekkage-form');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            />
-          </FadeIn>
+
+            {/* Right Column: Emergency Contact Card */}
+            <FadeIn delay={0.4} className="w-full">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 lg:p-10">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-4">
+                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                    <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest">SPOED? BEL DIRECT</span>
+                  </div>
+                  <p className="text-white/60 text-sm md:text-base font-light">
+                    Kan het niet wachten? Bel direct één van onze specialisten voor acute hulp.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="tel:+31637158612" className="flex-1 group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-5 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
+                    <Phone size={20} className="text-red-500" />
+                    <div className="text-left">
+                      <span className="text-white/50 text-[10px] uppercase tracking-wider block">Jan Groen</span>
+                      <span className="text-white font-bold text-base md:text-lg group-hover:text-red-400 transition-colors">+31 6 37158612</span>
+                    </div>
+                  </a>
+                  <a href="tel:+31613731303" className="flex-1 group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-5 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
+                    <Phone size={20} className="text-red-500" />
+                    <div className="text-left">
+                      <span className="text-white/50 text-[10px] uppercase tracking-wider block">Tommie Feitsma</span>
+                      <span className="text-white font-bold text-base md:text-lg group-hover:text-red-400 transition-colors">+31 6 13731303</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/5 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-brand-green/5 blur-[150px] rounded-full -translate-x-1/4 translate-y-1/4 -z-0"></div>

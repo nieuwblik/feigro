@@ -31,6 +31,9 @@ export const Footer = () => {
   }, {
     name: 'Valbeveiliging',
     href: '/valbeveiliging'
+  }, {
+    name: 'VVE & Vastgoedbeheer',
+    href: '/vve-vastgoedbeheer'
   }];
   const navigation = [{
     name: 'Over Ons',

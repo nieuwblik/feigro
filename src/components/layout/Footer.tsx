@@ -26,17 +26,11 @@ export const Footer = () => {
     name: 'Dakrenovatie',
     href: '/dakrenovatie'
   }, {
-    name: 'Dakbedekking Vervangen',
-    href: '/dakbedekking-vervangen'
-  }, {
-    name: 'Bitumen Dakbedekking',
-    href: '/bitumen-dakbedekking'
-  }, {
-    name: 'EPDM Dakbedekking',
-    href: '/epdm-dakbedekking'
-  }, {
     name: 'Daklekkage',
     href: '/daklekkage'
+  }, {
+    name: 'Valbeveiliging',
+    href: '/valbeveiliging'
   }];
   const navigation = [{
     name: 'Over Ons',

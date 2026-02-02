@@ -105,7 +105,7 @@ export const Services = () => {
                 behavior: 'smooth'
               });else window.location.href = '/contact';
             }} className="cursor-pointer inline-block">
-                <PrimaryFlipButton label="Direct contact" icon={<ArrowRight />} />
+                
               </div>
             </FadeIn>
 

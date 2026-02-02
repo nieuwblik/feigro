@@ -44,7 +44,7 @@ const formatDate = (dateString: string) => {
 export const BlogSection = () => {
   const featuredPost = blogPosts[0];
   const otherPosts = blogPosts.slice(1);
-  return <section className="py-16 md:py-24 bg-black overflow-hidden">
+  return <section className="py-16 md:py-24 overflow-hidden bg-feigro-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div initial={{

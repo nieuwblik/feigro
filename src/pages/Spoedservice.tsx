@@ -96,7 +96,6 @@ export default function Spoedservice() {
             <PrimaryFlipButton
               label="Naar het formulier"
               size="default"
-              icon={<Phone />}
               onClick={() => {
                 const el = document.getElementById('lekkage-form');
                 el?.scrollIntoView({ behavior: 'smooth' });

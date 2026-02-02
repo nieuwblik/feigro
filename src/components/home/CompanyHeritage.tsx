@@ -99,7 +99,7 @@ export const CompanyHeritage = () => {
               ))}
             </div>
             <p className="text-white/80 text-lg md:text-xl mb-2">
-              <span className="font-bold text-white">79+ tevreden klanten</span> gaven ons gemiddeld
+              <span className="font-bold text-white">149+ tevreden klanten</span> gaven ons gemiddeld
             </p>
             <p className="text-brand-green text-4xl md:text-5xl font-heading">4.9 / 5.0</p>
           </div>

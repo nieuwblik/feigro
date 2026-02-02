@@ -192,6 +192,7 @@ export const dakonderhoudData: ServicePageData = {
     backgroundImage: imgEnkhuizen,
   },
   featureTitle: 'Onze onderhoudswerkzaamheden',
+  featureHighlight: 'onderhoudswerkzaamheden',
   features: [
     {
       icon: 'Wrench',
@@ -226,6 +227,7 @@ export const dakonderhoudData: ServicePageData = {
   ],
   info: {
     title: 'Het Belang van Dakonderhoud',
+    titleHighlight: 'Dakonderhoud',
     description: 'Professioneel dakonderhoud voorkomt grote problemen en bespaart u kosten.',
     paragraphs: [
       'Een dak heeft regelmatig onderhoud nodig om in goede staat te blijven. Zonder onderhoud kunnen kleine problemen uitgroeien tot grote, kostbare schades. Denk aan verstopte afvoeren die tot wateroverlast leiden, of kleine scheurtjes die uitgroeien tot lekkages.',
@@ -267,6 +269,7 @@ export const dakrenovatieData: ServicePageData = {
     backgroundImage: imgRenovatie,
   },
   featureTitle: 'Hoogwaardige Dakrenovatie',
+  featureHighlight: 'Dakrenovatie',
   features: [
     {
       icon: 'Home',
@@ -301,6 +304,7 @@ export const dakrenovatieData: ServicePageData = {
   ],
   info: {
     title: 'Wanneer is Dakrenovatie Nodig?',
+    titleHighlight: 'Dakrenovatie',
     description: 'Een dak gaat gemiddeld 20-40 jaar mee, afhankelijk van het type en onderhoud.',
     paragraphs: [
       'Signalen dat uw dak aan renovatie toe is: herhaaldelijke lekkages, zichtbare schade aan de dakbedekking, doorbuiging, of een dak dat simpelweg aan het einde van zijn levensduur is. Een nieuwe dakbedekking voorkomt verdere schade aan de onderconstructie.',
@@ -603,7 +607,7 @@ export const daklekkageData: ServicePageData = {
   ],
   info: {
     title: 'Wat Te Doen Bij Daklekkage?',
-    titleHighlight: 'Daklekkage',
+    titleHighlight: 'Daklekkage?',
     description: 'Snelhandelen bij daklekkage voorkomt grote schade aan uw interieur.',
     paragraphs: [
       'Bij daklekkage is snelheid cruciaal. Water kan grote schade aanrichten aan plafonds, muren, isolatie en zelfs aan de constructie. Ook kan schimmelvorming ontstaan, wat gezondheidsrisico\'s met zich meebrengt.',
@@ -727,6 +731,7 @@ export const valbeveiligingssysteemData: ServicePageData = {
     backgroundImage: imgValbeveiliging,
   },
   featureTitle: 'Kenmerken van onze systemen',
+  featureHighlight: 'Kenmerken',
   features: [
     {
       icon: 'ShieldCheck',
@@ -761,6 +766,7 @@ export const valbeveiligingssysteemData: ServicePageData = {
   ],
   info: {
     title: 'Waarom Valbeveiliging?',
+    titleHighlight: 'Valbeveiliging?',
     description: 'Valbeveiliging is wettelijk verplicht bij werkzaamheden op hoogte.',
     paragraphs: [
       'Werken op hoogte brengt risico\'s met zich mee. Valbeveiliging is niet alleen wettelijk verplicht, maar beschermt ook uw medewerkers en onderhoudspartners tegen levensgevaarlijke valongevallen.',

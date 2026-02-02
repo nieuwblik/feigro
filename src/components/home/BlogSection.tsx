@@ -100,7 +100,6 @@ export const BlogSection = () => {
                   {/* Category Badge */}
                   <div className="mb-4">
                     <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-green/90 text-black text-[10px] font-bold uppercase tracking-wider rounded-full">
-                      <Sparkles size={12} />
                       {featuredPost.category}
                     </span>
                   </div>

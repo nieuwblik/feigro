@@ -16,7 +16,7 @@ const COMPANY_DATA = {
     name: 'Groen Dakwerken',
     abbr: 'GRO',
     rating: 5.0,
-    reviewCount: 32,
+    reviewCount: '130+',
     googleUrl: 'https://www.google.com/search?sca_esv=358352e6032d6e12&sxsrf=ANbL-n6vCdS9U7A0_YII1si5z16TEDjSWg:1770033263112&q=groen+dakwerken&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVNddeclMJ1hYx2VBoGNsJgArN7hZobVuA2K6bmQG3LEdaIBLSyKajtTyIkaifBrTQJRcQQ%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWc8DiUuVMlava_ObHRlkvsWcrqqDA_hwTS-Ux5q0UTQUmLz6XpTVmpvuLPVDuwTyVGOQKuHoSDkIzWlOM6cszs4UzRls&sa=X&ved=2ahUKEwjJuY3f37qSAxUHgf0HHbchOQ8Q3PALegQIHBAE&biw=1413&bih=983&dpr=0.9&aic=0',
   },
 };

@@ -210,8 +210,7 @@ export default function Contact() {
                   </div>
 
                   <div className="pt-4">
-                    <PrimaryFlipButton label="Verstuur bericht" icon={<Send size={18} />} className="w-full" onClick={() => {}} // Form handles submit
-                  />
+                    
                   </div>
                 </form>
               </div>

@@ -58,7 +58,8 @@ export const Hero = () => {
         </FadeIn>
 
         <FadeIn delay={0.3} className="w-full">
-          <div className="flex flex-col sm:flex-row items-start justify-start gap-4 md:gap-6 w-full lg:w-auto">
+          <div className="flex flex-col gap-4 md:gap-6 w-full lg:w-auto">
+            {/* Buttons Row */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 w-full lg:w-auto">
               <PrimaryFlipButton label="Gratis Dakinspectie" hoverLabel="Plan Inspectie" icon={<ArrowRight size={18} className="-rotate-45" />} onClick={() => {
                 window.location.href = '/contact';
@@ -72,14 +73,15 @@ export const Hero = () => {
               </Link>
             </div>
 
-            <div className="hidden sm:flex flex-col items-start gap-1">
+            {/* Phone Numbers Row - visible on all devices */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
               <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
-              <div className="flex flex-col gap-0.5">
-                <a href="tel:+31637158612" className="text-white font-bold text-sm md:text-base group hover:text-brand-green transition-colors">
-                  <span className="text-white/50 text-xs">Jan:</span> +31 6 37158612
+              <div className="flex flex-row gap-4 sm:gap-6">
+                <a href="tel:+31637158612" className="text-white font-bold text-sm md:text-base hover:text-brand-green transition-colors">
+                  <span className="text-white/50 text-xs block sm:inline">Jan:</span> +31 6 37158612
                 </a>
-                <a href="tel:+31613731303" className="text-white font-bold text-sm md:text-base group hover:text-brand-green transition-colors">
-                  <span className="text-white/50 text-xs">Tommie:</span> +31 6 13731303
+                <a href="tel:+31613731303" className="text-white font-bold text-sm md:text-base hover:text-brand-green transition-colors">
+                  <span className="text-white/50 text-xs block sm:inline">Tommie:</span> +31 6 13731303
                 </a>
               </div>
             </div>

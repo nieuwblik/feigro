@@ -16,6 +16,7 @@ import Diensten from './pages/Diensten';
 import Spoedservice from './pages/Spoedservice';
 import Contact from './pages/Contact';
 import Nieuws from './pages/Nieuws';
+import BlogDetail from './pages/BlogDetail';
 import Vacatures from './pages/Vacatures';
 import Cookies from './pages/Cookies';
 
@@ -66,6 +67,7 @@ const App = () => (
                 <Route path="/spoedservice" element={<Spoedservice />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/nieuws" element={<Nieuws />} />
+                <Route path="/nieuws/:slug" element={<BlogDetail />} />
                 <Route path="/vacatures" element={<Vacatures />} />
                 <Route path="/cookies" element={<Cookies />} />
 

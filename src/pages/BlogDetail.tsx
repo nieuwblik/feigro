@@ -480,6 +480,7 @@ export default function BlogDetail() {
                       { name: 'Dakrenovatie', href: '/dakrenovatie' },
                       { name: 'Daklekkage', href: '/daklekkage' },
                       { name: 'Valbeveiliging', href: '/valbeveiliging' },
+                      { name: 'VvE & Vastgoedbeheer', href: '/vve-vastgoedbeheer' },
                     ].map((service) => (
                       <li key={service.name}>
                         <Link 

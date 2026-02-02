@@ -80,6 +80,7 @@ export const Header = () => {
   const navLinks = [
     { name: 'Over Ons', href: '/over-ons' },
     { name: 'Projecten', href: '/projecten' },
+    { name: 'Nieuws', href: '/nieuws' },
     { name: 'Lekkage melden', href: '/spoedservice', isEmergency: true },
     { name: 'Contact', href: '/contact' },
   ];

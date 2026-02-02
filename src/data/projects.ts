@@ -6,6 +6,10 @@ import dakisolatieUrsem2 from '@/assets/projects/dakisolatie-ursem-2.webp';
 import dakisolatieUrsem3 from '@/assets/projects/dakisolatie-ursem-3.webp';
 import dakisolatieUrsem4 from '@/assets/projects/dakisolatie-ursem-4.webp';
 import dakisolatieUrsem5 from '@/assets/projects/dakisolatie-ursem-5.webp';
+import bitumensysteemAlmere1 from '@/assets/projects/bitumensysteem-almere-1.webp';
+import bitumensysteemAlmere2 from '@/assets/projects/bitumensysteem-almere-2.webp';
+import bitumensysteemAlmere3 from '@/assets/projects/bitumensysteem-almere-3.webp';
+import bitumensysteemAlmere4 from '@/assets/projects/bitumensysteem-almere-4.webp';
 
 export interface Project {
   slug: string;
@@ -23,6 +27,26 @@ export interface Project {
 }
 
 export const projects: Record<string, Project> = {
+  'bitumensysteem-almere': {
+    slug: 'bitumensysteem-almere',
+    title: '2-Laags Bitumensysteem Bedrijfspand Almere',
+    category: 'Bitumen dakbedekking',
+    location: 'Almere',
+    date: '2026-02-02',
+    size: '4500 m²',
+    shortDescription: 'Prachtig bedrijfspand van 4500 m² volledig voorzien van een duurzaam 2-laags bitumensysteem.',
+    description: 'We hebben dit prachtige bedrijfspand van maar liefst 4500 m² volledig voorzien van een duurzaam en strak afgewerkt 2-laags bitumensysteem in Almere! Een mooi stuk vakwerk waar we met ons hele team met plezier aan hebben gewerkt. Een goed dak geeft rust. Geen zorgen over lekkages, geen gedoe—gewoon zekerheid, jaar in jaar uit. En dat is precies wat wij leveren: kwaliteit waar u op kunt bouwen.',
+    highlights: [
+      'Volledig 2-laags bitumensysteem aangebracht',
+      'Professionele afwerking van 4500 m² dakoppervlak',
+      'Lichtkoepels netjes geïntegreerd',
+      'Langdurige bescherming tegen lekkages',
+      'Uitgevoerd met heel team in korte tijd'
+    ],
+    imageBefore: bitumensysteemAlmere4,
+    imageAfter: bitumensysteemAlmere1,
+    images: [bitumensysteemAlmere1, bitumensysteemAlmere2, bitumensysteemAlmere3, bitumensysteemAlmere4]
+  },
   'dakrenovatie-enkhuizen': {
     slug: 'dakrenovatie-enkhuizen',
     title: 'Dakrenovatie Enkhuizen',

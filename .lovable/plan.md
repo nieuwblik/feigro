@@ -1,144 +1,86 @@
 
-# Plan: Consistente Typography & Button Sizing
+# Plan: Hero Secties 100vh + Nieuw Project Ursem
 
-## Doel
-Alle H1 en H2 headings standaardiseren naar `text-4xl` en alle buttons naar dezelfde grootte voor visuele consistentie over de gehele website.
+## Overzicht
+Dit plan past de hero secties aan naar 100vh op zowel mobiel als desktop, en voegt het nieuwe project "Dakisolatie Ursem" toe.
 
----
+## Wat er gaat gebeuren
 
-## 1. Typography Standaardisatie
+### 1. Hero secties aanpassen naar 100vh
+Beide pagina's krijgen een fullscreen hero sectie op alle schermformaten:
 
-### Nieuwe standaard voor H1 & H2
-Alle headings worden aangepast naar:
-```
-text-4xl font-heading uppercase tracking-tighter
-```
+| Pagina | Huidige waarde | Nieuwe waarde |
+|--------|----------------|---------------|
+| Projecten | `h-screen md:h-[40vh]` | `h-screen` |
+| Nieuws | `min-h-[50vh] md:h-[45vh]` | `h-screen` |
 
-Dit vervangt de huidige variaties zoals `text-2xl sm:text-3xl md:text-5xl lg:text-7xl`.
+Dit zorgt voor een impactvolle eerste indruk op elk apparaat.
 
-### Bestanden die worden aangepast
+### 2. Nieuw project: Dakisolatie Ursem
+Een nieuwe projectpagina wordt aangemaakt:
 
-| Component | Huidige H1/H2 | Nieuwe standaard |
-|-----------|---------------|------------------|
-| `Hero.tsx` | `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` | `text-4xl` |
-| `Services.tsx` | `text-3xl sm:text-4xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `About.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `Reviews.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `RecentProjects.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `CTAFooter.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl` | `text-4xl` |
-| `OverOns.tsx` | Diverse variaties | `text-4xl` |
-| `Diensten.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `Contact.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `Projecten.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| `Spoedservice.tsx` | `text-2xl sm:text-3xl md:text-5xl lg:text-7xl` | `text-4xl` |
-| Service subpagina's (11x) | Diverse variaties | `text-4xl` |
+- **Titel**: Dakisolatie Ursem
+- **Slug**: `/project-dakisolatie-ursem`
+- **Locatie**: Ursem
+- **Categorie**: Dakisolatie
+- **Beschrijving**: PIR-isolatie (140mm) met witte bitumen dakbedekking voor optimaal zonnepaneel rendement
+- **Werkzaamheden**:
+  - Aanbrengen 140mm dikke PIR-isolatie
+  - Plaatsen witte bitumen dakbedekking
+  - Optimale reflectie voor verhoogd zonnepaneel rendement
+  - Verbeterde thermische isolatie
 
----
+De 5 geüploade foto's worden geconverteerd naar webp-formaat.
 
-## 2. Button Size Standaardisatie
+## Technische Details
 
-### Nieuwe standaard
-Alle PrimaryFlipButton en InversedFlipButton worden aangepast naar `size="default"` (52px hoogte).
+### Nieuwe bestanden
+| Bestand | Doel |
+|---------|------|
+| `src/assets/projects/dakisolatie-ursem-1.webp` | Projectfoto eindresultaat |
+| `src/assets/projects/dakisolatie-ursem-2.webp` | Projectfoto detail |
+| `src/assets/projects/dakisolatie-ursem-3.webp` | Projectfoto overzicht |
+| `src/assets/projects/dakisolatie-ursem-4.webp` | Projectfoto afwerking |
+| `src/assets/projects/dakisolatie-ursem-5.webp` | PIR-isolatie werkfoto |
 
-Hiermee vervalt het wisselende gebruik van `size="large"` en `size="default"`.
+### Aan te passen bestanden
+| Bestand | Wijziging |
+|---------|-----------|
+| `src/data/projects.ts` | Nieuw project "Dakisolatie Ursem" toevoegen aan de projecten lijst |
+| `src/pages/Projecten.tsx` | Hero sectie class wijzigen van `h-screen md:h-[40vh]` naar `h-screen` |
+| `src/pages/Nieuws.tsx` | Hero sectie class wijzigen van `min-h-[50vh] md:h-[45vh]` naar `h-screen` |
 
-### Huidige button sizes in FlipButton.tsx
+### Project data structuur
 ```text
-default: h-[52px] px-6 text-lg    ← STANDAARD
-large:   h-[68px] px-10 text-2xl  ← WORDT VERWIJDERD
-small:   h-[44px] px-5 text-base  ← OPTIONEEL BEHOUDEN
+{
+  slug: 'dakisolatie-ursem',
+  title: 'Dakisolatie Ursem',
+  category: 'Dakisolatie',
+  location: 'Ursem',
+  date: '2026-02-02',
+  size: 'circa 50 m²',
+  shortDescription: 'Complete dakisolatie met 140mm PIR en witte bitumen dakbedekking.',
+  description: 'Weer een mooie klus afgerond in Ursem! Dit dak hebben we voorzien van 140mm dikke PIR-isolatie en witte bitumen dakbedekking. Niet alleen perfect om de warmte buiten te houden, maar het verhoogt ook het rendement van de zonnepanelen. Klaar voor een energiezuinige toekomst!',
+  highlights: [
+    'Aanbrengen 140mm dikke PIR-isolatie',
+    'Plaatsen witte bitumen dakbedekking',
+    'Optimale reflectie voor verhoogd zonnepaneel rendement',
+    'Verbeterde thermische isolatie'
+  ],
+  imageBefore: PIR-isolatie werkfoto,
+  imageAfter: Eindresultaat foto
+}
 ```
 
-### Bestanden met buttons die worden aangepast
+## Volgorde van uitvoering
 
-| Bestand | Huidige size | Nieuwe size |
-|---------|--------------|-------------|
-| `Hero.tsx` | dynamisch (large op desktop) | `default` |
-| `Services.tsx` | `large` | `default` |
-| `About.tsx` | `large` | `default` |
-| `RecentProjects.tsx` | `default` | `default` (geen wijziging) |
-| `CTAFooter.tsx` | `large` | `default` |
-| `Diensten.tsx` | `large` | `default` |
-| `OverOns.tsx` | `default` / geen | `default` |
-| Alle andere pagina's | variatie | `default` |
+1. Afbeeldingen kopiëren en converteren naar webp-formaat
+2. Project data toevoegen aan `src/data/projects.ts`
+3. Hero sectie in `src/pages/Projecten.tsx` aanpassen naar `h-screen`
+4. Hero sectie in `src/pages/Nieuws.tsx` aanpassen naar `h-screen`
 
----
-
-## 3. Technische Aanpassingen
-
-### 3.1 Hero.tsx - Verwijder dynamische button sizing
-De huidige logica:
-```typescript
-const [buttonSize, setButtonSize] = useState<'default' | 'large'>('default');
-useEffect(() => {
-  const handleResize = () => {
-    setButtonSize(window.innerWidth >= 1024 ? 'large' : 'default');
-  };
-  // ...
-}, []);
-```
-
-Wordt vervangen door een vaste `size="default"`.
-
-### 3.2 Alle componenten
-- Alle `size="large"` props worden verwijderd of veranderd naar `size="default"`
-- Alle responsive heading classes worden vervangen door `text-4xl`
-
----
-
-## 4. Samenvatting Wijzigingen
-
-### Homepage Componenten (5 bestanden)
-1. `src/components/home/Hero.tsx`
-2. `src/components/home/Services.tsx`
-3. `src/components/home/About.tsx`
-4. `src/components/home/Reviews.tsx`
-5. `src/components/home/RecentProjects.tsx`
-
-### Pagina's (6 bestanden)
-1. `src/pages/OverOns.tsx`
-2. `src/pages/Diensten.tsx`
-3. `src/pages/Contact.tsx`
-4. `src/pages/Projecten.tsx`
-5. `src/pages/Spoedservice.tsx`
-6. `src/components/sections/CTAFooter.tsx`
-
-### Service Pagina's (11 bestanden)
-1. `src/pages/services/BitumenDakbedekking.tsx`
-2. `src/pages/services/DakbedekkingVervangen.tsx`
-3. `src/pages/services/Dakinspectie.tsx`
-4. `src/pages/services/Daklekkage.tsx`
-5. `src/pages/services/Dakonderhoud.tsx`
-6. `src/pages/services/Dakrenovatie.tsx`
-7. `src/pages/services/Dakreparatie.tsx`
-8. `src/pages/services/EpdmDakbedekking.tsx`
-9. `src/pages/services/Valbeveiliging.tsx`
-10. `src/pages/services/Valbeveiligingssysteem.tsx`
-11. `src/pages/services/VveVastgoedbeheer.tsx`
-
-### Shared Componenten
-1. `src/components/sections/HeroSection.tsx`
-2. `src/components/sections/FeatureGrid.tsx`
-3. `src/components/sections/InfoSection.tsx`
-4. `src/components/sections/FAQSection.tsx`
-5. `src/components/sections/ServiceCTA.tsx`
-
----
-
-## 5. Visueel Resultaat
-
-### Voor
-```text
-Heading sizes: 24px → 72px+ (variabel per breakpoint)
-Button heights: 44px / 52px / 68px (wisselend)
-```
-
-### Na
-```text
-Heading sizes: 36px (2.25rem = text-4xl) consistent
-Button heights: 52px consistent
-```
-
----
-
-## Totaal: ~25 bestanden worden aangepast
+## Resultaat
+- Twee projecten zichtbaar op de projectenpagina (Enkhuizen + Ursem)
+- Fullscreen hero secties (100vh) op alle pagina's en schermformaten
+- Volledig responsive ontwerp
+- Nieuw project direct toegankelijk via `/project-dakisolatie-ursem`

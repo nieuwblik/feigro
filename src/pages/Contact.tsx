@@ -83,12 +83,7 @@ export default function Contact() {
         }} transition={{
           delay: 0.3
         }}>
-            <PrimaryFlipButton label="Vraag offerte aan" icon={<Phone size={18} />} size="default" onClick={() => {
-            const el = document.getElementById('contact-form');
-            el?.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }} />
+            
           </motion.div>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>

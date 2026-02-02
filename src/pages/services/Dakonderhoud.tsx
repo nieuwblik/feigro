@@ -9,13 +9,13 @@ import { dakonderhoudData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Dakonderhoud() {
-  const { seo, hero, features, featureTitle, info, faqs } = dakonderhoudData;
+  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakonderhoudData;
 
   return (
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} title={featureTitle} />
+      <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
       <ServiceCTA />

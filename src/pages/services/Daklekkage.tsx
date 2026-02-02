@@ -9,13 +9,13 @@ import { daklekkageData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Daklekkage() {
-  const { seo, hero, features, featureTitle, info, faqs } = daklekkageData;
+  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = daklekkageData;
 
   return (
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} title={featureTitle} />
+      <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <InfoSection {...info} />
       <FAQSection faqs={faqs} />
       <ServiceCTA />

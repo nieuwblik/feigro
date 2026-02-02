@@ -23,10 +23,11 @@ const COMPANY_DATA = {
 
 export const CompanyHeritage = () => {
   return (
-    <section className="py-20 md:py-28 lg:py-36 bg-slate-900 overflow-hidden relative">
+    <section className="py-20 md:py-28 lg:py-36 bg-gradient-to-br from-[#2E383F] via-[#3a464d] to-[#2E383F] overflow-hidden relative">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-green/10 via-transparent to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-green/5 blur-[120px] rounded-full"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#91A3AB]/15 via-transparent to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#91A3AB]/10 blur-[120px] rounded-full"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-green/5 blur-[100px] rounded-full"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}

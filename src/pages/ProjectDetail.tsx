@@ -44,7 +44,7 @@ export default function ProjectDetail() {
       />
 
       {/* Hero Section */}
-      <section className="bg-black relative overflow-hidden h-screen flex items-end">
+      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-screen md:h-[40vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -52,15 +52,16 @@ export default function ProjectDetail() {
             alt={project.title}
             className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-[1] text-left">
           {/* Back Link */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-4 mb-6 md:mb-8"
           >
             <Link 
               to="/projecten" 
@@ -75,6 +76,7 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
             className="mb-4"
           >
             <span className="bg-brand-green text-black px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest">
@@ -96,7 +98,7 @@ export default function ProjectDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15 }}
             className="flex flex-wrap items-center gap-4 md:gap-6"
           >
             <div className="flex items-center gap-2 text-white/70">
@@ -113,6 +115,8 @@ export default function ProjectDetail() {
             </div>
           </motion.div>
         </div>
+        
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
       {/* Content Section */}

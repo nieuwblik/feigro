@@ -214,7 +214,7 @@ export default function OverOns() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
               <GoogleReviewCard
                 companyName="Feitsma Dakwerken"
-                rating={4.9}
+                rating={4.7}
                 reviewCount="19+"
                 googleUrl="https://www.google.com/search?sxsrf=ANbL-n66AiS6rGRTdIEQ-jXw2FZlag3S-Q:1770033470519&q=FEITSMA+DAKWERKEN&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOfXETfLpu6FeggdPhBHaypUTIcTOg5gRUkEfKdDv1Y5R5om9_jjiEQzwnTxqsfMs15mTV3E%3D&uds=ALYpb_lYhTQoihMExfBHVPUjHWLhoOxWyfFds83MA55BVXMRHqxBLhl8h49aUHvvd1Xo4BXc72j5L0Xvh64CnVJjPFgFLIz6dmEDd8caAGLRISFe44r7DN0&aic=0"
               />

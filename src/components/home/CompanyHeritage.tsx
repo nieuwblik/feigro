@@ -92,7 +92,7 @@ export const CompanyHeritage = () => {
 
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center">
-          <PrimaryFlipButton label="Ontdek ons verhaal" icon={<ArrowRight />} onClick={() => window.location.href = '/over-ons'} />
+          
         </FadeIn>
       </div>
     </section>;

@@ -14,7 +14,7 @@ const GoogleIcon = ({ className }: { className?: string }) => (
 interface GoogleReviewCardProps {
   companyName: string;
   rating: number;
-  reviewCount: number;
+  reviewCount: string | number;
   googleUrl: string;
   className?: string;
 }

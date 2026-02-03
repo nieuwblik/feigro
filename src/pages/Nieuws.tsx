@@ -87,7 +87,7 @@ export default function Nieuws() {
         }} transition={{
           delay: 0.2
         }} className="text-white/50 text-lg md:text-xl mt-6 max-w-xl font-light">
-            Innovaties, trends en expertise uit de dakbedekkingsbranche
+            Innovaties, trends en expertise uit de dakbedekkingsbranche — actief in Noord-Holland, Flevoland en Utrecht
           </motion.p>
         </div>
       </section>

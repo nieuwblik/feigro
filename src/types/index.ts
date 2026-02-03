@@ -6,6 +6,7 @@ export interface PageSEO {
   canonical: string;
   ogImage?: string;
   schema?: Record<string, unknown>;
+  keywords?: string[];
 }
 
 export interface NavigationItem {

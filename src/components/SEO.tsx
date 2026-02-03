@@ -11,6 +11,7 @@ export function SEO({
   canonical,
   ogImage = '/images/og-default.jpg',
   schema,
+  keywords,
   siteName = 'FEIGRO Dakwerken',
 }: SEOProps) {
   const fullTitle = title.includes('FEIGRO') ? title : `${title} | ${siteName}`;
@@ -23,6 +24,9 @@ export function SEO({
       {/* Basic meta tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(', ')} />
+      )}
       <link rel="canonical" href={fullCanonical} />
 
       {/* Open Graph */}

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
+import { PasswordGate } from '@/components/PasswordGate';
 
 // Pages
 import Index from './pages/Index';
@@ -50,46 +51,48 @@ function ScrollToTop() {
 import { ScrollManager } from '@/components/ui/ScrollManager';
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <HelmetProvider>
-      <TooltipProvider>
-        <ScrollManager>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <MainLayout>
-              <Routes>
-                {/* Main Pages */}
-                <Route path="/" element={<Index />} />
-                <Route path="/diensten" element={<Diensten />} />
-                <Route path="/over-ons" element={<OverOns />} />
-                <Route path="/projecten" element={<Projecten />} />
-                <Route path="/projecten/:slug" element={<ProjectDetail />} />
-                <Route path="/spoedservice" element={<Spoedservice />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/nieuws" element={<Nieuws />} />
-                <Route path="/nieuws/:slug" element={<BlogDetail />} />
-                <Route path="/vacatures" element={<Vacatures />} />
-                <Route path="/cookies" element={<Cookies />} />
+  <PasswordGate>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <TooltipProvider>
+          <ScrollManager>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <ScrollToTop />
+              <MainLayout>
+                <Routes>
+                  {/* Main Pages */}
+                  <Route path="/" element={<Index />} />
+                  <Route path="/diensten" element={<Diensten />} />
+                  <Route path="/over-ons" element={<OverOns />} />
+                  <Route path="/projecten" element={<Projecten />} />
+                  <Route path="/projecten/:slug" element={<ProjectDetail />} />
+                  <Route path="/spoedservice" element={<Spoedservice />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/nieuws" element={<Nieuws />} />
+                  <Route path="/nieuws/:slug" element={<BlogDetail />} />
+                  <Route path="/vacatures" element={<Vacatures />} />
+                  <Route path="/cookies" element={<Cookies />} />
 
-                {/* Service Pages */}
-                <Route path="/vve-vastgoedbeheer" element={<VveVastgoedbeheer />} />
-                <Route path="/daklekkage" element={<Daklekkage />} />
-                <Route path="/dakreparatie" element={<Dakreparatie />} />
-                <Route path="/dakonderhoud" element={<Dakonderhoud />} />
-                <Route path="/dakrenovatie" element={<Dakrenovatie />} />
-                <Route path="/valbeveiliging" element={<Valbeveiliging />} />
+                  {/* Service Pages */}
+                  <Route path="/vve-vastgoedbeheer" element={<VveVastgoedbeheer />} />
+                  <Route path="/daklekkage" element={<Daklekkage />} />
+                  <Route path="/dakreparatie" element={<Dakreparatie />} />
+                  <Route path="/dakonderhoud" element={<Dakonderhoud />} />
+                  <Route path="/dakrenovatie" element={<Dakrenovatie />} />
+                  <Route path="/valbeveiliging" element={<Valbeveiliging />} />
 
-                {/* 404 - Must be last */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </MainLayout>
-          </BrowserRouter>
-        </ScrollManager>
-      </TooltipProvider>
-    </HelmetProvider>
-  </QueryClientProvider>
+                  {/* 404 - Must be last */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </MainLayout>
+            </BrowserRouter>
+          </ScrollManager>
+        </TooltipProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
+  </PasswordGate>
 );
 
 export default App;

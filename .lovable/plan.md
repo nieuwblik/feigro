@@ -1,166 +1,131 @@
 
-# Plan: Mobiele Optimalisatie Homepage Secties
+# Plan: Uniforme Button Styling Site-breed
 
 ## Overzicht
-Dit plan richt zich op het optimaliseren van drie hoofdonderdelen voor mobiel gebruik:
-1. **FeaturedProjects sectie** - Recente Projecten
-2. **CompanyHeritage sectie** - De Kracht van Twee
-3. **Buttons site-breed** - Volle breedte en gecentreerd op mobiel
+De gebruiker wil alle buttons op de website dezelfde stijl geven als de referentie-afbeeldingen:
+- **Normale staat**: Groene achtergrond (#4CB26E), zwarte tekst, pijl naar rechts
+- **Hover staat**: Donkere/zwarte achtergrond, witte tekst, pijl naar rechts
 
----
+## Huidige Situatie
 
-## Sectie 1: Recente Projecten (FeaturedProjects)
+### FlipButton Systeem (3D flip effect)
+- `PrimaryFlipButton`: Groen → Zwart (flip animatie)
+- `InversedFlipButton`: Zwart → Groen (flip animatie)
+- `EmergencyFlipButton`: Rood → Zwart (flip animatie)
 
-### Huidige Problemen
-- Carousel/slider interface met navigatiepijlen op mobiel
-- Thumbnails in 2-kolommen grid op mobiel waardoor informatie klein is
-- Hover-effecten die op mobiel niet werken
-- CTA die alleen bij hover zichtbaar wordt
+### Shadcn Button Component
+- Gebruikt in formulieren (LekkageForm, VveForm)
+- Standaard Radix styling, niet consistent met FlipButtons
 
-### Oplossing: Verticale Kaartweergave
+### Inline Button Styling
+- FeaturedProjects mobiele CTA: Al correct gestyled
+- Diverse links met custom hover effecten
 
-**Layout Wijzigingen:**
-- Op mobiel: alle 4 projecten volledig zichtbaar onder elkaar in één kolom
-- Geen carousel of slider - alle content direct zichtbaar
-- Vaste 16:9 aspect ratio voor afbeeldingen
-- Progress indicator en navigatiepijlen verborgen op mobiel
+## Oplossing: Nieuwe AnimatedButton Component
 
-**Kaartstructuur (mobiel):**
+Vervang het 3D flip-effect door een moderne kleurovergang-animatie die overeenkomt met de referentie:
+
+### Nieuwe Component Structuur
+
 ```text
-┌─────────────────────────────────┐
-│   [16:9 Afbeelding]             │
-│   met donkere gradient overlay  │
-├─────────────────────────────────┤
-│ [Categorie Badge]               │
-│ TITEL PROJECT                   │
-│ 📍 Locatie • Grootte            │
-│ Korte beschrijving...           │
-│ Bekijk project →                │
-└─────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│  BEKIJK ALLE PROJECTEN  →                   │
+│  bg-brand-green | text-black               │
+└─────────────────────────────────────────────┘
+
+           ↓ Bij hover ↓
+
+┌─────────────────────────────────────────────┐
+│  BEKIJK ALLE PROJECTEN  →                   │
+│  bg-feigro-dark | text-white               │
+└─────────────────────────────────────────────┘
 ```
 
-**Interactie:**
-- Volledige kaart klikbaar (geen verborgen CTA)
-- Tap-state met lichte scale (0.98) en shadow
-- "Bekijk project" pijl altijd zichtbaar (niet alleen hover)
+### Animatie Eigenschappen
+- Vloeiende kleurovergang (300ms ease)
+- Geen 3D flip, maar directe kleurwissel
+- Pijl-icoon blijft, met subtiele translate op hover
+- Behoud van huidige tekst labels
 
-**Typografie:**
-- Titel: 18px (text-lg)
-- Metadata: 14px (text-sm)
-- Beschrijving: 14px met line-clamp-2
+## Bestanden te Wijzigen
 
----
-
-## Sectie 2: De Kracht van Twee (CompanyHeritage)
-
-### Huidige Problemen
-- Horizontale FEI + GRO = FEIGRO layout werkt niet goed op smalle schermen
-- Elementen kunnen overlappen of te klein worden
-- Tekstcontrast kan beter
-
-### Oplossing: Verticale Stapeling
-
-**Visualisatie Herstructurering (mobiel):**
-```text
-       ┌─────────┐
-       │  FEI    │  Feitsma
-       └─────────┘
-           +
-       ┌─────────┐
-       │  GRO    │  Groen
-       └─────────┘
-           =
-    ┌───────────────┐
-    │   FEIGRO      │
-    └───────────────┘
-```
-
-**Wijzigingen:**
-- Verticale stapeling van FEI/GRO/FEIGRO elementen op mobiel
-- Grotere icoon-cirkels (w-16 h-16) voor betere touch-bediening
-- Betere regelafstand en tekstgrootte
-- Meer verticale spacing tussen elementen
-- Gecentraliseerde uitlijning
-
-**Typografie Verbeteringen:**
-- Hoofdtitel: maximaal 2 regels, geen afbrekingen
-- Body tekst: 16px met line-height 1.6
-- Betere contrast (text-white/70 ipv text-white/60)
-
----
-
-## Sectie 3: Buttons Site-breed
-
-### Huidige Problemen
-- Buttons hebben vaste breedte, niet responsive
-- Niet gecentreerd op mobiel
-- Geen consistente styling
-
-### Oplossing: Responsive Button Styling
-
-**FlipButton Aanpassingen:**
-- Mobiel: `w-full` (100% breedte)
-- Desktop: `w-auto` (automatische breedte)
-- Wrapper met `flex justify-center` voor centrering
-
-**Componenten om aan te passen:**
-1. `FlipButton.tsx` - Basis button component
-2. `Hero.tsx` - CTA buttons
-3. `About.tsx` - "Ontdek onze diensten" button
-4. `BlogSection.tsx` - "Bekijk alle artikelen" button
-5. `Testimonials.tsx` - "Plaats review" button
-6. `CTAFooter.tsx` - "Vraag offerte aan" button
-
-**Button Styling:**
-- Minimum touch target: 44px hoogte
-- Volle breedte container op mobiel
-- Gecentreerde tekst
-- Consistente border-radius (rounded-xl)
-- Active/tap state met scale(0.96) feedback
-
----
+| Bestand | Wijziging |
+|---------|-----------|
+| `src/components/buttons/FlipButton.tsx` | Vervang 3D flip door kleurovergang animatie |
+| `src/components/buttons/PrimaryFlipButton.tsx` | Aanpassen naar nieuwe stijl (groen→zwart) |
+| `src/components/buttons/InversedFlipButton.tsx` | Aanpassen naar zelfde stijl (groen→zwart) |
+| `src/components/ui/button.tsx` | Nieuwe "feigro" variant toevoegen |
+| `src/components/forms/LekkageForm.tsx` | Button styling aanpassen naar nieuwe stijl |
+| `src/components/forms/VveForm.tsx` | Button styling aanpassen naar nieuwe stijl |
 
 ## Technische Details
 
-### Bestanden te wijzigen:
+### Nieuwe FlipButton Styling
 
-| Bestand | Wijzigingen |
-|---------|-------------|
-| `src/components/home/FeaturedProjects.tsx` | Complete mobiele layout herstructurering, nieuwe kaartweergave |
-| `src/components/home/CompanyHeritage.tsx` | Verticale FEI+GRO=FEIGRO layout op mobiel |
-| `src/components/buttons/FlipButton.tsx` | Responsive width classes toevoegen |
-| `src/components/home/Hero.tsx` | Button container centrering |
-| `src/components/home/About.tsx` | Button centrering wrapper |
-| `src/components/home/BlogSection.tsx` | Button volle breedte mobiel |
-| `src/components/home/Testimonials.tsx` | Button centrering en volle breedte |
-| `src/components/sections/CTAFooter.tsx` | Button volle breedte mobiel |
+```tsx
+// Normale staat
+className="bg-brand-green text-feigro-dark border-2 border-brand-green"
 
-### Responsive Breakpoints:
-- Mobiel: < 768px (md breakpoint)
-- Tablet/Desktop: >= 768px
+// Hover staat  
+className="hover:bg-feigro-dark hover:text-white hover:border-feigro-dark"
 
-### Tailwind Classes:
-- Mobiel volle breedte: `w-full md:w-auto`
-- Centrering: `flex justify-center md:justify-start`
-- Verbergen op mobiel: `hidden md:flex`
-- Tonen alleen op mobiel: `flex md:hidden`
+// Transitie
+className="transition-all duration-300 ease-out"
+```
 
----
+### Button Varianten Uniforme Stijl
+
+**Alle CTA buttons (Primary, Inversed, Emergency):**
+- Achtergrond: `bg-brand-green`
+- Tekst: `text-feigro-dark` (zwart)
+- Border: `border-brand-green`
+- Hover achtergrond: `bg-feigro-dark` 
+- Hover tekst: `text-white`
+- Border-radius: `rounded-xl`
+- Font: `font-bold uppercase tracking-wider`
+- Hoogte: 52px (default), 44px (small), 68px (large)
+
+### Formulier Buttons
+
+De `<Button>` component in formulieren krijgt dezelfde styling:
+- Verwijder huidige `hover:bg-brand-green/90`
+- Voeg toe: `hover:bg-feigro-dark hover:text-white`
+- Zorg voor consistente border-radius en padding
+
+## Visuele Consistentie
+
+Na implementatie hebben ALLE buttons op de site:
+
+1. **Zelfde kleurenschema**: Groen → Zwart bij hover
+2. **Zelfde font**: Bold, uppercase, tracking-wider  
+3. **Zelfde border-radius**: rounded-xl (12px)
+4. **Zelfde hoogte**: Consistent per size variant
+5. **Zelfde animatie**: 300ms vloeiende kleurovergang
+6. **Zelfde pijl-gedrag**: ArrowRight met translate-x op hover
+
+## Impact Analyse
+
+### Componenten die automatisch updaten (via FlipButton):
+- Hero sectie buttons
+- About sectie button
+- BlogSection CTA
+- Testimonials button
+- CTAFooter button
+- Diensten pagina buttons
+- Contact pagina buttons
+- ProjectDetail pagina buttons
+- NotFound pagina buttons
+- Spoedservice pagina buttons
+
+### Componenten die handmatig geüpdatet worden:
+- LekkageForm submit button
+- VveForm submit button
+- FeaturedProjects mobiele CTA (al correct)
 
 ## Verwacht Resultaat
 
-**FeaturedProjects:**
-- Rustige, scrollbare lijst van projecten
-- Alle informatie direct zichtbaar zonder interactie
-- Consistente kaartweergave met goede leesbaarheid
-
-**CompanyHeritage:**
-- Helder visueel verhaal van FEI + GRO = FEIGRO
-- Goed leesbare tekst met voldoende contrast
-- Professionele, rustige uitstraling
-
-**Buttons:**
-- Consistent volle breedte op mobiel
-- Gecentreerd in hun containers
-- Duidelijke tap-feedback
-- Goede touch-bediening (minimum 44px)
+Een volledig consistente button-ervaring over de hele website:
+- Herkenbare groene buttons die uitnodigen tot actie
+- Duidelijke hover feedback met kleurwissel naar zwart
+- Professionele, moderne uitstraling
+- Behoud van alle bestaande button teksten en functionaliteit

@@ -102,10 +102,10 @@ export const FeaturedProjects = () => {
           <FadeIn delay={0.4} className="mt-4">
             <Link 
               to="/projecten"
-              className="flex items-center justify-center gap-2 w-full py-4 bg-slate-900 text-white font-bold text-sm uppercase tracking-wider rounded-xl active:scale-[0.98] transition-transform"
+              className="group flex items-center justify-center gap-2 w-full py-4 bg-brand-green text-feigro-dark font-bold text-sm uppercase tracking-wider rounded-xl active:scale-[0.98] transition-all duration-300 hover:bg-feigro-dark hover:text-white"
             >
               <span>Bekijk alle projecten</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </FadeIn>
         </div>

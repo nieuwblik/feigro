@@ -31,7 +31,7 @@ export const Hero = () => {
           <FadeIn distance={20}>
             <div className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-6 md:mb-8 backdrop-blur-md">
               <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></div>
-              <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Uw Gecertificeerde Dakspecialist</span>
+              <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">Werkzaam in heel Nederland</span>
             </div>
           </FadeIn>
 

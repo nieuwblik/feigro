@@ -99,14 +99,14 @@ export const Services = () => {
               <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6 md:mb-10 max-w-xl">
                 Ons team staat 24/7 klaar voor direct herstel en vakkundig advies. Neem contact op voor een gratis dakinspectie.
               </p>
-              <div onClick={() => {
-              const el = document.getElementById('contact');
-              if (el) el.scrollIntoView({
-                behavior: 'smooth'
-              });else window.location.href = '/contact';
-            }} className="cursor-pointer inline-block">
-                
-              </div>
+              <PrimaryFlipButton
+                label="Plan gratis inspectie"
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.href = '/contact';
+                }}
+              />
             </FadeIn>
 
             {/* Right: Image */}

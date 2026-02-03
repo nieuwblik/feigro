@@ -7,6 +7,7 @@ import {
 import { FAQItem } from '@/types';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { generateFAQSchema } from '@/lib/structured-data';
 
 interface FAQSectionProps {
   faqs: FAQItem[];
@@ -14,6 +15,7 @@ interface FAQSectionProps {
   titleHighlight?: string;
   subtitle?: string;
   className?: string;
+  injectSchema?: boolean;
 }
 
 export function FAQSection({
@@ -22,6 +24,7 @@ export function FAQSection({
   titleHighlight = 'Vragen',
   subtitle,
   className,
+  injectSchema = true,
 }: FAQSectionProps) {
   const renderTitle = () => {
     if (!titleHighlight) return title;
@@ -35,8 +38,19 @@ export function FAQSection({
     );
   };
 
+  // Generate FAQ schema for SEO
+  const faqSchema = injectSchema && faqs.length > 0 ? generateFAQSchema(faqs) : null;
+
   return (
-    <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-white', className)}>
+    <>
+      {/* JSON-LD FAQ Schema */}
+      {faqSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      )}
+      
+      <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-white', className)}>
       <div className="container mx-auto max-w-4xl">
         <div className="text-left mb-12 md:mb-20">
           <motion.div
@@ -82,6 +96,7 @@ export function FAQSection({
           ))}
         </Accordion>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

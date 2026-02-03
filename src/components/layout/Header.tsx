@@ -266,36 +266,50 @@ export const Header = () => {
           />
         </nav>
 
-        {/* Mobile Toggle Button */}
-        <button
-          className="lg:hidden text-white hover:text-brand-green transition-colors relative w-10 h-10 flex items-center justify-center z-[10000]"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <AnimatePresence mode="wait">
-            {isMenuOpen ? (
-              <motion.div
-                key="close"
-                initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <X size={28} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Menu size={28} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+        {/* Mobile Toggle Buttons */}
+        <div className="lg:hidden flex items-center gap-3">
+          {/* Emergency Phone Button with Pulse */}
+          <Link
+            to="/spoedservice"
+            className="relative bg-red-500 hover:bg-red-600 text-white transition-colors w-10 h-10 flex items-center justify-center rounded-lg z-[10000]"
+            aria-label="Spoedservice - Bel nu"
+          >
+            {/* Pulse ring animation */}
+            <span className="absolute inset-0 rounded-lg bg-red-500 animate-ping opacity-40" />
+            <Phone size={20} className="relative z-10" />
+          </Link>
+
+          {/* Hamburger Menu Button */}
+          <button
+            className="text-white hover:text-brand-green transition-colors relative w-10 h-10 flex items-center justify-center z-[10000]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              {isMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <X size={28} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Menu size={28} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}

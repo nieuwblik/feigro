@@ -72,8 +72,12 @@ export const CompanyHeritage = () => {
             <div className="text-white/50 text-3xl md:text-4xl my-2 md:my-0">=</div>
             
             {/* FEIGRO */}
-            <div className="px-8 py-4 bg-brand-green rounded-xl">
-              <span className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-black">FEIGRO</span>
+            <div className="px-6 py-3 bg-brand-green rounded-xl flex items-center justify-center">
+              <img 
+                src="/images/feigro-logo-zwart.png" 
+                alt="FEIGRO Dakwerken" 
+                className="h-8 md:h-10 w-auto"
+              />
             </div>
           </div>
         </FadeIn>

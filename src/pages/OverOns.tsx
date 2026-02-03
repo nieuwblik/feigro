@@ -37,7 +37,7 @@ export default function OverOns() {
       <SEO {...seoMetadata.overOns} />
 
       {/* Hero */}
-      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-screen flex items-center">
+      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-screen md:h-[40vh] md:min-h-[400px] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <ParallaxImage

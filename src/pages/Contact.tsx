@@ -210,7 +210,13 @@ export default function Contact() {
                   </div>
 
                   <div className="pt-4">
-                    
+                    <button
+                      type="submit"
+                      className="w-full group inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider border-2 rounded-xl transition-all duration-300 ease-out bg-brand-green text-feigro-dark border-brand-green hover:bg-feigro-dark hover:text-white hover:border-feigro-dark h-14 md:h-16 text-sm md:text-base"
+                    >
+                      Verstuur bericht
+                      <Send className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
                   </div>
                 </form>
               </div>

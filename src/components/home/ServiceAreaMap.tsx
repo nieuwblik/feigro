@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import { motion } from 'framer-motion';
-
 interface ServiceAreaMapProps {
   variant?: 'light' | 'dark';
   showTitle?: boolean;
@@ -27,154 +26,162 @@ const provinces = {
 };
 
 // Waddeneilanden
-const islands = [
-  "M95,18 C100,16 108,17 112,20 C116,23 115,27 110,28 C105,29 98,28 95,25 C92,22 92,19 95,18 Z",
-  "M118,15 C124,13 132,14 138,18 C144,22 143,27 136,28 C129,29 120,27 116,23 C112,19 114,16 118,15 Z",
-  "M145,18 C150,16 158,17 162,20 C166,23 165,27 160,28 C155,29 148,28 145,25 C142,22 142,19 145,18 Z"
-];
-
-export const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({ 
+const islands = ["M95,18 C100,16 108,17 112,20 C116,23 115,27 110,28 C105,29 98,28 95,25 C92,22 92,19 95,18 Z", "M118,15 C124,13 132,14 138,18 C144,22 143,27 136,28 C129,29 120,27 116,23 C112,19 114,16 118,15 Z", "M145,18 C150,16 158,17 162,20 C166,23 165,27 160,28 C155,29 148,28 145,25 C142,22 142,19 145,18 Z"];
+export const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({
   variant = 'light',
-  showTitle = true 
+  showTitle = true
 }) => {
   const isDark = variant === 'dark';
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
   const [animationComplete, setAnimationComplete] = useState(false);
-
   useEffect(() => {
     const timer = setTimeout(() => setAnimationComplete(true), 1500);
     return () => clearTimeout(timer);
   }, []);
-
-  const activeProvinces = [
-    { id: 'noord-holland', path: provinces.noordHolland, label: 'Noord-Holland', cx: 80, cy: 78, labelPos: { top: '28%', left: '28%' }, delay: 0.3 },
-    { id: 'flevoland', path: provinces.flevoland, label: 'Flevoland', cx: 138, cy: 92, labelPos: { top: '32%', left: '62%' }, delay: 0.6 },
-    { id: 'utrecht', path: provinces.utrecht, label: 'Utrecht', cx: 108, cy: 145, labelPos: { top: '52%', left: '42%' }, delay: 0.9 }
-  ];
-
-  const inactiveProvinces = [
-    { id: 'groningen', path: provinces.groningen },
-    { id: 'friesland', path: provinces.friesland },
-    { id: 'drenthe', path: provinces.drenthe },
-    { id: 'overijssel', path: provinces.overijssel },
-    { id: 'gelderland', path: provinces.gelderland },
-    { id: 'noord-brabant', path: provinces.noordBrabant },
-    { id: 'limburg', path: provinces.limburg },
-    { id: 'zeeland', path: provinces.zeeland },
-    { id: 'zuid-holland', path: provinces.zuidHolland }
-  ];
-
-  return (
-    <div className={`relative rounded-2xl overflow-hidden ${isDark ? 'bg-slate-900' : 'bg-slate-50'} border ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
-      {showTitle && (
-        <FadeIn>
-          <div className="p-6 md:p-8 pb-0">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-brand-green"></div>
-              <span className="text-brand-green font-bold text-[10px] uppercase tracking-[0.3em]">
-                Werkgebied
-              </span>
-            </div>
-            <h3 className={`text-2xl md:text-3xl font-heading uppercase tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Actief in <span className="text-brand-green italic">3 Provincies</span>
-            </h3>
-          </div>
-        </FadeIn>
-      )}
+  const activeProvinces = [{
+    id: 'noord-holland',
+    path: provinces.noordHolland,
+    label: 'Noord-Holland',
+    cx: 80,
+    cy: 78,
+    labelPos: {
+      top: '28%',
+      left: '28%'
+    },
+    delay: 0.3
+  }, {
+    id: 'flevoland',
+    path: provinces.flevoland,
+    label: 'Flevoland',
+    cx: 138,
+    cy: 92,
+    labelPos: {
+      top: '32%',
+      left: '62%'
+    },
+    delay: 0.6
+  }, {
+    id: 'utrecht',
+    path: provinces.utrecht,
+    label: 'Utrecht',
+    cx: 108,
+    cy: 145,
+    labelPos: {
+      top: '52%',
+      left: '42%'
+    },
+    delay: 0.9
+  }];
+  const inactiveProvinces = [{
+    id: 'groningen',
+    path: provinces.groningen
+  }, {
+    id: 'friesland',
+    path: provinces.friesland
+  }, {
+    id: 'drenthe',
+    path: provinces.drenthe
+  }, {
+    id: 'overijssel',
+    path: provinces.overijssel
+  }, {
+    id: 'gelderland',
+    path: provinces.gelderland
+  }, {
+    id: 'noord-brabant',
+    path: provinces.noordBrabant
+  }, {
+    id: 'limburg',
+    path: provinces.limburg
+  }, {
+    id: 'zeeland',
+    path: provinces.zeeland
+  }, {
+    id: 'zuid-holland',
+    path: provinces.zuidHolland
+  }];
+  return <div className={`relative rounded-2xl overflow-hidden ${isDark ? 'bg-slate-900' : 'bg-slate-50'} border ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+      {showTitle && <FadeIn>
+          
+        </FadeIn>}
       
       <div className="relative p-6 md:p-8">
         <div className="relative aspect-[4/5] max-w-[280px] mx-auto">
-          <svg
-            viewBox="0 0 240 290"
-            className="w-full h-full"
-            aria-label="Kaart van Nederland met werkgebied"
-          >
+          <svg viewBox="0 0 240 290" className="w-full h-full" aria-label="Kaart van Nederland met werkgebied">
             {/* Waddeneilanden */}
-            {islands.map((path, i) => (
-              <motion.path
-                key={`island-${i}`}
-                d={path}
-                className={`${isDark ? 'fill-slate-700 stroke-slate-600' : 'fill-slate-200 stroke-slate-300'}`}
-                strokeWidth="1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 * i }}
-              />
-            ))}
+            {islands.map((path, i) => <motion.path key={`island-${i}`} d={path} className={`${isDark ? 'fill-slate-700 stroke-slate-600' : 'fill-slate-200 stroke-slate-300'}`} strokeWidth="1" initial={{
+            opacity: 0
+          }} animate={{
+            opacity: 1
+          }} transition={{
+            duration: 0.5,
+            delay: 0.1 * i
+          }} />)}
             
             {/* Inactive provinces */}
-            {inactiveProvinces.map((province, i) => (
-              <motion.path
-                key={province.id}
-                d={province.path}
-                className={`${isDark ? 'fill-slate-800 stroke-slate-700' : 'fill-slate-200 stroke-slate-300'}`}
-                strokeWidth="1"
-                strokeLinejoin="round"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.05 * i }}
-              />
-            ))}
+            {inactiveProvinces.map((province, i) => <motion.path key={province.id} d={province.path} className={`${isDark ? 'fill-slate-800 stroke-slate-700' : 'fill-slate-200 stroke-slate-300'}`} strokeWidth="1" strokeLinejoin="round" initial={{
+            opacity: 0,
+            scale: 0.95
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.4,
+            delay: 0.05 * i
+          }} />)}
             
             {/* Active provinces with staggered animation */}
-            {activeProvinces.map((province) => (
-              <motion.path
-                key={province.id}
-                d={province.path}
-                className={`${hoveredRegion === province.id ? 'fill-brand-green/70' : 'fill-brand-green/40'} stroke-brand-green cursor-pointer`}
-                strokeWidth="2"
-                strokeLinejoin="round"
-                onMouseEnter={() => setHoveredRegion(province.id)}
-                onMouseLeave={() => setHoveredRegion(null)}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1,
-                  fillOpacity: animationComplete ? (hoveredRegion === province.id ? 0.7 : 0.4) : [0.3, 0.7, 0.4]
-                }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: province.delay,
-                  fillOpacity: animationComplete ? { duration: 0.2 } : { duration: 0.8, delay: province.delay }
-                }}
-              />
-            ))}
+            {activeProvinces.map(province => <motion.path key={province.id} d={province.path} className={`${hoveredRegion === province.id ? 'fill-brand-green/70' : 'fill-brand-green/40'} stroke-brand-green cursor-pointer`} strokeWidth="2" strokeLinejoin="round" onMouseEnter={() => setHoveredRegion(province.id)} onMouseLeave={() => setHoveredRegion(null)} initial={{
+            opacity: 0,
+            scale: 0.8
+          }} animate={{
+            opacity: 1,
+            scale: 1,
+            fillOpacity: animationComplete ? hoveredRegion === province.id ? 0.7 : 0.4 : [0.3, 0.7, 0.4]
+          }} transition={{
+            duration: 0.6,
+            delay: province.delay,
+            fillOpacity: animationComplete ? {
+              duration: 0.2
+            } : {
+              duration: 0.8,
+              delay: province.delay
+            }
+          }} />)}
             
             {/* Location markers */}
-            {activeProvinces.map((province) => (
-              <motion.circle
-                key={`marker-${province.id}`}
-                cx={province.cx}
-                cy={province.cy}
-                r="5"
-                className={`fill-brand-green ${hoveredRegion === province.id ? 'opacity-100' : 'opacity-70'}`}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: hoveredRegion === province.id ? 1 : 0.7, scale: 1 }}
-                transition={{ duration: 0.4, delay: province.delay + 0.2 }}
-              />
-            ))}
+            {activeProvinces.map(province => <motion.circle key={`marker-${province.id}`} cx={province.cx} cy={province.cy} r="5" className={`fill-brand-green ${hoveredRegion === province.id ? 'opacity-100' : 'opacity-70'}`} initial={{
+            opacity: 0,
+            scale: 0
+          }} animate={{
+            opacity: hoveredRegion === province.id ? 1 : 0.7,
+            scale: 1
+          }} transition={{
+            duration: 0.4,
+            delay: province.delay + 0.2
+          }} />)}
           </svg>
           
           {/* Region labels */}
-          {activeProvinces.map((province) => (
-            <motion.div 
-              key={`label-${province.id}`}
-              className={`absolute flex items-center gap-1.5 ${hoveredRegion === province.id ? 'scale-110' : ''} transition-transform duration-300`}
-              style={{ 
-                top: province.labelPos.top, 
-                left: province.labelPos.left, 
-                transform: 'translate(-50%, -50%)' 
-              }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: province.delay + 0.3 }}
-            >
+          {activeProvinces.map(province => <motion.div key={`label-${province.id}`} className={`absolute flex items-center gap-1.5 ${hoveredRegion === province.id ? 'scale-110' : ''} transition-transform duration-300`} style={{
+          top: province.labelPos.top,
+          left: province.labelPos.left,
+          transform: 'translate(-50%, -50%)'
+        }} initial={{
+          opacity: 0,
+          y: 10
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5,
+          delay: province.delay + 0.3
+        }}>
               <MapPin size={12} className="text-brand-green" />
               <span className={`text-[9px] md:text-[10px] font-bold uppercase tracking-wide whitespace-nowrap ${isDark ? 'text-white' : 'text-slate-900'}`}>
                 {province.label}
               </span>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
         
         {/* Stats */}
@@ -195,6 +202,5 @@ export const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({
           </div>
         </FadeIn>
       </div>
-    </div>
-  );
+    </div>;
 };

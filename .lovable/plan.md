@@ -1,136 +1,78 @@
 
-# Plan: Consistente Compacte Hero-Secties
+
+# Plan: Hero-Secties van 40vh naar 60vh met Volledige Responsiveness
 
 ## Overzicht
-Alle pagina's (behalve Homepage en Spoedservice) krijgen een consistente, compacte hero-sectie die bezoekers sneller bij de content brengt.
+Alle hero-secties worden aangepast van `40vh` naar `60vh` op desktop, met proportionele hoogtes voor mobiel en tablet. De Homepage en Spoedservice blijven ongewijzigd.
 
-## Huidige Situatie
+## Huidige vs. Nieuwe Situatie
 
-| Pagina | Huidige Hero Hoogte |
-|--------|---------------------|
-| Homepage | `h-screen` (blijft) |
-| Spoedservice | `h-screen` (blijft) |
-| Diensten (overzicht) | `min-h-screen md:min-h-[40vh]` (goed) |
-| Vacatures | `h-[50vh] md:h-[40vh]` (goed) |
-| Over Ons | `h-screen` (aanpassen) |
-| Projecten | `h-screen` (aanpassen) |
-| Nieuws | `h-screen` (aanpassen) |
-| Contact | `h-screen` (aanpassen) |
-| Alle Diensten-subpagina's | `h-screen` via HeroSection component (aanpassen) |
+| Schermformaat | Huidig | Nieuw |
+|---------------|--------|-------|
+| Mobiel (<768px) | h-screen (100vh) | 70vh |
+| Tablet (768px-1024px) | 40vh | 50vh |
+| Desktop (>1024px) | 40vh | 60vh |
 
-## Gewenste Situatie
+## Responsiveness Breakpoints
 
 ```text
-+------------------------------------------+
-|  Homepage & Spoedservice                 |
-|  -> h-screen (fullscreen impact)         |
-+------------------------------------------+
-|  Alle overige pagina's                   |
-|  -> h-screen op mobiel (volledige focus) |
-|  -> 40vh op desktop (snelle toegang)     |
-+------------------------------------------+
+Mobiel (< 768px)    : 70vh  (compact maar impactvol)
+Tablet (768-1024px) : 50vh  (tussenformaat)
+Desktop (> 1024px)  : 60vh  (ruime weergave)
 ```
-
-## Aanpassingen
-
-### 1. HeroSection Component (Herbruikbaar)
-Dit component wordt door alle diensten-subpagina's gebruikt (Dakrenovatie, Dakreparatie, Daklekkage, etc.).
-
-**Bestand:** `src/components/sections/HeroSection.tsx`
-
-**Wijziging:** De class `h-screen` aanpassen naar `h-screen md:h-[40vh] md:min-h-[400px]`
-
-De `min-h-[400px]` zorgt ervoor dat de hero op desktop niet te klein wordt.
-
----
-
-### 2. Over Ons Pagina
-**Bestand:** `src/pages/OverOns.tsx` (regel 40)
-
-**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
-
----
-
-### 3. Projecten Pagina
-**Bestand:** `src/pages/Projecten.tsx` (regel 23)
-
-**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
-
----
-
-### 4. Nieuws Pagina
-**Bestand:** `src/pages/Nieuws.tsx` (regel 57)
-
-**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
-
----
-
-### 5. Contact Pagina
-**Bestand:** `src/pages/Contact.tsx` (regel 36)
-
-**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
-
----
-
-## Pagina's die NIET worden aangepast
-
-| Pagina | Reden |
-|--------|-------|
-| Homepage (`Index.tsx`) | Centrale landingspagina met visuele impact |
-| Spoedservice | Speciale urgentie-layout met dual-column structuur |
-| Diensten (overzicht) | Heeft al het juiste patroon |
-| Vacatures | Heeft al het juiste patroon |
-
----
 
 ## Visuele Vergelijking
 
-**Voor (desktop):**
+**Desktop (nieuw):**
 ```text
 +----------------------------------+
 |                                  |
-|            HERO                  |
-|         (100vh = heel scherm)    |
-|                                  |
+|       HERO (60vh)                |
+|       Meer ademruimte            |
 |                                  |
 +----------------------------------+
 |          CONTENT                 |
++----------------------------------+
 ```
 
-**Na (desktop):**
+**Tablet (nieuw):**
 ```text
 +----------------------------------+
-|       HERO (40vh = bovenste deel)|
+|       HERO (50vh)                |
+|       Gebalanceerd               |
 +----------------------------------+
-|                                  |
 |          CONTENT                 |
-|     (direct zichtbaar)           |
-|                                  |
 +----------------------------------+
 ```
 
----
+**Mobiel (nieuw):**
+```text
++----------------------------------+
+|                                  |
+|       HERO (70vh)                |
+|       Focus behouden             |
+|                                  |
++----------------------------------+
+|          CONTENT                 |
++----------------------------------+
+```
 
-## Technische Details
+## Aanpassingen per Bestand
 
-### Betreffende Bestanden
-1. `src/components/sections/HeroSection.tsx` - component voor diensten-subpagina's
-2. `src/pages/OverOns.tsx` - Over Ons pagina
-3. `src/pages/Projecten.tsx` - Projecten pagina
-4. `src/pages/Nieuws.tsx` - Nieuws pagina
-5. `src/pages/Contact.tsx` - Contact pagina
+### 1. HeroSection Component (Diensten-subpagina's)
+**Bestand:** `src/components/sections/HeroSection.tsx` (regel 36)
 
-### CSS Classes Wijziging
+**Van:**
 ```css
-/* Van */
-h-screen flex items-center
-
-/* Naar */
-h-screen md:h-[40vh] md:min-h-[400px] flex items-center
+h-screen md:h-[40vh] md:min-h-[400px]
 ```
 
-### Diensten-subpagina's die automatisch worden bijgewerkt
-Door de wijziging in `HeroSection.tsx` worden automatisch alle diensten-subpagina's aangepast:
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+Dit past automatisch alle diensten-subpagina's aan:
 - Dakrenovatie
 - Dakreparatie
 - Dakonderhoud
@@ -144,10 +86,139 @@ Door de wijziging in `HeroSection.tsx` worden automatisch alle diensten-subpagin
 
 ---
 
+### 2. Over Ons Pagina
+**Bestand:** `src/pages/OverOns.tsx` (regel 40)
+
+**Van:**
+```css
+h-screen md:h-[40vh] md:min-h-[400px]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+### 3. Projecten Pagina
+**Bestand:** `src/pages/Projecten.tsx` (regel 23)
+
+**Van:**
+```css
+h-screen md:h-[40vh] md:min-h-[400px]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+### 4. Nieuws Pagina
+**Bestand:** `src/pages/Nieuws.tsx` (regel 57)
+
+**Van:**
+```css
+h-screen md:h-[40vh] md:min-h-[400px]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+### 5. Contact Pagina
+**Bestand:** `src/pages/Contact.tsx` (regel 32)
+
+**Van:**
+```css
+h-screen md:h-[40vh] md:min-h-[400px]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+### 6. Diensten Overzichtspagina
+**Bestand:** `src/pages/Diensten.tsx` (regel 50)
+
+**Van:**
+```css
+min-h-screen md:min-h-[40vh]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+### 7. Vacatures Pagina
+**Bestand:** `src/pages/Vacatures.tsx` (regel 41)
+
+**Van:**
+```css
+h-[50vh] md:h-[40vh]
+```
+
+**Naar:**
+```css
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+---
+
+## Pagina's die NIET worden aangepast
+
+| Pagina | Reden |
+|--------|-------|
+| Homepage (`Index.tsx`) | Centrale landingspagina met fullscreen impact |
+| Spoedservice (`Spoedservice.tsx`) | Speciale urgentie-layout met dual-column structuur |
+
+---
+
+## Technische Details
+
+### CSS Classes Wijziging
+```css
+/* Van (verschillende varianten) */
+h-screen md:h-[40vh] md:min-h-[400px]
+min-h-screen md:min-h-[40vh]
+h-[50vh] md:h-[40vh]
+
+/* Naar (uniforme aanpak) */
+h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px]
+```
+
+### Tailwind Breakpoints
+- `h-[70vh]`: Mobiel (standaard, < 768px)
+- `md:h-[50vh]`: Tablet (>= 768px)
+- `lg:h-[60vh]`: Desktop (>= 1024px)
+- `min-h-[400px]`: Minimale hoogte op alle schermen
+
+### Bestanden die worden aangepast
+1. `src/components/sections/HeroSection.tsx`
+2. `src/pages/OverOns.tsx`
+3. `src/pages/Projecten.tsx`
+4. `src/pages/Nieuws.tsx`
+5. `src/pages/Contact.tsx`
+6. `src/pages/Diensten.tsx`
+7. `src/pages/Vacatures.tsx`
+
+---
+
 ## Voordelen
-- Snellere toegang tot content op desktop
-- Minder scrollen nodig
-- Professionelere uitstraling
-- Betere SEO (content sneller zichtbaar voor crawlers)
+- Meer visuele impact op alle schermformaten
+- Proportionele verhoudingen tussen mobiel, tablet en desktop
 - Consistente gebruikerservaring door de hele website
-- Mobiel blijft fullscreen voor focus en impact
+- `min-h-[400px]` voorkomt te kleine hero's op korte schermen
+- Content blijft direct toegankelijk na de hero
+

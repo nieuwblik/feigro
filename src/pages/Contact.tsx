@@ -5,6 +5,7 @@ import { SEO } from '@/components/SEO';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
+import { ServiceAreaMap } from '@/components/home/ServiceAreaMap';
 import imgHero from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -174,6 +175,11 @@ export default function Contact() {
                 <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-light">
                   Al onze medewerkers zijn VCA-gecertificeerd en werken volgens de strengste veiligheidsnormen.
                 </p>
+              </div>
+              
+              {/* Service Area Map */}
+              <div className="mt-8">
+                <ServiceAreaMap variant="light" />
               </div>
             </motion.div>
 

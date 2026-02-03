@@ -2,6 +2,7 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
+import { PrimaryFlipButton } from '@/components/buttons';
 
 const COMPANY_DATA = {
   feitsma: {
@@ -113,7 +114,13 @@ export const CompanyHeritage = () => {
             <p className="text-white/80 text-lg md:text-xl mb-2">
               <span className="font-bold text-white">149+ tevreden klanten</span> gaven ons gemiddeld
             </p>
-            <p className="text-brand-green text-4xl md:text-5xl font-heading">4.9 / 5.0</p>
+            <p className="text-brand-green text-4xl md:text-5xl font-heading mb-6">4.9 / 5.0</p>
+            <PrimaryFlipButton
+              label="Plaats een review voor FEIGRO"
+              onClick={() => {
+                window.open('https://g.page/r/CdIXIr0TrqC8EBM/review', '_blank');
+              }}
+            />
           </div>
         </FadeIn>
       </div>

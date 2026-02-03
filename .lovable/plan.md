@@ -1,165 +1,153 @@
-# SEO Infrastructure for FEIGRO Dakwerken - COMPLETED ✅
 
-## Implementation Summary
+# Plan: Consistente Compacte Hero-Secties
 
-All 10 phases of the SEO infrastructure have been implemented successfully.
+## Overzicht
+Alle pagina's (behalve Homepage en Spoedservice) krijgen een consistente, compacte hero-sectie die bezoekers sneller bij de content brengt.
+
+## Huidige Situatie
+
+| Pagina | Huidige Hero Hoogte |
+|--------|---------------------|
+| Homepage | `h-screen` (blijft) |
+| Spoedservice | `h-screen` (blijft) |
+| Diensten (overzicht) | `min-h-screen md:min-h-[40vh]` (goed) |
+| Vacatures | `h-[50vh] md:h-[40vh]` (goed) |
+| Over Ons | `h-screen` (aanpassen) |
+| Projecten | `h-screen` (aanpassen) |
+| Nieuws | `h-screen` (aanpassen) |
+| Contact | `h-screen` (aanpassen) |
+| Alle Diensten-subpagina's | `h-screen` via HeroSection component (aanpassen) |
+
+## Gewenste Situatie
+
+```text
++------------------------------------------+
+|  Homepage & Spoedservice                 |
+|  -> h-screen (fullscreen impact)         |
++------------------------------------------+
+|  Alle overige pagina's                   |
+|  -> h-screen op mobiel (volledige focus) |
+|  -> 40vh op desktop (snelle toegang)     |
++------------------------------------------+
+```
+
+## Aanpassingen
+
+### 1. HeroSection Component (Herbruikbaar)
+Dit component wordt door alle diensten-subpagina's gebruikt (Dakrenovatie, Dakreparatie, Daklekkage, etc.).
+
+**Bestand:** `src/components/sections/HeroSection.tsx`
+
+**Wijziging:** De class `h-screen` aanpassen naar `h-screen md:h-[40vh] md:min-h-[400px]`
+
+De `min-h-[400px]` zorgt ervoor dat de hero op desktop niet te klein wordt.
 
 ---
 
-## What Was Created
+### 2. Over Ons Pagina
+**Bestand:** `src/pages/OverOns.tsx` (regel 40)
 
-### Phase 1: SEO Types & Utilities ✅
-- **`src/types/seo.ts`** - Comprehensive TypeScript interfaces for SEO components
-- **`src/lib/seo-utils.ts`** - Utility functions for canonical URLs, reading time, title formatting
-
-### Phase 2: JSON-LD Structured Data ✅
-- **`src/lib/structured-data.ts`** - Schema generators for Organization, WebSite, WebPage, BreadcrumbList, Article, FAQ, LocalBusiness, AggregateRating, Review
-
-### Phase 3: Breadcrumb Component ✅
-- **`src/components/seo/SEOBreadcrumb.tsx`** - Auto-generates breadcrumbs with JSON-LD schema
-
-### Phase 4: Dynamic Sitemap System ✅
-- **`public/sitemap.xml`** - Sitemap index
-- **`public/sitemap-static.xml`** - Static pages sitemap
-- **`supabase/functions/sitemap-dynamic/`** - Edge function for dynamic content
-
-### Phase 5: Enhanced robots.txt ✅
-- **`public/robots.txt`** - Updated with AI bot blocking and comprehensive rules
-
-### Phase 6: OG Image Helpers ✅
-- **`src/lib/og-images.ts`** - Functions for OG image paths and URLs
-
-### Phase 7: SEO-Friendly Error Pages ✅
-- **`src/pages/NotFound.tsx`** - Enhanced with SEOHead and suggested pages
-- **`src/pages/Error.tsx`** - New error page with retry and contact info
-
-### Phase 8: Internal Linking ✅
-- **`src/components/seo/RelatedContent.tsx`** - Related pages component
-- **`src/components/sections/FAQSection.tsx`** - Updated with automatic FAQ schema injection
-
-### Phase 9: Performance Optimizations ✅
-- **`index.html`** - Added preconnect, dns-prefetch, and font preload hints
-- **`src/lib/web-vitals.ts`** - Core Web Vitals monitoring (LCP, FID, CLS)
-
-### Phase 10: Review & Rating Schema ✅
-- **`src/components/seo/ReviewsWithSchema.tsx`** - Reviews with AggregateRating and Review JSON-LD
+**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
 
 ---
 
-## File Structure
+### 3. Projecten Pagina
+**Bestand:** `src/pages/Projecten.tsx` (regel 23)
 
-```
-src/
-  components/
-    seo/
-      index.ts              # Barrel export
-      SEOHead.tsx           # Main SEO component
-      SEOBreadcrumb.tsx     # Breadcrumb navigation
-      RelatedContent.tsx    # Related pages/posts
-      ReviewsWithSchema.tsx # Reviews with schema
-  lib/
-    seo-utils.ts           # Canonical URL, reading time, etc.
-    structured-data.ts     # All JSON-LD generators
-    og-images.ts           # OG image helpers
-    web-vitals.ts          # Performance monitoring
-  types/
-    seo.ts                 # All SEO-related types
-  pages/
-    NotFound.tsx           # Enhanced 404 page
-    Error.tsx              # New error page
-public/
-  sitemap.xml              # Sitemap index
-  sitemap-static.xml       # Static pages sitemap
-  robots.txt               # Updated robots
-supabase/
-  functions/
-    sitemap-dynamic/       # Dynamic sitemap generator
-```
+**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
 
 ---
 
-## How to Use
+### 4. Nieuws Pagina
+**Bestand:** `src/pages/Nieuws.tsx` (regel 57)
 
-### SEOHead Component
+**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
 
-```tsx
-import { SEOHead } from '@/components/seo';
+---
 
-<SEOHead
-  title="Dakrenovatie Noord-Holland"
-  description="Professionele dakrenovatie in Noord-Holland..."
-  keywords={['dakrenovatie', 'dakdekker', 'Noord-Holland']}
-  ogImage="/og/diensten.png"
-  structuredData={[generateLocalBusinessSchema()]}
-/>
+### 5. Contact Pagina
+**Bestand:** `src/pages/Contact.tsx` (regel 36)
+
+**Wijziging:** `h-screen` -> `h-screen md:h-[40vh] md:min-h-[400px]`
+
+---
+
+## Pagina's die NIET worden aangepast
+
+| Pagina | Reden |
+|--------|-------|
+| Homepage (`Index.tsx`) | Centrale landingspagina met visuele impact |
+| Spoedservice | Speciale urgentie-layout met dual-column structuur |
+| Diensten (overzicht) | Heeft al het juiste patroon |
+| Vacatures | Heeft al het juiste patroon |
+
+---
+
+## Visuele Vergelijking
+
+**Voor (desktop):**
+```text
++----------------------------------+
+|                                  |
+|            HERO                  |
+|         (100vh = heel scherm)    |
+|                                  |
+|                                  |
++----------------------------------+
+|          CONTENT                 |
 ```
 
-### Breadcrumbs
-
-```tsx
-import { SEOBreadcrumb } from '@/components/seo';
-
-// Auto-generate from URL
-<SEOBreadcrumb />
-
-// Or provide custom items
-<SEOBreadcrumb items={[
-  { label: 'Home', href: '/' },
-  { label: 'Diensten', href: '/diensten' },
-  { label: 'Dakrenovatie', href: '/dakrenovatie' }
-]} />
-```
-
-### FAQ Section with Schema
-
-```tsx
-<FAQSection 
-  faqs={faqs} 
-  injectSchema={true}  // Automatically injects FAQPage JSON-LD
-/>
-```
-
-### Related Content
-
-```tsx
-import { RelatedContent } from '@/components/seo';
-
-<RelatedContent items={[
-  { title: 'Dakonderhoud', description: '...', href: '/dakonderhoud' },
-  { title: 'Dakinspectie', description: '...', href: '/dakinspectie' },
-]} />
-```
-
-### Reviews with Schema
-
-```tsx
-import { ReviewsWithSchema } from '@/components/seo';
-
-<ReviewsWithSchema reviews={[
-  { author: 'Jan P.', datePublished: '2026-01-15', reviewBody: '...', ratingValue: 5 }
-]} />
+**Na (desktop):**
+```text
++----------------------------------+
+|       HERO (40vh = bovenste deel)|
++----------------------------------+
+|                                  |
+|          CONTENT                 |
+|     (direct zichtbaar)           |
+|                                  |
++----------------------------------+
 ```
 
 ---
 
-## OG Images Needed
+## Technische Details
 
-Create these images (1200x630 pixels):
-1. `public/og/default.png` - FEIGRO branding
-2. `public/og/home.png` - Homepage hero
-3. `public/og/diensten.png` - Services overview
-4. `public/og/projecten.png` - Portfolio showcase
-5. `public/og/contact.png` - Contact theme
-6. `public/og/over-ons.png` - Team/company
-7. `public/og/spoedservice.png` - Emergency theme
-8. `public/og/nieuws.png` - News/blog theme
+### Betreffende Bestanden
+1. `src/components/sections/HeroSection.tsx` - component voor diensten-subpagina's
+2. `src/pages/OverOns.tsx` - Over Ons pagina
+3. `src/pages/Projecten.tsx` - Projecten pagina
+4. `src/pages/Nieuws.tsx` - Nieuws pagina
+5. `src/pages/Contact.tsx` - Contact pagina
+
+### CSS Classes Wijziging
+```css
+/* Van */
+h-screen flex items-center
+
+/* Naar */
+h-screen md:h-[40vh] md:min-h-[400px] flex items-center
+```
+
+### Diensten-subpagina's die automatisch worden bijgewerkt
+Door de wijziging in `HeroSection.tsx` worden automatisch alle diensten-subpagina's aangepast:
+- Dakrenovatie
+- Dakreparatie
+- Dakonderhoud
+- Daklekkage
+- Dakinspectie
+- VVE & Vastgoedbeheer
+- Valbeveiliging
+- EPDM Dakbedekking
+- Bitumen Dakbedekking
+- Dakbedekking Vervangen
 
 ---
 
-## Next Steps
-
-1. Create OG images for each page
-2. Migrate existing pages to use new SEOHead component
-3. Add breadcrumbs to inner pages
-4. Add RelatedContent to service and project pages
-5. Initialize web vitals monitoring in main.tsx if needed
+## Voordelen
+- Snellere toegang tot content op desktop
+- Minder scrollen nodig
+- Professionelere uitstraling
+- Betere SEO (content sneller zichtbaar voor crawlers)
+- Consistente gebruikerservaring door de hele website
+- Mobiel blijft fullscreen voor focus en impact

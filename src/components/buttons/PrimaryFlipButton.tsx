@@ -1,24 +1,21 @@
 import React from 'react';
-import { FlipButton, FlipButtonFront, FlipButtonBack } from './FlipButton';
+import { AnimatedButton } from './FlipButton';
 import { BaseFlipProps } from './types';
 
 export const PrimaryFlipButton: React.FC<BaseFlipProps> = ({ 
   label, 
-  hoverLabel, 
   icon, 
-  hoverIcon, 
   onClick, 
   className, 
   size 
 }) => (
-  <FlipButton onClick={onClick} className={className} size={size}>
-    <FlipButtonFront variant="primary" size={size}>
-      <span className="whitespace-nowrap">{label}</span>
-      {icon}
-    </FlipButtonFront>
-    <FlipButtonBack variant="secondary" size={size}>
-      <span className="whitespace-nowrap">{hoverLabel || label}</span>
-      {hoverIcon || icon}
-    </FlipButtonBack>
-  </FlipButton>
+  <AnimatedButton 
+    onClick={onClick} 
+    className={className} 
+    size={size}
+    variant="primary"
+    icon={icon}
+  >
+    {label}
+  </AnimatedButton>
 );

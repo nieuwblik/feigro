@@ -232,34 +232,5 @@ export default function Nieuws() {
           </div>
         </div>
       </section>
-
-      {/* Newsletter CTA */}
-      <section className="py-20 md:py-28 px-4 md:px-6 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 via-transparent to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-brand-green/5 blur-[120px] rounded-full"></div>
-        
-        <div className="container mx-auto relative z-10 text-center max-w-2xl">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }}>
-            <h2 className="text-3xl md:text-4xl font-heading text-white uppercase tracking-tighter mb-6">
-              Blijf op de <span className="text-brand-green italic">hoogte</span>
-            </h2>
-            <p className="text-white/50 text-lg font-light mb-10">
-              Ontvang het laatste nieuws over dakwerken, innovaties en exclusieve tips direct in uw inbox.
-            </p>
-            <Link to="/contact" className="inline-flex items-center gap-3 bg-brand-green hover:bg-white hover:text-slate-900 text-white px-10 py-5 rounded-xl font-bold uppercase text-sm tracking-wider transition-all duration-300 group">
-              Neem contact op
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </>;
 }

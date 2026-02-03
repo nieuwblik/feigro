@@ -91,7 +91,9 @@ export function LekkageForm() {
                 </p>
                 <Button
                     onClick={() => setIsSubmitted(false)}
-                    className="mt-10 bg-brand-green hover:bg-brand-green/90 text-white px-8 py-6 rounded-xl font-bold uppercase tracking-widest text-xs"
+                    variant="feigro"
+                    size="xl"
+                    className="mt-10"
                 >
                     Nieuwe melding
                 </Button>
@@ -423,13 +425,14 @@ export function LekkageForm() {
                     <div className="pt-6">
                         <Button
                             type="submit"
-                            className="w-full bg-brand-green hover:bg-brand-green/90 text-white h-16 md:h-20 rounded-xl md:rounded-3xl font-heading text-lg md:text-xl uppercase tracking-wider transition-all duration-500 shadow-xl shadow-brand-green/20 group relative overflow-hidden"
+                            variant="feigro"
+                            size="xl"
+                            className="w-full h-16 md:h-20 rounded-xl md:rounded-3xl text-lg md:text-xl shadow-xl shadow-brand-green/20 group"
                         >
-                            <span className="relative z-10 flex items-center justify-center gap-4">
+                            <span className="flex items-center justify-center gap-4">
                                 Lekkage melden
                                 <CheckCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
                             </span>
-                            <div className="absolute inset-0 bg-white/10 translate-y-full hover:translate-y-0 transition-transform duration-500"></div>
                         </Button>
                         <p className="text-center text-slate-400 text-[10px] uppercase font-bold tracking-widest mt-8">
                             WIJ NEMEN DIRECT CONTACT MET U OP — 24/7 BEREIKBAAR

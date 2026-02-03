@@ -160,7 +160,7 @@ export const VveForm = () => {
                         />
                     </div>
 
-                    <Button type="submit" className="w-full bg-brand-green hover:bg-brand-green/90 text-white font-bold py-6 text-lg rounded-lg transition-all duration-300 shadow-lg shadow-brand-green/20">
+                    <Button type="submit" variant="feigro" size="xl" className="w-full shadow-lg shadow-brand-green/20">
                         Stuur mij het gratis advies
                     </Button>
                 </form>

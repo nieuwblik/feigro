@@ -1,10 +1,12 @@
 import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
-import { Calendar, ArrowRight, Clock } from 'lucide-react';
+import { Calendar, ArrowRight, Clock, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
 import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.jpg';
+import nieuwsHeroBg from '@/assets/nieuws-hero-bg.png';
+
 const blogPosts = [{
   id: 'epdm-dakbedekking',
   title: 'EPDM Dakbedekking',
@@ -39,15 +41,29 @@ const blogPosts = [{
   image: imgZonnepanelen,
   featured: false
 }];
+
 export default function Nieuws() {
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
+
+  const scrollToArticles = () => {
+    document.getElementById('featured-article')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return <>
       <SEO title="Dakdekkers Nieuws | FEIGRO Dakwerken" description="Blijf op de hoogte van het laatste nieuws over dakwerken, innovaties en trends in de dakbedekkingsbranche." canonical="/nieuws" />
 
       {/* Hero Section */}
       <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-brand-green/10"></div>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={nieuwsHeroBg} 
+            alt="" 
+            className="w-full h-full object-cover opacity-40"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/5 blur-[150px] rounded-full"></div>
         
         <div className="container mx-auto relative z-10">
@@ -89,11 +105,22 @@ export default function Nieuws() {
         }} className="text-white/50 text-lg md:text-xl mt-6 max-w-xl font-light">
             Innovaties, trends en expertise uit de dakbedekkingsbranche — actief in Noord-Holland, Flevoland en Utrecht
           </motion.p>
+
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            onClick={scrollToArticles}
+            className="mt-8 inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 rounded-xl font-bold uppercase text-sm tracking-wider transition-all duration-300 group"
+          >
+            Lees artikelen
+            <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform" />
+          </motion.button>
         </div>
       </section>
 
       {/* Featured Article */}
-      {featuredPost && <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
+      {featuredPost && <section id="featured-article" className="py-16 md:py-24 px-4 md:px-6 bg-white">
           <div className="container mx-auto">
             <motion.div initial={{
           opacity: 0,

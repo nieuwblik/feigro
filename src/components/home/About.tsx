@@ -59,7 +59,7 @@ export const About = () => {
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.3}>
+            <FadeIn delay={0.3} className="flex justify-center md:justify-start">
               <InversedFlipButton
                 label="Ontdek onze diensten"
                 onClick={() => {

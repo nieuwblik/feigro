@@ -336,62 +336,67 @@ export default function BlogDetail() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
         </div>
         
-        <div className="container mx-auto relative z-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <Link
-              to="/nieuws"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-brand-green transition-colors text-sm mb-8"
-            >
-              <ArrowLeft size={16} />
-              Terug naar nieuws
-            </Link>
-          </motion.div>
+        <div className="container mx-auto relative z-10">
+          {/* Grid matching article content layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div className="lg:col-span-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <Link
+                  to="/nieuws"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-brand-green transition-colors text-sm mb-8"
+                >
+                  <ArrowLeft size={16} />
+                  Terug naar nieuws
+                </Link>
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="flex items-center gap-4 mb-6"
-          >
-            <span className="bg-brand-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              {post.category}
-            </span>
-            <div className="flex items-center gap-4 text-white/50 text-sm">
-              <span className="flex items-center gap-1.5">
-                <Calendar size={14} />
-                {new Date(post.date).toLocaleDateString('nl-NL', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock size={14} />
-                {post.readTime}
-              </span>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="flex flex-wrap items-center gap-4 mb-6"
+              >
+                <span className="bg-brand-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                  {post.category}
+                </span>
+                <div className="flex items-center gap-4 text-white/50 text-sm">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar size={14} />
+                    {new Date(post.date).toLocaleDateString('nl-NL', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock size={14} />
+                    {post.readTime}
+                  </span>
+                </div>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-heading text-white uppercase tracking-tighter leading-none mb-4"
+              >
+                {post.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-brand-green text-xl md:text-2xl italic font-light"
+              >
+                {post.subtitle}
+              </motion.p>
             </div>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-heading text-white uppercase tracking-tighter leading-none mb-4"
-          >
-            {post.title}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-brand-green text-xl md:text-2xl italic font-light"
-          >
-            {post.subtitle}
-          </motion.p>
+          </div>
         </div>
       </section>
 

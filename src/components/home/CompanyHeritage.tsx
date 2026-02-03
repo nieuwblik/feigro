@@ -116,7 +116,7 @@ export const CompanyHeritage = () => {
             </p>
             <p className="text-brand-green text-4xl md:text-5xl font-heading mb-6">4.9 / 5.0</p>
             <PrimaryFlipButton
-              label="Plaats een review voor FEIGRO"
+              label="Plaats een review"
               onClick={() => {
                 window.open('https://g.page/r/CdIXIr0TrqC8EBM/review', '_blank');
               }}

@@ -87,11 +87,15 @@ export const FlipButtonBack: React.FC<FlipButtonPartProps & { isHovered?: boolea
   );
 };
 
-export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large' | 'icon' | 'small' }> = ({
+export const FlipButton: React.FC<FlipButtonProps & { 
+  size?: 'default' | 'large' | 'icon' | 'small';
+  fullWidthMobile?: boolean;
+}> = ({
   children,
   className = '',
   onClick,
-  size = 'default'
+  size = 'default',
+  fullWidthMobile = true
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -103,7 +107,7 @@ export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large'
   });
 
   const height = size === 'large' ? '68px' : size === 'small' ? '44px' : '52px';
-  const minWidth = size === 'icon' ? height : '120px';
+  const mobileWidthClass = fullWidthMobile ? 'w-full md:w-auto' : 'w-fit';
 
   return (
     <motion.button
@@ -111,10 +115,10 @@ export const FlipButton: React.FC<FlipButtonProps & { size?: 'default' | 'large'
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
       whileTap={{ scale: 0.96 }}
-      className={`relative outline-none inline-block group w-fit min-w-fit ${className}`}
+      className={`relative outline-none inline-block group ${mobileWidthClass} min-w-fit ${className}`}
       style={{
         height: height,
-        minWidth: minWidth,
+        minWidth: size === 'icon' ? height : '120px',
         perspective: '1000px',
       }}
     >

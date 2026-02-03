@@ -268,20 +268,13 @@ export const Header = () => {
 
         {/* Mobile Toggle Buttons */}
         <div className="lg:hidden flex items-center gap-3">
-          {/* Emergency Phone Button with Subtle Pulse */}
+          {/* Emergency Phone Button */}
           <Link
             to="/spoedservice"
-            className={cn(
-              "relative text-white transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-lg z-[10000]",
-              isScrolled 
-                ? "bg-red-500/70 hover:bg-red-500" 
-                : "bg-red-500/90 hover:bg-red-600"
-            )}
+            className="relative text-red-500 hover:text-red-400 transition-colors w-10 h-10 flex items-center justify-center z-[10000]"
             aria-label="Spoedservice - Bel nu"
           >
-            {/* Subtle pulse ring - slower and more transparent */}
-            <span className="absolute inset-0 rounded-lg bg-red-500/50 animate-pulse" />
-            <Phone size={20} className="relative z-10" />
+            <Phone size={22} className="animate-pulse" />
           </Link>
 
           {/* Hamburger Menu Button */}

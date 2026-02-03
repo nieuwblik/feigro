@@ -32,8 +32,8 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20 md:pt-24 lg:pt-28 pb-8 flex flex-col items-start">
-        <div className="max-w-5xl flex flex-col items-start text-left w-full">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20 md:pt-24 lg:pt-28 pb-8 flex flex-col items-center md:items-start">
+        <div className="max-w-5xl flex flex-col items-center md:items-start text-center md:text-left w-full">
           {/* Badge */}
           <FadeIn distance={20}>
             <div className="inline-flex items-center gap-2 md:gap-3 bg-white/5 border border-white/10 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full mb-6 md:mb-8 backdrop-blur-md">
@@ -43,8 +43,8 @@ export const Hero = () => {
           </FadeIn>
 
           {/* Heading */}
-          <FadeIn delay={0.1}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase break-words text-white">
+          <FadeIn delay={0.1} className="w-full">
+            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-7xl font-heading leading-[0.9] mb-4 md:mb-6 tracking-tighter uppercase text-white w-full">
               Meesters in <br />
               <span className="text-brand-green italic">Dakwerken</span>
             </h1>
@@ -86,7 +86,7 @@ export const Hero = () => {
               </div>
 
               {/* Phone Numbers Row */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
+              <div className="flex flex-col items-center md:items-start gap-3 sm:flex-row sm:gap-6">
                 <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
                 <div className="flex flex-row gap-4 sm:gap-6">
                   <a href="tel:+31637158612" className="text-white font-bold text-sm md:text-base hover:text-brand-green transition-colors">
@@ -101,7 +101,7 @@ export const Hero = () => {
           </FadeIn>
 
           {/* Stats Bar */}
-          <div className="mt-8 md:mt-12 flex flex-wrap justify-start gap-6 sm:gap-8 md:gap-12 lg:gap-16 border-t border-white/10 pt-6 md:pt-8 w-full">
+          <div className="mt-8 md:mt-12 flex flex-wrap justify-center md:justify-start gap-6 sm:gap-8 md:gap-12 lg:gap-16 border-t border-white/10 pt-6 md:pt-8 w-full">
             {[
               { val: '100%', label: 'Lekkagevrij' },
               { val: '24u', label: 'Noodservice' },
@@ -112,7 +112,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-start"
+                className="flex flex-col items-center md:items-start"
               >
                 <p className="text-brand-green text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading mb-1 leading-none tracking-tighter">{stat.val}</p>
                 <p className="text-white/40 text-[8px] sm:text-[9px] md:text-[10px] uppercase tracking-widest font-bold">{stat.label}</p>

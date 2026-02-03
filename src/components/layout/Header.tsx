@@ -314,28 +314,6 @@ export const Header = () => {
               <div className="w-10 h-10"></div>
             </div>
 
-            {/* Mobile Phone Numbers */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-              className="px-6 py-4 border-b border-white/10 flex flex-col sm:flex-row gap-3 sm:gap-6"
-            >
-              <a
-                href="tel:+31637158612"
-                className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
-              >
-                <Phone size={16} className="text-brand-green" />
-                <span className="text-sm font-medium">Jan: +31 6 37158612</span>
-              </a>
-              <a
-                href="tel:+31613731303"
-                className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
-              >
-                <Phone size={16} className="text-brand-green" />
-                <span className="text-sm font-medium">Tommie: +31 6 13731303</span>
-              </a>
-            </motion.div>
 
             <motion.div
               variants={contentVariants}
@@ -415,9 +393,24 @@ export const Header = () => {
                   ))}
                 </div>
 
-                <motion.div variants={itemVariants} className="mt-auto pb-12 pt-10">
+                <motion.div variants={itemVariants} className="mt-auto pb-12 pt-10 border-t border-white/10">
                   <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-4">Neem contact op</p>
-                  <a href="tel:+31612345678" className="text-white text-2xl font-bold hover:text-brand-green transition-colors">+31 (0) 6 123 456 78</a>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                    <a
+                      href="tel:+31637158612"
+                      className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
+                    >
+                      <Phone size={16} className="text-brand-green" />
+                      <span className="text-sm font-medium">Jan: +31 6 37158612</span>
+                    </a>
+                    <a
+                      href="tel:+31613731303"
+                      className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
+                    >
+                      <Phone size={16} className="text-brand-green" />
+                      <span className="text-sm font-medium">Tommie: +31 6 13731303</span>
+                    </a>
+                  </div>
                 </motion.div>
               </nav>
             </motion.div>

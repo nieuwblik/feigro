@@ -724,11 +724,13 @@ export const dakreparatieData: ServicePageData = {
 export const valbeveiligingssysteemData: ServicePageData = {
   seo: seoMetadata.valbeveiliging,
   hero: {
-    title: 'Valbeveiligingssysteem',
+    title: 'Valbeveiliging systemen',
     subtitle: 'Veilig werken op hoogte met gecertificeerde valbeveiligingssystemen. FEIGRO installeert professionele systemen volgens de nieuwste NEN-normen.',
     ctaText: 'Vraag Advies',
     ctaHref: '/contact',
     backgroundImage: imgValbeveiliging,
+    highlightWordCount: 1,
+    highlightPosition: 'start',
   },
   featureTitle: 'Kenmerken van onze systemen',
   featureHighlight: 'Kenmerken',

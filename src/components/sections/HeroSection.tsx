@@ -16,11 +16,19 @@ export function HeroSection({
   ctaHref,
   backgroundImage,
   highlightWordCount = 1,
+  highlightPosition = 'end',
   className,
 }: HeroSectionProps) {
   const words = title.split(' ');
-  const mainText = words.slice(0, -highlightWordCount).join(' ');
-  const highlightText = words.slice(-highlightWordCount).join(' ');
+  
+  // Support highlight at start or end of title
+  const isStartHighlight = highlightPosition === 'start';
+  const highlightText = isStartHighlight 
+    ? words.slice(0, highlightWordCount).join(' ')
+    : words.slice(-highlightWordCount).join(' ');
+  const mainText = isStartHighlight 
+    ? words.slice(highlightWordCount).join(' ')
+    : words.slice(0, -highlightWordCount).join(' ');
 
   return (
     <section
@@ -59,12 +67,25 @@ export function HeroSection({
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase"
           >
-            {mainText && (
+            {isStartHighlight ? (
               <>
-                {mainText} <br />
+                <span className="text-brand-green italic">{highlightText}</span>
+                {mainText && (
+                  <>
+                    {' '}{mainText}
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                {mainText && (
+                  <>
+                    {mainText} <br />
+                  </>
+                )}
+                <span className="text-brand-green italic">{highlightText}</span>
               </>
             )}
-            <span className="text-brand-green italic">{highlightText}</span>
           </motion.h1>
 
           <motion.p

@@ -22,6 +22,7 @@ export interface HeroData {
   backgroundImage?: string;
   backgroundClass?: string;
   highlightWordCount?: number;
+  highlightPosition?: 'start' | 'end';
 }
 
 export interface FeatureItem {

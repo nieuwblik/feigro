@@ -72,7 +72,7 @@ export const projects: Record<string, Project> = {
   },
   'dakrenovatie-enkhuizen': {
     slug: 'dakrenovatie-enkhuizen',
-    title: 'Dakrenovatie Enkhuizen',
+    title: 'Dakrenovatie Enkhuizen Particuliere Woning',
     category: 'Dakrenovatie',
     location: 'Enkhuizen',
     date: '2026-02-02',

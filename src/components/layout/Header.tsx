@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Search, Settings, Hammer, Layers, Flame, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Settings, Hammer, Layers, ShieldCheck, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
 import { Link, useLocation } from 'react-router-dom';
@@ -313,6 +313,29 @@ export const Header = () => {
               <Logo />
               <div className="w-10 h-10"></div>
             </div>
+
+            {/* Mobile Phone Numbers */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+              className="px-6 py-4 border-b border-white/10 flex flex-col sm:flex-row gap-3 sm:gap-6"
+            >
+              <a
+                href="tel:+31637158612"
+                className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
+              >
+                <Phone size={16} className="text-brand-green" />
+                <span className="text-sm font-medium">Jan: +31 6 37158612</span>
+              </a>
+              <a
+                href="tel:+31613731303"
+                className="flex items-center gap-2 text-white/80 hover:text-brand-green transition-colors"
+              >
+                <Phone size={16} className="text-brand-green" />
+                <span className="text-sm font-medium">Tommie: +31 6 13731303</span>
+              </a>
+            </motion.div>
 
             <motion.div
               variants={contentVariants}

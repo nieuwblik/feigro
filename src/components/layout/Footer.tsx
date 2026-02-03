@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import { PrimaryFlipButton } from '@/components/buttons';
 import footerImg1 from '@/assets/dakrenovatie-noordholland.jpg';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
@@ -93,9 +94,17 @@ export const Footer = () => {
               </h2>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p className="text-white/60 text-sm md:text-lg border-l border-brand-green pl-4 md:pl-6 max-w-md font-light hidden md:block">
+              <p className="text-white/60 text-sm md:text-lg border-l border-brand-green pl-4 md:pl-6 max-w-md font-light hidden md:block mb-6">
                 Uw dak is onze passie. Samen realiseren we een resultaat dat staat als een huis.
               </p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <PrimaryFlipButton
+                label="Neem contact op"
+                onClick={() => {
+                  window.location.href = '/contact';
+                }}
+              />
             </FadeIn>
           </div>
 

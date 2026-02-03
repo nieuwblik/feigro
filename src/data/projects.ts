@@ -90,7 +90,7 @@ export const projects: Record<string, Project> = {
   },
   'dakisolatie-ursem': {
     slug: 'dakisolatie-ursem',
-    title: 'Dakisolatie Ursem',
+    title: 'Dakisolatie Ursem Noord-Holland',
     category: 'Dakisolatie',
     location: 'Ursem',
     date: '2026-02-02',

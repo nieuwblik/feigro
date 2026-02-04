@@ -4,7 +4,7 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
-import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.jpg';
+import imgZonnepanelen from '@/assets/zonnepanelen-dak.png';
 
 const blogPosts = [
   {

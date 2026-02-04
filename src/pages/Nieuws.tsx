@@ -54,7 +54,7 @@ export default function Nieuws() {
       <SEO title="Dakdekkers Nieuws | FEIGRO Dakwerken" description="Blijf op de hoogte van het laatste nieuws over dakwerken, innovaties en trends in de dakbedekkingsbranche." canonical="/nieuws" />
 
       {/* Hero Section */}
-      <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
+      <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 

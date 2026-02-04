@@ -9,6 +9,9 @@ import imgLekvrij from '@/assets/lekvrij-dak-nederland.jpg';
 import imgValbeveiliging from '@/assets/dak-valbeveiliging-montage.jpg';
 import imgLekkage from '@/assets/Lekkage-Feitsma.jpg';
 import imgReparatie from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
+import imgDakreparatieWerk from '@/assets/dakreparatie-werk.png';
+import imgDakonderhoudWerk from '@/assets/dakonderhoud-werk.png';
+import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.png';
 
 export const vveVastgoedbeheerData: ServicePageData = {
   seo: seoMetadata.vveVastgoedbeheer,
@@ -191,8 +194,8 @@ export const dakonderhoudData: ServicePageData = {
     ctaHref: '/contact',
     backgroundImage: imgEnkhuizen,
   },
-  featureTitle: 'Onze onderhoudswerkzaamheden',
-  featureHighlight: 'onderhoudswerkzaamheden',
+  featureTitle: 'Verzeker uw dak met dakonderhoud',
+  featureHighlight: 'dakonderhoud',
   features: [
     {
       icon: 'Wrench',
@@ -229,6 +232,7 @@ export const dakonderhoudData: ServicePageData = {
     title: 'Het Belang van Dakonderhoud',
     titleHighlight: 'Dakonderhoud',
     description: 'Professioneel dakonderhoud voorkomt grote problemen en bespaart u kosten.',
+    image: imgDakonderhoudWerk,
     paragraphs: [
       'Een dak heeft regelmatig onderhoud nodig om in goede staat te blijven. Zonder onderhoud kunnen kleine problemen uitgroeien tot grote, kostbare schades. Denk aan verstopte afvoeren die tot wateroverlast leiden, of kleine scheurtjes die uitgroeien tot lekkages.',
       'FEIGRO Dakwerken verzorgt compleet dakonderhoud: van reiniging van goten en afvoeren tot het aanbrengen van beschermende coatings. We controleren alle kritieke onderdelen en voeren direct kleine reparaties uit waar nodig.',
@@ -306,6 +310,7 @@ export const dakrenovatieData: ServicePageData = {
     title: 'Wanneer is Dakrenovatie Nodig?',
     titleHighlight: 'Dakrenovatie',
     description: 'Een dak gaat gemiddeld 20-40 jaar mee, afhankelijk van het type en onderhoud.',
+    image: imgDakrenovatieWerk,
     paragraphs: [
       'Signalen dat uw dak aan renovatie toe is: herhaaldelijke lekkages, zichtbare schade aan de dakbedekking, doorbuiging, of een dak dat simpelweg aan het einde van zijn levensduur is. Een nieuwe dakbedekking voorkomt verdere schade aan de onderconstructie.',
       'FEIGRO Dakwerken heeft ruime ervaring met alle soorten dakrenovaties. Of het nu gaat om een plat EPDM-dak, bitumen dakbedekking, of een pannendak - wij zorgen voor een vakkundige renovatie die jaren meegaat.',
@@ -691,6 +696,7 @@ export const dakreparatieData: ServicePageData = {
     title: 'Wanneer is Dakreparatie Nodig?',
     titleHighlight: 'Dakreparatie',
     description: 'Tijdige reparatie voorkomt grotere schade en hogere kosten.',
+    image: imgDakreparatieWerk,
     paragraphs: [
       'Dakschade kan ontstaan door storm, hagel, veroudering of gebrekkig onderhoud. Kleine scheurtjes of losse dakpannen lijken misschien onschuldig, maar kunnen leiden tot waterinfiltratie en grote schade aan de onderconstructie.',
       'FEIGRO Dakwerken repareert professioneel alle soorten dakschades. Of het nu gaat om een lekkend plat dak, beschadigde dakpannen, kapotte zinken of schade aan de dakgoot - wij hebben de expertise en ervaring om het probleem snel en duurzaam op te lossen.',

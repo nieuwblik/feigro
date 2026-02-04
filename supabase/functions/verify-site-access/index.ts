@@ -1,17 +1,9 @@
-import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
-
-const app = new Hono();
-
-// Handle CORS preflight requests
-app.options('*', (c) => {
-  return new Response('ok', { headers: corsHeaders });
-});
 
 // Generate a simple access token (timestamp + random string)
 function generateAccessToken(): string {
@@ -36,73 +28,78 @@ function isValidToken(token: string): boolean {
   return (now - timestamp) < twentyFourHours;
 }
 
-app.post('/verify', async (c) => {
+serve(async (req) => {
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders });
+  }
+
+  const url = new URL(req.url);
+  const path = url.pathname.split('/').pop();
+
   try {
-    const { password } = await c.req.json();
-    
-    if (!password || typeof password !== 'string') {
-      return c.json(
-        { success: false, error: 'Password is required' },
-        { status: 400, headers: corsHeaders }
+    if (req.method === 'POST' && path === 'verify') {
+      const { password } = await req.json();
+      
+      if (!password || typeof password !== 'string') {
+        return new Response(
+          JSON.stringify({ success: false, error: 'Password is required' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const correctPassword = Deno.env.get('SITE_PASSWORD');
+      
+      if (!correctPassword) {
+        console.error('SITE_PASSWORD environment variable not set');
+        return new Response(
+          JSON.stringify({ success: false, error: 'Server configuration error' }),
+          { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      if (password === correctPassword) {
+        const token = generateAccessToken();
+        console.log('Site access granted');
+        return new Response(
+          JSON.stringify({ success: true, token }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      console.log('Invalid password attempt');
+      return new Response(
+        JSON.stringify({ success: false, error: 'Invalid password' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    const correctPassword = Deno.env.get('SITE_PASSWORD');
-    
-    if (!correctPassword) {
-      console.error('SITE_PASSWORD environment variable not set');
-      return c.json(
-        { success: false, error: 'Server configuration error' },
-        { status: 500, headers: corsHeaders }
+    if (req.method === 'POST' && path === 'validate-token') {
+      const { token } = await req.json();
+      
+      if (!token || typeof token !== 'string') {
+        return new Response(
+          JSON.stringify({ valid: false }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const valid = isValidToken(token);
+      return new Response(
+        JSON.stringify({ valid }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    if (password === correctPassword) {
-      const token = generateAccessToken();
-      console.log('Site access granted');
-      return c.json(
-        { success: true, token },
-        { headers: corsHeaders }
-      );
-    }
-
-    console.log('Invalid password attempt');
-    return c.json(
-      { success: false, error: 'Invalid password' },
-      { status: 401, headers: corsHeaders }
+    return new Response(
+      JSON.stringify({ error: 'Not found' }),
+      { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Error verifying site access:', error);
-    return c.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500, headers: corsHeaders }
+    console.error('Error:', error);
+    return new Response(
+      JSON.stringify({ success: false, error: 'Internal server error' }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
 });
-
-app.post('/validate-token', async (c) => {
-  try {
-    const { token } = await c.req.json();
-    
-    if (!token || typeof token !== 'string') {
-      return c.json(
-        { valid: false },
-        { headers: corsHeaders }
-      );
-    }
-
-    const valid = isValidToken(token);
-    return c.json(
-      { valid },
-      { headers: corsHeaders }
-    );
-  } catch (error) {
-    console.error('Error validating token:', error);
-    return c.json(
-      { valid: false },
-      { headers: corsHeaders }
-    );
-  }
-});
-
-Deno.serve(app.fetch);

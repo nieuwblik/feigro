@@ -391,47 +391,81 @@ app.options("*", (c) => {
 
 // Contact form endpoint
 app.post("/contact", async (c) => {
+  const requestId = crypto.randomUUID().slice(0, 8);
+  console.log(`[${requestId}] === CONTACT FORM REQUEST STARTED ===`);
+  console.log(`[${requestId}] Timestamp: ${new Date().toISOString()}`);
+  
   try {
+    // Check API key
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    console.log(`[${requestId}] RESEND_API_KEY configured: ${!!RESEND_API_KEY}`);
+    
     if (!RESEND_API_KEY) {
-      console.error("RESEND_API_KEY not configured");
+      console.error(`[${requestId}] ERROR: RESEND_API_KEY not configured`);
       return c.json({ success: false, error: "Email service not configured" }, 500, corsHeaders);
     }
 
     const resend = new Resend(RESEND_API_KEY);
-    const body = await c.req.json();
+    
+    // Parse request body
+    let body;
+    try {
+      body = await c.req.json();
+      console.log(`[${requestId}] Request body received:`, JSON.stringify({
+        name: body.name || '[missing]',
+        email: body.email || '[missing]',
+        phone: body.phone ? '[provided]' : '[empty]',
+        subject: body.subject ? '[provided]' : '[empty]',
+        message: body.message ? `[${body.message.length} chars]` : '[missing]'
+      }));
+    } catch (parseError) {
+      console.error(`[${requestId}] ERROR: Failed to parse JSON body:`, parseError);
+      return c.json({ success: false, error: "Ongeldige request data" }, 400, corsHeaders);
+    }
 
     // Validate with Zod
+    console.log(`[${requestId}] Starting Zod validation...`);
     const parseResult = contactFormSchema.safeParse(body);
+    
     if (!parseResult.success) {
-      console.error("Contact form validation failed:", parseResult.error.errors);
+      console.error(`[${requestId}] VALIDATION FAILED:`, JSON.stringify(parseResult.error.errors));
       return c.json(
         { success: false, error: formatZodErrors(parseResult.error) },
         400,
         corsHeaders
       );
     }
+    console.log(`[${requestId}] Zod validation passed`);
 
     const data = parseResult.data;
-    console.log("Sending contact form email for:", data.name);
+    console.log(`[${requestId}] Preparing email for: ${data.name} <${data.email}>`);
 
-    const { data: emailData, error } = await resend.emails.send({
+    // Send email
+    console.log(`[${requestId}] Calling Resend API...`);
+    const emailPayload = {
       from: "Feigro Dakwerken <info@feigro.nl>",
       to: ["justin@nieuwblik.com", "kento@hado.dev"],
       reply_to: data.email,
       subject: `Nieuwe Aanvraag: ${data.name} via feigro.nl`,
+    };
+    console.log(`[${requestId}] Email payload:`, JSON.stringify(emailPayload));
+
+    const { data: emailData, error } = await resend.emails.send({
+      ...emailPayload,
       html: generateContactEmailHtml(data),
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error(`[${requestId}] RESEND API ERROR:`, JSON.stringify(error));
       return c.json({ success: false, error: "Kon e-mail niet verzenden" }, 500, corsHeaders);
     }
 
-    console.log("Contact email sent successfully:", emailData?.id);
+    console.log(`[${requestId}] SUCCESS: Email sent with ID: ${emailData?.id}`);
+    console.log(`[${requestId}] === CONTACT FORM REQUEST COMPLETED ===`);
     return c.json({ success: true, messageId: emailData?.id }, 200, corsHeaders);
   } catch (error) {
-    console.error("Error in contact endpoint:", error);
+    console.error(`[${requestId}] UNEXPECTED ERROR:`, error);
+    console.error(`[${requestId}] Stack:`, error instanceof Error ? error.stack : 'N/A');
     return c.json({ success: false, error: "Er is een fout opgetreden" }, 500, corsHeaders);
   }
 });

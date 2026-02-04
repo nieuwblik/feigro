@@ -34,6 +34,12 @@ const contactFormSchema = z.object({
     .max(5000, "Bericht mag maximaal 5000 karakters zijn"),
 });
 
+const attachmentSchema = z.object({
+  filename: z.string(),
+  content: z.string(), // base64 encoded
+  contentType: z.string(),
+});
+
 const spoedFormSchema = z.object({
   name: z.string()
     .min(1, "Naam is verplicht")
@@ -75,6 +81,7 @@ const spoedFormSchema = z.object({
     .max(5000, "Extra informatie mag maximaal 5000 karakters zijn")
     .optional()
     .or(z.literal("")),
+  attachments: z.array(attachmentSchema).optional(),
 });
 
 // ============= Email Template Styles =============
@@ -262,6 +269,7 @@ function generateContactEmailHtml(data: z.infer<typeof contactFormSchema>) {
 function generateSpoedEmailHtml(data: z.infer<typeof spoedFormSchema>) {
   const isUrgent = data.isUrgent === "Ja";
   const fullAddress = `${data.address}, ${data.postcode} ${data.city}`;
+  const hasAttachments = data.attachments && data.attachments.length > 0;
 
   return `
 <!DOCTYPE html>
@@ -341,6 +349,19 @@ function generateSpoedEmailHtml(data: z.infer<typeof spoedFormSchema>) {
       <h3 style="${styles.sectionTitle}">Extra Informatie</h3>
       <div style="${styles.messageBox}">
         <p style="${styles.messageText}">${escapeHtml(data.extraInfo)}</p>
+      </div>
+      `
+          : ""
+      }
+
+      ${
+        hasAttachments
+          ? `
+      <h3 style="${styles.sectionTitle}">Bijgevoegde Foto's</h3>
+      <div style="${styles.messageBox}">
+        <p style="${styles.messageText}">
+          📷 ${data.attachments!.length} foto('s) bijgevoegd aan deze e-mail
+        </p>
       </div>
       `
           : ""
@@ -505,6 +526,11 @@ app.post("/spoed", async (c) => {
         ? `⚠️ SPOEDMELDING: Directe actie vereist - feigro.nl`
         : `Nieuwe Lekkagemelding: ${data.name} - feigro.nl`,
       html: generateSpoedEmailHtml(data),
+      attachments: data.attachments?.map((att) => ({
+        filename: att.filename,
+        content: att.content,
+        content_type: att.contentType,
+      })),
     });
 
     if (error) {

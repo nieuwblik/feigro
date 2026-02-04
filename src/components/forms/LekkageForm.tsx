@@ -50,6 +50,32 @@ const formSchema = z.object({
     extraInfo: z.string().optional(),
 });
 
+// Helper function to convert files to base64
+async function filesToBase64(files: FileList): Promise<Array<{
+    filename: string;
+    content: string;
+    contentType: string;
+}>> {
+    const promises = Array.from(files).map(async (file) => {
+        return new Promise<{ filename: string; content: string; contentType: string }>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64 = (reader.result as string).split(',')[1];
+                resolve({
+                    filename: file.name,
+                    content: base64,
+                    contentType: file.type || 'application/octet-stream',
+                });
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    });
+    return Promise.all(promises);
+}
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
 export function LekkageForm() {
     const [isSubmitted, setIsSubmitted] = React.useState(false);
     const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -74,6 +100,12 @@ export function LekkageForm() {
         setIsSubmitting(true);
 
         try {
+            // Convert files to base64 if present
+            let attachments: Array<{ filename: string; content: string; contentType: string }> = [];
+            if (files && files.length > 0) {
+                attachments = await filesToBase64(files);
+            }
+
             const { data, error } = await supabase.functions.invoke('send-form-email/spoed', {
                 body: {
                     name: values.name.trim(),
@@ -90,6 +122,7 @@ export function LekkageForm() {
                     accessibility: values.accessibility.trim(),
                     description: values.description?.trim() || undefined,
                     extraInfo: values.extraInfo?.trim() || undefined,
+                    attachments: attachments.length > 0 ? attachments : undefined,
                 }
             });
 
@@ -415,7 +448,18 @@ export function LekkageForm() {
                                         type="file"
                                         multiple
                                         accept="image/*"
-                                        onChange={(e) => setFiles(e.target.files)}
+                                        onChange={(e) => {
+                                            const selectedFiles = e.target.files;
+                                            if (selectedFiles) {
+                                                const oversizedFiles = Array.from(selectedFiles).filter(f => f.size > MAX_FILE_SIZE);
+                                                if (oversizedFiles.length > 0) {
+                                                    toast.error('Bestanden mogen niet groter zijn dan 5MB');
+                                                    e.target.value = '';
+                                                    return;
+                                                }
+                                                setFiles(selectedFiles);
+                                            }
+                                        }}
                                         disabled={isSubmitting}
                                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 disabled:cursor-not-allowed"
                                     />

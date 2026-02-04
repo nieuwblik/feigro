@@ -2,8 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, Upload, AlertCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { CheckCircle, Upload, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,6 +22,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
     name: z.string().min(1, 'Naam is verplicht'),
@@ -50,6 +52,7 @@ const formSchema = z.object({
 
 export function LekkageForm() {
     const [isSubmitted, setIsSubmitted] = React.useState(false);
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
     const [files, setFiles] = React.useState<FileList | null>(null);
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -67,12 +70,45 @@ export function LekkageForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log('Form values:', values);
-        console.log('Files:', files);
-        setIsSubmitted(true);
-        form.reset();
-        setFiles(null);
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsSubmitting(true);
+
+        try {
+            const { data, error } = await supabase.functions.invoke('send-form-email/spoed', {
+                body: {
+                    name: values.name.trim(),
+                    phone: values.phone.trim(),
+                    email: values.email.trim(),
+                    address: values.address.trim(),
+                    postcode: values.postcode.trim(),
+                    city: values.city.trim(),
+                    leakLocation: values.leakLocation,
+                    isUrgent: values.isUrgent,
+                    severity: values.severity,
+                    buildingType: values.buildingType,
+                    roofType: values.roofType,
+                    accessibility: values.accessibility.trim(),
+                    description: values.description?.trim() || undefined,
+                    extraInfo: values.extraInfo?.trim() || undefined,
+                }
+            });
+
+            if (error) throw error;
+
+            if (!data?.success) {
+                throw new Error(data?.error || 'Onbekende fout');
+            }
+
+            setIsSubmitted(true);
+            form.reset();
+            setFiles(null);
+            toast.success('Uw melding is met prioriteit ontvangen. Wij bellen u direct.');
+        } catch (error) {
+            console.error('Form submission error:', error);
+            toast.error('Er ging iets mis. Probeer het opnieuw of bel ons direct.');
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     if (isSubmitted) {
@@ -85,9 +121,9 @@ export function LekkageForm() {
                 <div className="w-20 h-20 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-8">
                     <CheckCircle className="text-brand-green w-10 h-10" />
                 </div>
-                <h3 className="text-3xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">Bedankt!</h3>
+                <h3 className="text-3xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">Melding Ontvangen!</h3>
                 <p className="text-slate-600 text-lg leading-relaxed font-light">
-                    Uw melding is ontvangen, we nemen zo snel mogelijk contact op.
+                    Uw melding is met prioriteit ontvangen. Wij bellen u direct.
                 </p>
                 <Button
                     onClick={() => setIsSubmitted(false)}
@@ -123,7 +159,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Naam *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Uw volledige naam" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="Uw volledige naam" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -136,7 +172,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Telefoonnummer *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="06 12345678" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="06 12345678" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -149,7 +185,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2 md:col-span-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">E-mailadres *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="uw@email.nl" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="uw@email.nl" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -172,7 +208,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2 md:col-span-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Lekkage adres *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Straat en huisnummer" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="Straat en huisnummer" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -185,7 +221,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Postcode *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="1234 AB" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="1234 AB" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -198,7 +234,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Woonplaats *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Plaatsnaam" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="Plaatsnaam" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -220,9 +256,9 @@ export function LekkageForm() {
                                 render={({ field }) => (
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Waar zit de lekkage? *</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green">
+                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50">
                                                     <SelectValue placeholder="Selecteer locatie" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -243,9 +279,9 @@ export function LekkageForm() {
                                 render={({ field }) => (
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Spoed? *</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green">
+                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50">
                                                     <SelectValue placeholder="Is er spoed?" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -266,9 +302,9 @@ export function LekkageForm() {
                                 render={({ field }) => (
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Ernst van de lekkage *</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green">
+                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50">
                                                     <SelectValue placeholder="Wat is de ernst?" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -289,9 +325,9 @@ export function LekkageForm() {
                                 render={({ field }) => (
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Type gebouw *</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green">
+                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50">
                                                     <SelectValue placeholder="Selecteer type gebouw" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -313,9 +349,9 @@ export function LekkageForm() {
                                 render={({ field }) => (
                                     <FormItem className="space-y-2">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Type dak *</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isSubmitting}>
                                             <FormControl>
-                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green">
+                                                <SelectTrigger className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50">
                                                     <SelectValue placeholder="Selecteer type dak" />
                                                 </SelectTrigger>
                                             </FormControl>
@@ -337,7 +373,7 @@ export function LekkageForm() {
                                     <FormItem className="space-y-2 md:col-span-1">
                                         <FormLabel className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-4">Bereikbaarheid *</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Hoe kunnen wij het dak op komen?" {...field} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green" />
+                                            <Input placeholder="Hoe kunnen wij het dak op komen?" {...field} disabled={isSubmitting} className="bg-white border-slate-200 rounded-2xl px-6 py-4 h-14 focus:border-brand-green disabled:opacity-50" />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
                                     </FormItem>
@@ -354,7 +390,8 @@ export function LekkageForm() {
                                             <Textarea
                                                 placeholder="Beschrijf de lekkage..."
                                                 {...field}
-                                                className="bg-white border-slate-200 rounded-2xl px-6 py-4 min-h-[120px] focus:border-brand-green resize-none"
+                                                disabled={isSubmitting}
+                                                className="bg-white border-slate-200 rounded-2xl px-6 py-4 min-h-[120px] focus:border-brand-green resize-none disabled:opacity-50"
                                             />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
@@ -379,7 +416,8 @@ export function LekkageForm() {
                                         multiple
                                         accept="image/*"
                                         onChange={(e) => setFiles(e.target.files)}
-                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                        disabled={isSubmitting}
+                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 disabled:cursor-not-allowed"
                                     />
                                     <div className="bg-white border-2 border-dashed border-slate-200 group-hover:border-brand-green/50 transition-colors rounded-2xl px-8 py-10 flex flex-col items-center justify-center gap-4 text-center">
                                         <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-brand-green transition-colors">
@@ -412,7 +450,8 @@ export function LekkageForm() {
                                             <Textarea
                                                 placeholder="Nog iets wat we moeten weten?"
                                                 {...field}
-                                                className="bg-white border-slate-200 rounded-2xl px-6 py-4 min-h-[100px] focus:border-brand-green resize-none"
+                                                disabled={isSubmitting}
+                                                className="bg-white border-slate-200 rounded-2xl px-6 py-4 min-h-[100px] focus:border-brand-green resize-none disabled:opacity-50"
                                             />
                                         </FormControl>
                                         <FormMessage className="text-red-500 text-xs ml-4" />
@@ -427,12 +466,20 @@ export function LekkageForm() {
                             type="submit"
                             variant="feigro"
                             size="xl"
-                            className="w-full h-16 md:h-20 rounded-xl md:rounded-3xl text-lg md:text-xl shadow-xl shadow-brand-green/20 group"
+                            disabled={isSubmitting}
+                            className="w-full h-16 md:h-20 rounded-xl md:rounded-3xl text-lg md:text-xl shadow-xl shadow-brand-green/20 group disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            <span className="flex items-center justify-center gap-4">
-                                Lekkage melden
-                                <CheckCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                            </span>
+                            {isSubmitting ? (
+                                <span className="flex items-center justify-center gap-4">
+                                    <Loader2 className="w-6 h-6 animate-spin" />
+                                    Melding verzenden...
+                                </span>
+                            ) : (
+                                <span className="flex items-center justify-center gap-4">
+                                    Lekkage melden
+                                    <CheckCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                                </span>
+                            )}
                         </Button>
                         <p className="text-center text-slate-400 text-[10px] uppercase font-bold tracking-widest mt-8">
                             WIJ NEMEN DIRECT CONTACT MET U OP — 24/7 BEREIKBAAR

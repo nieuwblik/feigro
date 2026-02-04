@@ -56,13 +56,7 @@ export const Footer = () => {
     name: 'Vacatures',
     href: '/vacatures'
   }, {
-    name: 'Privacybeleid',
-    href: '/privacy'
-  }, {
-    name: 'Algemene Voorwaarden',
-    href: '/voorwaarden'
-  }, {
-    name: 'Cookies',
+    name: 'Privacy en Cookiebeleid',
     href: '/cookies'
   }];
   const socialLinks = [{

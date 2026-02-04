@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Lock } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
-const CORRECT_PASSWORD = 'Feigro123!';
-const STORAGE_KEY = 'feigro_site_access';
+const STORAGE_KEY = 'feigro_site_access_token';
 
 interface PasswordGateProps {
   children: React.ReactNode;
@@ -14,22 +14,61 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const hasAccess = localStorage.getItem(STORAGE_KEY) === 'true';
-    setIsAuthenticated(hasAccess);
+    const validateStoredToken = async () => {
+      const storedToken = localStorage.getItem(STORAGE_KEY);
+      
+      if (!storedToken) {
+        setIsAuthenticated(false);
+        return;
+      }
+
+      try {
+        const { data, error } = await supabase.functions.invoke('verify-site-access/validate-token', {
+          body: { token: storedToken }
+        });
+
+        if (error || !data?.valid) {
+          localStorage.removeItem(STORAGE_KEY);
+          setIsAuthenticated(false);
+        } else {
+          setIsAuthenticated(true);
+        }
+      } catch (err) {
+        console.error('Token validation error:', err);
+        localStorage.removeItem(STORAGE_KEY);
+        setIsAuthenticated(false);
+      }
+    };
+
+    validateStoredToken();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (password === CORRECT_PASSWORD) {
-      localStorage.setItem(STORAGE_KEY, 'true');
-      setIsAuthenticated(true);
-      setError(false);
-    } else {
+    setIsLoading(true);
+    setError(false);
+
+    try {
+      const { data, error: invokeError } = await supabase.functions.invoke('verify-site-access/verify', {
+        body: { password }
+      });
+
+      if (invokeError || !data?.success) {
+        setError(true);
+        setPassword('');
+      } else {
+        localStorage.setItem(STORAGE_KEY, data.token);
+        setIsAuthenticated(true);
+      }
+    } catch (err) {
+      console.error('Authentication error:', err);
       setError(true);
       setPassword('');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -82,6 +121,7 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ children }) => {
                 error ? 'border-red-500 animate-shake' : ''
               }`}
               autoFocus
+              disabled={isLoading}
             />
           </div>
 
@@ -95,8 +135,9 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ children }) => {
             type="submit"
             variant="feigro"
             className="w-full h-12"
+            disabled={isLoading}
           >
-            Toegang
+            {isLoading ? 'Controleren...' : 'Toegang'}
           </Button>
         </form>
 

@@ -47,9 +47,10 @@ export default function Contact() {
         throw new Error(responseData?.error || 'Onbekende fout');
       }
 
-      setIsSubmitted(true);
       form.reset();
       toast.success('Bedankt! We nemen binnen 24 uur contact met u op.');
+      // Delay state change to allow form cleanup to complete
+      setTimeout(() => setIsSubmitted(true), 0);
     } catch (error) {
       console.error('Form submission error:', error);
       toast.error('Er ging iets mis. Probeer het opnieuw of bel ons direct.');

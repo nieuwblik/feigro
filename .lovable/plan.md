@@ -1,181 +1,234 @@
 
-
-# Plan: Hero Buttons Verwijderen, JPG naar WebP Conversie & PNG Opruimen
+# Plan: FEIGRO Custom Cookie Popup & Privacy/Cookie Pagina
 
 ## Overzicht
 
-Dit plan omvat 4 hoofd-onderdelen:
-1. Hero buttons verwijderen van Over Ons, Projecten, Nieuws en Diensten
-2. JPG afbeeldingen converteren naar WebP
-3. Oude PNG bestanden verwijderen
-4. Hero achtergrondafbeelding voor Nieuws toevoegen (heeft al een afbeelding)
+Dit plan omvat het bouwen van een professionele, GDPR-compliant cookie consent oplossing met:
+1. **Custom Cookie Consent Popup** - High-end, branded component
+2. **Volledige Privacy & Cookie Pagina** - Met alle verstrekte content
+3. **Cookie Consent Hook** - State management met localStorage
 
 ---
 
-## Deel 1: Hero Buttons Verwijderen
+## Deel 1: Cookie Consent Component
 
-### 1.1 Over Ons (`src/pages/OverOns.tsx`)
-**Verwijder regel 74-81:**
+### Nieuw bestand: `src/components/cookies/CookieConsent.tsx`
+
+**Kenmerken:**
+- Slide-up animatie vanuit onderkant scherm (Framer Motion)
+- FEIGRO branded design met groen accent
+- 3 cookie categorieën met toggles:
+  - Noodzakelijke cookies (altijd aan, niet uitschakelbaar)
+  - Analytische cookies (toggle)
+  - Marketing cookies (toggle)
+- "Alles accepteren" en "Voorkeuren opslaan" buttons
+- Link naar volledige cookie pagina
+- Responsive design (mobile-first)
+- LocalStorage persistentie
+- Professionele uitstraling met subtle backdrop blur
+
+**Design elementen:**
+```text
++------------------------------------------+
+|  [FEIGRO Logo]                           |
+|                                          |
+|  Wij respecteren uw privacy              |
+|  ────────────────────────────────────    |
+|  Korte uitleg over cookies...            |
+|                                          |
+|  ┌─ Noodzakelijk ───────────── [●] ─┐   |
+|  │  Altijd actief                    │   |
+|  └───────────────────────────────────┘   |
+|                                          |
+|  ┌─ Analytisch ─────────────── [○] ─┐   |
+|  │  Website optimalisatie            │   |
+|  └───────────────────────────────────┘   |
+|                                          |
+|  ┌─ Marketing ──────────────── [○] ─┐   |
+|  │  Gepersonaliseerde content        │   |
+|  └───────────────────────────────────┘   |
+|                                          |
+|  [Alles Accepteren]  [Voorkeuren Opslaan]|
+|                                          |
+|  Bekijk ons volledig cookiebeleid →      |
++------------------------------------------+
+```
+
+---
+
+## Deel 2: Cookie Consent Hook
+
+### Nieuw bestand: `src/hooks/useCookieConsent.ts`
+
+**Functionaliteit:**
+- `hasConsented`: Boolean - of gebruiker al een keuze heeft gemaakt
+- `preferences`: Object met cookie voorkeuren
+- `acceptAll()`: Alle cookies accepteren
+- `savePreferences(prefs)`: Specifieke voorkeuren opslaan
+- `resetConsent()`: Reset voor testing
+
+**LocalStorage structuur:**
+```json
+{
+  "feigro_cookie_consent": {
+    "version": "1.0",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "necessary": true,
+    "analytics": true,
+    "marketing": false
+  }
+}
+```
+
+---
+
+## Deel 3: Integratie in MainLayout
+
+### Wijziging: `src/components/layout/MainLayout.tsx`
+
+Toevoegen van CookieConsent component:
 ```tsx
-<FadeIn delay={0.3}>
-  <PrimaryFlipButton
-    label="Vraag offerte aan"
-    icon={<ArrowRight />}
-    size="default"
-    onClick={() => window.location.href = '/contact'}
-  />
-</FadeIn>
-```
+import { CookieConsent } from '@/components/cookies/CookieConsent';
 
-**Cleanup imports:** `ArrowRight` wordt nog gebruikt in andere secties, dus behouden. `PrimaryFlipButton` wordt gebruikt voor vacatures CTA, dus ook behouden.
+export function MainLayout({ children }: MainLayoutProps) {
+  return (
+    <div className="flex flex-col min-h-screen bg-white relative">
+      <Header />
+      <main className="flex-1 w-full">{children}</main>
+      <Footer />
+      <BackToTop />
+      <CookieConsent />  {/* Nieuw */}
+    </div>
+  );
+}
+```
 
 ---
 
-### 1.2 Projecten (`src/pages/Projecten.tsx`)
-**Verwijder regel 64-74:**
+## Deel 4: Privacy & Cookie Pagina Update
+
+### Wijziging: `src/pages/Cookies.tsx`
+
+**Volledige herstructurering met alle verstrekte content:**
+
+**Secties:**
+1. Hero sectie (bestaand design behouden)
+2. Inleiding FEIGRO
+3. Cookies door FEIGRO
+4. Hoe komen wij aan uw gegevens?
+5. Bijzondere en/of gevoelige persoonsgegevens
+6. Wat doen we met uw gegevens?
+7. Hoe lang we gegevens bewaren
+8. Delen met anderen
+9. Websites van derden
+10. Gegevens inzien, aanpassen of verwijderen
+11. Beveiliging
+12. AVG compliance
+13. Algemene NAW- en contactgegevens
+14. Wijzigingen Privacyverklaring
+15. Contact sectie met alle emailadressen
+
+**Design:**
+- Accordion/collapsible secties voor betere navigatie
+- Inhoudsopgave aan zijkant (desktop)
+- Sticky navigatie voor lange content
+- FEIGRO branded styling consistent met rest van site
+
+---
+
+## Deel 5: Nieuwe Bestanden Structuur
+
+```text
+src/
+├── components/
+│   └── cookies/
+│       ├── CookieConsent.tsx      (Popup component)
+│       ├── CookiePreferences.tsx  (Preferences panel)
+│       └── index.ts               (Exports)
+├── hooks/
+│   └── useCookieConsent.ts        (State management)
+└── pages/
+    └── Cookies.tsx                (Volledig herschreven)
+```
+
+---
+
+## Technische Details
+
+### Cookie Popup Styling
+
+| Element | Stijl |
+|---------|-------|
+| Container | `bg-white/95 backdrop-blur-lg border border-slate-200 rounded-2xl shadow-2xl` |
+| Header | `font-heading uppercase tracking-tight text-slate-900` |
+| Toggle Active | `bg-brand-green` |
+| Toggle Inactive | `bg-slate-200` |
+| Primary Button | FEIGRO PrimaryFlipButton style |
+| Secondary Button | Outlined variant |
+| Links | `text-brand-green hover:underline` |
+
+### Animaties
+
 ```tsx
-<motion.div initial={{...}} animate={{...}} transition={{delay: 0.3}}>
-  <PrimaryFlipButton label="Vraag offerte aan" icon={<ArrowUpRight />} ... />
-</motion.div>
+// Slide-up entrance
+initial={{ y: 100, opacity: 0 }}
+animate={{ y: 0, opacity: 1 }}
+exit={{ y: 100, opacity: 0 }}
+transition={{ type: "spring", damping: 25, stiffness: 300 }}
 ```
 
-**Cleanup imports:** Verwijder `PrimaryFlipButton` van imports (niet meer nodig). `ArrowUpRight` blijft nodig voor project cards.
+### Responsive Breakpoints
+
+| Viewport | Layout |
+|----------|--------|
+| Mobile (<768px) | Full-width bottom sheet, stacked buttons |
+| Tablet (768-1024px) | Centered modal, 80% width |
+| Desktop (>1024px) | Fixed bottom-right corner, max-width 480px |
 
 ---
 
-### 1.3 Nieuws (`src/pages/Nieuws.tsx`)
-**Verwijder regel 109-118:**
-```tsx
-<motion.button
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.3 }}
-  onClick={scrollToArticles}
-  className="..."
->
-  Lees artikelen
-  <ChevronDown ... />
-</motion.button>
-```
+## Privacy Pagina Inhoud
 
-**Cleanup:** Verwijder `scrollToArticles` functie (regel 49-51) en `ChevronDown` import.
+De pagina zal de volledige verstrekte content bevatten:
 
----
+**Contactgegevens weergegeven:**
+- Website: www.feigro.nl
+- Algemeen: info@feigro.nl
+- Service: service@feigro.nl
+- Facturatie: facturen@feigro.nl
+- Direct: jgroen@feigro.nl / tfeitsma@feigro.nl
 
-### 1.4 Diensten (`src/pages/Diensten.tsx`)
-**Verwijder regel 90-101:**
-```tsx
-<motion.div initial={{...}} animate={{...}} transition={{delay: 0.3}}>
-  <Link to="/contact">
-    <PrimaryFlipButton label="Vraag offerte aan" icon={<ArrowRight />} />
-  </Link>
-</motion.div>
-```
+**Cookie categorieën uitgelegd:**
+- Technische/functionele cookies
+- Analytische cookies (privacy-vriendelijk)
+- Geen marketing cookies standaard
 
-**Cleanup imports:** Verwijder `PrimaryFlipButton` import (niet meer nodig). `ArrowRight` en `Link` blijven nodig voor services grid.
+**Bewaartermijn:** 3 maanden voor website-aanvragen
 
----
-
-## Deel 2: JPG naar WebP Conversie
-
-### JPG bestanden in `src/assets/`:
-
-| Origineel | Nieuw WebP | Gebruikt in |
-|-----------|-----------|-------------|
-| `Dakwerk-Feitsmadakwerken-2-1.jpg` | `.webp` | RecentProjects, services.ts |
-| `Feigro dakwerken.jpg` | `feigro-dakwerken.webp` | RecentProjects |
-| `Lekkage-Feitsma.jpg` | `lekkage-feitsma.webp` | Spoedservice, RecentProjects, services.ts |
-| `dak-laan-project-dakdekking.jpg` | `.webp` | RecentProjects |
-| `dak-valbeveiliging-montage.jpg` | `.webp` | RecentProjects, Footer, Testimonials, services.ts |
-| `dakdekking-nederland-enkhuizen.jpg` | `.webp` | BlogSection, Footer, Nieuws, BlogDetail, services.ts |
-| `dakinspectie-noord-holland.jpg` | `.webp` | RecentProjects, services.ts |
-| `dakrenovatie-noordholland.jpg` | `.webp` | Footer, BlogSection, Nieuws, BlogDetail, services.ts, OverOns |
-| `dakrenovatie.jpg` | `.webp` | Testimonials |
-| `dakrenovatienederland.jpg` | `.webp` | (niet gebruikt - kan verwijderd) |
-| `dakreparatie-nederland-enkhuizen.jpg` | `.webp` | Contact, RecentProjects, services.ts |
-| `feigro-dakdekking-westfriesland.jpg` | `.webp` | RecentProjects, BlogDetail, services.ts, Nieuws |
-| `herosectiefeigro.jpg` | `.webp` | (niet gebruikt - kan verwijderd) |
-| `lekvrij-dak-nederland.jpg` | `.webp` | RecentProjects, OverOns, services.ts |
-| `renovatiedakenkhuizen.jpg` | `.webp` | Services (CTA) |
-
-### Bestanden die geupdate moeten worden:
-
-| Bestand | Imports aanpassen |
-|---------|-------------------|
-| `src/pages/Spoedservice.tsx` | 1 import |
-| `src/components/layout/Footer.tsx` | 3 imports |
-| `src/pages/Contact.tsx` | 1 import |
-| `src/components/home/BlogSection.tsx` | 2 imports |
-| `src/components/home/RecentProjects.tsx` | 11 imports |
-| `src/components/home/Testimonials.tsx` | 2 imports |
-| `src/components/home/Services.tsx` | 1 import |
-| `src/pages/Nieuws.tsx` | 2 imports |
-| `src/data/services.ts` | 8 imports |
-| `src/pages/BlogDetail.tsx` | 3 imports |
-| `src/pages/OverOns.tsx` | 2 imports |
-
----
-
-## Deel 3: Oude PNG Bestanden Verwijderen
-
-De volgende bestanden zijn nu overbodig (WebP versies zijn al aanwezig):
-
-```
-src/assets/dakdekker-brander.png
-src/assets/hero-slide-1.png
-src/assets/hero-slide-2.png
-src/assets/hero-slide-3.png
-src/assets/dakonderhoud-werk.png
-src/assets/dakrenovatie-werk.png
-src/assets/dakreparatie-werk.png
-src/assets/nieuws-hero-bg.png
-src/assets/zonnepanelen-dak.png
-```
-
----
-
-## Deel 4: Nieuws Hero - Afbeelding Status
-
-De Nieuws pagina heeft al een hero achtergrondafbeelding:
-```tsx
-import nieuwsHeroBg from '@/assets/nieuws-hero-bg.webp';
-// ...
-<img src={nieuwsHeroBg} className="w-full h-full object-cover opacity-40" />
-```
-
-Geen wijziging nodig voor de afbeelding zelf.
+**AVG compliance:** Volledig gedocumenteerd
 
 ---
 
 ## Samenvatting Wijzigingen
 
-### Bestanden te wijzigen:
+### Nieuwe bestanden:
+| Bestand | Beschrijving |
+|---------|--------------|
+| `src/components/cookies/CookieConsent.tsx` | Hoofdcomponent cookie popup |
+| `src/components/cookies/CookiePreferences.tsx` | Voorkeuren panel met toggles |
+| `src/components/cookies/index.ts` | Barrel exports |
+| `src/hooks/useCookieConsent.ts` | Custom hook voor state |
 
-| Bestand | Actie |
-|---------|-------|
-| `src/pages/OverOns.tsx` | Verwijder hero button block |
-| `src/pages/Projecten.tsx` | Verwijder hero button + cleanup imports |
-| `src/pages/Nieuws.tsx` | Verwijder scroll button + functie + cleanup imports |
-| `src/pages/Diensten.tsx` | Verwijder hero button + cleanup imports |
-| `src/pages/Spoedservice.tsx` | Update JPG import naar WebP |
-| `src/pages/Contact.tsx` | Update JPG import naar WebP |
-| `src/pages/BlogDetail.tsx` | Update JPG imports naar WebP |
-| `src/components/layout/Footer.tsx` | Update JPG imports naar WebP |
-| `src/components/home/BlogSection.tsx` | Update JPG imports naar WebP |
-| `src/components/home/RecentProjects.tsx` | Update JPG imports naar WebP |
-| `src/components/home/Testimonials.tsx` | Update JPG imports naar WebP |
-| `src/components/home/Services.tsx` | Update JPG import naar WebP |
-| `src/data/services.ts` | Update JPG imports naar WebP |
-
-### Bestanden te verwijderen (PNG):
-- 9 oude PNG bestanden
-
-### Bestanden te converteren (JPG → WebP):
-- 15 JPG bestanden converteren naar WebP
+### Gewijzigde bestanden:
+| Bestand | Wijziging |
+|---------|-----------|
+| `src/components/layout/MainLayout.tsx` | CookieConsent component toevoegen |
+| `src/pages/Cookies.tsx` | Volledige herschrijving met privacy content |
 
 ### Resultaat:
-- Snellere laadtijden door kleinere bestandsgroottes
-- Schonere codebase zonder overbodige PNG bestanden
-- Consistente WebP formaat over hele site
-- Hero secties zonder CTA buttons (behalve Home en Spoedservice)
-
+- Professionele GDPR-compliant cookie oplossing
+- FEIGRO branded design
+- Volledige privacy & cookie documentatie
+- Gebruiksvriendelijke interface
+- Persistente voorkeuren via localStorage
+- Responsive op alle apparaten

@@ -2,7 +2,7 @@ import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
 import { z } from "https://esm.sh/zod@3.23.8";
 
-const app = new Hono();
+const app = new Hono().basePath("/send-form-email");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",

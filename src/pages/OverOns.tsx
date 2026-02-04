@@ -117,7 +117,7 @@ export default function OverOns() {
                 alt="Expert roofers at work"
                 speed={50}
                 containerClassName="h-full w-full"
-                className="grayscale hover:grayscale-0 transition-all duration-700"
+                className="transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
             </FadeIn>

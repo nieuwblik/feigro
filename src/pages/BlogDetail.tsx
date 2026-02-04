@@ -513,7 +513,7 @@ export default function BlogDetail() {
                   <Link to={`/nieuws/${relatedPost.id}`}>
                     <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
                       <div className="aspect-[16/9] overflow-hidden">
-                        <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                        <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
                       </div>
                       <div className="p-6">
                         <span className="text-brand-green text-xs font-bold uppercase tracking-wider">

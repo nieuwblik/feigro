@@ -7,44 +7,36 @@ import { FadeIn } from '@/components/ui/ParallaxImage';
 import heroSlide1 from '@/assets/hero-slide-1.webp';
 import heroSlide2 from '@/assets/hero-slide-2.webp';
 import heroSlide3 from '@/assets/hero-slide-3.webp';
-
 const heroImages = [heroSlide1, heroSlide2, heroSlide3];
-
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const { scrollYProgress } = useScroll({
+  const {
+    scrollYProgress
+  } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
-  
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   // Auto-rotate slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+      setCurrentSlide(prev => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  return (
-    <section ref={containerRef} className="relative min-h-screen w-full flex items-center overflow-hidden bg-black py-20">
+  return <section ref={containerRef} className="relative min-h-screen w-full flex items-center overflow-hidden bg-black py-20">
       {/* Hero Background - Slideshow with Crossfade */}
       <div className="absolute inset-0 z-0">
-        {heroImages.map((img, index) => (
-          <motion.img
-            key={index}
-            src={img}
-            alt={`Professional roofing work ${index + 1}`}
-            className="absolute inset-0 w-full h-full object-cover object-center brightness-50"
-            loading={index === 0 ? "eager" : "lazy"}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === currentSlide ? 1 : 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          />
-        ))}
+        {heroImages.map((img, index) => <motion.img key={index} src={img} alt={`Professional roofing work ${index + 1}`} className="absolute inset-0 w-full h-full object-cover object-center brightness-50" loading={index === 0 ? "eager" : "lazy"} initial={{
+        opacity: 0
+      }} animate={{
+        opacity: index === currentSlide ? 1 : 0
+      }} transition={{
+        duration: 1.2,
+        ease: "easeInOut"
+      }} />)}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -93,17 +85,7 @@ export const Hero = () => {
               </div>
 
               {/* Phone Numbers Row */}
-              <div className="flex flex-col items-center md:items-start gap-3 sm:flex-row sm:gap-6">
-                <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
-                <div className="flex flex-row gap-4 sm:gap-6">
-                  <a href="tel:+31637158612" className="text-white font-bold text-sm md:text-base hover:text-brand-green transition-colors">
-                    <span className="text-white/50 text-xs block sm:inline">Jan:</span> +31 6 37158612
-                  </a>
-                  <a href="tel:+31613731303" className="text-white font-bold text-sm md:text-base hover:text-brand-green transition-colors">
-                    <span className="text-white/50 text-xs block sm:inline">Tommie:</span> +31 6 13731303
-                  </a>
-                </div>
-              </div>
+              
             </div>
           </FadeIn>
 
@@ -138,6 +120,5 @@ export const Hero = () => {
 
       {/* Visual Accents */}
       <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-brand-green/10 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4 -z-10"></div>
-    </section>
-  );
+    </section>;
 };

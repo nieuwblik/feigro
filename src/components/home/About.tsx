@@ -1,7 +1,7 @@
 import React from 'react';
 import { InversedFlipButton } from '@/components/buttons';
 import { ParallaxImage, FadeIn } from '@/components/ui/ParallaxImage';
-import aboutImage from '@/assets/dakrenovatie.jpg';
+import aboutImage from '@/assets/dakdekker-brander.png';
 
 export const About = () => {
   return (

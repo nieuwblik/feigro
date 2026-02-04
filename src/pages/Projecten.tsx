@@ -20,7 +20,7 @@ export default function Projecten() {
       <SEO {...seoMetadata.projecten} />
 
       {/* Hero */}
-      <section className="bg-black pt-24 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
+      <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           {projectsList[0] && <img src={projectsList[0].imageAfter} alt="Projecten" className="w-full h-full object-cover opacity-30" />}

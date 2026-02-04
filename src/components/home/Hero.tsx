@@ -1,26 +1,50 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
-import heroImage from '@/assets/herosectiefeigro.jpg';
+import heroSlide1 from '@/assets/hero-slide-1.png';
+import heroSlide2 from '@/assets/hero-slide-2.png';
+import heroSlide3 from '@/assets/hero-slide-3.png';
+
+const heroImages = [heroSlide1, heroSlide2, heroSlide3];
+
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
-  const {
-    scrollYProgress
-  } = useScroll({
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
+  
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  return <section ref={containerRef} className="relative min-h-screen w-full flex items-center overflow-hidden bg-black py-20">
-      {/* Hero Background with Parallax */}
+
+  // Auto-rotate slides every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section ref={containerRef} className="relative min-h-screen w-full flex items-center overflow-hidden bg-black py-20">
+      {/* Hero Background with Parallax - Slideshow */}
       <div className="absolute inset-0 z-0">
-        <motion.img src={heroImage} alt="Professional roofing work" className="w-full h-[130%] object-cover brightness-50 animate-slow-zoom" style={{
-        y: backgroundY,
-        top: "-15%"
-      }} />
+        {heroImages.map((img, index) => (
+          <motion.img
+            key={index}
+            src={img}
+            alt={`Professional roofing work ${index + 1}`}
+            className="absolute inset-0 w-full h-[130%] object-cover object-center brightness-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            style={{ y: backgroundY, top: "-15%" }}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -114,5 +138,6 @@ export const Hero = () => {
 
       {/* Visual Accents */}
       <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-brand-green/10 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4 -z-10"></div>
-    </section>;
+    </section>
+  );
 };

@@ -4,6 +4,8 @@ import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
+import { FeaturedProjects } from '@/components/home/FeaturedProjects';
+import { BlogSection } from '@/components/home/BlogSection';
 
 import { vveVastgoedbeheerData } from '@/data/services';
 
@@ -16,7 +18,9 @@ export default function VveVastgoedbeheer() {
       <HeroSection {...hero} />
       <FeatureGrid features={features} title={featureTitle} titleHighlight="Voordelen" />
       <InfoSection {...info} />
+      <FeaturedProjects />
       <FAQSection faqs={faqs} />
+      <BlogSection />
       <ServiceCTA />
     </>
   );

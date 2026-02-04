@@ -72,13 +72,13 @@ export const Footer = () => {
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
   return <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
-    <div className="relative h-[40vh] md:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
+    <div className="relative min-h-[450px] md:h-[50vh] w-full flex flex-col justify-end overflow-hidden">
       <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.4] scale-110" style={{
         y: backgroundY
       }} />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-      <div className="relative container mx-auto px-4 md:px-6 h-full flex flex-col justify-end pb-8 md:pb-12 lg:pb-16 pt-20 md:pt-24">
+      <div className="relative container mx-auto px-4 md:px-6 h-full flex flex-col justify-end pb-10 md:pb-16 lg:pb-20 pt-32">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 md:gap-10">
           <div className="max-w-3xl text-left">
             <FadeIn>

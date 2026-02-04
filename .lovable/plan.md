@@ -1,234 +1,113 @@
 
-# Plan: FEIGRO Custom Cookie Popup & Privacy/Cookie Pagina
+# Plan: Zod Schema Validation voor Formulieren
 
 ## Overzicht
-
-Dit plan omvat het bouwen van een professionele, GDPR-compliant cookie consent oplossing met:
-1. **Custom Cookie Consent Popup** - High-end, branded component
-2. **Volledige Privacy & Cookie Pagina** - Met alle verstrekte content
-3. **Cookie Consent Hook** - State management met localStorage
+Voeg robuuste Zod schema validatie toe aan het contactformulier en verbeter de server-side validatie in de edge function. Het lekkageformulier heeft al Zod validatie en blijft ongewijzigd.
 
 ---
 
-## Deel 1: Cookie Consent Component
+## Wijzigingen
 
-### Nieuw bestand: `src/components/cookies/CookieConsent.tsx`
+### 1. Contact Formulier Refactoren
+**Bestand:** `src/pages/Contact.tsx`
 
-**Kenmerken:**
-- Slide-up animatie vanuit onderkant scherm (Framer Motion)
-- FEIGRO branded design met groen accent
-- 3 cookie categorieën met toggles:
-  - Noodzakelijke cookies (altijd aan, niet uitschakelbaar)
-  - Analytische cookies (toggle)
-  - Marketing cookies (toggle)
-- "Alles accepteren" en "Voorkeuren opslaan" buttons
-- Link naar volledige cookie pagina
-- Responsive design (mobile-first)
-- LocalStorage persistentie
-- Professionele uitstraling met subtle backdrop blur
+Herschrijf het contactformulier om dezelfde pattern te gebruiken als het lekkageformulier:
 
-**Design elementen:**
-```text
-+------------------------------------------+
-|  [FEIGRO Logo]                           |
-|                                          |
-|  Wij respecteren uw privacy              |
-|  ────────────────────────────────────    |
-|  Korte uitleg over cookies...            |
-|                                          |
-|  ┌─ Noodzakelijk ───────────── [●] ─┐   |
-|  │  Altijd actief                    │   |
-|  └───────────────────────────────────┘   |
-|                                          |
-|  ┌─ Analytisch ─────────────── [○] ─┐   |
-|  │  Website optimalisatie            │   |
-|  └───────────────────────────────────┘   |
-|                                          |
-|  ┌─ Marketing ──────────────── [○] ─┐   |
-|  │  Gepersonaliseerde content        │   |
-|  └───────────────────────────────────┘   |
-|                                          |
-|  [Alles Accepteren]  [Voorkeuren Opslaan]|
-|                                          |
-|  Bekijk ons volledig cookiebeleid →      |
-+------------------------------------------+
+- **Voeg imports toe:**
+  - `useForm` van react-hook-form
+  - `zodResolver` van @hookform/resolvers/zod
+  - Zod (`z` van 'zod')
+  - Form componenten uit `@/components/ui/form`
+
+- **Definieer Zod schema:**
+  ```typescript
+  const contactFormSchema = z.object({
+    name: z.string()
+      .min(1, 'Naam is verplicht')
+      .max(100, 'Naam mag maximaal 100 karakters zijn'),
+    email: z.string()
+      .min(1, 'E-mail is verplicht')
+      .email('Ongeldig e-mailadres')
+      .max(255, 'E-mail mag maximaal 255 karakters zijn'),
+    phone: z.string()
+      .regex(/^[0-9+-\s]*$/, 'Ongeldig telefoonnummer')
+      .max(20, 'Telefoonnummer te lang')
+      .optional()
+      .or(z.literal('')),
+    subject: z.string()
+      .max(200, 'Onderwerp mag maximaal 200 karakters zijn')
+      .optional()
+      .or(z.literal('')),
+    message: z.string()
+      .min(1, 'Bericht is verplicht')
+      .max(5000, 'Bericht mag maximaal 5000 karakters zijn'),
+  });
+  ```
+
+- **Vervang useState met useForm:**
+  - Gebruik `useForm` met `zodResolver(contactFormSchema)`
+  - Definieer default values
+  - Gebruik `form.handleSubmit()` in plaats van manuele validatie
+
+- **Vervang input velden met FormField componenten:**
+  - Gebruik `FormField`, `FormItem`, `FormLabel`, `FormControl`, `FormMessage`
+  - Behoud exact dezelfde styling als nu
+
+### 2. Centraliseer Schema's (Optioneel maar aanbevolen)
+**Nieuw bestand:** `src/lib/schemas/forms.ts`
+
+Maak een centrale locatie voor alle form schemas:
+
+```typescript
+import { z } from 'zod';
+
+export const contactFormSchema = z.object({...});
+export const lekkageFormSchema = z.object({...});
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;
+export type LekkageFormData = z.infer<typeof lekkageFormSchema>;
 ```
 
----
+Dit voorkomt duplicatie tussen frontend en backend validatie.
 
-## Deel 2: Cookie Consent Hook
+### 3. Edge Function Server-Side Validatie
+**Bestand:** `supabase/functions/send-form-email/index.ts`
 
-### Nieuw bestand: `src/hooks/useCookieConsent.ts`
+Voeg Zod validatie toe aan de edge function voor extra beveiliging:
 
-**Functionaliteit:**
-- `hasConsented`: Boolean - of gebruiker al een keuze heeft gemaakt
-- `preferences`: Object met cookie voorkeuren
-- `acceptAll()`: Alle cookies accepteren
-- `savePreferences(prefs)`: Specifieke voorkeuren opslaan
-- `resetConsent()`: Reset voor testing
-
-**LocalStorage structuur:**
-```json
-{
-  "feigro_cookie_consent": {
-    "version": "1.0",
-    "timestamp": "2024-01-15T10:30:00Z",
-    "necessary": true,
-    "analytics": true,
-    "marketing": false
-  }
-}
-```
-
----
-
-## Deel 3: Integratie in MainLayout
-
-### Wijziging: `src/components/layout/MainLayout.tsx`
-
-Toevoegen van CookieConsent component:
-```tsx
-import { CookieConsent } from '@/components/cookies/CookieConsent';
-
-export function MainLayout({ children }: MainLayoutProps) {
-  return (
-    <div className="flex flex-col min-h-screen bg-white relative">
-      <Header />
-      <main className="flex-1 w-full">{children}</main>
-      <Footer />
-      <BackToTop />
-      <CookieConsent />  {/* Nieuw */}
-    </div>
-  );
-}
-```
-
----
-
-## Deel 4: Privacy & Cookie Pagina Update
-
-### Wijziging: `src/pages/Cookies.tsx`
-
-**Volledige herstructurering met alle verstrekte content:**
-
-**Secties:**
-1. Hero sectie (bestaand design behouden)
-2. Inleiding FEIGRO
-3. Cookies door FEIGRO
-4. Hoe komen wij aan uw gegevens?
-5. Bijzondere en/of gevoelige persoonsgegevens
-6. Wat doen we met uw gegevens?
-7. Hoe lang we gegevens bewaren
-8. Delen met anderen
-9. Websites van derden
-10. Gegevens inzien, aanpassen of verwijderen
-11. Beveiliging
-12. AVG compliance
-13. Algemene NAW- en contactgegevens
-14. Wijzigingen Privacyverklaring
-15. Contact sectie met alle emailadressen
-
-**Design:**
-- Accordion/collapsible secties voor betere navigatie
-- Inhoudsopgave aan zijkant (desktop)
-- Sticky navigatie voor lange content
-- FEIGRO branded styling consistent met rest van site
-
----
-
-## Deel 5: Nieuwe Bestanden Structuur
-
-```text
-src/
-├── components/
-│   └── cookies/
-│       ├── CookieConsent.tsx      (Popup component)
-│       ├── CookiePreferences.tsx  (Preferences panel)
-│       └── index.ts               (Exports)
-├── hooks/
-│   └── useCookieConsent.ts        (State management)
-└── pages/
-    └── Cookies.tsx                (Volledig herschreven)
-```
+- **Importeer Zod** (compatible met Deno via esm.sh)
+- **Definieer schemas** voor beide endpoints
+- **Vervang handmatige checks** met `schema.safeParse(body)`
+- **Return gedetailleerde errors** met juiste veldnamen
 
 ---
 
 ## Technische Details
 
-### Cookie Popup Styling
+### Dependencies
+Alle benodigde packages zijn al geinstalleerd:
+- `zod` - v3.25.76
+- `react-hook-form` - v7.61.1
+- `@hookform/resolvers` - v3.10.0
 
-| Element | Stijl |
-|---------|-------|
-| Container | `bg-white/95 backdrop-blur-lg border border-slate-200 rounded-2xl shadow-2xl` |
-| Header | `font-heading uppercase tracking-tight text-slate-900` |
-| Toggle Active | `bg-brand-green` |
-| Toggle Inactive | `bg-slate-200` |
-| Primary Button | FEIGRO PrimaryFlipButton style |
-| Secondary Button | Outlined variant |
-| Links | `text-brand-green hover:underline` |
+### Validatie Regels
 
-### Animaties
+| Veld | Contact | Lekkage |
+|------|---------|---------|
+| naam | Verplicht, max 100 chars | Verplicht |
+| email | Verplicht, valid format, max 255 | Verplicht, valid format |
+| telefoon | Optioneel, geldig format | Verplicht, regex check |
+| bericht | Verplicht, max 5000 chars | Optioneel |
 
-```tsx
-// Slide-up entrance
-initial={{ y: 100, opacity: 0 }}
-animate={{ y: 0, opacity: 1 }}
-exit={{ y: 100, opacity: 0 }}
-transition={{ type: "spring", damping: 25, stiffness: 300 }}
-```
-
-### Responsive Breakpoints
-
-| Viewport | Layout |
-|----------|--------|
-| Mobile (<768px) | Full-width bottom sheet, stacked buttons |
-| Tablet (768-1024px) | Centered modal, 80% width |
-| Desktop (>1024px) | Fixed bottom-right corner, max-width 480px |
+### Error Handling
+- Client-side: Inline error berichten onder elk veld
+- Server-side: JSON response met specifieke foutmeldingen
+- Beide validaties blokkeren submission bij fouten
 
 ---
 
-## Privacy Pagina Inhoud
+## Bestanden die worden aangepast
 
-De pagina zal de volledige verstrekte content bevatten:
-
-**Contactgegevens weergegeven:**
-- Website: www.feigro.nl
-- Algemeen: info@feigro.nl
-- Service: service@feigro.nl
-- Facturatie: facturen@feigro.nl
-- Direct: jgroen@feigro.nl / tfeitsma@feigro.nl
-
-**Cookie categorieën uitgelegd:**
-- Technische/functionele cookies
-- Analytische cookies (privacy-vriendelijk)
-- Geen marketing cookies standaard
-
-**Bewaartermijn:** 3 maanden voor website-aanvragen
-
-**AVG compliance:** Volledig gedocumenteerd
-
----
-
-## Samenvatting Wijzigingen
-
-### Nieuwe bestanden:
-| Bestand | Beschrijving |
-|---------|--------------|
-| `src/components/cookies/CookieConsent.tsx` | Hoofdcomponent cookie popup |
-| `src/components/cookies/CookiePreferences.tsx` | Voorkeuren panel met toggles |
-| `src/components/cookies/index.ts` | Barrel exports |
-| `src/hooks/useCookieConsent.ts` | Custom hook voor state |
-
-### Gewijzigde bestanden:
-| Bestand | Wijziging |
-|---------|-----------|
-| `src/components/layout/MainLayout.tsx` | CookieConsent component toevoegen |
-| `src/pages/Cookies.tsx` | Volledige herschrijving met privacy content |
-
-### Resultaat:
-- Professionele GDPR-compliant cookie oplossing
-- FEIGRO branded design
-- Volledige privacy & cookie documentatie
-- Gebruiksvriendelijke interface
-- Persistente voorkeuren via localStorage
-- Responsive op alle apparaten
+1. `src/pages/Contact.tsx` - Volledige refactor naar react-hook-form + Zod
+2. `src/lib/schemas/forms.ts` - Nieuw: centrale schema definities  
+3. `supabase/functions/send-form-email/index.ts` - Toevoegen Zod server-side validatie

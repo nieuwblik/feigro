@@ -152,18 +152,26 @@ function generateContactEmailHtml(data: {
           <td style="${styles.tableLabel}">E-mail</td>
           <td style="${styles.tableValue}"><a href="mailto:${escapeHtml(data.email)}" style="color: #4CB26E; text-decoration: none;">${escapeHtml(data.email)}</a></td>
         </tr>
-        ${data.phone ? `
+        ${
+          data.phone
+            ? `
         <tr style="${styles.tableRow}">
           <td style="${styles.tableLabel}">Telefoon</td>
           <td style="${styles.tableValue}"><a href="tel:${escapeHtml(data.phone)}" style="color: #4CB26E; text-decoration: none;">${escapeHtml(data.phone)}</a></td>
         </tr>
-        ` : ''}
-        ${data.subject ? `
+        `
+            : ""
+        }
+        ${
+          data.subject
+            ? `
         <tr style="${styles.tableRow}">
           <td style="${styles.tableLabel}">Onderwerp</td>
           <td style="${styles.tableValue}">${escapeHtml(data.subject)}</td>
         </tr>
-        ` : ''}
+        `
+            : ""
+        }
       </table>
 
       <h3 style="${styles.sectionTitle}">Bericht</h3>
@@ -202,9 +210,9 @@ function generateSpoedEmailHtml(data: {
   description?: string;
   extraInfo?: string;
 }) {
-  const isUrgent = data.isUrgent === 'Ja';
+  const isUrgent = data.isUrgent === "Ja";
   const fullAddress = `${data.address}, ${data.postcode} ${data.city}`;
-  
+
   return `
 <!DOCTYPE html>
 <html>
@@ -218,7 +226,7 @@ function generateSpoedEmailHtml(data: {
       <h1 style="${styles.headerTitle}">FEIGRO DAKWERKEN</h1>
     </div>
     <div style="${styles.body}">
-      ${isUrgent ? `<div style="${styles.urgentBadge}">⚠️ SPOEDMELDING</div>` : ''}
+      ${isUrgent ? `<div style="${styles.urgentBadge}">⚠️ SPOEDMELDING</div>` : ""}
       <h2 style="color: #1e293b; font-size: 20px; margin: 0 0 8px 0;">Nieuwe Lekkagemelding</h2>
       <p style="color: #64748b; font-size: 14px; margin: 0 0 24px 0;">Via feigro.nl spoedservice</p>
       
@@ -250,7 +258,7 @@ function generateSpoedEmailHtml(data: {
         </tr>
         <tr style="${styles.tableRow}">
           <td style="${styles.tableLabel}">Ernst</td>
-          <td style="${styles.tableValue}"><strong style="color: ${data.severity === 'Het stroomt' ? '#dc2626' : '#f59e0b'};">${escapeHtml(data.severity)}</strong></td>
+          <td style="${styles.tableValue}"><strong style="color: ${data.severity === "Het stroomt" ? "#dc2626" : "#f59e0b"};">${escapeHtml(data.severity)}</strong></td>
         </tr>
         <tr style="${styles.tableRow}">
           <td style="${styles.tableLabel}">Type gebouw</td>
@@ -266,19 +274,27 @@ function generateSpoedEmailHtml(data: {
         </tr>
       </table>
 
-      ${data.description ? `
+      ${
+        data.description
+          ? `
       <h3 style="${styles.sectionTitle}">Omschrijving</h3>
       <div style="${styles.messageBox}">
         <p style="${styles.messageText}">${escapeHtml(data.description)}</p>
       </div>
-      ` : ''}
+      `
+          : ""
+      }
 
-      ${data.extraInfo ? `
+      ${
+        data.extraInfo
+          ? `
       <h3 style="${styles.sectionTitle}">Extra Informatie</h3>
       <div style="${styles.messageBox}">
         <p style="${styles.messageText}">${escapeHtml(data.extraInfo)}</p>
       </div>
-      ` : ''}
+      `
+          : ""
+      }
 
       <div style="text-align: center; margin-top: 32px;">
         <a href="tel:${escapeHtml(data.phone)}" style="${styles.ctaButton}; margin-right: 12px;">
@@ -299,14 +315,14 @@ function generateSpoedEmailHtml(data: {
 }
 
 function escapeHtml(text: string): string {
-  if (!text) return '';
+  if (!text) return "";
   return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
-    .replace(/\n/g, '<br>');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/\n/g, "<br>");
 }
 
 // CORS preflight
@@ -348,7 +364,7 @@ app.post("/contact", async (c) => {
     const { data, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
       // to: ["info@feigro.nl"],
-      to: ["justin@nieuwblik.com", "kento@hado.dev"]
+      to: ["justin@nieuwblik.com", "kento@hado.dev"],
       reply_to: email,
       subject: `Nieuwe Aanvraag: ${name} via feigro.nl`,
       html: generateContactEmailHtml({ name, email, phone, subject, message }),
@@ -380,7 +396,20 @@ app.post("/spoed", async (c) => {
     const body = await c.req.json();
 
     // Validate required fields
-    const requiredFields = ['name', 'phone', 'email', 'address', 'postcode', 'city', 'leakLocation', 'isUrgent', 'severity', 'buildingType', 'roofType', 'accessibility'];
+    const requiredFields = [
+      "name",
+      "phone",
+      "email",
+      "address",
+      "postcode",
+      "city",
+      "leakLocation",
+      "isUrgent",
+      "severity",
+      "buildingType",
+      "roofType",
+      "accessibility",
+    ];
     for (const field of requiredFields) {
       if (!body[field]) {
         return c.json({ success: false, error: `${field} is verplicht` }, 400, corsHeaders);
@@ -399,15 +428,15 @@ app.post("/spoed", async (c) => {
       return c.json({ success: false, error: "Ongeldig telefoonnummer" }, 400, corsHeaders);
     }
 
-    const isUrgent = body.isUrgent === 'Ja';
+    const isUrgent = body.isUrgent === "Ja";
     console.log("Sending spoed form email for:", body.name, "Urgent:", isUrgent);
 
     const { data, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
       // to: ["service@feigro.nl"],
-      to: ["justin@nieuwblik.com", "kento@hado.dev"]
+      to: ["justin@nieuwblik.com", "kento@hado.dev"],
       reply_to: body.email,
-      subject: isUrgent 
+      subject: isUrgent
         ? `⚠️ SPOEDMELDING: Directe actie vereist - feigro.nl`
         : `Nieuwe Lekkagemelding: ${body.name} - feigro.nl`,
       html: generateSpoedEmailHtml(body),

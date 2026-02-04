@@ -57,10 +57,14 @@ export function FeatureGrid({ features, title, titleHighlight, subtitle, classNa
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.03,
+                ease: [0.16, 1, 0.3, 1]
+              }}
               className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="relative z-10 h-full flex flex-col">

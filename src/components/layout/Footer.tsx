@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
-import { PrimaryFlipButton } from '@/components/buttons';
+
 import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
@@ -93,12 +93,19 @@ export const Footer = () => {
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <PrimaryFlipButton
-                label="Neem contact op"
-                onClick={() => {
-                  window.location.href = '/contact';
-                }}
-              />
+              <div className="flex flex-col gap-3">
+                <Link to="/contact" className="text-white hover:text-brand-green transition-colors text-sm md:text-base font-medium">
+                  Neem contact op
+                </Link>
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                  <a href="tel:+31637158612" className="text-white/60 hover:text-white transition-colors text-xs md:text-sm">
+                    Jan: +31 6 37158612
+                  </a>
+                  <a href="tel:+31613731303" className="text-white/60 hover:text-white transition-colors text-xs md:text-sm">
+                    Tommie: +31 6 13731303
+                  </a>
+                </div>
+              </div>
             </FadeIn>
           </div>
 
@@ -107,7 +114,8 @@ export const Footer = () => {
               <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black block mb-2">LOCATIE</span>
               <address className="text-white/60 not-italic text-sm lg:text-base border-r-0 lg:border-r lg:pr-4 border-brand-green/30">
                 Noord-Holland<br />
-                West-Friesland
+                Utrecht<br />
+                Flevoland
               </address>
             </div>
           </FadeIn>

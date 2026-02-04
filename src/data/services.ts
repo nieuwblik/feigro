@@ -614,6 +614,7 @@ export const daklekkageData: ServicePageData = {
     title: 'Wat Te Doen Bij Daklekkage?',
     titleHighlight: 'Daklekkage?',
     description: 'Snelhandelen bij daklekkage voorkomt grote schade aan uw interieur.',
+    image: imgLekkage,
     paragraphs: [
       'Bij daklekkage is snelheid cruciaal. Water kan grote schade aanrichten aan plafonds, muren, isolatie en zelfs aan de constructie. Ook kan schimmelvorming ontstaan, wat gezondheidsrisico\'s met zich meebrengt.',
       'FEIGRO Dakwerken biedt 24/7 spoedservice voor acute daklekkages. Na uw melding komen we zo snel mogelijk ter plaatse om de lekkage te stoppen en verdere schade te voorkomen. We voeren een grondige inspectie uit om de oorzaak van de lekkage te achterhalen.',

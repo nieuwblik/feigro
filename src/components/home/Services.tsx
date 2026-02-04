@@ -111,12 +111,15 @@ export const Services = () => {
 
             {/* Right: Image */}
             <FadeIn delay={0.2}>
-              <div className="relative rounded-xl md:rounded-[1.25rem] overflow-hidden shadow-2xl bg-slate-100">
-                <img 
-                  src={ctaImage} 
-                  alt="FEIGRO Dakwerken professional" 
-                  className="w-full h-auto object-contain" 
-                />
+              <div className="relative">
+                <div className="aspect-[4/5] md:aspect-square rounded-lg md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group">
+                  <img 
+                    src={ctaImage} 
+                    alt="FEIGRO Dakwerken professional" 
+                    className="w-full h-full object-cover transition-all duration-1000" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                </div>
               </div>
             </FadeIn>
           </div>

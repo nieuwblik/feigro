@@ -79,7 +79,7 @@ export const Footer = () => {
   return <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
     <div className="relative h-[40vh] md:h-[45vh] w-full flex flex-col justify-end overflow-hidden">
-      <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] brightness-[0.4] scale-110" style={{
+      <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.4] scale-110" style={{
         y: backgroundY
       }} />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
@@ -203,7 +203,7 @@ export const Footer = () => {
             '--parallax-speed': 0.05 + idx * 0.02
           } as any}>
             <div className="aspect-square rounded-lg md:rounded-xl overflow-hidden bg-white/5 border border-white/5 h-full">
-              <ParallaxImage src={src} alt={`Project ${idx + 1}`} speed={30} containerClassName="h-full w-full" className="grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+              <ParallaxImage src={src} alt={`Project ${idx + 1}`} speed={30} containerClassName="h-full w-full" className="transition-all duration-700" />
             </div>
           </FadeIn>)}
         </div>

@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
-import heroSlide1 from '@/assets/hero-slide-1.png';
-import heroSlide2 from '@/assets/hero-slide-2.png';
-import heroSlide3 from '@/assets/hero-slide-3.png';
+import heroSlide1 from '@/assets/hero-slide-1.webp';
+import heroSlide2 from '@/assets/hero-slide-2.webp';
+import heroSlide3 from '@/assets/hero-slide-3.webp';
 
 const heroImages = [heroSlide1, heroSlide2, heroSlide3];
 

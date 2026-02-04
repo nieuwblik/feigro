@@ -9,9 +9,9 @@ import imgLekvrij from '@/assets/lekvrij-dak-nederland.jpg';
 import imgValbeveiliging from '@/assets/dak-valbeveiliging-montage.jpg';
 import imgLekkage from '@/assets/Lekkage-Feitsma.jpg';
 import imgReparatie from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
-import imgDakreparatieWerk from '@/assets/dakreparatie-werk.png';
-import imgDakonderhoudWerk from '@/assets/dakonderhoud-werk.png';
-import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.png';
+import imgDakreparatieWerk from '@/assets/dakreparatie-werk.webp';
+import imgDakonderhoudWerk from '@/assets/dakonderhoud-werk.webp';
+import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.webp';
 
 export const vveVastgoedbeheerData: ServicePageData = {
   seo: seoMetadata.vveVastgoedbeheer,

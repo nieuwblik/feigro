@@ -80,7 +80,7 @@ export function InfoSection({
           ease: [0.16, 1, 0.3, 1]
         }} className={cn('relative', imagePosition === 'left' && 'lg:col-start-1')}>
           <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden border border-slate-200 group shadow-2xl">
-            <img src={image} alt={imageAlt} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" loading="lazy" />
+            <img src={image} alt={imageAlt} className="w-full h-full object-cover transition-all duration-1000" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
           </div>
           {/* Visual Accent */}

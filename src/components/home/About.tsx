@@ -1,7 +1,7 @@
 import React from 'react';
 import { InversedFlipButton } from '@/components/buttons';
 import { ParallaxImage, FadeIn } from '@/components/ui/ParallaxImage';
-import aboutImage from '@/assets/dakdekker-brander.png';
+import aboutImage from '@/assets/dakdekker-brander.webp';
 
 export const About = () => {
   return (
@@ -18,7 +18,7 @@ export const About = () => {
                   alt="Dakwerker aan het werk"
                   speed={60}
                   containerClassName="h-full w-full"
-                  className="grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  className="transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
               </div>

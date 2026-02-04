@@ -1,54 +1,54 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { contactFormSchema, type ContactFormData } from '@/lib/schemas/forms';
 import imgHero from '@/assets/dakreparatie-nederland-enkhuizen.webp';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    }
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      toast.error('Vul alle verplichte velden in');
-      return;
-    }
-
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-form-email/contact', {
+      const { data: responseData, error } = await supabase.functions.invoke('send-form-email/contact', {
         body: {
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim() || undefined,
-          subject: formData.subject.trim() || undefined,
-          message: formData.message.trim(),
+          name: data.name.trim(),
+          email: data.email.trim(),
+          phone: data.phone?.trim() || undefined,
+          subject: data.subject?.trim() || undefined,
+          message: data.message.trim(),
         }
       });
 
       if (error) throw error;
 
-      if (!data?.success) {
-        throw new Error(data?.error || 'Onbekende fout');
+      if (!responseData?.success) {
+        throw new Error(responseData?.error || 'Onbekende fout');
       }
 
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      form.reset();
       toast.success('Bedankt! We nemen binnen 24 uur contact met u op.');
     } catch (error) {
       console.error('Form submission error:', error);
@@ -56,13 +56,6 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   if (isSubmitted) {
@@ -212,95 +205,129 @@ export default function Contact() {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
               <div className="bg-slate-50 border border-slate-200 p-8 md:p-12 lg:p-16 rounded-xl md:rounded-[2rem] relative z-10 select-none" id="contact-form">
                 <h3 className="text-2xl md:text-3xl font-heading text-slate-900 mb-8 md:mb-10 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
-                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div className="space-y-2">
-                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Naam *</label>
-                      <input 
-                        type="text" 
-                        name="name" 
-                        value={formData.name} 
-                        onChange={handleChange} 
-                        placeholder="Uw naam" 
-                        required 
-                        disabled={isSubmitting}
-                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50" 
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Naam *</FormLabel>
+                            <FormControl>
+                              <input
+                                {...field}
+                                type="text"
+                                placeholder="Uw naam"
+                                disabled={isSubmitting}
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Email *</FormLabel>
+                            <FormControl>
+                              <input
+                                {...field}
+                                type="email"
+                                placeholder="uw@email.nl"
+                                disabled={isSubmitting}
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Email *</label>
-                      <input 
-                        type="email" 
-                        name="email" 
-                        value={formData.email} 
-                        onChange={handleChange} 
-                        placeholder="uw@email.nl" 
-                        required 
-                        disabled={isSubmitting}
-                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50" 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Telefoon</FormLabel>
+                            <FormControl>
+                              <input
+                                {...field}
+                                type="tel"
+                                placeholder="06 12345678"
+                                disabled={isSubmitting}
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Onderwerp</FormLabel>
+                            <FormControl>
+                              <input
+                                {...field}
+                                type="text"
+                                placeholder="Waar gaat het over?"
+                                disabled={isSubmitting}
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div className="space-y-2">
-                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Telefoon</label>
-                      <input 
-                        type="tel" 
-                        name="phone" 
-                        value={formData.phone} 
-                        onChange={handleChange} 
-                        placeholder="06 12345678" 
-                        disabled={isSubmitting}
-                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50" 
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Onderwerp</label>
-                      <input 
-                        type="text" 
-                        name="subject" 
-                        value={formData.subject} 
-                        onChange={handleChange} 
-                        placeholder="Waar gaat het over?" 
-                        disabled={isSubmitting}
-                        className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50" 
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Bericht *</label>
-                    <textarea 
-                      rows={5} 
-                      name="message" 
-                      value={formData.message} 
-                      onChange={handleChange} 
-                      placeholder="Uw bericht..." 
-                      required 
-                      disabled={isSubmitting}
-                      className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none text-sm md:text-base disabled:opacity-50"
-                    ></textarea>
-                  </div>
-
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full group inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider border-2 rounded-xl transition-all duration-300 ease-out bg-brand-green text-feigro-dark border-brand-green hover:bg-feigro-dark hover:text-white hover:border-feigro-dark h-14 md:h-16 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
-                          Verzenden...
-                        </>
-                      ) : (
-                        <>
-                          Verstuur bericht
-                          <Send className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </>
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem className="space-y-2">
+                          <FormLabel className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-3 md:ml-4">Bericht *</FormLabel>
+                          <FormControl>
+                            <textarea
+                              {...field}
+                              rows={5}
+                              placeholder="Uw bericht..."
+                              disabled={isSubmitting}
+                              className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none text-sm md:text-base disabled:opacity-50"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
+                        </FormItem>
                       )}
-                    </button>
-                  </div>
-                </form>
+                    />
+
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full group inline-flex items-center justify-center gap-2 font-bold uppercase tracking-wider border-2 rounded-xl transition-all duration-300 ease-out bg-brand-green text-feigro-dark border-brand-green hover:bg-feigro-dark hover:text-white hover:border-feigro-dark h-14 md:h-16 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
+                            Verzenden...
+                          </>
+                        ) : (
+                          <>
+                            Verstuur bericht
+                            <Send className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                </Form>
               </div>
               {/* Background Blur */}
               <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-brand-green/10 blur-[100px] -z-0"></div>

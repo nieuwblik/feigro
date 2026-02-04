@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { BackToTop } from '@/components/ui/BackToTop';
+import { CookieConsent } from '@/components/cookies';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -16,6 +17,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       </main>
       <Footer />
       <BackToTop />
+      <CookieConsent />
     </div>
   );
 }

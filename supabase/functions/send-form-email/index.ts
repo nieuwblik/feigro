@@ -471,7 +471,7 @@ app.post("/spoed", async (c) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
-      to: ["service@feigrow.nl"],
+      to: ["service@feigro.nl"],
       reply_to: data.email,
       subject: isUrgent
         ? `⚠️ SPOEDMELDING: Directe actie vereist - feigro.nl`

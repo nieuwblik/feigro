@@ -44,6 +44,7 @@ export function HeroSection({
             src={backgroundImage}
             alt={title}
             className="w-full h-full object-cover opacity-30"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>

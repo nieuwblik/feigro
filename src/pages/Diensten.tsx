@@ -103,23 +103,29 @@ const Diensten = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 select-none"
               >
-                <div className="relative z-10">
-                  <div className="text-brand-green mb-8 md:mb-10 w-12 h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">{service.title}</h3>
-                  <p className="text-slate-600 leading-relaxed mb-8 md:mb-10 text-sm md:text-base font-light">{service.desc}</p>
-                  <Link to={service.href} className="flex justify-between items-center group/btn">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors">Bekijk Dienst</span>
-                    <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-brand-green group-hover:bg-brand-green transition-all duration-300">
-                      <ArrowRight size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                <Link to={service.href} className="block h-full">
+                  <div className="group relative p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full min-h-[320px] md:min-h-[380px] overflow-hidden select-none hover:-translate-y-2">
+                    <div className="relative z-10 h-full flex flex-col">
+                      <div className="mb-8 md:mb-10 text-brand-green w-8 h-8 md:w-10 md:h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15] [&>svg]:w-8 [&>svg]:h-8 md:[&>svg]:w-10 md:[&>svg]:h-10">
+                        {service.icon}
+                      </div>
+
+                      <h3 className="text-xl md:text-2xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed text-xs md:text-sm mb-8 md:mb-10 flex-grow font-light">
+                        {service.desc}
+                      </p>
+                      <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-slate-400 group-hover:text-brand-green transition-colors mt-auto pt-4 md:pt-6 border-t border-slate-100">
+                        Meer Info <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
                     </div>
-                  </Link>
-                </div>
-                {/* Hover Background Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 via-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Hover Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-green/0 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

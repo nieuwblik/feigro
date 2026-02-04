@@ -32,7 +32,7 @@ export const GoogleReviewCard: React.FC<GoogleReviewCardProps> = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group block bg-white border border-slate-200 rounded-xl p-5 md:p-6 hover:border-brand-green/30 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg",
+        "group block bg-white border border-slate-200 rounded-xl p-5 md:p-6 hover:border-brand-green/30 hover:-translate-y-1 transition-all duration-300",
         className
       )}
     >

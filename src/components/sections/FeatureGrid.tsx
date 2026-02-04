@@ -61,7 +61,7 @@ export function FeatureGrid({ features, title, titleHighlight, subtitle, classNa
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2"
+              className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 hover:-translate-y-2"
             >
               <div className="relative z-10 h-full flex flex-col">
                 <div className="mb-8 md:mb-10 text-brand-green w-8 h-8 md:w-10 md:h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">

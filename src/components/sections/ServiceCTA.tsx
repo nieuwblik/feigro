@@ -25,7 +25,7 @@ export const ServiceCTA = () => {
                 <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mb-16 md:mb-20 w-full text-left">
 
                     {/* Card 1 */}
-                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 shadow-sm hover:shadow-xl">
+                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2">
                         <div className="relative z-10 h-full flex flex-col items-center text-center">
                             <div className="mb-6 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                                 <CheckCircle2 size={32} />
@@ -42,7 +42,7 @@ export const ServiceCTA = () => {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 shadow-sm hover:shadow-xl">
+                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2">
                         <div className="relative z-10 h-full flex flex-col items-center text-center">
                             <div className="mb-6 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                                 <CheckCircle2 size={32} />
@@ -59,7 +59,7 @@ export const ServiceCTA = () => {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2 shadow-sm hover:shadow-xl">
+                    <div className="group relative p-8 rounded-[1.25rem] bg-white border border-slate-200 hover:border-brand-green/30 transition-all duration-500 flex flex-col h-full overflow-hidden select-none hover:-translate-y-2">
                         <div className="relative z-10 h-full flex flex-col items-center text-center">
                             <div className="mb-6 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                                 <CheckCircle2 size={32} />

@@ -28,9 +28,9 @@ export const FeaturedProjects = () => {
               Ontdek onze gerealiseerde dakprojecten in Noord-Holland, Flevoland en Utrecht.
             </p>
           </FadeIn>
-          
+
           <FadeIn delay={0.1} className="mt-6 lg:mt-0 hidden md:block">
-            <Link 
+            <Link
               to="/projecten"
               className="inline-flex items-center gap-2 text-slate-900 font-bold text-sm uppercase tracking-wider hover:text-brand-green transition-colors group"
             >
@@ -44,35 +44,35 @@ export const FeaturedProjects = () => {
         <div className="flex flex-col gap-6 md:hidden">
           {featuredProjects.map((project, index) => (
             <FadeIn key={project.slug} delay={index * 0.1}>
-              <Link 
-                to={`/projecten/${project.slug}`} 
-                className="group block bg-white rounded-2xl overflow-hidden shadow-lg shadow-slate-200/50 active:scale-[0.98] active:shadow-xl transition-all duration-200"
+              <Link
+                to={`/projecten/${project.slug}`}
+                className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 active:scale-[0.98] transition-all duration-300"
               >
                 {/* Image with 16:9 aspect ratio */}
                 <div className="relative">
                   <AspectRatio ratio={16 / 9}>
-                    <img 
-                      src={project.imageAfter} 
-                      alt={project.title} 
+                    <img
+                      src={project.imageAfter}
+                      alt={project.title}
                       className="w-full h-full object-cover"
                     />
                     {/* Dark overlay for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   </AspectRatio>
-                  
+
                   {/* Category Badge on image */}
                   <span className="absolute top-3 left-3 px-3 py-1.5 bg-brand-green text-slate-900 text-[10px] font-bold uppercase tracking-wider rounded-full">
                     {project.category}
                   </span>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-5">
                   {/* Title */}
                   <h3 className="text-lg font-heading text-slate-900 uppercase tracking-tight mb-2 group-active:text-brand-green transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   {/* Location & Size */}
                   <div className="flex items-center gap-3 text-slate-500 text-sm mb-3">
                     <div className="flex items-center gap-1.5">
@@ -82,12 +82,12 @@ export const FeaturedProjects = () => {
                     <span className="text-slate-300">•</span>
                     <span>{project.size}</span>
                   </div>
-                  
+
                   {/* Description */}
                   <p className="text-slate-600 text-sm font-light line-clamp-2 mb-4">
                     {project.shortDescription}
                   </p>
-                  
+
                   {/* CTA - Always visible on mobile */}
                   <div className="flex items-center gap-2 text-brand-green text-xs font-bold uppercase tracking-wider">
                     <span>Bekijk project</span>
@@ -97,10 +97,10 @@ export const FeaturedProjects = () => {
               </Link>
             </FadeIn>
           ))}
-          
+
           {/* Mobile CTA */}
           <FadeIn delay={0.4} className="mt-4">
-            <Link 
+            <Link
               to="/projecten"
               className="group flex items-center justify-center gap-2 w-full py-4 bg-brand-green text-feigro-dark font-bold text-sm uppercase tracking-wider rounded-xl active:scale-[0.98] transition-all duration-300 hover:bg-feigro-dark hover:text-white"
             >
@@ -114,44 +114,44 @@ export const FeaturedProjects = () => {
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredProjects.map((project, index) => (
             <FadeIn key={project.slug} delay={index * 0.1}>
-              <Link 
-                to={`/projecten/${project.slug}`} 
-                className="group block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              <Link
+                to={`/projecten/${project.slug}`}
+                className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Image with 16:9 aspect ratio */}
                 <div className="relative overflow-hidden">
                   <AspectRatio ratio={16 / 9}>
-                    <img 
-                      src={project.imageAfter} 
-                      alt={project.title} 
+                    <img
+                      src={project.imageAfter}
+                      alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </AspectRatio>
-                  
+
                   {/* Category Badge */}
                   <span className="absolute top-3 left-3 px-3 py-1.5 bg-brand-green text-slate-900 text-[10px] font-bold uppercase tracking-wider rounded-full">
                     {project.category}
                   </span>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-5">
                   <h3 className="text-base font-heading text-slate-900 uppercase tracking-tight mb-2 group-hover:text-brand-green transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <div className="flex items-center gap-2 text-slate-500 text-xs mb-3">
                     <MapPin size={12} />
                     <span>{project.location}</span>
                     <span className="text-slate-300">•</span>
                     <span>{project.size}</span>
                   </div>
-                  
+
                   <p className="text-slate-600 text-sm font-light line-clamp-2 mb-4">
                     {project.shortDescription}
                   </p>
-                  
+
                   <div className="flex items-center gap-2 text-brand-green text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                     <span>Bekijk project</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

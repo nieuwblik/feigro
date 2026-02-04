@@ -31,19 +31,18 @@ export const Hero = () => {
 
   return (
     <section ref={containerRef} className="relative min-h-screen w-full flex items-center overflow-hidden bg-black py-20">
-      {/* Hero Background with Parallax - Slideshow */}
+      {/* Hero Background - Slideshow with Crossfade */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((img, index) => (
           <motion.img
             key={index}
             src={img}
             alt={`Professional roofing work ${index + 1}`}
-            className="absolute inset-0 w-full h-[130%] object-cover object-center brightness-50"
+            className="absolute inset-0 w-full h-full object-cover object-center brightness-50"
             loading={index === 0 ? "eager" : "lazy"}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === currentSlide ? 1 : 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ y: backgroundY, top: "-15%" }}
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PrimaryFlipButton } from '@/components/buttons';
+
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 
@@ -87,18 +87,6 @@ const Diensten = () => {
           >
             Van preventieve inspecties tot complete dakrenovaties. FEIGRO biedt duurzame oplossingen for elk type dak.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <Link to="/contact">
-              <PrimaryFlipButton
-                label="Vraag offerte aan"
-                icon={<ArrowRight />}
-              />
-            </Link>
-          </motion.div>
         </div>
         {/* Abstract Background Accents */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>

@@ -5,7 +5,7 @@ import { SEO } from '@/components/SEO';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
-import imgHero from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
+import imgHero from '@/assets/dakreparatie-nederland-enkhuizen.webp';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',

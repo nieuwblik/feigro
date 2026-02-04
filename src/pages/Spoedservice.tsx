@@ -6,7 +6,7 @@ import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { LekkageForm } from '@/components/forms/LekkageForm';
-import imgHero from '@/assets/Lekkage-Feitsma.jpg';
+import imgHero from '@/assets/lekkage-feitsma.webp';
 
 export default function Spoedservice() {
   const containerRef = React.useRef<HTMLElement>(null);

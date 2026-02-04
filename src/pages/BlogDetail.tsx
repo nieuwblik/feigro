@@ -3,9 +3,9 @@ import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
-import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.jpg';
+import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
+import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.webp';
 interface BlogSection {
   type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image';
   content?: string;

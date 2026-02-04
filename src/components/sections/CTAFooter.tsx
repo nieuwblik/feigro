@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Phone } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { cn } from '@/lib/utils';
 
@@ -44,20 +45,19 @@ export function CTAFooter({
             <p className="text-white/60 text-sm sm:text-base md:text-lg lg:text-2xl mb-8 md:mb-14 leading-relaxed max-w-2xl font-light">
               Neem vandaag nog contact met ons op voor een vrijblijvende offerte of een gratis dakinspectie.
             </p>
-            <div className="flex flex-col sm:flex-row justify-start items-stretch sm:items-start gap-6 md:gap-10">
+            <div className="flex flex-col sm:flex-row lg:flex-row items-stretch sm:items-center gap-4 md:gap-6 mt-6 md:mt-10">
               <Link to="/contact" className="w-full sm:w-auto">
                 <PrimaryFlipButton
                   label="Vraag offerte aan"
                   hoverLabel="Direct contact"
                 />
               </Link>
-              <div 
-                className="flex flex-col items-center sm:items-start group cursor-pointer" 
-                onClick={() => window.location.href = 'tel:+31612345678'}
-              >
-                <span className="text-white/30 text-[9px] md:text-[10px] uppercase tracking-widest font-bold mb-1">Liever bellen?</span>
-                <a href="tel:+31612345678" className="text-white font-bold text-xl sm:text-2xl md:text-3xl group-hover:text-brand-green transition-all break-all sm:break-normal">
-                  +31 (0) 6 123 456 78
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="tel:+31637158612" className="block bg-brand-green hover:bg-white text-white hover:text-black px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20 min-w-[200px]">
+                  Jan: 06 37158612
+                </a>
+                <a href="tel:+31613731303" className="block bg-brand-green hover:bg-white text-white hover:text-black px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20 min-w-[200px]">
+                  Tommie: 06 13731303
                 </a>
               </div>
             </div>

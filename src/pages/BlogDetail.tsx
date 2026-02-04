@@ -3,6 +3,7 @@ import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
+import { CTAFooter } from '@/components/sections/CTAFooter';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
 import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.webp';
@@ -200,8 +201,8 @@ export default function BlogDetail() {
         }} transition={{
           delay: index * 0.05
         }} className="text-slate-600 text-lg leading-relaxed font-light">
-            {section.content}
-          </motion.p>;
+          {section.content}
+        </motion.p>;
       case 'heading':
         return <motion.h2 key={index} initial={{
           opacity: 0,
@@ -214,8 +215,8 @@ export default function BlogDetail() {
         }} transition={{
           delay: index * 0.05
         }} className="text-2xl md:text-3xl font-heading text-slate-900 uppercase tracking-tight mt-8 mb-4">
-            {section.content}
-          </motion.h2>;
+          {section.content}
+        </motion.h2>;
       case 'list':
         return <motion.ul key={index} initial={{
           opacity: 0,
@@ -228,11 +229,11 @@ export default function BlogDetail() {
         }} transition={{
           delay: index * 0.05
         }} className="space-y-3 my-6">
-            {section.items?.map((item, i) => <li key={i} className="flex items-start gap-3 text-slate-600 font-light">
-                <CheckCircle2 size={20} className="text-brand-green shrink-0 mt-0.5" />
-                <span>{item}</span>
-              </li>)}
-          </motion.ul>;
+          {section.items?.map((item, i) => <li key={i} className="flex items-start gap-3 text-slate-600 font-light">
+            <CheckCircle2 size={20} className="text-brand-green shrink-0 mt-0.5" />
+            <span>{item}</span>
+          </li>)}
+        </motion.ul>;
       case 'quote':
         return <motion.blockquote key={index} initial={{
           opacity: 0,
@@ -245,42 +246,42 @@ export default function BlogDetail() {
         }} transition={{
           delay: index * 0.05
         }} className="border-l-4 border-brand-green pl-6 py-4 my-8 bg-brand-green/5 rounded-r-xl">
-            <p className="text-xl text-slate-700 italic font-light leading-relaxed">
-              "{section.content}"
-            </p>
-          </motion.blockquote>;
+          <p className="text-xl text-slate-700 italic font-light leading-relaxed">
+            "{section.content}"
+          </p>
+        </motion.blockquote>;
       default:
         return null;
     }
   };
   return <>
-      <SEO title={`${post.title} | FEIGRO Dakwerken`} description={post.excerpt} canonical={`/nieuws/${post.id}`} />
+    <SEO title={`${post.title} | FEIGRO Dakwerken`} description={post.excerpt} canonical={`/nieuws/${post.id}`} />
 
-      {/* Hero Section */}
-      <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden min-h-[60vh] flex items-end">
-        <div className="absolute inset-0">
-          <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
-        </div>
-        
-        <div className="container mx-auto relative z-10">
-          {/* Grid matching article content layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            <div className="lg:col-span-2">
-              <motion.div initial={{
+    {/* Hero Section */}
+    <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden min-h-[60vh] flex items-end">
+      <div className="absolute inset-0">
+        <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
+      </div>
+
+      <div className="container mx-auto relative z-10">
+        {/* Grid matching article content layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="lg:col-span-2">
+            <motion.div initial={{
               opacity: 0,
               y: 20
             }} animate={{
               opacity: 1,
               y: 0
             }}>
-                <Link to="/nieuws" className="inline-flex items-center gap-2 text-white/60 hover:text-brand-green transition-colors text-sm mb-8">
-                  <ArrowLeft size={16} />
-                  Terug naar nieuws
-                </Link>
-              </motion.div>
+              <Link to="/nieuws" className="inline-flex items-center gap-2 text-white/60 hover:text-brand-green transition-colors text-sm mb-8">
+                <ArrowLeft size={16} />
+                Terug naar nieuws
+              </Link>
+            </motion.div>
 
-              <motion.div initial={{
+            <motion.div initial={{
               opacity: 0,
               y: 30
             }} animate={{
@@ -289,26 +290,26 @@ export default function BlogDetail() {
             }} transition={{
               delay: 0.1
             }} className="flex flex-wrap items-center gap-4 mb-6">
-                <span className="bg-brand-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                  {post.category}
-                </span>
-                <div className="flex items-center gap-4 text-white/50 text-sm">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={14} />
-                    {new Date(post.date).toLocaleDateString('nl-NL', {
+              <span className="bg-brand-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                {post.category}
+              </span>
+              <div className="flex items-center gap-4 text-white/50 text-sm">
+                <span className="flex items-center gap-1.5">
+                  <Calendar size={14} />
+                  {new Date(post.date).toLocaleDateString('nl-NL', {
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric'
                   })}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock size={14} />
-                    {post.readTime}
-                  </span>
-                </div>
-              </motion.div>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  {post.readTime}
+                </span>
+              </div>
+            </motion.div>
 
-              <motion.h1 initial={{
+            <motion.h1 initial={{
               opacity: 0,
               y: 30
             }} animate={{
@@ -317,10 +318,10 @@ export default function BlogDetail() {
             }} transition={{
               delay: 0.2
             }} className="text-4xl md:text-5xl lg:text-6xl font-heading text-white uppercase tracking-tighter leading-none mb-4">
-                {post.title}
-              </motion.h1>
+              {post.title}
+            </motion.h1>
 
-              <motion.p initial={{
+            <motion.p initial={{
               opacity: 0,
               y: 20
             }} animate={{
@@ -329,25 +330,25 @@ export default function BlogDetail() {
             }} transition={{
               delay: 0.3
             }} className="text-brand-green text-xl md:text-2xl italic font-light">
-                {post.subtitle}
-              </motion.p>
-            </div>
+              {post.subtitle}
+            </motion.p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Article Content with Sidebar */}
-      <article className="py-16 md:py-24 px-4 md:px-6 bg-white">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-              <div className="space-y-6">
-                {post.sections.map((section, index) => renderSection(section, index))}
-              </div>
+    {/* Article Content with Sidebar */}
+    <article className="py-16 md:py-24 px-4 md:px-6 bg-white">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          {/* Main Content */}
+          <div className="lg:col-span-2">
+            <div className="space-y-6">
+              {post.sections.map((section, index) => renderSection(section, index))}
+            </div>
 
-              {/* Author & Share */}
-              <motion.div initial={{
+            {/* Author & Share */}
+            <motion.div initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -356,26 +357,26 @@ export default function BlogDetail() {
             }} viewport={{
               once: true
             }} className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center overflow-hidden p-2">
-                    <img src="/images/feigro-logo-wit.png" alt="Feigro" className="w-full h-full object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-slate-900 font-bold">{post.author}</p>
-                    <p className="text-slate-500 text-sm">Dakwerken Specialist</p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center overflow-hidden p-2">
+                  <img src="/images/feigro-logo-wit.png" alt="Feigro" className="w-full h-full object-contain" />
                 </div>
-                <Link to="/contact">
-                  <PrimaryFlipButton label="Vraag advies aan" icon={<ArrowRight size={16} />} size="small" />
-                </Link>
-              </motion.div>
-            </div>
+                <div>
+                  <p className="text-slate-900 font-bold">{post.author}</p>
+                  <p className="text-slate-500 text-sm">Dakwerken Specialist</p>
+                </div>
+              </div>
+              <Link to="/contact">
+                <PrimaryFlipButton label="Vraag advies aan" icon={<ArrowRight size={16} />} size="small" />
+              </Link>
+            </motion.div>
+          </div>
 
-            {/* Sidebar */}
-            <aside className="lg:col-span-1">
-              <div className="sticky top-32 space-y-6">
-                {/* Contact Card */}
-                <motion.div initial={{
+          {/* Sidebar */}
+          <aside className="lg:col-span-1">
+            <div className="sticky top-32 space-y-6">
+              {/* Contact Card */}
+              <motion.div initial={{
                 opacity: 0,
                 x: 20
               }} whileInView={{
@@ -384,25 +385,30 @@ export default function BlogDetail() {
               }} viewport={{
                 once: true
               }} className="bg-black rounded-2xl p-8 text-white">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center">
-                      <Phone size={20} className="text-brand-green" />
-                    </div>
-                    <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider">Direct contact</p>
-                      <p className="font-bold text-lg">FEIGRO</p>
-                    </div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center">
+                    <Phone size={24} className="text-brand-green" />
                   </div>
-                  <p className="text-white/70 text-sm mb-6 font-light leading-relaxed">
-                    Hulp nodig bij uw dak? Onze specialisten staan klaar voor advies, inspectie of reparatie.
-                  </p>
-                  <a href="tel:+31612345678" className="block w-full bg-brand-green hover:bg-white hover:text-black text-center py-4 rounded-xl font-bold text-sm uppercase tracking-wider transition-all">
-                    Bel: 06 123 456 78
+                  <div>
+                    <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold">Direct contact</p>
+                    <p className="font-heading text-xl text-white uppercase tracking-tight">FEIGRO</p>
+                  </div>
+                </div>
+                <p className="text-white/60 text-base mb-10 font-light leading-relaxed">
+                  Hulp nodig bij uw dak? Onze specialisten staan klaar voor advies, inspectie of reparatie.
+                </p>
+                <div className="space-y-4">
+                  <a href="tel:+31637158612" className="block w-full bg-brand-green hover:bg-white text-white hover:text-black py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20">
+                    Jan: 06 37158612
                   </a>
-                </motion.div>
+                  <a href="tel:+31613731303" className="block w-full bg-brand-green hover:bg-white text-white hover:text-black py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20">
+                    Tommie: 06 13731303
+                  </a>
+                </div>
+              </motion.div>
 
-                {/* Services Card */}
-                <motion.div initial={{
+              {/* Services Card */}
+              <motion.div initial={{
                 opacity: 0,
                 x: 20
               }} whileInView={{
@@ -413,12 +419,12 @@ export default function BlogDetail() {
               }} transition={{
                 delay: 0.1
               }} className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Wrench size={20} className="text-brand-green" />
-                    <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Onze Diensten</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {[{
+                <div className="flex items-center gap-3 mb-6">
+                  <Wrench size={20} className="text-brand-green" />
+                  <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Onze Diensten</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[{
                     name: 'Dakreparatie',
                     href: '/dakreparatie'
                   }, {
@@ -437,16 +443,16 @@ export default function BlogDetail() {
                     name: 'VvE & Vastgoedbeheer',
                     href: '/vve-vastgoedbeheer'
                   }].map(service => <li key={service.name}>
-                        <Link to={service.href} className="flex items-center gap-2 text-slate-600 hover:text-brand-green transition-colors text-sm font-light">
-                          <ArrowRight size={12} />
-                          {service.name}
-                        </Link>
-                      </li>)}
-                  </ul>
-                </motion.div>
+                    <Link to={service.href} className="flex items-center gap-2 text-slate-600 hover:text-brand-green transition-colors text-sm font-light">
+                      <ArrowRight size={12} />
+                      {service.name}
+                    </Link>
+                  </li>)}
+                </ul>
+              </motion.div>
 
-                {/* Werkgebied Card */}
-                <motion.div initial={{
+              {/* Werkgebied Card */}
+              <motion.div initial={{
                 opacity: 0,
                 x: 20
               }} whileInView={{
@@ -457,35 +463,35 @@ export default function BlogDetail() {
               }} transition={{
                 delay: 0.2
               }} className="bg-brand-green/10 rounded-2xl p-8 border border-brand-green/20">
-                  <div className="flex items-center gap-3 mb-6">
-                    <MapPin size={20} className="text-brand-green" />
-                    <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Werkgebied</h3>
-                  </div>
-                  <p className="text-slate-600 text-sm font-light mb-4">
-                    FEIGRO is actief in:
-                  </p>
-                  <ul className="space-y-2">
-                    {['Noord-Holland', 'Flevoland', 'Utrecht'].map(region => <li key={region} className="flex items-center gap-2 text-slate-900 font-medium text-sm">
-                        <CheckCircle2 size={14} className="text-brand-green" />
-                        {region}
-                      </li>)}
-                  </ul>
-                  <div className="mt-6 pt-6 border-t border-brand-green/20">
-                    <Link to="/contact" className="text-brand-green text-xs font-bold uppercase tracking-wider hover:text-slate-900 transition-colors flex items-center gap-2">
-                      Offerte aanvragen <ArrowRight size={12} />
-                    </Link>
-                  </div>
-                </motion.div>
-              </div>
-            </aside>
-          </div>
+                <div className="flex items-center gap-3 mb-6">
+                  <MapPin size={20} className="text-brand-green" />
+                  <h3 className="font-heading text-slate-900 uppercase text-sm tracking-wider">Werkgebied</h3>
+                </div>
+                <p className="text-slate-600 text-sm font-light mb-4">
+                  FEIGRO is actief in:
+                </p>
+                <ul className="space-y-2">
+                  {['Noord-Holland', 'Flevoland', 'Utrecht'].map(region => <li key={region} className="flex items-center gap-2 text-slate-900 font-medium text-sm">
+                    <CheckCircle2 size={14} className="text-brand-green" />
+                    {region}
+                  </li>)}
+                </ul>
+                <div className="mt-6 pt-6 border-t border-brand-green/20">
+                  <Link to="/contact" className="text-brand-green text-xs font-bold uppercase tracking-wider hover:text-slate-900 transition-colors flex items-center gap-2">
+                    Offerte aanvragen <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </aside>
         </div>
-      </article>
+      </div>
+    </article>
 
-      {/* Related Articles */}
-      {otherPosts.length > 0 && <section className="py-16 md:py-24 px-4 md:px-6 bg-slate-50">
-          <div className="container mx-auto max-w-5xl">
-            <motion.div initial={{
+    {/* Related Articles */}
+    {otherPosts.length > 0 && <section className="py-16 md:py-24 px-4 md:px-6 bg-slate-50">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div initial={{
           opacity: 0,
           x: -20
         }} whileInView={{
@@ -494,12 +500,12 @@ export default function BlogDetail() {
         }} viewport={{
           once: true
         }} className="flex items-center gap-4 mb-12">
-              <div className="w-8 h-[2px] bg-brand-green"></div>
-              <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Lees ook</span>
-            </motion.div>
+          <div className="w-8 h-[2px] bg-brand-green"></div>
+          <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Lees ook</span>
+        </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {otherPosts.map((relatedPost, index) => <motion.article key={relatedPost.id} initial={{
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {otherPosts.map((relatedPost, index) => <motion.article key={relatedPost.id} initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -510,30 +516,34 @@ export default function BlogDetail() {
           }} transition={{
             delay: index * 0.1
           }} className="group">
-                  <Link to={`/nieuws/${relatedPost.id}`}>
-                    <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
-                      <div className="aspect-[16/9] overflow-hidden">
-                        <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                      </div>
-                      <div className="p-6">
-                        <span className="text-brand-green text-xs font-bold uppercase tracking-wider">
-                          {relatedPost.category}
-                        </span>
-                        <h3 className="text-xl font-heading text-slate-900 mt-2 uppercase tracking-tight group-hover:text-brand-green transition-colors">
-                          {relatedPost.title}
-                        </h3>
-                        <p className="text-slate-500 text-sm mt-2 font-light line-clamp-2">
-                          {relatedPost.excerpt}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.article>)}
-            </div>
-          </div>
-        </section>}
+            <Link to={`/nieuws/${relatedPost.id}`}>
+              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                </div>
+                <div className="p-6">
+                  <span className="text-brand-green text-xs font-bold uppercase tracking-wider">
+                    {relatedPost.category}
+                  </span>
+                  <h3 className="text-xl font-heading text-slate-900 mt-2 uppercase tracking-tight group-hover:text-brand-green transition-colors">
+                    {relatedPost.title}
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-2 font-light line-clamp-2">
+                    {relatedPost.excerpt}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </motion.article>)}
+        </div>
+      </div>
+    </section>}
 
-      {/* CTA Section */}
-      
-    </>;
+    {/* CTA Section */}
+    <CTAFooter
+      title="Ook een dakwerker nodig?"
+      description="Neem contact op met Tommie of Jan voor een vrijblijvend adviesgesprek of offerte."
+      className="bg-slate-50"
+    />
+  </>;
 }

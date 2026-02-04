@@ -64,7 +64,7 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="bg-white border border-slate-200 rounded-lg p-5 md:p-6 flex flex-col h-full hover:-translate-y-1 transition-all duration-300"
+    className="bg-white border border-slate-200 rounded-lg p-5 md:p-6 flex flex-col h-full hover:-translate-y-2 hover:border-brand-green/30 transition-all duration-500"
   >
     <div className="flex items-center gap-3 mb-4">
       <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${review.bgColor} flex items-center justify-center text-white font-bold text-lg`}>

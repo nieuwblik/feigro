@@ -145,7 +145,7 @@ export default function OverOns() {
                 href="https://feitsmadakwerken.nl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
+                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-500 h-full"
               >
                 <div className="flex items-center gap-4 mb-6 md:mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
@@ -173,7 +173,7 @@ export default function OverOns() {
                 href="https://groendakwerken.nl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-300 h-full"
+                className="group block bg-white border border-slate-200 rounded-xl md:rounded-[1.25rem] p-6 md:p-8 lg:p-10 hover:border-brand-green/30 hover:-translate-y-2 transition-all duration-500 h-full"
               >
                 <div className="flex items-center gap-4 mb-6 md:mb-8">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-green/10 flex items-center justify-center">
@@ -249,7 +249,7 @@ export default function OverOns() {
               const IconComponent = value.icon;
               return (
                 <FadeIn key={index} delay={index * 0.05} distance={20} className="h-full">
-                  <div className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-300 hover:-translate-y-2 select-none h-full">
+                  <div className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 hover:-translate-y-2 select-none h-full">
                     <div className="relative z-10">
                       <div className="text-brand-green mb-8 md:mb-10 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15]">
                         <IconComponent size={32} className="md:hidden" />

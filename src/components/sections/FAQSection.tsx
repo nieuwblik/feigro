@@ -76,14 +76,18 @@ export function FAQSection({
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{
+                  delay: index * 0.05,
+                  duration: 0.6,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className="border border-slate-200 bg-slate-50/50 rounded-xl md:rounded-3xl px-4 md:px-8 hover:border-brand-green/30 hover:bg-white transition-all duration-300 overflow-hidden hover:scale-[1.01]"
+                  className="border border-slate-200 bg-slate-50/50 rounded-xl md:rounded-3xl px-4 md:px-8 hover:border-brand-green/30 hover:bg-white transition-all duration-500 overflow-hidden hover:scale-[1.01]"
                 >
                   <AccordionTrigger className="text-left text-base md:text-lg lg:text-xl font-heading text-slate-900 hover:text-brand-green hover:no-underline py-4 md:py-6 uppercase">
                     {faq.question}

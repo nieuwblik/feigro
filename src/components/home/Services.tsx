@@ -35,7 +35,7 @@ const servicesList = [{
   href: '/valbeveiliging'
 }];
 import { FadeIn } from '@/components/ui/ParallaxImage';
-import ctaImage from '@/assets/feigro-dakdekker-inspectie.webp';
+import ctaImage from '@/assets/dakdekker-brander.webp';
 export const Services = () => {
   return <>
       <section id="diensten" className="py-20 md:py-28 lg:py-36 overflow-hidden border-t border-slate-100 relative bg-slate-100">

@@ -13,75 +13,45 @@ const corsHeaders = {
 // ============= Zod Schemas =============
 
 const contactFormSchema = z.object({
-  name: z.string()
-    .min(1, "Naam is verplicht")
-    .max(100, "Naam mag maximaal 100 karakters zijn"),
-  email: z.string()
+  name: z.string().min(1, "Naam is verplicht").max(100, "Naam mag maximaal 100 karakters zijn"),
+  email: z
+    .string()
     .min(1, "E-mail is verplicht")
     .email("Ongeldig e-mailadres")
     .max(255, "E-mail mag maximaal 255 karakters zijn"),
-  phone: z.string()
+  phone: z
+    .string()
     .regex(/^[0-9+\-\s]*$/, "Ongeldig telefoonnummer")
     .max(20, "Telefoonnummer te lang")
     .optional()
     .or(z.literal("")),
-  subject: z.string()
-    .max(200, "Onderwerp mag maximaal 200 karakters zijn")
-    .optional()
-    .or(z.literal("")),
-  message: z.string()
-    .min(1, "Bericht is verplicht")
-    .max(5000, "Bericht mag maximaal 5000 karakters zijn"),
-});
-
-const attachmentSchema = z.object({
-  filename: z.string(),
-  content: z.string(), // base64 encoded
-  contentType: z.string(),
+  subject: z.string().max(200, "Onderwerp mag maximaal 200 karakters zijn").optional().or(z.literal("")),
+  message: z.string().min(1, "Bericht is verplicht").max(5000, "Bericht mag maximaal 5000 karakters zijn"),
 });
 
 const spoedFormSchema = z.object({
-  name: z.string()
-    .min(1, "Naam is verplicht")
-    .max(100, "Naam mag maximaal 100 karakters zijn"),
-  phone: z.string()
+  name: z.string().min(1, "Naam is verplicht").max(100, "Naam mag maximaal 100 karakters zijn"),
+  phone: z
+    .string()
     .min(10, "Telefoonnummer is te kort")
     .max(20, "Telefoonnummer is te lang")
     .regex(/^[0-9+\-\s]+$/, "Ongeldig telefoonnummer"),
-  email: z.string()
+  email: z
+    .string()
     .min(1, "E-mail is verplicht")
     .email("Ongeldig e-mailadres")
     .max(255, "E-mail mag maximaal 255 karakters zijn"),
-  address: z.string()
-    .min(1, "Adres is verplicht")
-    .max(200, "Adres mag maximaal 200 karakters zijn"),
-  postcode: z.string()
-    .min(1, "Postcode is verplicht")
-    .max(10, "Postcode mag maximaal 10 karakters zijn"),
-  city: z.string()
-    .min(1, "Plaats is verplicht")
-    .max(100, "Plaats mag maximaal 100 karakters zijn"),
-  leakLocation: z.string()
-    .min(1, "Locatie lekkage is verplicht"),
-  isUrgent: z.string()
-    .min(1, "Urgentie is verplicht"),
-  severity: z.string()
-    .min(1, "Ernst is verplicht"),
-  buildingType: z.string()
-    .min(1, "Type gebouw is verplicht"),
-  roofType: z.string()
-    .min(1, "Type dak is verplicht"),
-  accessibility: z.string()
-    .min(1, "Bereikbaarheid is verplicht"),
-  description: z.string()
-    .max(5000, "Omschrijving mag maximaal 5000 karakters zijn")
-    .optional()
-    .or(z.literal("")),
-  extraInfo: z.string()
-    .max(5000, "Extra informatie mag maximaal 5000 karakters zijn")
-    .optional()
-    .or(z.literal("")),
-  attachments: z.array(attachmentSchema).optional(),
+  address: z.string().min(1, "Adres is verplicht").max(200, "Adres mag maximaal 200 karakters zijn"),
+  postcode: z.string().min(1, "Postcode is verplicht").max(10, "Postcode mag maximaal 10 karakters zijn"),
+  city: z.string().min(1, "Plaats is verplicht").max(100, "Plaats mag maximaal 100 karakters zijn"),
+  leakLocation: z.string().min(1, "Locatie lekkage is verplicht"),
+  isUrgent: z.string().min(1, "Urgentie is verplicht"),
+  severity: z.string().min(1, "Ernst is verplicht"),
+  buildingType: z.string().min(1, "Type gebouw is verplicht"),
+  roofType: z.string().min(1, "Type dak is verplicht"),
+  accessibility: z.string().min(1, "Bereikbaarheid is verplicht"),
+  description: z.string().max(5000, "Omschrijving mag maximaal 5000 karakters zijn").optional().or(z.literal("")),
+  extraInfo: z.string().max(5000, "Extra informatie mag maximaal 5000 karakters zijn").optional().or(z.literal("")),
 });
 
 // ============= Email Template Styles =============
@@ -269,7 +239,6 @@ function generateContactEmailHtml(data: z.infer<typeof contactFormSchema>) {
 function generateSpoedEmailHtml(data: z.infer<typeof spoedFormSchema>) {
   const isUrgent = data.isUrgent === "Ja";
   const fullAddress = `${data.address}, ${data.postcode} ${data.city}`;
-  const hasAttachments = data.attachments && data.attachments.length > 0;
 
   return `
 <!DOCTYPE html>
@@ -354,19 +323,6 @@ function generateSpoedEmailHtml(data: z.infer<typeof spoedFormSchema>) {
           : ""
       }
 
-      ${
-        hasAttachments
-          ? `
-      <h3 style="${styles.sectionTitle}">Bijgevoegde Foto's</h3>
-      <div style="${styles.messageBox}">
-        <p style="${styles.messageText}">
-          📷 ${data.attachments!.length} foto('s) bijgevoegd aan deze e-mail
-        </p>
-      </div>
-      `
-          : ""
-      }
-
       <div style="text-align: center; margin-top: 32px;">
         <a href="tel:${escapeHtml(data.phone)}" style="${styles.ctaButton}; margin-right: 12px;">
           📞 Bel klant direct
@@ -415,30 +371,33 @@ app.post("/contact", async (c) => {
   const requestId = crypto.randomUUID().slice(0, 8);
   console.log(`[${requestId}] === CONTACT FORM REQUEST STARTED ===`);
   console.log(`[${requestId}] Timestamp: ${new Date().toISOString()}`);
-  
+
   try {
     // Check API key
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     console.log(`[${requestId}] RESEND_API_KEY configured: ${!!RESEND_API_KEY}`);
-    
+
     if (!RESEND_API_KEY) {
       console.error(`[${requestId}] ERROR: RESEND_API_KEY not configured`);
       return c.json({ success: false, error: "Email service not configured" }, 500, corsHeaders);
     }
 
     const resend = new Resend(RESEND_API_KEY);
-    
+
     // Parse request body
     let body;
     try {
       body = await c.req.json();
-      console.log(`[${requestId}] Request body received:`, JSON.stringify({
-        name: body.name || '[missing]',
-        email: body.email || '[missing]',
-        phone: body.phone ? '[provided]' : '[empty]',
-        subject: body.subject ? '[provided]' : '[empty]',
-        message: body.message ? `[${body.message.length} chars]` : '[missing]'
-      }));
+      console.log(
+        `[${requestId}] Request body received:`,
+        JSON.stringify({
+          name: body.name || "[missing]",
+          email: body.email || "[missing]",
+          phone: body.phone ? "[provided]" : "[empty]",
+          subject: body.subject ? "[provided]" : "[empty]",
+          message: body.message ? `[${body.message.length} chars]` : "[missing]",
+        }),
+      );
     } catch (parseError) {
       console.error(`[${requestId}] ERROR: Failed to parse JSON body:`, parseError);
       return c.json({ success: false, error: "Ongeldige request data" }, 400, corsHeaders);
@@ -447,14 +406,10 @@ app.post("/contact", async (c) => {
     // Validate with Zod
     console.log(`[${requestId}] Starting Zod validation...`);
     const parseResult = contactFormSchema.safeParse(body);
-    
+
     if (!parseResult.success) {
       console.error(`[${requestId}] VALIDATION FAILED:`, JSON.stringify(parseResult.error.errors));
-      return c.json(
-        { success: false, error: formatZodErrors(parseResult.error) },
-        400,
-        corsHeaders
-      );
+      return c.json({ success: false, error: formatZodErrors(parseResult.error) }, 400, corsHeaders);
     }
     console.log(`[${requestId}] Zod validation passed`);
 
@@ -465,7 +420,7 @@ app.post("/contact", async (c) => {
     console.log(`[${requestId}] Calling Resend API...`);
     const emailPayload = {
       from: "Feigro Dakwerken <info@feigro.nl>",
-      to: ["justin@nieuwblik.com", "kento@hado.dev"],
+      to: ["info@feigro.nl"],
       reply_to: data.email,
       subject: `Nieuwe Aanvraag: ${data.name} via feigro.nl`,
     };
@@ -486,7 +441,7 @@ app.post("/contact", async (c) => {
     return c.json({ success: true, messageId: emailData?.id }, 200, corsHeaders);
   } catch (error) {
     console.error(`[${requestId}] UNEXPECTED ERROR:`, error);
-    console.error(`[${requestId}] Stack:`, error instanceof Error ? error.stack : 'N/A');
+    console.error(`[${requestId}] Stack:`, error instanceof Error ? error.stack : "N/A");
     return c.json({ success: false, error: "Er is een fout opgetreden" }, 500, corsHeaders);
   }
 });
@@ -507,11 +462,7 @@ app.post("/spoed", async (c) => {
     const parseResult = spoedFormSchema.safeParse(body);
     if (!parseResult.success) {
       console.error("Spoed form validation failed:", parseResult.error.errors);
-      return c.json(
-        { success: false, error: formatZodErrors(parseResult.error) },
-        400,
-        corsHeaders
-      );
+      return c.json({ success: false, error: formatZodErrors(parseResult.error) }, 400, corsHeaders);
     }
 
     const data = parseResult.data;
@@ -520,17 +471,12 @@ app.post("/spoed", async (c) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
-      to: ["justin@nieuwblik.com", "kento@hado.dev"],
+      to: ["service@feigrow.nl"],
       reply_to: data.email,
       subject: isUrgent
         ? `⚠️ SPOEDMELDING: Directe actie vereist - feigro.nl`
         : `Nieuwe Lekkagemelding: ${data.name} - feigro.nl`,
       html: generateSpoedEmailHtml(data),
-      attachments: data.attachments?.map((att) => ({
-        filename: att.filename,
-        content: att.content,
-        content_type: att.contentType,
-      })),
     });
 
     if (error) {

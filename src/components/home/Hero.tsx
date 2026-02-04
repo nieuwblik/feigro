@@ -39,6 +39,7 @@ export const Hero = () => {
             src={img}
             alt={`Professional roofing work ${index + 1}`}
             className="absolute inset-0 w-full h-[130%] object-cover object-center brightness-50"
+            loading={index === 0 ? "eager" : "lazy"}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === currentSlide ? 1 : 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}

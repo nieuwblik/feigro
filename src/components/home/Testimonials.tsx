@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
-import testimonialImg1 from '@/assets/dakrenovatie.jpg';
-import testimonialImg2 from '@/assets/dak-valbeveiliging-montage.jpg';
+import testimonialImg1 from '@/assets/dakrenovatie.webp';
+import testimonialImg2 from '@/assets/dak-valbeveiliging-montage.webp';
 
 const TESTIMONIALS = [
   {

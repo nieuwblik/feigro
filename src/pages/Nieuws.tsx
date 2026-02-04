@@ -1,10 +1,10 @@
 import { SEO } from '@/components/SEO';
 import { motion } from 'framer-motion';
-import { Calendar, ArrowRight, Clock, ChevronDown } from 'lucide-react';
+import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
-import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.jpg';
+import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
+import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.webp';
 import nieuwsHeroBg from '@/assets/nieuws-hero-bg.webp';
 
 const blogPosts = [{
@@ -46,9 +46,6 @@ export default function Nieuws() {
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
-  const scrollToArticles = () => {
-    document.getElementById('featured-article')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return <>
       <SEO title="Dakdekkers Nieuws | FEIGRO Dakwerken" description="Blijf op de hoogte van het laatste nieuws over dakwerken, innovaties en trends in de dakbedekkingsbranche." canonical="/nieuws" />
@@ -106,16 +103,6 @@ export default function Nieuws() {
             Innovaties, trends en expertise uit de dakbedekkingsbranche — actief in Noord-Holland, Flevoland en Utrecht
           </motion.p>
 
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            onClick={scrollToArticles}
-            className="mt-8 inline-flex items-center gap-3 bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 rounded-xl font-bold uppercase text-sm tracking-wider transition-all duration-300 group"
-          >
-            Lees artikelen
-            <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform" />
-          </motion.button>
         </div>
       </section>
 

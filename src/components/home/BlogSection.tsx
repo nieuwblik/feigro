@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.jpg';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.jpg';
+import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
 import imgZonnepanelen from '@/assets/zonnepanelen-dak.webp';
 
 const blogPosts = [

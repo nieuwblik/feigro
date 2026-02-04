@@ -5,8 +5,8 @@ import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
-import imgHero from '@/assets/dakrenovatie-noordholland.jpg';
-import imgStory from '@/assets/lekvrij-dak-nederland.jpg';
+import imgHero from '@/assets/dakrenovatie-noordholland.webp';
+import imgStory from '@/assets/lekvrij-dak-nederland.webp';
 
 export default function OverOns() {
   const values = [
@@ -70,14 +70,6 @@ export default function OverOns() {
                 Werkzaam in Noord-Holland, Flevoland en Utrecht.
               </span>
             </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <PrimaryFlipButton
-              label="Vraag offerte aan"
-              icon={<ArrowRight />}
-              size="default"
-              onClick={() => window.location.href = '/contact'}
-            />
           </FadeIn>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/10 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>

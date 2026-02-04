@@ -4,7 +4,7 @@ import { Star, MapPin, Calendar, ArrowUpRight, Ruler } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
-import { PrimaryFlipButton } from '@/components/buttons';
+
 import { projectsList } from '@/data/projects';
 export default function Projecten() {
   const navigate = useNavigate();
@@ -61,17 +61,6 @@ export default function Projecten() {
         }} className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10">
             Een selectie van onze meest uitdagende en succesvolle projecten. Elk dak vertelt een verhaal van vakmanschap en kwaliteit.
           </motion.p>
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: 0.3
-        }}>
-            <PrimaryFlipButton label="Vraag offerte aan" icon={<ArrowUpRight />} size="default" onClick={() => navigate('/contact')} />
-          </motion.div>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>

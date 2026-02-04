@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { PrimaryFlipButton } from '@/components/buttons';
-import footerImg1 from '@/assets/dakrenovatie-noordholland.jpg';
-import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
+import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
+import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
-import footerImg4 from '@/assets/dak-valbeveiliging-montage.jpg';
+import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);

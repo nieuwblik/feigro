@@ -4,17 +4,17 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 // Asset Imports
-import img1 from '@/assets/Dakwerk-Feitsmadakwerken-2-1.jpg';
-import img2 from '@/assets/Feigro dakwerken.jpg';
-import img3 from '@/assets/Lekkage-Feitsma.jpg';
-import img4 from '@/assets/dak-laan-project-dakdekking.jpg';
-import img5 from '@/assets/dak-valbeveiliging-montage.jpg';
-import img6 from '@/assets/dakdekking-nederland-enkhuizen.jpg';
-import img7 from '@/assets/dakinspectie-noord-holland.jpg';
-import img8 from '@/assets/dakrenovatie-noordholland.jpg';
-import img9 from '@/assets/dakreparatie-nederland-enkhuizen.jpg';
-import img10 from '@/assets/feigro-dakdekking-westfriesland.jpg';
-import img11 from '@/assets/lekvrij-dak-nederland.jpg';
+import img1 from '@/assets/dakwerk-feitsmadakwerken-2-1.webp';
+import img2 from '@/assets/feigro-dakwerken.webp';
+import img3 from '@/assets/lekkage-feitsma.webp';
+import img4 from '@/assets/dak-laan-project-dakdekking.webp';
+import img5 from '@/assets/dak-valbeveiliging-montage.webp';
+import img6 from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import img7 from '@/assets/dakinspectie-noord-holland.webp';
+import img8 from '@/assets/dakrenovatie-noordholland.webp';
+import img9 from '@/assets/dakreparatie-nederland-enkhuizen.webp';
+import img10 from '@/assets/feigro-dakdekking-westfriesland.webp';
+import img11 from '@/assets/lekvrij-dak-nederland.webp';
 
 // --- CONFIGURATION ---
 const COL_MULTIPLIERS = [1.0, 0.9, 1.1]; // Reduced spread for subtler movement

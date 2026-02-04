@@ -347,7 +347,8 @@ app.post("/contact", async (c) => {
 
     const { data, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
-      to: ["info@feigro.nl"],
+      // to: ["info@feigro.nl"],
+      to: ["justin@nieuwblik.com", "kento@hado.dev"]
       reply_to: email,
       subject: `Nieuwe Aanvraag: ${name} via feigro.nl`,
       html: generateContactEmailHtml({ name, email, phone, subject, message }),
@@ -403,7 +404,8 @@ app.post("/spoed", async (c) => {
 
     const { data, error } = await resend.emails.send({
       from: "Feigro Dakwerken <info@feigro.nl>",
-      to: ["service@feigro.nl"],
+      // to: ["service@feigro.nl"],
+      to: ["justin@nieuwblik.com", "kento@hado.dev"]
       reply_to: body.email,
       subject: isUrgent 
         ? `⚠️ SPOEDMELDING: Directe actie vereist - feigro.nl`

@@ -10,6 +10,32 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// ============= Rate Limiting =============
+
+const RATE_LIMIT_WINDOW = 60_000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 3;
+const requestLog = new Map<string, number[]>();
+
+function checkRateLimit(identifier: string): boolean {
+  const now = Date.now();
+  const timestamps = (requestLog.get(identifier) || []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW,
+  );
+
+  if (timestamps.length >= MAX_REQUESTS_PER_WINDOW) {
+    requestLog.set(identifier, timestamps);
+    return false;
+  }
+
+  timestamps.push(now);
+  requestLog.set(identifier, timestamps);
+  return true;
+}
+
+function getClientIP(c: { req: { header: (name: string) => string | undefined } }): string {
+  return c.req.header("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+}
+
 // ============= Zod Schemas =============
 
 const contactFormSchema = z.object({
@@ -368,6 +394,11 @@ app.options("*", (c) => {
 
 // Contact form endpoint
 app.post("/contact", async (c) => {
+  const clientIP = getClientIP(c);
+  if (!checkRateLimit(`contact:${clientIP}`)) {
+    return c.json({ success: false, error: "Te veel aanvragen. Probeer het later opnieuw." }, 429, corsHeaders);
+  }
+
   const requestId = crypto.randomUUID().slice(0, 8);
   console.log(`[${requestId}] === CONTACT FORM REQUEST STARTED ===`);
   console.log(`[${requestId}] Timestamp: ${new Date().toISOString()}`);
@@ -448,6 +479,11 @@ app.post("/contact", async (c) => {
 
 // Spoed/Lekkage form endpoint
 app.post("/spoed", async (c) => {
+  const clientIP = getClientIP(c);
+  if (!checkRateLimit(`spoed:${clientIP}`)) {
+    return c.json({ success: false, error: "Te veel aanvragen. Probeer het later opnieuw." }, 429, corsHeaders);
+  }
+
   try {
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) {

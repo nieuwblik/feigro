@@ -5,6 +5,28 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
+// ============= Rate Limiting =============
+
+const RATE_LIMIT_WINDOW = 60_000; // 1 minute
+const MAX_PASSWORD_ATTEMPTS = 5;
+const attemptLog = new Map<string, number[]>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (attemptLog.get(ip) || []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW,
+  );
+
+  if (timestamps.length >= MAX_PASSWORD_ATTEMPTS) {
+    attemptLog.set(ip, timestamps);
+    return false;
+  }
+
+  timestamps.push(now);
+  attemptLog.set(ip, timestamps);
+  return true;
+}
+
 // Generate a simple access token (timestamp + random string)
 function generateAccessToken(): string {
   const timestamp = Date.now();
@@ -39,6 +61,14 @@ serve(async (req) => {
 
   try {
     if (req.method === 'POST' && path === 'verify') {
+      const clientIP = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+      if (!checkRateLimit(clientIP)) {
+        return new Response(
+          JSON.stringify({ success: false, error: 'Too many attempts. Please try again later.' }),
+          { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
       const { password } = await req.json();
       
       if (!password || typeof password !== 'string') {

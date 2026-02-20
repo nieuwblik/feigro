@@ -27,7 +27,7 @@ export const About = () => {
             {/* Experience badge with fast parallax */}
             <FadeIn delay={0.2} distance={40} className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-12 z-20 parallax-fast" style={{ '--parallax-speed': '0.15' } as any}>
               <div className="bg-white border border-slate-200 text-slate-900 p-5 md:p-8 lg:p-12 rounded-md md:rounded-[0.75rem]">
-                <p className="text-brand-green text-3xl md:text-5xl lg:text-7xl font-heading mb-1 leading-none tracking-tighter">15+</p>
+                <p className="text-brand-green text-3xl md:text-5xl lg:text-7xl font-heading mb-1 leading-none tracking-tighter">20+</p>
                 <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-slate-400">Jaar Innovatie</p>
               </div>
             </FadeIn>

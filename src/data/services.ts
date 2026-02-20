@@ -52,8 +52,8 @@ export const vveVastgoedbeheerData: ServicePageData = {
     },
     {
       icon: 'CheckCircle',
-      title: 'Compliance en verzekeringsvereisten',
-      description: 'Voldoen aan alle wettelijke eisen en verzekeringen.',
+      title: 'Compliance en kwaliteitsnormen',
+      description: 'Voldoen aan alle wettelijke eisen en kwaliteitsnormen.',
     },
     {
       icon: 'Shield',
@@ -607,7 +607,7 @@ export const daklekkageData: ServicePageData = {
     {
       icon: 'FileText',
       title: 'Rapportage',
-      description: 'U ontvangt een gedetailleerd rapport met foto\'s voor uw verzekering.',
+      description: 'U ontvangt een gedetailleerd rapport met foto\'s van de uitgevoerde werkzaamheden.',
     },
   ],
   info: {
@@ -618,22 +618,9 @@ export const daklekkageData: ServicePageData = {
     paragraphs: [
       'Bij daklekkage is snelheid cruciaal. Water kan grote schade aanrichten aan plafonds, muren, isolatie en zelfs aan de constructie. Ook kan schimmelvorming ontstaan, wat gezondheidsrisico\'s met zich meebrengt.',
       'FEIGRO Dakwerken biedt 24/7 spoedservice voor acute daklekkages. Na uw melding komen we zo snel mogelijk ter plaatse om de lekkage te stoppen en verdere schade te voorkomen. We voeren een grondige inspectie uit om de oorzaak van de lekkage te achterhalen.',
-      'In veel gevallen kunnen we direct een noodreparatie uitvoeren. Hierna plannen we op korte termijn een definitieve, duurzame reparatie. U ontvangt een compleet rapport met foto\'s dat u kunt gebruiken voor uw verzekering.',
     ],
   },
   faqs: [
-    {
-      question: 'Hoe snel kunnen jullie ter plaatse zijn?',
-      answer: 'Bij acute lekkages streven we ernaar binnen 2-4 uur ter plaatse te zijn, afhankelijk van uw locatie en de drukte.',
-    },
-    {
-      question: 'Wat zijn de kosten van spoedservice?',
-      answer: 'Voor spoedservice buiten kantooruren brengen we een toeslag in rekening. De exacte kosten bespreken we telefonisch vooraf.',
-    },
-    {
-      question: 'Wordt dit vergoed door mijn verzekering?',
-      answer: 'Dit hangt af van uw dekking. In veel gevallen worden noodreparaties vergoed. We leveren alle benodigde documentatie voor uw claim.',
-    },
     {
       question: 'Wat moet ik doen in afwachting van jullie komst?',
       answer: 'Plaats emmers/bakken onder de lekkage, verwijder waardevolle spullen uit de buurt, en probeer de waterstroom niet zelf te stoppen door het dak op te gaan.',
@@ -644,7 +631,7 @@ export const daklekkageData: ServicePageData = {
     },
     {
       question: 'Hoe kan ik lekkage in de toekomst voorkomen?',
-      answer: 'Regelmatig onderhoud en inspectie zijn cruciaal. We adviseren een jaarlijkse controle en het direct herstellen van kleine gebreken.',
+      answer: 'Regelmatig onderhoud en inspectie zijn cruciaal. We adviseren een jaarlijkse controle. Zodat we tijdig gebreken kunnen waarnemen en herstellen om verdere schade te voorkomen.',
     },
   ],
 };
@@ -718,10 +705,6 @@ export const dakreparatieData: ServicePageData = {
       answer: 'Ja, op al onze reparaties geven we minimaal 2 jaar garantie op materiaal en uitvoering.',
     },
     {
-      question: 'Wordt dakreparatie vergoed door mijn verzekering?',
-      answer: 'Dit hangt af van uw dekking en de oorzaak van de schade. We leveren alle benodigde documentatie voor uw claim.',
-    },
-    {
       question: 'Kunnen jullie ook preventief advies geven?',
       answer: 'Absoluut! We adviseren u graag over preventief onderhoud om toekomstige schade te voorkomen.',
     },
@@ -760,7 +743,7 @@ export const valbeveiligingssysteemData: ServicePageData = {
     {
       icon: 'FileText',
       title: 'Complete Documentatie',
-      description: 'U ontvangt alle benodigde certificaten en documentatie voor inspectie en verzekering.',
+      description: 'U ontvangt alle benodigde certificaten en documentatie voor inspectie en beheer.',
     },
     {
       icon: 'Calendar',

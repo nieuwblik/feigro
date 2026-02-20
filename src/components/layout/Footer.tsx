@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
+import feigroLogoKleur from '@/assets/Feigro logo kleur.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
@@ -70,38 +72,37 @@ export const Footer = () => {
     href: '#'
   }];
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
-  return <footer ref={footerRef} className="relative bg-black min-h-screen flex flex-col overflow-hidden">
+  return <footer ref={footerRef} className="relative bg-white flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
-    <div className="relative min-h-[450px] md:h-[50vh] w-full flex flex-col justify-end overflow-hidden">
-      <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.4] scale-110" style={{
+    <div className="relative min-h-[500px] md:h-[60vh] w-full flex flex-col justify-center overflow-hidden">
+      <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.45] scale-110" style={{
         y: backgroundY
       }} />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-      <div className="relative container mx-auto px-4 md:px-6 h-full flex flex-col justify-end pb-10 md:pb-16 lg:pb-20 pt-32">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 md:gap-10">
+      <div className="relative container mx-auto px-4 md:px-6 z-10 py-12 md:py-20 flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
           <div className="max-w-3xl text-left">
             <FadeIn>
-              <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-heading font-medium leading-[0.85] tracking-tighter uppercase mb-4 md:mb-8 lg:text-5xl">
+              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-medium leading-[0.85] tracking-tighter uppercase mb-6 md:mb-10 lg:text-7xl">
                 KLAAR VOOR EEN <br />
                 <span className="text-brand-green italic">DUURZAAM</span> DAK?
               </h2>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p className="text-white/60 text-sm md:text-lg border-l border-brand-green pl-4 md:pl-6 max-w-md font-light hidden md:block mb-6">
+              <p className="text-white/70 text-sm md:text-lg border-l border-brand-green pl-4 md:pl-6 max-w-md font-light hidden md:block mb-8">
                 Uw dak is onze passie. Samen realiseren we een resultaat dat staat als een huis.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="flex flex-col gap-3">
-                <Link to="/contact" className="text-white hover:text-brand-green transition-colors text-sm md:text-base font-medium">
-                  Neem contact op
+              <div className="flex flex-col gap-4">
+                <Link to="/contact" className="text-white hover:text-brand-green transition-colors text-sm md:text-base font-medium flex items-center gap-2">
+                  Neem contact op <ArrowRight size={16} />
                 </Link>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <a href="tel:+31637158612" className="text-white/60 hover:text-white transition-colors text-xs md:text-sm">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                  <a href="tel:+31637158612" className="text-white/60 hover:text-brand-green transition-colors text-xs md:text-sm">
                     Jan: +31 6 37158612
                   </a>
-                  <a href="tel:+31613731303" className="text-white/60 hover:text-white transition-colors text-xs md:text-sm">
+                  <a href="tel:+31613731303" className="text-white/60 hover:text-brand-green transition-colors text-xs md:text-sm">
                     Tommie: +31 6 13731303
                   </a>
                 </div>
@@ -111,7 +112,7 @@ export const Footer = () => {
 
           <FadeIn delay={0.2} className="flex flex-col items-start lg:items-end gap-8 pb-2">
             <div className="text-left lg:text-right">
-              <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-black block mb-2">LOCATIE</span>
+              <span className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-black block mb-2">LOCATIE</span>
               <address className="text-white/60 not-italic text-sm lg:text-base border-r-0 lg:border-r lg:pr-4 border-brand-green/30">
                 Noord-Holland<br />
                 Utrecht<br />
@@ -130,7 +131,7 @@ export const Footer = () => {
         {/* Brand Column */}
         <FadeIn>
           <Link to="/" className="inline-block mb-2 group">
-            <img src="/images/feigro-logo-wit.png" alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:brightness-125 transition-all" />
+            <img src={feigroLogoKleur} alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:opacity-80 transition-all" />
           </Link>
         </FadeIn>
 
@@ -149,10 +150,10 @@ export const Footer = () => {
             items: socialLinks
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
             <div className="text-left">
-              <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
+              <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
               <ul className="space-y-3 md:space-y-4">
                 {col.items.map(item => <li key={item.name}>
-                  <Link to={item.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium">
+                  <Link to={item.href} className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium">
                     {item.name}
                   </Link>
                 </li>)}
@@ -163,38 +164,38 @@ export const Footer = () => {
       </div>
 
       {/* Row 2: Contact info on left, Photos on right */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 border-t border-white/5 pt-16 md:pt-24">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 pt-16 md:pt-24">
         {/* Contact Section (Spans 3 columns to align with Logo/Services/Explore) */}
         <FadeIn className="lg:col-span-3" delay={0.3}>
-          <h4 className="text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>
+          <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
             {/* Row 1: Algemeen & Spoed */}
             <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Algemeen</span>
-              <a href="mailto:info@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">info@feigro.nl</a>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Algemeen</span>
+              <a href="mailto:info@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">info@feigro.nl</a>
             </div>
             <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Spoed & Service</span>
-              <a href="mailto:service@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Spoed & Service</span>
+              <a href="mailto:service@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">service@feigro.nl</a>
             </div>
 
             {/* Row 2: Facturatie */}
             <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Facturatie</span>
-              <a href="mailto:facturen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Facturatie</span>
+              <a href="mailto:facturen@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">facturen@feigro.nl</a>
             </div>
 
             {/* Row 3: Direct Contact Links */}
             <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Jan Groen</span>
-              <a href="tel:+31637158612" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 6 37158612</a>
-              <a href="mailto:jgroen@feigro.nl" className="text-white/50 hover:text-white transition-colors text-[11px] font-medium block mt-1">jgroen@feigro.nl</a>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Jan Groen</span>
+              <a href="tel:+31637158612" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">+31 6 37158612</a>
+              <a href="mailto:jgroen@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-[11px] font-medium block mt-1">jgroen@feigro.nl</a>
             </div>
             <div>
-              <span className="text-white/30 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Tommie Feitsma</span>
-              <a href="tel:+31613731303" className="text-white/50 hover:text-white transition-colors text-xs md:text-sm font-medium block">+31 6 13731303</a>
-              <a href="mailto:tfeitsma@feigro.nl" className="text-white/50 hover:text-white transition-colors text-[11px] font-medium block mt-1">tfeitsma@feigro.nl</a>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Tommie Feitsma</span>
+              <a href="tel:+31613731303" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">+31 6 13731303</a>
+              <a href="mailto:tfeitsma@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-[11px] font-medium block mt-1">tfeitsma@feigro.nl</a>
             </div>
           </div>
         </FadeIn>
@@ -204,7 +205,7 @@ export const Footer = () => {
           {galleryImages.map((src, idx) => <FadeIn key={idx} delay={0.4 + idx * 0.1} distance={20} className="parallax-fast" style={{
             '--parallax-speed': 0.05 + idx * 0.02
           } as any}>
-            <div className="aspect-square rounded-lg md:rounded-xl overflow-hidden bg-white/5 border border-white/5 h-full">
+            <div className="aspect-square rounded-lg md:rounded-xl overflow-hidden bg-white border border-slate-100 h-full shadow-sm">
               <ParallaxImage src={src} alt={`Project ${idx + 1}`} speed={30} containerClassName="h-full w-full" className="transition-all duration-700" />
             </div>
           </FadeIn>)}
@@ -212,18 +213,19 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar Row */}
-      <FadeIn className="mt-12 md:mt-24 pt-6 md:pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-        <p className="text-white/30 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
+      <FadeIn className="mt-12 md:mt-24 pt-6 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+        <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
           © {currentYear} FEIGRO DAKWERKEN — ALLE RECHTEN VOORBEHOUDEN
         </p>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <span className="text-white/20 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium">MADE BY</span>
-          <a href="https://www.nieuwblik.com" target="_blank" rel="noopener noreferrer" className="text-white text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-black hover:text-brand-green transition-all">
+          <span className="text-slate-300 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium">MADE BY</span>
+          <a href="https://www.nieuwblik.com" target="_blank" rel="noopener noreferrer" className="text-slate-900 text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-black hover:text-brand-green transition-all">
             NIEUWBLIK
           </a>
         </div>
       </FadeIn>
     </div>
   </footer>;
+
 };

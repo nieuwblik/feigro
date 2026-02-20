@@ -236,7 +236,7 @@ export default function Spoedservice() {
                   { title: 'Vul het lekkageformulier in', desc: 'Directe intake van uw situatie voor een snelle respons' },
                   { title: 'Plaats emmers/bakken', desc: 'Direct onder het lek om waterschade te beperken' },
                   { title: 'Bescherm eigendommen', desc: 'Verplaats meubels and elektronica uit de buurt' },
-                  { title: 'Maak foto\'s de schade', desc: 'Belangrijk voor uw opstal- of inboedelverzekering' },
+                  { title: 'Maak foto\'s de schade', desc: 'Belangrijk voor een volledig schadedossier' },
                   { title: 'Ga niet zelf het dak op', desc: 'In de regen is een dak extreem glad and onveilig' }
                 ].map((item, i) => (
                   <FadeIn key={i} delay={i * 0.05} direction="left" distance={20}>

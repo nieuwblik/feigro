@@ -73,10 +73,6 @@ export const dakreparatieData: ServicePageData = {
             answer: 'Ja, op al onze reparaties geven we minimaal 2 jaar garantie op materiaal en uitvoering.',
         },
         {
-            question: 'Wordt dakreparatie vergoed door mijn verzekering?',
-            answer: 'Dit hangt af van uw dekking en de oorzaak van de schade. We leveren alle benodigde documentatie voor uw claim.',
-        },
-        {
             question: 'Kunnen jullie ook preventief advies geven?',
             answer: 'Absoluut! We adviseren u graag over preventief onderhoud om toekomstige schade te voorkomen.',
         },
@@ -116,7 +112,7 @@ export const valbeveiligingssysteemData: ServicePageData = {
         {
             icon: 'FileText',
             title: 'Complete Documentatie',
-            description: 'U ontvangt alle benodigde certificaten en documentatie voor inspectie en verzekering.',
+            description: 'U ontvangt alle benodigde certificaten en documentatie voor inspectie en beheer.',
         },
         {
             icon: 'Calendar',

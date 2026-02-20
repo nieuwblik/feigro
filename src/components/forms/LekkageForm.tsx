@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { motion } from 'framer-motion';
-import { CheckCircle, Upload, Loader2 } from 'lucide-react';
+import { CheckCircle, Upload, Loader2, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -48,6 +49,7 @@ const formSchema = z.object({
     }),
     accessibility: z.string().min(1, 'Dit veld is verplicht'),
     extraInfo: z.string().optional(),
+    acceptTerms: z.boolean().refine(val => val === true, 'U moet akkoord gaan met de algemene voorwaarden om door te gaan'),
 });
 
 // Helper function to convert files to base64
@@ -93,6 +95,7 @@ export function LekkageForm() {
             description: '',
             accessibility: '',
             extraInfo: '',
+            acceptTerms: false,
         },
     });
 
@@ -503,6 +506,35 @@ export function LekkageForm() {
                                 )}
                             />
                         </div>
+                    </div>
+
+                    {/* Algemene Voorwaarden */}
+                    <div className="pt-4">
+                        <FormField
+                            control={form.control}
+                            name="acceptTerms"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-6 bg-white border border-slate-200 rounded-2xl">
+                                    <FormControl>
+                                        <Checkbox
+                                            checked={field.value}
+                                            onCheckedChange={field.onChange}
+                                            disabled={isSubmitting}
+                                            className="mt-1 border-slate-300 data-[state=checked]:bg-brand-green data-[state=checked]:border-brand-green"
+                                        />
+                                    </FormControl>
+                                    <div className="space-y-1 leading-none">
+                                        <FormLabel className="text-sm font-medium text-slate-700 cursor-pointer">
+                                            Ik ga akkoord met de algemene voorwaarden *
+                                        </FormLabel>
+                                        <p className="text-xs text-slate-400 font-light">
+                                            Door dit vakje aan te vinken, verklaart u zich akkoord met onze werkwijze en voorwaarden voor spoedmeldingen.
+                                        </p>
+                                        <FormMessage className="text-red-500 text-xs" />
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
                     </div>
 
                     <div className="pt-6">

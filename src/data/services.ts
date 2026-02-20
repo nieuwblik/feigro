@@ -208,11 +208,6 @@ export const dakonderhoudData: ServicePageData = {
       description: 'Dakgoten en hemelwaterafvoeren worden grondig gereinigd voor optimale waterafvoer.',
     },
     {
-      icon: 'Shield',
-      title: 'Coating & Behandeling',
-      description: 'Beschermende coatings verlengen de levensduur en verbeteren de waterdichtheid van uw dak.',
-    },
-    {
       icon: 'Hammer',
       title: 'Kleine Reparaties',
       description: 'Kleine gebreken en lekkages worden direct hersteld tijdens het onderhoudsbezoek.',
@@ -230,7 +225,7 @@ export const dakonderhoudData: ServicePageData = {
     image: imgDakonderhoudWerk,
     paragraphs: [
       'Een dak heeft regelmatig onderhoud nodig om in goede staat te blijven. Zonder onderhoud kunnen kleine problemen uitgroeien tot grote, kostbare schades. Denk aan verstopte afvoeren die tot wateroverlast leiden, of kleine scheurtjes die uitgroeien tot lekkages.',
-      'FEIGRO Dakwerken verzorgt compleet dakonderhoud: van reiniging van goten en afvoeren tot het aanbrengen van beschermende coatings. We controleren alle kritieke onderdelen en voeren direct kleine reparaties uit waar nodig.',
+      'FEIGRO Dakwerken verzorgt compleet dakonderhoud: van reiniging van goten en afvoeren tot het controleren van alle kritieke onderdelen. We voeren direct kleine reparaties uit waar nodig.',
       'Met een onderhoudscontract zorgen we dat uw dak automatisch op vaste momenten wordt gecontroleerd en onderhouden. Zo heeft u geen omkijken naar en blijft uw dak altijd in optimale staat.',
     ],
   },

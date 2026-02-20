@@ -15,8 +15,8 @@ export default function Valbeveiliging() {
         <>
             <SEO {...seo} />
             <HeroSection {...hero} />
-            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
             <InfoSection {...info} />
+            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
             <FAQSection faqs={faqs} />
             <ServiceCTA />
         </>

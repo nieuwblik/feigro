@@ -15,8 +15,8 @@ export default function Dakonderhoud() {
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <InfoSection {...info} />
+      <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} columns={2} />
       <FAQSection faqs={faqs} />
       <ServiceCTA />
     </>

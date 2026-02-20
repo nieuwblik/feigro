@@ -13,8 +13,8 @@ export default function DakbedekkingVervangen() {
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
-      <FeatureGrid features={features} title={featureTitle} />
       <InfoSection {...info} />
+      <FeatureGrid features={features} title={featureTitle} />
       <FAQSection faqs={faqs} />
 
     </>

@@ -10,9 +10,17 @@ interface FeatureGridProps {
   titleHighlight?: string; // Word(s) to highlight in green italic
   subtitle?: string;
   className?: string;
+  columns?: 2 | 3 | 4;
 }
 
-export function FeatureGrid({ features, title, titleHighlight, subtitle, className }: FeatureGridProps) {
+export function FeatureGrid({
+  features,
+  title,
+  titleHighlight,
+  subtitle,
+  className,
+  columns = 3
+}: FeatureGridProps) {
   const getIcon = (iconName: string) => {
     const IconComponent = (LucideIcons as any)[iconName];
     return IconComponent ? <IconComponent size={32} /> : null;
@@ -53,7 +61,12 @@ export function FeatureGrid({ features, title, titleHighlight, subtitle, classNa
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+        <div className={cn(
+          "grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-10",
+          columns === 2 && "lg:grid-cols-2",
+          columns === 3 && "lg:grid-cols-3",
+          columns === 4 && "lg:grid-cols-4"
+        )}>
           {features.map((feature, index) => (
             <FadeIn key={index} delay={index * 0.05} distance={20}>
               <div className="group relative bg-white border border-slate-200 p-8 md:p-10 lg:p-12 rounded-xl md:rounded-[1.25rem] overflow-hidden hover:border-brand-green/30 transition-all duration-500 hover:-translate-y-2 h-full">

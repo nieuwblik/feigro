@@ -194,13 +194,13 @@ export const dakonderhoudData: ServicePageData = {
     ctaHref: '/contact',
     backgroundImage: imgEnkhuizen,
   },
-  featureTitle: 'Verzeker uw dak met dakonderhoud',
+  featureTitle: 'Levensduur verlengend met dakonderhoud',
   featureHighlight: 'dakonderhoud',
   features: [
     {
-      icon: 'Wrench',
-      title: 'Preventief Onderhoud',
-      description: 'We voeren regelmatig onderhoud uit om problemen te voorkomen en de levensduur van uw dak te verlengen.',
+      icon: 'Calendar',
+      title: 'Onderhoudscontract',
+      description: 'Goed en periodiek onderhoud is essentieel voor de levensduur uw dak. Wij voeren jaarlijks dakonderhoud uit conform de richtlijnen van NEN 2767, waarbij de technische staat objectief wordt beoordeeld en vastgelegd. Zo signaleren we gebreken tijdig, voorkomen we onverwachte kosten en blijft uw dak in optimale conditie.',
     },
     {
       icon: 'Droplet',
@@ -216,11 +216,6 @@ export const dakonderhoudData: ServicePageData = {
       icon: 'Hammer',
       title: 'Kleine Reparaties',
       description: 'Kleine gebreken en lekkages worden direct hersteld tijdens het onderhoudsbezoek.',
-    },
-    {
-      icon: 'Calendar',
-      title: 'Onderhoudscontract',
-      description: 'Met een onderhoudscontract zorgen we dat uw dak altijd in optimale staat blijft.',
     },
     {
       icon: 'CheckCircle',

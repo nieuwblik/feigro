@@ -42,8 +42,8 @@ export const Hero = () => {
       </div>
     </div>
 
-    {/* Mobile Visual (Top 55%) */}
-    <div className="relative h-[55%] sm:h-[60%] w-full lg:hidden overflow-hidden">
+    {/* Mobile Visual (Top 65%) */}
+    <div className="relative h-[65%] sm:h-[68%] w-full lg:hidden overflow-hidden">
       {heroImages.map((img, index) => (
         <motion.img
           key={index}
@@ -56,8 +56,8 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:hidden"></div>
     </div>
 
-    {/* Content Area (Bottom 45% / Full Desktop) */}
-    <div className="relative h-[45%] sm:h-[40%] lg:h-full lg:absolute lg:inset-0 z-10 flex flex-col lg:flex-row lg:items-center -mt-10 sm:-mt-12 lg:mt-0">
+    {/* Content Area (Bottom 35% / Full Desktop) */}
+    <div className="relative h-[35%] sm:h-[32%] lg:h-full lg:absolute lg:inset-0 z-10 flex flex-col lg:flex-row lg:items-center -mt-6 sm:-mt-8 lg:mt-0">
       <div className="w-full lg:container lg:mx-auto lg:px-6 h-full lg:h-auto flex flex-col">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch lg:items-center h-full lg:h-auto">
           <div className="lg:col-span-12 xl:col-span-7 h-full lg:h-auto">

@@ -4,7 +4,6 @@ import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
-import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.webp';
 import nieuwsHeroBg from '@/assets/nieuws-hero-bg.webp';
 
 const blogPosts = [{
@@ -28,17 +27,6 @@ const blogPosts = [{
   readTime: '4 min',
   category: 'Trends',
   image: imgDuurzaam,
-  featured: false
-}, {
-  id: 'geintegreerde-zonnepanelen',
-  title: 'Geïntegreerde Zonnepanelen',
-  subtitle: 'De toekomst van energieopwekking',
-  excerpt: 'Een opkomende innovatie zijn geïntegreerde zonnepanelen, waarbij de zonnepanelen naadloos in de dakconstructie worden verwerkt.',
-  content: 'Dit zorgt niet alleen voor een strakke, moderne uitstraling, maar maximaliseert ook de energieopbrengst van het dak. In tegenstelling tot traditionele opbouwpanelen, vervangen geïntegreerde panelen de dakbedekking zelf, wat resulteert in een esthetisch geheel.',
-  date: '2025-01-15',
-  readTime: '6 min',
-  category: 'Innovatie',
-  image: imgZonnepanelen,
   featured: false
 }];
 

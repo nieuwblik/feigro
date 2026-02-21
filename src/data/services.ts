@@ -636,16 +636,6 @@ export const dakreparatieData: ServicePageData = {
       description: 'Van kleine lekkages tot grote schades - wij repareren professioneel alle type dakschades.',
     },
     {
-      icon: 'Shield',
-      title: 'Garantie op Werk',
-      description: 'Op al onze reparaties geven we uitgebreide garantie voor uw gemoedsrust.',
-    },
-    {
-      icon: 'Search',
-      title: 'Grondige Inspectie',
-      description: 'We inspecteren het volledige dak om alle schades en potentiële problemen te identificeren.',
-    },
-    {
       icon: 'CheckCircle',
       title: 'Vakmanschap',
       description: 'Onze ervaren dakdekkers werken volgens de hoogste kwaliteitsnormen.',
@@ -653,7 +643,7 @@ export const dakreparatieData: ServicePageData = {
     {
       icon: 'Euro',
       title: 'Eerlijke Prijzen',
-      description: 'Transparante prijzen zonder verrassingen. U weet vooraf wat de reparatie kost.',
+      description: 'Transparante prijzen zonder verrassingen. U ontvangt vooraf een duidelijke offerte.',
     },
   ],
   info: {
@@ -664,7 +654,7 @@ export const dakreparatieData: ServicePageData = {
     paragraphs: [
       'Dakschade kan ontstaan door storm, hagel, veroudering of gebrekkig onderhoud. Kleine scheurtjes of losse dakpannen lijken misschien onschuldig, maar kunnen leiden tot waterinfiltratie en grote schade aan de onderconstructie.',
       'FEIGRO Dakwerken repareert professioneel alle soorten dakschades. Of het nu gaat om een lekkend plat dak, beschadigde dakpannen, kapotte zinken of schade aan de dakgoot - wij hebben de expertise en ervaring om het probleem snel en duurzaam op te lossen.',
-      'Bij elke reparatie voeren we een grondige inspectie uit om te controleren of er meer schade is. Zo voorkom en we dat u later opnieuw met problemen wordt geconfronteerd. We werken alleen met hoogwaardige materialen die passen bij uw bestaande dak.',
+      'We werken alleen met hoogwaardige materialen die passen bij uw bestaande dak.',
     ],
   },
   faqs: [
@@ -674,11 +664,7 @@ export const dakreparatieData: ServicePageData = {
     },
     {
       question: 'Wat zijn de kosten van een dakreparatie?',
-      answer: 'Dit hangt af van de omvang en aard van de schade. Na inspectie maken we een gedetailleerde offerte. Kleine reparaties starten vanaf €150.',
-    },
-    {
-      question: 'Krijg ik garantie op de reparatie?',
-      answer: 'Ja, op al onze reparaties geven we minimaal 2 jaar garantie op materiaal en uitvoering.',
+      answer: 'De kosten hangen af van de omvang en aard van de schade. Na inspectie maken we een gedetailleerde offerte zodat u precies weet waar u aan toe bent.',
     },
     {
       question: 'Kunnen jullie ook preventief advies geven?',

@@ -16,7 +16,7 @@ export default function Dakreparatie() {
             <SEO {...seo} />
             <HeroSection {...hero} />
             <InfoSection {...info} />
-            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
+            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} columns={2} />
             <FAQSection faqs={faqs} />
             <ServiceCTA />
         </>

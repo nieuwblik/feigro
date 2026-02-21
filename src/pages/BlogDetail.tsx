@@ -6,7 +6,6 @@ import { PrimaryFlipButton } from '@/components/buttons';
 import { CTAFooter } from '@/components/sections/CTAFooter';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
-import imgZonnepanelen from '@/assets/feigro-dakdekking-westfriesland.webp';
 interface BlogSection {
   type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image';
   content?: string;
@@ -122,57 +121,6 @@ const blogPosts: Record<string, BlogPost> = {
     }, {
       type: 'paragraph',
       content: 'FEIGRO Dakwerken helpt u graag bij het maken van de juiste keuze. Onze specialisten adviseren u over de mogelijkheden voor uw specifieke situatie en zorgen voor een vakkundige installatie.'
-    }]
-  },
-  'geintegreerde-zonnepanelen': {
-    id: 'geintegreerde-zonnepanelen',
-    title: 'Geïntegreerde Zonnepanelen',
-    subtitle: 'De toekomst van energieopwekking',
-    excerpt: 'Een opkomende innovatie waarbij zonnepanelen naadloos in de dakconstructie worden verwerkt.',
-    date: '2026-02-02',
-    readTime: '6 min',
-    category: 'Innovatie',
-    image: imgZonnepanelen,
-    author: 'FEIGRO Dakwerken',
-    sections: [{
-      type: 'paragraph',
-      content: 'Een opkomende innovatie zijn geïntegreerde zonnepanelen, waarbij de zonnepanelen naadloos in de dakconstructie worden verwerkt. Dit zorgt niet alleen voor een strakke, moderne uitstraling, maar maximaliseert ook de energieopbrengst van het dak.'
-    }, {
-      type: 'heading',
-      content: 'Wat zijn geïntegreerde zonnepanelen?'
-    }, {
-      type: 'paragraph',
-      content: 'In tegenstelling tot traditionele opbouwpanelen, vervangen geïntegreerde panelen de dakbedekking zelf. Ze worden als dakpannen of dakbedekking geïnstalleerd, waardoor ze volledig opgaan in het dakoppervlak. Het resultaat is een esthetisch geheel zonder zichtbare frames of ophogingen.'
-    }, {
-      type: 'heading',
-      content: 'Voordelen ten opzichte van traditionele panelen'
-    }, {
-      type: 'list',
-      items: ['Strakke, moderne uitstraling zonder zichtbare frames', 'Geen extra belasting op de dakconstructie', 'Betere bescherming tegen weersinvloeden', 'Hogere woningwaarde door esthetiek', 'Langere levensduur door geïntegreerd ontwerp', 'Geen risico op lekkages door doorboringen']
-    }, {
-      type: 'heading',
-      content: 'Technische ontwikkelingen'
-    }, {
-      type: 'paragraph',
-      content: 'De technologie achter geïntegreerde zonnepanelen ontwikkelt zich snel. Moderne panelen hebben een steeds hoger rendement en zijn beschikbaar in verschillende kleuren en afwerkingen. Van dakpan-imitaties tot volledig zwarte oppervlakken - er is voor elke woning een passende oplossing.'
-    }, {
-      type: 'quote',
-      content: 'Geïntegreerde zonnepanelen zijn de ultieme combinatie van functionaliteit en esthetiek. Ze bewijzen dat duurzaamheid en design hand in hand kunnen gaan.'
-    }, {
-      type: 'heading',
-      content: 'Investering en rendement'
-    }, {
-      type: 'paragraph',
-      content: 'Hoewel de initiële investering hoger ligt dan bij traditionele zonnepanelen, bieden geïntegreerde systemen vaak een beter rendement op lange termijn. De combinatie van energieopbrengst, langere levensduur en waardeverhoging van uw woning maakt het een aantrekkelijke investering.'
-    }, {
-      type: 'heading',
-      content: 'Geschikt voor uw dak?'
-    }, {
-      type: 'paragraph',
-      content: 'Geïntegreerde zonnepanelen zijn vooral geschikt voor nieuwbouw of volledige dakrenovaties. Bij een bestaand dak in goede staat zijn traditionele opbouwpanelen vaak kostenefficiënter. Onze specialisten bekijken graag uw situatie en adviseren over de beste oplossing.'
-    }, {
-      type: 'paragraph',
-      content: 'FEIGRO Dakwerken werkt samen met toonaangevende leveranciers van geïntegreerde zonnepanelen. Neem contact op voor een vrijblijvend adviesgesprek en ontdek de mogelijkheden voor uw woning of bedrijfspand.'
     }]
   }
 };

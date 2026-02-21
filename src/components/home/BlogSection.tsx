@@ -4,7 +4,6 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
-import imgZonnepanelen from '@/assets/zonnepanelen-dak.webp';
 
 const blogPosts = [
   {
@@ -26,16 +25,6 @@ const blogPosts = [
     category: 'Trends',
     image: imgDuurzaam,
     featured: false
-  },
-  {
-    slug: 'geintegreerde-zonnepanelen',
-    title: 'Geïntegreerde Zonnepanelen',
-    excerpt: 'Een opkomende innovatie waarbij zonnepanelen naadloos in de dakconstructie worden verwerkt.',
-    date: '2026-02-02',
-    readTime: '6 min',
-    category: 'Innovatie',
-    image: imgZonnepanelen,
-    featured: false
   }
 ];
 
@@ -56,11 +45,11 @@ export const BlogSection = () => {
     <section className="py-16 md:py-24 overflow-hidden bg-feigro-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.6 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="mb-12 md:mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
@@ -80,11 +69,11 @@ export const BlogSection = () => {
         {/* Blog Grid - Mobile: stacked, Desktop: featured + sidebar */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* Featured Post - Large Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }} 
-            transition={{ duration: 0.6, delay: 0.1 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:row-span-2"
           >
             <Link to={`/nieuws/${featuredPost.slug}`} className="group block h-full">
@@ -138,11 +127,11 @@ export const BlogSection = () => {
 
           {/* Other Posts - Compact Cards */}
           {otherPosts.map((post, index) => (
-            <motion.div 
-              key={post.slug} 
-              initial={{ opacity: 0, y: 40 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              key={post.slug}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             >
               <Link to={`/nieuws/${post.slug}`} className="group block">
@@ -151,7 +140,7 @@ export const BlogSection = () => {
                   <div className="relative w-full sm:w-32 lg:w-full h-40 sm:h-24 lg:h-40 rounded-xl overflow-hidden shrink-0">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    
+
                     {/* Category Badge */}
                     <div className="absolute top-2 left-2">
                       <span className="px-2 py-1 bg-black/70 backdrop-blur-sm text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
@@ -189,11 +178,11 @@ export const BlogSection = () => {
         </div>
 
         {/* CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.6, delay: 0.4 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 md:mt-16 flex justify-center"
         >
           <Link to="/nieuws" className="w-full md:w-auto">

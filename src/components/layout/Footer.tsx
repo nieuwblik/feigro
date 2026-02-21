@@ -8,7 +8,7 @@ import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
-import feigroLogoKleur from '@/assets/Feigro logo kleur.png';
+import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.png';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);

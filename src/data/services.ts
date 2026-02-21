@@ -219,32 +219,32 @@ export const dakonderhoudData: ServicePageData = {
     },
   ],
   info: {
-    title: 'Het Belang van Dakonderhoud',
-    titleHighlight: 'Dakonderhoud',
-    description: 'Professioneel dakonderhoud voorkomt grote problemen en bespaart u kosten.',
-    image: imgDakonderhoudWerk,
+    title: 'Het belang van dakonderhoud',
+    titleHighlight: 'dakonderhoud',
+    description: 'Professioneel dakonderhoud voorkomt grote problemen en bespaart u op lange termijn aanzienlijke kosten.',
+    image: imgValbeveiliging,
     paragraphs: [
-      'Een dak heeft regelmatig onderhoud nodig om in goede staat te blijven. Zonder onderhoud kunnen kleine problemen uitgroeien tot grote, kostbare schades. Denk aan verstopte afvoeren die tot wateroverlast leiden, of kleine scheurtjes die uitgroeien tot lekkages.',
-      'FEIGRO Dakwerken verzorgt compleet dakonderhoud: van reiniging van goten en afvoeren tot het controleren van alle kritieke onderdelen. We voeren direct kleine reparaties uit waar nodig.',
-      'Met een onderhoudscontract zorgen we dat uw dak automatisch op vaste momenten wordt gecontroleerd en onderhouden. Zo heeft u geen omkijken naar en blijft uw dak altijd in optimale staat.',
+      'Een dak heeft periodiek onderhoud nodig om in optimale conditie te blijven. Zonder tijdige controle kunnen kleine gebreken uitgroeien tot kostbare schades, zoals verstopte afvoeren die wateroverlast veroorzaken of beginnende scheurvorming die leidt tot lekkages. Daarom voeren wij inspecties en onderhoud uit conform de richtlijnen van NEN en volgens de methodiek van NEN 2767, waarbij de technische staat van de dakbedekking objectief wordt beoordeeld en vastgelegd.',
+      'FEIGRO Dakwerken is gespecialiseerd in het onderhoud van dakbedekking. Wij reinigen goten en afvoeren, controleren naden, aansluitingen en details, en voeren waar nodig direct kleine reparaties uit.',
+      'Met een onderhoudscontract bent u verzekerd van periodieke controle op vaste momenten, zodat uw dak duurzaam beschermd blijft en u nergens omkijken naar heeft.',
     ],
   },
   faqs: [
     {
       question: 'Hoe vaak moet mijn dak onderhouden worden?',
-      answer: 'Dit hangt af van het type dak. Platte daken hebben jaarlijks onderhoud nodig, pannendaken eens per 2-3 jaar. We adviseren u graag over de ideale onderhoudsfrequentie.',
+      answer: 'De onderhoudsfrequentie hangt af van het type dak en de toegepaste dakbedekking. Een regulier plat dak vraagt om een andere aanpak dan een tuindak, waarbij begroeiing, waterafvoer en wortelwering extra aandacht vereisen. Wij adviseren u graag over een passend onderhoudsinterval, afgestemd op uw daktype en situatie, zodat uw dak in optimale conditie blijft.',
     },
     {
       question: 'Wat houdt dakonderhoud precies in?',
-      answer: 'Dakonderhoud omvat reiniging van goten en afvoeren, controle op scheuren en beschadigingen, kleine reparaties, en eventueel het aanbrengen van beschermende coatings.',
+      answer: 'Dakonderhoud omvat het reinigen van goten en afvoeren, het controleren van de dakbedekking op scheuren, beschadigingen en slijtage, en het inspecteren van naden, aansluitingen en details. Kleine gebreken worden waar nodig direct hersteld om grotere schade en lekkages te voorkomen.',
     },
     {
       question: 'Kan ik zelf mijn dak onderhouden?',
-      answer: 'Voor eenvoudige taken zoals het reinigen van dakgoten kunt u dit zelf doen, maar voor veiligheid en vakkundigheid raden we professioneel onderhoud aan.',
+      answer: 'Wij raden af om zelf dakonderhoud uit te voeren. Werken op hoogte brengt veiligheidsrisico\'s met zich mee en zonder vakkennis kunnen kleine gebreken over het hoofd worden gezien of onbedoeld worden verergerd. Professioneel onderhoud zorgt voor een veilige uitvoering, een grondige inspectie van de dakbedekking en een vakkundige aanpak die grotere schade en onnodige kosten voorkomt.',
     },
     {
       question: 'Wat zijn de voordelen van een onderhoudscontract?',
-      answer: 'Met een onderhoudscontract wordt uw dak automatisch op vaste momenten onderhouden. U heeft geen omkijken naar, voorkomt grote reparaties, en profiteert vaak van een korting.',
+      answer: 'Met een onderhoudscontract bent u verzekerd van periodieke inspectie en onderhoud van uw dak, zonder dat u hier zelf omkijken naar heeft. Door tijdige controle en preventief onderhoud worden gebreken vroegtijdig gesignaleerd en verholpen, waardoor de kans op kostbare reparaties aanzienlijk wordt verkleind. Daarnaast profiteert u van duidelijke afspraken, continu inzicht in de conditie van uw dak.',
     },
     {
       question: 'Worden kleine reparaties direct uitgevoerd?',

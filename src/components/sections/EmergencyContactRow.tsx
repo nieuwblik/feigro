@@ -21,22 +21,13 @@ export function EmergencyContactRow() {
                                 Heeft u direct hulp nodig? <span className="text-brand-green italic">Bel ons!</span>
                             </h2>
 
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                                <a href="tel:+31637158612" className="group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
-                                    <Phone size={24} className="text-red-500" />
-                                    <div className="text-left">
-                                        <span className="text-white/50 text-[10px] uppercase tracking-wider block">Jan Groen</span>
-                                        <span className="text-white font-bold text-lg md:text-xl group-hover:text-red-400 transition-colors">+31 6 37158612</span>
-                                    </div>
-                                </a>
-                                <a href="tel:+31613731303" className="group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-8 py-5 rounded-2xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
-                                    <Phone size={24} className="text-red-500" />
-                                    <div className="text-left">
-                                        <span className="text-white/50 text-[10px] uppercase tracking-wider block">Tommie Feitsma</span>
-                                        <span className="text-white font-bold text-lg md:text-xl group-hover:text-red-400 transition-colors">+31 6 13731303</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <a href="tel:+31613731303" className="inline-flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-10 py-5 rounded-2xl hover:bg-red-500/10 hover:border-red-500/30 transition-all group">
+                                <Phone size={24} className="text-red-500" />
+                                <div className="text-left">
+                                    <span className="text-white/50 text-[10px] uppercase tracking-wider block">FEIGRO Dakwerken</span>
+                                    <span className="text-white font-bold text-xl md:text-2xl group-hover:text-red-400 transition-colors">+31 6 13731303</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </FadeIn>

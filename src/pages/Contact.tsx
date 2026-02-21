@@ -136,22 +136,13 @@ export default function Contact() {
 
               <div className="grid gap-8 md:gap-10">
                 {/* Direct Contact - Jan & Tommie */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <a href="tel:+31637158612" className="flex items-center gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-brand-green/30 transition-all group">
-                    <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300 shrink-0">
-                      <Phone size={20} className="text-brand-green group-hover:text-black transition-colors" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-slate-400 text-[9px] uppercase tracking-widest font-bold mb-1">Jan Groen</p>
-                      <span className="text-base md:text-lg text-slate-900 font-heading group-hover:text-brand-green transition-colors uppercase tracking-tight">+31 6 37158612</span>
-                    </div>
-                  </a>
+                <div className="grid grid-cols-1 gap-4">
                   <a href="tel:+31613731303" className="flex items-center gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-brand-green/30 transition-all group">
                     <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center group-hover:bg-brand-green transition-all duration-300 shrink-0">
                       <Phone size={20} className="text-brand-green group-hover:text-black transition-colors" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-slate-400 text-[9px] uppercase tracking-widest font-bold mb-1">Tommie Feitsma</p>
+                      <p className="text-slate-400 text-[9px] uppercase tracking-widest font-bold mb-1">FEIGRO Dakwerken</p>
                       <span className="text-base md:text-lg text-slate-900 font-heading group-hover:text-brand-green transition-colors uppercase tracking-tight">+31 6 13731303</span>
                     </div>
                   </a>

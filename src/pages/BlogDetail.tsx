@@ -398,11 +398,8 @@ export default function BlogDetail() {
                   Hulp nodig bij uw dak? Onze specialisten staan klaar voor advies, inspectie of reparatie.
                 </p>
                 <div className="space-y-4">
-                  <a href="tel:+31637158612" className="block w-full bg-brand-green hover:bg-white text-white hover:text-black py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20">
-                    Jan: 06 37158612
-                  </a>
                   <a href="tel:+31613731303" className="block w-full bg-brand-green hover:bg-white text-white hover:text-black py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-green/20">
-                    Tommie: 06 13731303
+                    Feigro: 06 13731303
                   </a>
                 </div>
               </motion.div>

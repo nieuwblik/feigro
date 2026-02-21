@@ -98,14 +98,9 @@ export const Footer = () => {
                 <Link to="/contact" className="text-white hover:text-brand-green transition-colors text-sm md:text-base font-medium flex items-center gap-2">
                   Neem contact op <ArrowRight size={16} />
                 </Link>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-                  <a href="tel:+31637158612" className="text-white/60 hover:text-brand-green transition-colors text-xs md:text-sm">
-                    Jan: +31 6 37158612
-                  </a>
-                  <a href="tel:+31613731303" className="text-white/60 hover:text-brand-green transition-colors text-xs md:text-sm">
-                    Tommie: +31 6 13731303
-                  </a>
-                </div>
+                <a href="tel:+31613731303" className="text-white/60 hover:text-brand-green transition-colors text-xs md:text-sm">
+                  Feigro: +31 6 13731303
+                </a>
               </div>
             </FadeIn>
           </div>
@@ -188,14 +183,9 @@ export const Footer = () => {
 
             {/* Row 3: Direct Contact Links */}
             <div>
-              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Jan Groen</span>
-              <a href="tel:+31637158612" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">+31 6 37158612</a>
-              <a href="mailto:jgroen@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-[11px] font-medium block mt-1">jgroen@feigro.nl</a>
-            </div>
-            <div>
-              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">Tommie Feitsma</span>
+              <span className="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold block mb-2">FEIGRO Dakwerken</span>
               <a href="tel:+31613731303" className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium block">+31 6 13731303</a>
-              <a href="mailto:tfeitsma@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-[11px] font-medium block mt-1">tfeitsma@feigro.nl</a>
+              <a href="mailto:info@feigro.nl" className="text-slate-500 hover:text-brand-green transition-colors text-[11px] font-medium block mt-1">info@feigro.nl</a>
             </div>
           </div>
         </FadeIn>

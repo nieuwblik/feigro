@@ -443,18 +443,11 @@ export const Header = () => {
                   <p className="text-slate-900 text-[10px] uppercase tracking-widest font-bold mb-4">Neem contact op</p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
                     <a
-                      href="tel:+31637158612"
-                      className="flex items-center gap-2 text-slate-900 hover:text-brand-green transition-colors"
-                    >
-                      <Phone size={16} className="text-brand-green" />
-                      <span className="text-sm font-medium">Jan: +31 6 37158612</span>
-                    </a>
-                    <a
                       href="tel:+31613731303"
                       className="flex items-center gap-2 text-slate-900 hover:text-brand-green transition-colors"
                     >
                       <Phone size={16} className="text-brand-green" />
-                      <span className="text-sm font-medium">Tommie: +31 6 13731303</span>
+                      <span className="text-sm font-medium">Feigro: +31 6 13731303</span>
                     </a>
                   </div>
                 </motion.div>

@@ -53,14 +53,9 @@ export function CTAFooter({
                   className="w-full sm:w-auto"
                 />
               </Link>
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="tel:+31637158612" className="flex items-center justify-center bg-brand-green hover:bg-white text-white hover:text-black px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-green/20 sm:min-w-[200px]">
-                  Jan: 06 37158612
-                </a>
-                <a href="tel:+31613731303" className="flex items-center justify-center bg-brand-green hover:bg-white text-white hover:text-black px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-green/20 sm:min-w-[200px]">
-                  Tommie: 06 13731303
-                </a>
-              </div>
+              <a href="tel:+31613731303" className="flex items-center justify-center bg-brand-green hover:bg-white text-white hover:text-black px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-green/20 sm:min-w-[200px]">
+                Feigro: 06 13731303
+              </a>
             </div>
           </div>
         </div>

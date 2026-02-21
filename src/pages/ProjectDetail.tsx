@@ -50,7 +50,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="w-full bg-white">
-      <SEO 
+      <SEO
         title={`${project.title} | Feigro Dakwerken`}
         description={project.shortDescription}
         canonical={`/projecten/${project.slug}`}
@@ -76,8 +76,8 @@ export default function ProjectDetail() {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-4 mb-6 md:mb-8"
           >
-            <Link 
-              to="/projecten" 
+            <Link
+              to="/projecten"
               className="inline-flex items-center gap-2 text-white/70 hover:text-brand-green transition-colors text-sm"
             >
               <ArrowLeft size={16} />
@@ -128,7 +128,7 @@ export default function ProjectDetail() {
             </div>
           </motion.div>
         </div>
-        
+
         <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>
       </section>
 
@@ -159,7 +159,7 @@ export default function ProjectDetail() {
                       transition={{ duration: 0.3 }}
                     />
                   </AnimatePresence>
-                  
+
                   {/* Navigation Arrows */}
                   {project.images.length > 1 && (
                     <>
@@ -179,13 +179,13 @@ export default function ProjectDetail() {
                       </button>
                     </>
                   )}
-                  
+
                   {/* Image Counter */}
                   <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1.5 rounded-lg text-sm font-medium">
                     {currentImageIndex + 1} / {project.images.length}
                   </div>
                 </div>
-                
+
                 {/* Thumbnail Strip */}
                 {project.images.length > 1 && (
                   <div className="flex gap-2 overflow-x-auto pb-2">
@@ -193,11 +193,10 @@ export default function ProjectDetail() {
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                          idx === currentImageIndex 
-                            ? 'border-brand-green ring-2 ring-brand-green/20' 
+                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
+                            ? 'border-brand-green ring-2 ring-brand-green/20'
                             : 'border-slate-200 hover:border-slate-400'
-                        }`}
+                          }`}
                       >
                         <img
                           src={img}
@@ -267,11 +266,8 @@ export default function ProjectDetail() {
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 pt-2">
                     <span className="text-slate-400 text-[10px] uppercase tracking-widest font-bold">Liever bellen?</span>
                     <div className="flex flex-row gap-4 sm:gap-6">
-                      <a href="tel:+31637158612" className="text-slate-900 font-bold text-sm md:text-base hover:text-brand-green transition-colors">
-                        <span className="text-slate-400 text-xs block sm:inline">Jan:</span> +31 6 37158612
-                      </a>
                       <a href="tel:+31613731303" className="text-slate-900 font-bold text-sm md:text-base hover:text-brand-green transition-colors">
-                        <span className="text-slate-400 text-xs block sm:inline">Tommie:</span> +31 6 13731303
+                        <span className="text-slate-400 text-xs block sm:inline">Feigro:</span> +31 6 13731303
                       </a>
                     </div>
                   </div>

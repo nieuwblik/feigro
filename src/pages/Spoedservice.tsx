@@ -119,18 +119,11 @@ export default function Spoedservice() {
                     Kan het niet wachten? Bel direct één van onze specialisten voor acute hulp.
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="tel:+31637158612" className="flex-1 group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-5 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
+                <div className="flex justify-center">
+                  <a href="tel:+31613731303" className="group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-8 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
                     <Phone size={20} className="text-red-500" />
                     <div className="text-left">
-                      <span className="text-white/50 text-[10px] uppercase tracking-wider block">Jan Groen</span>
-                      <span className="text-white font-bold text-base md:text-lg group-hover:text-red-400 transition-colors">+31 6 37158612</span>
-                    </div>
-                  </a>
-                  <a href="tel:+31613731303" className="flex-1 group flex items-center justify-center gap-4 bg-white/5 border border-white/10 px-5 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/30 transition-all">
-                    <Phone size={20} className="text-red-500" />
-                    <div className="text-left">
-                      <span className="text-white/50 text-[10px] uppercase tracking-wider block">Tommie Feitsma</span>
+                      <span className="text-white/50 text-[10px] uppercase tracking-wider block">FEIGRO Dakwerken</span>
                       <span className="text-white font-bold text-base md:text-lg group-hover:text-red-400 transition-colors">+31 6 13731303</span>
                     </div>
                   </a>
@@ -264,18 +257,11 @@ export default function Spoedservice() {
                     Kan het niet wachten? Bel direct één van onze specialisten voor acute hulp.
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <a href="tel:+31637158612" className="group flex items-center justify-center gap-4 bg-red-500/5 border border-red-500/20 px-6 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/40 transition-all">
+                <div className="flex justify-center">
+                  <a href="tel:+31613731303" className="group flex items-center justify-center gap-4 bg-red-500/5 border border-red-500/20 px-8 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/40 transition-all">
                     <Phone size={20} className="text-red-500" />
                     <div className="text-left">
-                      <span className="text-slate-400 text-[10px] uppercase tracking-wider block">Jan Groen</span>
-                      <span className="text-slate-900 font-bold text-lg group-hover:text-red-500 transition-colors">+31 6 37158612</span>
-                    </div>
-                  </a>
-                  <a href="tel:+31613731303" className="group flex items-center justify-center gap-4 bg-red-500/5 border border-red-500/20 px-6 py-4 rounded-xl hover:bg-red-500/10 hover:border-red-500/40 transition-all">
-                    <Phone size={20} className="text-red-500" />
-                    <div className="text-left">
-                      <span className="text-slate-400 text-[10px] uppercase tracking-wider block">Tommie Feitsma</span>
+                      <span className="text-slate-400 text-[10px] uppercase tracking-wider block">FEIGRO Dakwerken</span>
                       <span className="text-slate-900 font-bold text-lg group-hover:text-red-500 transition-colors">+31 6 13731303</span>
                     </div>
                   </a>

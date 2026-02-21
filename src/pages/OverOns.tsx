@@ -315,15 +315,9 @@ export default function OverOns() {
                 <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-8 md:mb-10 italic uppercase tracking-tighter leading-none">Direct een <br />expert spreken?</h3>
                 <p className="text-slate-600 text-base md:text-lg mb-6 font-light">Wij staan 24/7 klaar voor al uw vragen en spoedgevallen rondom uw dak.</p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="tel:+31637158612" className="group flex items-center gap-3 bg-white border border-slate-200 px-5 py-3 rounded-xl hover:border-brand-green/30 transition-all">
-                    <div className="flex flex-col">
-                      <span className="text-slate-400 text-[10px] uppercase tracking-wider">Jan Groen</span>
-                      <span className="text-slate-900 font-bold text-sm group-hover:text-brand-green transition-colors">+31 6 37158612</span>
-                    </div>
-                  </a>
                   <a href="tel:+31613731303" className="group flex items-center gap-3 bg-white border border-slate-200 px-5 py-3 rounded-xl hover:border-brand-green/30 transition-all">
                     <div className="flex flex-col">
-                      <span className="text-slate-400 text-[10px] uppercase tracking-wider">Tommie Feitsma</span>
+                      <span className="text-slate-400 text-[10px] uppercase tracking-wider">FEIGRO Dakwerken</span>
                       <span className="text-slate-900 font-bold text-sm group-hover:text-brand-green transition-colors">+31 6 13731303</span>
                     </div>
                   </a>

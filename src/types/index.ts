@@ -20,6 +20,7 @@ export interface HeroData {
   subtitle: string;
   ctaText: string;
   ctaHref: string;
+  ctaVariant?: 'primary' | 'emergency';
   backgroundImage?: string;
   backgroundClass?: string;
   highlightWordCount?: number;

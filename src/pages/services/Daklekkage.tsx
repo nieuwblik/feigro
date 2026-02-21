@@ -7,6 +7,7 @@ import { FAQSection } from '@/components/sections/FAQSection';
 import { daklekkageData } from '@/data/services';
 
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
+import { EmergencyContactRow } from '@/components/sections/EmergencyContactRow';
 
 export default function Daklekkage() {
   const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = daklekkageData;
@@ -16,6 +17,7 @@ export default function Daklekkage() {
       <SEO {...seo} />
       <HeroSection {...hero} />
       <InfoSection {...info} />
+      <EmergencyContactRow />
       <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <FAQSection faqs={faqs} />
       <ServiceCTA />

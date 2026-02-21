@@ -257,18 +257,18 @@ export const dakrenovatieData: ServicePageData = {
   seo: seoMetadata.dakrenovatie,
   hero: {
     title: 'Complete Dakrenovatie',
-    subtitle: 'Is uw dak aan vernieuwing toe? FEIGRO verzorgt complete dakrenovaties van platte daken tot pannendaken. Duurzaam, professioneel en op maat.',
+    subtitle: 'Complete dakrenovatie Feigro dakwerken ontzorgt.',
     ctaText: 'Vraag Offerte Aan',
     ctaHref: '/contact',
     backgroundImage: imgRenovatie,
   },
-  featureTitle: 'Hoogwaardige Dakrenovatie',
-  featureHighlight: 'Dakrenovatie',
+  featureTitle: 'Renovatie en Nieuwbouw',
+  featureHighlight: 'Nieuwbouw',
   features: [
     {
       icon: 'Home',
-      title: 'Totaaloplossing',
-      description: 'Van demontage tot oplevering: wij verzorgen het complete renovatietraject van A tot Z.',
+      title: 'Ontzorgen',
+      description: 'Van het eerste advies tot de uiteindelijke oplevering: wij nemen alle zorg uit handen en regelen het complete traject.',
     },
     {
       icon: 'Leaf',
@@ -278,7 +278,7 @@ export const dakrenovatieData: ServicePageData = {
     {
       icon: 'Zap',
       title: 'Isolatie & Energiebesparing',
-      description: 'Bij renovatie brengen we moderne isolatie aan voor optimale energieprestaties.',
+      description: 'Bij renovatie brengen we hoogwaardige isolatie aan. Wij helpen u tevens met de benodigde documentatie om uw subsidie aan te vragen.',
     },
     {
       icon: 'Shield',
@@ -297,14 +297,14 @@ export const dakrenovatieData: ServicePageData = {
     },
   ],
   info: {
-    title: 'Wanneer is Dakrenovatie Nodig?',
-    titleHighlight: 'Dakrenovatie',
+    title: 'Renovatie en Nieuwbouw',
+    titleHighlight: 'Nieuwbouw',
     description: 'Een dak gaat gemiddeld 20-40 jaar mee, afhankelijk van het type en onderhoud.',
     image: imgDakrenovatieWerk,
     paragraphs: [
       'Signalen dat uw dak aan renovatie toe is: herhaaldelijke lekkages, zichtbare schade aan de dakbedekking, doorbuiging, of een dak dat simpelweg aan het einde van zijn levensduur is. Een nieuwe dakbedekking voorkomt verdere schade aan de onderconstructie.',
       'FEIGRO Dakwerken heeft ruime ervaring met alle soorten dakrenovaties. Of het nu gaat om een plat EPDM-dak, bitumen dakbedekking, of een pannendak - wij zorgen voor een vakkundige renovatie die jaren meegaat.',
-      'Bij elke renovatie kijken we ook naar isolatie en ventilatie. Modern geïsoleerde daken besparen fors op stookkosten en verhogen het wooncomfort. We adviseren u graag over de mogelijkheden voor uw specifieke situatie.',
+      'Bij elke renovatie kijken we ook naar isolatie. Modern geïsoleerde daken besparen fors op stookkosten en verhogen het wooncomfort. We adviseren u graag over de mogelijkheden voor uw specifieke situatie.',
     ],
   },
   faqs: [
@@ -560,9 +560,10 @@ export const daklekkageData: ServicePageData = {
   seo: seoMetadata.daklekkage,
   hero: {
     title: 'Daklekkage? Direct Hulp!',
-    subtitle: 'Acute daklekkage? FEIGRO staat 24/7 voor u klaar. Snelle respons, vakkundige reparatie. Bel ons direct en we komen in actie.',
-    ctaText: 'Bel 24/7: +31 6 1234 5678',
+    subtitle: 'Acute daklekkage? FEIGRO staat 24/7 voor u klaar. Snelle respons, vakkundige reparatie.',
+    ctaText: 'Direct Lekkage Melden',
     ctaHref: '/spoedservice',
+    ctaVariant: 'emergency',
     backgroundImage: imgLekkage,
     highlightWordCount: 2,
   },
@@ -583,21 +584,6 @@ export const daklekkageData: ServicePageData = {
       icon: 'ShieldCheck',
       title: 'Noodreparatie',
       description: 'We voeren direct een noodreparatie uit om verdere waterschade te voorkomen.',
-    },
-    {
-      icon: 'Search',
-      title: 'Lekdetectie',
-      description: 'Met professionele apparatuur traceren we precies waar de lekkage zich bevindt.',
-    },
-    {
-      icon: 'Hammer',
-      title: 'Definitieve Oplossing',
-      description: 'Na de noodmaatregel voeren we op afspraak een definitieve, duurzame reparatie uit.',
-    },
-    {
-      icon: 'FileText',
-      title: 'Rapportage',
-      description: 'U ontvangt een gedetailleerd rapport met foto\'s van de uitgevoerde werkzaamheden.',
     },
   ],
   info: {

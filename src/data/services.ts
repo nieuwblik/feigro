@@ -17,7 +17,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
   seo: seoMetadata.vveVastgoedbeheer,
   hero: {
     title: 'Samenwerk mogelijkheden voor VVE en Vastgoedbeheer',
-    subtitle: 'Een samenwerking met Feigro Dakwerken biedt uw VvE en Vastgoed de garantie van duurzame dakduurzaamheid.',
+    subtitle: 'Een samenwerking met Feigro Dakwerken biedt uw VvE en Vastgoed de zekerheid van duurzame dakzorg.',
     ctaText: 'Neem Contact Op',
     ctaHref: '/contact',
     backgroundImage: imgWestfriesland,
@@ -102,10 +102,6 @@ export const vveVastgoedbeheerData: ServicePageData = {
     {
       question: 'Werken jullie met onderhoudscontracten?',
       answer: 'Ja, we bieden meerjarige onderhoudscontracten aan voor VVE\'s en vastgoedbeheerders met vaste afspraken en tarieven.',
-    },
-    {
-      question: 'Hoe zit het met garanties op het werk?',
-      answer: 'We geven uitgebreide garanties op zowel materiaal als uitvoering, afhankelijk van het type werkzaamheden.',
     },
   ],
 };
@@ -281,9 +277,9 @@ export const dakrenovatieData: ServicePageData = {
       description: 'Bij renovatie brengen we hoogwaardige isolatie aan. Wij helpen u tevens met de benodigde documentatie om uw subsidie aan te vragen.',
     },
     {
-      icon: 'Shield',
-      title: 'Lange Garantie',
-      description: 'Op al onze renovatiewerkzaamheden geven we uitgebreide garantie voor uw gemoedsrust.',
+      icon: 'Award',
+      title: 'Vakmanschap',
+      description: 'Onze ervaren dakdekkers werken volgens de hoogste kwaliteitsnormen voor een duurzaam resultaat.',
     },
     {
       icon: 'Users',
@@ -323,10 +319,6 @@ export const dakrenovatieData: ServicePageData = {
     {
       question: 'Moet ik vergunning aanvragen voor dakrenovatie?',
       answer: 'In de meeste gevallen niet, als het bestaande dak wordt vervangen zonder constructiewijzigingen. We adviseren u hierover tijdens de offerte.',
-    },
-    {
-      question: 'Welke garantie krijg ik op de renovatie?',
-      answer: 'We geven minimaal 10 jaar garantie op materiaal en uitvoering. De exacte garantievoorwaarden bespreken we bij de offerte.',
     },
   ],
 };
@@ -540,10 +532,6 @@ export const epdmDakbedekkingData: ServicePageData = {
     {
       question: 'Kan EPDM op elk plat dak?',
       answer: 'Ja, EPDM is geschikt voor vrijwel alle platte daken. Het kan zowel mechanisch bevestigd als volledig gelijmd worden.',
-    },
-    {
-      question: 'Hoe zit het met garantie op EPDM?',
-      answer: 'Fabrikanten geven tot 20 jaar materiaalgarantie. Op onze installatie geven we 10-15 jaar garantie, afhankelijk van het gekozen systeem.',
     },
     {
       question: 'Is EPDM gevoelig voor scheuren?',

@@ -14,7 +14,7 @@ export const ServiceCTA = () => {
                 </div>
 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-10 md:mb-12 leading-[1.1] uppercase tracking-tighter">
-                    Kies voor     <span className="text-brand-green italic">​Garantie </span>
+                    Kies voor <span className="text-brand-green italic">​FEIGRO </span>
                 </h2>
 
                 <p className="text-xl md:text-2xl text-slate-600 font-light mb-16 md:mb-20 max-w-2xl leading-relaxed">
@@ -65,10 +65,10 @@ export const ServiceCTA = () => {
                                 <CheckCircle2 size={32} />
                             </div>
                             <h3 className="text-xl font-heading mb-3 text-slate-900 group-hover:text-brand-green transition-colors uppercase font-bold">
-                                Garantie
+                                Vakmanschap
                             </h3>
                             <p className="text-slate-600 leading-relaxed text-sm font-light">
-                                100% tevredenheidsgarantie op al ons werk.
+                                Hoogwaardig werk door ervaren dakspecialisten.
                             </p>
                         </div>
                         {/* Hover Glow */}

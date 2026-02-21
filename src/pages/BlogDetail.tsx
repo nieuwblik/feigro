@@ -69,7 +69,7 @@ const blogPosts: Record<string, BlogPost> = {
       content: 'Installatie door FEIGRO'
     }, {
       type: 'paragraph',
-      content: 'FEIGRO Dakwerken is gecertificeerd EPDM specialist. Wij werken met toonaangevende merken zoals Firestone, Hertalan en Elevate. Onze ervaren dakdekkers zorgen voor een vakkundige installatie die jarenlang meegaat. Na afronding ontvangt u uitgebreide garantie op zowel materiaal als uitvoering.'
+      content: 'FEIGRO Dakwerken is gecertificeerd EPDM specialist. Wij werken met toonaangevende merken zoals Firestone, Hertalan en Elevate. Onze ervaren dakdekkers zorgen voor een vakkundige installatie die jarenlang meegaat.'
     }, {
       type: 'paragraph',
       content: 'Bent u benieuwd of EPDM de juiste keuze is voor uw dak? Neem vrijblijvend contact met ons op voor een persoonlijk adviesgesprek en offerte op maat.'

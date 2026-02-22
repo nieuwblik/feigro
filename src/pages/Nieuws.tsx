@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import imgEPDM from '@/assets/EPDM foto.webp';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
+import imgDuurzaam from '@/assets/sedum foto.webp';
 import nieuwsHeroBg from '@/assets/nieuws-hero-bg.webp';
 
 const blogPosts = [{

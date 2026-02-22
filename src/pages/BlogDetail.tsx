@@ -5,7 +5,7 @@ import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wr
 import { PrimaryFlipButton } from '@/components/buttons';
 import { CTAFooter } from '@/components/sections/CTAFooter';
 import imgEPDM from '@/assets/EPDM foto.webp';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
+import imgDuurzaam from '@/assets/sedum foto.webp';
 interface BlogSection {
   type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image';
   content?: string;

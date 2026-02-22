@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import imgEPDM from '@/assets/EPDM foto.webp';
-import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
+import imgDuurzaam from '@/assets/sedum foto.webp';
 
 const blogPosts = [
   {

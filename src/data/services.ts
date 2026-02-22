@@ -2,7 +2,7 @@ import { ServicePageData } from '@/types';
 import { seoMetadata } from './seo-metadata';
 import imgWestfriesland from '@/assets/feigro-dakdekking-westfriesland.webp';
 import imgInspectie from '@/assets/dakinspectie-noord-holland.webp';
-import imgEnkhuizen from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import imgEnkhuizen from '@/assets/EPDM foto.webp';
 import imgRenovatie from '@/assets/dakwerk-feitsmadakwerken-2-1.webp';
 import imgRenovatieNoord from '@/assets/dakrenovatie-noordholland.webp';
 import imgLekvrij from '@/assets/lekvrij-dak-nederland.webp';
@@ -520,7 +520,7 @@ export const epdmDakbedekkingData: ServicePageData = {
     description: 'EPDM rubber dakbedekking is de hoogwaardige oplossing voor platte daken.',
     paragraphs: [
       'EPDM (Ethyleen Propylene Diene Monomer) is een synthetisch rubber dat speciaal is ontwikkeld voor dakbedekking. Het materiaal is extreem duurzaam en gaat 40-50 jaar mee zonder noemenswaardige kwaliteitsvermindering.',
-      'FEIGRO Dakwerken is gecertificeerd EPDM specialist. We werken met toonaangevende merken zoals Firestone, Hertalan en Elevate. Het rubber wordt in grote bahnen aangebracht, wat zorgt voor minimale naden en optimale waterdichtheid.',
+      'FEIGRO Dakwerken is gecertificeerd EPDM specialist. We werken met toonaangevende merken zoals Resitrix, Firestone, Hertalan en Elevate. Het rubber wordt in grote bahnen aangebracht, wat zorgt voor minimale naden en optimale waterdichtheid.',
       'EPDM is zeer geschikt voor woningen, maar ook voor bedrijfspanden en utiliteitsgebouwen. Het materiaal is flexibel, waardoor het geschikt is voor complexe dakvormen met hoeken, naden en doorbrekingen. De investering is hoger dan bitumen, maar dit wordt ruimschoots terugverdiend door de lange levensduur en lage onderhoudskosten.',
     ],
   },
@@ -539,7 +539,7 @@ export const epdmDakbedekkingData: ServicePageData = {
     },
     {
       question: 'Welk merk EPDM gebruiken jullie?',
-      answer: 'We werken met A-merken zoals Firestone, Hertalan en Elevate. We adviseren u het beste merk voor uw specifieke situatie.',
+      answer: 'We werken met A-merken zoals Resitrix, Firestone, Hertalan en Elevate. We adviseren u het beste merk voor uw specifieke situatie.',
     },
   ],
 };

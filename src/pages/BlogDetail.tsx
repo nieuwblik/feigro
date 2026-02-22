@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { CTAFooter } from '@/components/sections/CTAFooter';
-import imgEPDM from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import imgEPDM from '@/assets/EPDM foto.webp';
 import imgDuurzaam from '@/assets/dakrenovatie-noordholland.webp';
 interface BlogSection {
   type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image';
@@ -69,7 +69,7 @@ const blogPosts: Record<string, BlogPost> = {
       content: 'Installatie door FEIGRO'
     }, {
       type: 'paragraph',
-      content: 'FEIGRO Dakwerken is gecertificeerd EPDM specialist. Wij werken met toonaangevende merken zoals Firestone, Hertalan en Elevate. Onze ervaren dakdekkers zorgen voor een vakkundige installatie die jarenlang meegaat.'
+      content: 'FEIGRO Dakwerken is gecertificeerd EPDM specialist. Wij werken met toonaangevende merken zoals Resitrix, Firestone, Hertalan en Elevate. Onze ervaren dakdekkers zorgen voor een vakkundige installatie die jarenlang meegaat.'
     }, {
       type: 'paragraph',
       content: 'Bent u benieuwd of EPDM de juiste keuze is voor uw dak? Neem vrijblijvend contact met ons op voor een persoonlijk adviesgesprek en offerte op maat.'

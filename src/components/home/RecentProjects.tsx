@@ -9,7 +9,7 @@ import img2 from '@/assets/feigro-dakwerken.webp';
 import img3 from '@/assets/lekkage-feitsma.webp';
 import img4 from '@/assets/dak-laan-project-dakdekking.webp';
 import img5 from '@/assets/dak-valbeveiliging-montage.webp';
-import img6 from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import img6 from '@/assets/EPDM foto.webp';
 import img7 from '@/assets/dakinspectie-noord-holland.webp';
 import img8 from '@/assets/dakrenovatie-noordholland.webp';
 import img9 from '@/assets/dakreparatie-nederland-enkhuizen.webp';

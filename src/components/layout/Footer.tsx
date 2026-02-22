@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 
 import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
-import footerImg2 from '@/assets/dakdekking-nederland-enkhuizen.webp';
+import footerImg2 from '@/assets/EPDM foto.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
 import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.png';

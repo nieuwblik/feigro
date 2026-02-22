@@ -211,7 +211,7 @@ export const dakonderhoudData: ServicePageData = {
     {
       icon: 'CheckCircle',
       title: 'Jaarlijkse Inspectie',
-      description: 'Bij onderhoud voeren we altijd een grondige inspectie uit en documenteren de staat van uw dak.',
+      description: 'Bij onderhoud voeren we altijd een grondige inspectie uit en documenteren de staat van uw dak. Deze worden weergegeven in een digitaal kwaliteitsrapport conform de NEN2767.',
     },
   ],
   info: {
@@ -228,7 +228,7 @@ export const dakonderhoudData: ServicePageData = {
   faqs: [
     {
       question: 'Hoe vaak moet mijn dak onderhouden worden?',
-      answer: 'De onderhoudsfrequentie hangt af van het type dak en de toegepaste dakbedekking. Een regulier plat dak vraagt om een andere aanpak dan een tuindak, waarbij begroeiing, waterafvoer en wortelwering extra aandacht vereisen. Wij adviseren u graag over een passend onderhoudsinterval, afgestemd op uw daktype en situatie, zodat uw dak in optimale conditie blijft.',
+      answer: 'Wij adviseren om minimaal 1 keer per jaar dakonderhoud uit te voeren. Dit garandeert dat uw dak in optimale conditie blijft en voorkomt onverwachte kosten of gebreken.',
     },
     {
       question: 'Wat houdt dakonderhoud precies in?',

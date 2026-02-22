@@ -88,11 +88,7 @@ export const Footer = () => {
                 <span className="text-brand-green italic">DUURZAAM</span> DAK?
               </h2>
             </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="text-white/70 text-sm md:text-lg border-l border-brand-green pl-4 md:pl-6 max-w-md font-light hidden md:block mb-8">
-                Uw dak is onze passie. Samen realiseren we een resultaat dat staat als een huis.
-              </p>
-            </FadeIn>
+
             <FadeIn delay={0.2}>
               <div className="flex flex-col gap-4">
                 <Link to="/contact" className="text-white hover:text-brand-green transition-colors text-sm md:text-base font-medium flex items-center gap-2">

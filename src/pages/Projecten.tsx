@@ -59,7 +59,7 @@ export default function Projecten() {
         }} transition={{
           delay: 0.2
         }} className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10">
-          Onderhoud conform de NEN 2767. Een selectie van onze meest uitdagende en succesvolle projecten. Elk dak vertelt een verhaal van vakmanschap en kwaliteit.
+          Een selectie van onze meest uitdagende en succesvolle projecten — allemaal afgerond conform NEN 2767. Elk dak vertelt een verhaal van vakmanschap en kwaliteit.
         </motion.p>
       </div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-black/30 blur-[120px] rounded-full translate-x-1/4 -z-0"></div>

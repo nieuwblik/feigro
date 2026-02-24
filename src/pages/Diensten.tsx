@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers } from 'lucide-react';
+import heroImage from '@/assets/dakinspectie-noord-holland.webp';
 import { Link } from 'react-router-dom';
 
 import { SEO } from '@/components/SEO';
@@ -54,7 +55,7 @@ const Diensten = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+            src={heroImage}
             alt="Vakmanschap"
             className="w-full h-full object-cover opacity-30"
           />

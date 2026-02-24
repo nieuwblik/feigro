@@ -51,7 +51,7 @@ const servicesDetail = [
 const dienstenFaqs: FAQItem[] = [
   {
     question: 'Hoe vaak moet een dak worden geïnspecteerd?',
-    answer: 'Wij adviseren om uw dak minimaal twee keer per jaar te laten inspecteren: in het voorjaar en het najaar. Na zware stormen is een extra controle aan te raden. Regelmatige inspecties conform NEN 2767 helpen om kleine problemen vroegtijdig op te sporen en dure reparaties te voorkomen.',
+    answer: 'Wij adviseren om uw dak minimaal één keer per jaar te laten inspecteren. Na zware stormen is een extra controle aan te raden. Regelmatige inspecties conform NEN 2767 helpen om kleine problemen vroegtijdig op te sporen en dure reparaties te voorkomen.',
   },
 ];
 

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/data/seo-metadata';
+import { FAQSection } from '@/components/sections/FAQSection';
+import { FAQItem } from '@/types';
 
 const servicesDetail = [
   {
@@ -46,6 +48,13 @@ const servicesDetail = [
   }
 ];
 
+const dienstenFaqs: FAQItem[] = [
+  {
+    question: 'Hoe vaak moet een dak worden geïnspecteerd?',
+    answer: 'Wij adviseren om uw dak minimaal twee keer per jaar te laten inspecteren: in het voorjaar en het najaar. Na zware stormen is een extra controle aan te raden. Regelmatige inspecties conform NEN 2767 helpen om kleine problemen vroegtijdig op te sporen en dure reparaties te voorkomen.',
+  },
+];
+
 const Diensten = () => {
   return (
     <div className="w-full">
@@ -78,7 +87,7 @@ const Diensten = () => {
             transition={{ delay: 0.1 }}
             className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase"
           >
-            Vakmanschap <br /><span className="text-brand-green italic">Op Hoog Niveau</span>
+            Uw Dak <br /><span className="text-brand-green italic">Onder Onze Hoeden</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -86,7 +95,7 @@ const Diensten = () => {
             transition={{ delay: 0.2 }}
             className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-light mb-8 md:mb-10"
           >
-            Van preventieve inspecties tot complete dakrenovaties. FEIGRO biedt duurzame oplossingen for elk type dak.
+            Van preventieve inspecties tot complete dakrenovaties. Onderhoud conform de NEN 2767 — en ook bij projecten waar we trots op zijn.
           </motion.p>
         </div>
         {/* Abstract Background Accents */}
@@ -132,6 +141,14 @@ const Diensten = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection
+        faqs={dienstenFaqs}
+        title="Veelgestelde Vragen"
+        titleHighlight="Vragen"
+        subtitle="Antwoorden op de meest gestelde vragen over onze dakdiensten."
+      />
     </div>
   );
 };

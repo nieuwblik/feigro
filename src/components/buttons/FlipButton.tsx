@@ -25,8 +25,8 @@ const variantStyles = {
     hover: 'hover:bg-feigro-dark hover:text-white hover:border-feigro-dark',
   },
   secondary: {
-    base: 'bg-brand-green text-feigro-dark border-brand-green',
-    hover: 'hover:bg-feigro-dark hover:text-white hover:border-feigro-dark',
+    base: 'bg-feigro-dark text-white border-feigro-dark',
+    hover: 'hover:bg-brand-green hover:text-feigro-dark hover:border-brand-green',
   },
   emergency: {
     base: 'bg-red-500 text-white border-red-500',

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { PrimaryFlipButton } from '@/components/buttons';
+import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import heroSlide1 from '@/assets/hero-slide-1.webp';
 import heroSlide2 from '@/assets/hero-slide-2.webp';
@@ -86,6 +86,18 @@ export const Hero = () => {
                   <p className="text-slate-600 text-base sm:text-lg md:text-lg lg:text-lg mb-4 sm:mb-6 md:mb-8 lg:mb-10 max-w-lg leading-relaxed font-light">
                     FEIGRO Dakwerken biedt duurzame bescherming voor elk gebouw. Wij leveren vakmanschap van de hoogste plank.
                   </p>
+                </FadeIn>
+
+                {/* CTA Buttons */}
+                <FadeIn delay={0.3} className="w-full">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link to="/contact">
+                      <PrimaryFlipButton label="Offerte aanvragen" icon={<ArrowRight />} fullWidthMobile />
+                    </Link>
+                    <Link to="/projecten">
+                      <InversedFlipButton label="Bekijk Projecten" icon={<ArrowRight />} />
+                    </Link>
+                  </div>
                 </FadeIn>
 
               </div>

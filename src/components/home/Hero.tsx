@@ -43,7 +43,7 @@ export const Hero = () => {
     </div>
 
     {/* Mobile Visual (Top 65%) */}
-    <div className="relative h-[65%] sm:h-[68%] w-full lg:hidden overflow-hidden">
+    <div className="relative h-[50%] sm:h-[55%] w-full lg:hidden overflow-hidden">
       {heroImages.map((img, index) => (
         <motion.img
           key={index}
@@ -57,7 +57,7 @@ export const Hero = () => {
     </div>
 
     {/* Content Area (Bottom 35% / Full Desktop) */}
-    <div className="relative h-[35%] sm:h-[32%] lg:h-full lg:absolute lg:inset-0 z-10 flex flex-col lg:flex-row lg:items-center -mt-6 sm:-mt-8 lg:mt-0">
+    <div className="relative h-[50%] sm:h-[45%] lg:h-full lg:absolute lg:inset-0 z-10 flex flex-col lg:flex-row lg:items-center -mt-6 sm:-mt-8 lg:mt-0">
       <div className="w-full lg:container lg:mx-auto lg:px-6 h-full lg:h-auto flex flex-col">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch lg:items-center h-full lg:h-auto">
           <div className="lg:col-span-12 xl:col-span-7 h-full lg:h-auto">

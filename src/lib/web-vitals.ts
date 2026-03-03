@@ -36,7 +36,7 @@ const defaultReporter: MetricReporter = (metric) => {
   const { name, value, rating } = metric;
   const color = rating === 'good' ? '🟢' : rating === 'needs-improvement' ? '🟡' : '🔴';
   
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     console.log(`${color} ${name}: ${value.toFixed(2)} (${rating})`);
   }
 };

@@ -59,4 +59,4 @@ Disallow: /*?fbclid=
 Disallow: /*?gclid=
 
 # Sitemap locatie
-Sitemap: https://feigro.nl/sitemap.xml
+Sitemap: https://kcujsjibycqnngjhdzbp.supabase.co/functions/v1/sitemap-dynamic

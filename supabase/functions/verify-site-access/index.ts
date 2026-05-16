@@ -27,27 +27,84 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-// Generate a simple access token (timestamp + random string)
-function generateAccessToken(): string {
-  const timestamp = Date.now();
-  const random = crypto.randomUUID().replace(/-/g, '').substring(0, 16);
-  return `${timestamp}_${random}`;
+// ============= Signed Tokens (HMAC-SHA256) =============
+
+const TOKEN_TTL_MS = 24 * 60 * 60 * 1000;
+
+function base64UrlEncode(bytes: Uint8Array): string {
+  let str = '';
+  for (const b of bytes) str += String.fromCharCode(b);
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-// Validate access token (tokens are valid for 24 hours)
-function isValidToken(token: string): boolean {
-  if (!token) return false;
-  
-  const parts = token.split('_');
-  if (parts.length !== 2) return false;
-  
-  const timestamp = parseInt(parts[0], 10);
-  if (isNaN(timestamp)) return false;
-  
-  const now = Date.now();
-  const twentyFourHours = 24 * 60 * 60 * 1000;
-  
-  return (now - timestamp) < twentyFourHours;
+function base64UrlDecode(str: string): Uint8Array {
+  const pad = str.length % 4 === 0 ? '' : '='.repeat(4 - (str.length % 4));
+  const b64 = str.replace(/-/g, '+').replace(/_/g, '/') + pad;
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
+function timingSafeEqual(a: Uint8Array, b: Uint8Array): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
+  return diff === 0;
+}
+
+async function getSigningKey(): Promise<CryptoKey | null> {
+  const secret = Deno.env.get('SITE_ACCESS_SIGNING_SECRET')
+    || Deno.env.get('SITE_PASSWORD'); // fallback so existing deployments keep working
+  if (!secret) return null;
+  return await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign', 'verify'],
+  );
+}
+
+async function generateAccessToken(): Promise<string> {
+  const key = await getSigningKey();
+  if (!key) throw new Error('Signing key not configured');
+  const timestamp = Date.now();
+  const nonce = base64UrlEncode(crypto.getRandomValues(new Uint8Array(16)));
+  const payload = `${timestamp}.${nonce}`;
+  const sig = new Uint8Array(
+    await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload)),
+  );
+  return `${payload}.${base64UrlEncode(sig)}`;
+}
+
+async function isValidToken(token: string): Promise<boolean> {
+  if (!token || typeof token !== 'string') return false;
+  const parts = token.split('.');
+  if (parts.length !== 3) return false;
+  const [timestampStr, nonce, sigB64] = parts;
+  const timestamp = parseInt(timestampStr, 10);
+  if (!Number.isFinite(timestamp)) return false;
+  if (Date.now() - timestamp >= TOKEN_TTL_MS) return false;
+  if (!nonce || nonce.length < 8) return false;
+
+  const key = await getSigningKey();
+  if (!key) return false;
+
+  let providedSig: Uint8Array;
+  try {
+    providedSig = base64UrlDecode(sigB64);
+  } catch {
+    return false;
+  }
+  const expectedSig = new Uint8Array(
+    await crypto.subtle.sign(
+      'HMAC',
+      key,
+      new TextEncoder().encode(`${timestampStr}.${nonce}`),
+    ),
+  );
+  return timingSafeEqual(providedSig, expectedSig);
 }
 
 serve(async (req) => {
@@ -70,7 +127,7 @@ serve(async (req) => {
       }
 
       const { password } = await req.json();
-      
+
       if (!password || typeof password !== 'string') {
         return new Response(
           JSON.stringify({ success: false, error: 'Password is required' }),
@@ -79,7 +136,7 @@ serve(async (req) => {
       }
 
       const correctPassword = Deno.env.get('SITE_PASSWORD');
-      
+
       if (!correctPassword) {
         console.error('SITE_PASSWORD environment variable not set');
         return new Response(
@@ -89,7 +146,7 @@ serve(async (req) => {
       }
 
       if (password === correctPassword) {
-        const token = generateAccessToken();
+        const token = await generateAccessToken();
         console.log('Site access granted');
         return new Response(
           JSON.stringify({ success: true, token }),
@@ -106,7 +163,7 @@ serve(async (req) => {
 
     if (req.method === 'POST' && path === 'validate-token') {
       const { token } = await req.json();
-      
+
       if (!token || typeof token !== 'string') {
         return new Response(
           JSON.stringify({ valid: false }),
@@ -114,7 +171,7 @@ serve(async (req) => {
         );
       }
 
-      const valid = isValidToken(token);
+      const valid = await isValidToken(token);
       return new Response(
         JSON.stringify({ valid }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

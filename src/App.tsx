@@ -50,8 +50,8 @@ function ScrollToTop() {
 import { ScrollManager } from '@/components/ui/ScrollManager';
 
 const App = () => (
-  <PasswordGate>
-    <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+
       <HelmetProvider>
         <TooltipProvider>
           <ScrollManager>
@@ -90,8 +90,7 @@ const App = () => (
           </ScrollManager>
         </TooltipProvider>
       </HelmetProvider>
-    </QueryClientProvider>
-  </PasswordGate>
+  </QueryClientProvider>
 );
 
 export default App;

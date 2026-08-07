@@ -203,7 +203,29 @@ export default function BlogDetail() {
     }
   };
   return <>
-    <SEO title={`${post.title} | FEIGRO Dakwerken`} description={post.excerpt} canonical={`/nieuws/${post.id}`} />
+    <SEO
+      title={`${post.title} | FEIGRO Dakwerken`}
+      description={post.excerpt}
+      canonical={`/nieuws/${post.id}`}
+      ogType="article"
+      schema={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt,
+        datePublished: post.date,
+        dateModified: post.date,
+        articleSection: post.category,
+        inLanguage: 'nl-NL',
+        author: { '@type': 'Organization', name: post.author },
+        publisher: {
+          '@type': 'Organization',
+          name: 'FEIGRO Dakwerken',
+          logo: { '@type': 'ImageObject', url: 'https://feigro.nl/images/feigro-logo.webp' },
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `https://feigro.nl/nieuws/${post.id}` },
+      }}
+    />
 
     {/* Hero Section */}
     <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden min-h-[60vh] flex items-end">

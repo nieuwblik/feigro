@@ -4,7 +4,7 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.png';
+import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.webp';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

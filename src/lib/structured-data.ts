@@ -21,7 +21,7 @@ import { getBaseUrl, getSiteName } from './seo-utils';
 
 const BASE_URL = getBaseUrl();
 const SITE_NAME = getSiteName();
-const LOGO_URL = `${BASE_URL}/images/feigro-logo.png`;
+const LOGO_URL = `${BASE_URL}/images/feigro-logo.webp`;
 const PHONE = '+31229274878';
 
 /**

@@ -160,7 +160,7 @@ export default function Spoedservice() {
                       <div className="mb-8 md:mb-10 text-brand-green w-10 h-10 flex items-center justify-center [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:scale-[1.15] [&>svg]:w-8 [&>svg]:h-8">
                         <IconComponent />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
+                      <h2 className="text-xl md:text-2xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
                         {feature.title}
                       </h3>
                       <p className="text-slate-600 leading-relaxed text-sm font-light">

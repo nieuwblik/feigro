@@ -109,7 +109,7 @@ export const Testimonials = () => {
                   className="w-full flex flex-col md:flex-row gap-6 md:h-[500px]"
                 >
                   <div className="w-full md:w-[40%] h-64 md:h-auto rounded-3xl overflow-hidden relative shadow-xl">
-                    <img src={TESTIMONIALS[activeIndex].image} alt="Project reference" className="w-full h-full object-cover" />
+                    <img loading="lazy" decoding="async" src={TESTIMONIALS[activeIndex].image} alt="Project reference" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/10"></div>
                   </div>
 

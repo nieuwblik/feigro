@@ -129,7 +129,7 @@ export const Services = () => {
           <FadeIn delay={0.2}>
             <div className="relative">
               <div className="aspect-[4/5] md:aspect-square rounded-lg md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group">
-                <img
+                <img loading="lazy" decoding="async"
                   src={ctaImage}
                   alt="FEIGRO Dakwerken professional"
                   className="w-full h-full object-cover transition-all duration-1000"

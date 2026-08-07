@@ -198,7 +198,7 @@ export default function ProjectDetail() {
                             : 'border-slate-200 hover:border-slate-400'
                           }`}
                       >
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={img}
                           alt={`${project.title} - Thumbnail ${idx + 1}`}
                           className="w-full h-full object-cover"
@@ -323,7 +323,7 @@ export default function ProjectDetail() {
                         to={`/projecten/${p.slug}`}
                         className="group flex gap-4 items-center"
                       >
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={p.imageAfter}
                           alt={p.title}
                           className="w-16 h-16 object-cover rounded-lg flex-shrink-0"

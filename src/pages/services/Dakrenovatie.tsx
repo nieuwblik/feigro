@@ -56,7 +56,7 @@ export default function Dakrenovatie() {
                 viewport={{ once: true }}
                 className="rounded-xl md:rounded-2xl overflow-hidden border border-slate-200 shadow-lg"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageBefore}
                   alt="Dakrenovatie Enkhuizen - Voor"
                   className="w-full h-64 md:h-80 object-cover"
@@ -69,7 +69,7 @@ export default function Dakrenovatie() {
                 viewport={{ once: true }}
                 className="rounded-xl md:rounded-2xl overflow-hidden border border-slate-200 shadow-lg"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageAfter}
                   alt="Dakrenovatie Enkhuizen - Na"
                   className="w-full h-64 md:h-80 object-cover"

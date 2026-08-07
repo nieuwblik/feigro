@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <div className="mb-6">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/images/feigro-logo-wit.webp" 
                 alt="FEIGRO Dakwerken" 
                 className="h-10 w-auto"

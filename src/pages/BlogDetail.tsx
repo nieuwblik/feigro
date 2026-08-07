@@ -329,7 +329,7 @@ export default function BlogDetail() {
             }} className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center overflow-hidden p-2">
-                  <img src="/images/feigro-logo-wit.webp" alt="Feigro" className="w-full h-full object-contain" />
+                  <img loading="lazy" decoding="async" src="/images/feigro-logo-wit.webp" alt="Feigro" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-slate-900 font-bold">{post.author}</p>
@@ -486,7 +486,7 @@ export default function BlogDetail() {
             <Link to={`/nieuws/${relatedPost.id}`}>
               <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
                 <div className="aspect-[16/9] overflow-hidden">
-                  <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                  <img loading="lazy" decoding="async" src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
                 </div>
                 <div className="p-6">
                   <span className="text-brand-green text-xs font-bold uppercase tracking-wider">

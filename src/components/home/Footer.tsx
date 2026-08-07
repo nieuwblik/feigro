@@ -45,7 +45,7 @@ export const Footer = () => {
             <h4 className="text-white font-heading text-lg mb-6">Contact</h4>
             <ul className="space-y-4 text-white/50 text-sm">
               <li className="flex items-center gap-3"><MapPin size={18} className="text-brand-green" /> Amsterdam, Nederland</li>
-              <li className="flex items-center gap-3"><Phone size={18} className="text-brand-green" /> +31 (0) 6 123 456 78</li>
+              <li className="flex items-center gap-3"><Phone size={18} className="text-brand-green" /> +31 6 13731303</li>
               <li className="flex items-center gap-3"><Mail size={18} className="text-brand-green" /> info@feigro.nl</li>
             </ul>
           </div>

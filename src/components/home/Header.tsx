@@ -204,7 +204,7 @@ export const Header = () => {
 
                 <motion.div variants={itemVariants} className="mt-auto pb-12 pt-10">
                   <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-4">Neem contact op</p>
-                  <a href="tel:+31612345678" className="text-white text-2xl font-bold hover:text-brand-green transition-colors">+31 (0) 6 123 456 78</a>
+                  <a href="tel:+31613731303" className="text-white text-2xl font-bold hover:text-brand-green transition-colors">+31 6 13731303</a>
                 </motion.div>
               </nav>
             </motion.div>

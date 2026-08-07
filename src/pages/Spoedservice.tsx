@@ -238,7 +238,7 @@ export default function Spoedservice() {
                         <CheckCircle size={14} className="text-brand-green" />
                       </div>
                       <div>
-                        <h4 className="text-slate-900 font-bold mb-1 tracking-tight uppercase">{item.title}</h4>
+                        <h3 className="text-slate-900 font-bold mb-1 tracking-tight uppercase">{item.title}</h3>
                         <p className="text-slate-500 text-sm font-light">{item.desc}</p>
                       </div>
                     </div>

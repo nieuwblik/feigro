@@ -40,7 +40,7 @@ export const seoMetadata: Record<string, PageSEO> = {
   },
 
   dakrenovatie: {
-    title: "Dakrenovatie | Plat Dak & Dakisolatie | Feigro Dakwerken",
+    title: "Dakrenovatie | Plat Dak & Dakisolatie | Feigro",
     description:
       "Complete dakrenovatie door Feigro. Plat dak, pannendak, inclusief isolatie. 10+ jaar garantie. Werkzaam in Noord-Holland, Flevoland en Utrecht. Vraag offerte!",
     canonical: "/dakrenovatie",
@@ -80,7 +80,7 @@ export const seoMetadata: Record<string, PageSEO> = {
   },
 
   overOns: {
-    title: "Over Feigro | Dakdekker met 20+ Jaar Ervaring | Vakmanschap",
+    title: "Over Feigro | Dakdekker met 20+ Jaar Ervaring",
     description:
       "Feigro Dakwerken: samenwerking van Feitsma en Groen Dakwerken. 20+ jaar ervaring als dakdekker in Noord-Holland, Flevoland en Utrecht. Ontdek ons verhaal.",
     canonical: "/over-ons",
@@ -96,7 +96,7 @@ export const seoMetadata: Record<string, PageSEO> = {
   },
 
   spoedservice: {
-    title: "Lekkage Melden | Spoed Dakdekker 24/7 | Feigro Dakwerken",
+    title: "Lekkage Melden | Spoed Dakdekker 24/7 | Feigro",
     description:
       "Acute daklekkage? Meld uw lekkage direct bij Feigro. Spoed dakdekker 24/7 bereikbaar in Noord-Holland, Flevoland en Utrecht. Binnen 2-4 uur ter plaatse!",
     canonical: "/spoedservice",

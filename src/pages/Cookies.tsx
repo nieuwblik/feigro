@@ -81,7 +81,7 @@ export default function Cookies() {
   return (
     <>
       <SEO
-        title="Privacy- en Cookiebeleid | FEIGRO Dakwerken"
+        title="Privacy- en Cookiebeleid | Feigro"
         description="Lees ons privacy- en cookiebeleid. FEIGRO respecteert uw privacy en is volledig AVG-compliant."
         canonical="/cookies"
       />

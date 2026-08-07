@@ -51,7 +51,7 @@ export default function ProjectDetail() {
   return (
     <div className="w-full bg-white">
       <SEO
-        title={`${project.title} | Feigro Dakwerken`}
+        title={`${project.title} | Feigro`}
         description={project.shortDescription}
         canonical={`/projecten/${project.slug}`}
       />

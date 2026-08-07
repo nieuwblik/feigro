@@ -9,7 +9,8 @@ export function SEO({
   title,
   description,
   canonical,
-  ogImage = '/images/og-default.jpg',
+  ogImage = 'https://storage.googleapis.com/gpt-engineer-file-uploads/3EEbbwIN3rTrzVglyQtstmL7FqT2/social-images/social-1769163940075-social%20image%20feigro.png',
+  ogType = 'website',
   schema,
   keywords,
   siteName = 'FEIGRO Dakwerken',
@@ -30,7 +31,7 @@ export function SEO({
       <link rel="canonical" href={fullCanonical} />
 
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:locale" content="nl_NL" />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={fullTitle} />

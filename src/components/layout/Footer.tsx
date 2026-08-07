@@ -122,7 +122,7 @@ export const Footer = () => {
         {/* Brand Column */}
         <FadeIn>
           <Link to="/" className="inline-block mb-2 group">
-            <img src={feigroLogoKleur} alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:opacity-80 transition-all" />
+            <img loading="lazy" decoding="async" src={feigroLogoKleur} alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:opacity-80 transition-all" />
           </Link>
         </FadeIn>
 

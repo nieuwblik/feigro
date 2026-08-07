@@ -51,7 +51,7 @@ export const FeaturedProjects = () => {
                 {/* Image with 16:9 aspect ratio */}
                 <div className="relative">
                   <AspectRatio ratio={16 / 9}>
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={project.imageAfter}
                       alt={project.title}
                       className="w-full h-full object-cover"
@@ -121,7 +121,7 @@ export const FeaturedProjects = () => {
                 {/* Image with 16:9 aspect ratio */}
                 <div className="relative overflow-hidden">
                   <AspectRatio ratio={16 / 9}>
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={project.imageAfter}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

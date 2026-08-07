@@ -74,7 +74,7 @@ export const CompanyHeritage = () => {
             
             {/* FEIGRO */}
             <div className="px-6 py-3 bg-brand-green rounded-xl flex items-center justify-center">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/images/feigro-logo-zwart.webp" 
                 alt="FEIGRO Dakwerken" 
                 className="h-8 md:h-10 w-auto"

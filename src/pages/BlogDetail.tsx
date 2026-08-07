@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { CTAFooter } from '@/components/sections/CTAFooter';
-import imgEPDM from '@/assets/EPDM foto.webp';
-import imgDuurzaam from '@/assets/sedum foto.webp';
+import imgEPDM from '@/assets/epdm-dakbedekking.webp';
+import imgDuurzaam from '@/assets/sedum-dak.webp';
 interface BlogSection {
   type: 'paragraph' | 'heading' | 'list' | 'quote' | 'image';
   content?: string;

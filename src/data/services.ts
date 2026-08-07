@@ -2,7 +2,7 @@ import { ServicePageData } from '@/types';
 import { seoMetadata } from './seo-metadata';
 import imgWestfriesland from '@/assets/feigro-dakdekking-westfriesland.webp';
 import imgInspectie from '@/assets/dakinspectie-noord-holland.webp';
-import imgEnkhuizen from '@/assets/EPDM foto.webp';
+import imgEnkhuizen from '@/assets/epdm-dakbedekking.webp';
 import imgRenovatie from '@/assets/dakwerk-feitsmadakwerken-2-1.webp';
 import imgRenovatieNoord from '@/assets/dakrenovatie-noordholland.webp';
 import imgLekvrij from '@/assets/lekvrij-dak-nederland.webp';

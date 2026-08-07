@@ -204,7 +204,7 @@ export default function BlogDetail() {
   };
   return <>
     <SEO
-      title={`${post.title} | FEIGRO Dakwerken`}
+      title={`${post.title} | Feigro`}
       description={post.excerpt}
       canonical={`/nieuws/${post.id}`}
       ogType="article"

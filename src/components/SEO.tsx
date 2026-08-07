@@ -5,6 +5,37 @@ interface SEOProps extends PageSEO {
   siteName?: string;
 }
 
+const MAX_TITLE_LENGTH = 60;
+
+/**
+ * Builds the document title:
+ * - only appends the site name when the title has no branding (case-insensitive)
+ * - falls back to the short brand and trims the base when the result exceeds 60 chars
+ */
+export function buildTitle(title: string, siteName: string) {
+  const lower = title.toLowerCase();
+  let base = title;
+  let suffix = '';
+
+  const separatorIndex = lower.lastIndexOf(' | ');
+  if (separatorIndex > 0 && lower.slice(separatorIndex).includes('feigro')) {
+    base = title.slice(0, separatorIndex);
+    suffix = title.slice(separatorIndex);
+  } else if (!lower.includes('feigro')) {
+    suffix = ` | ${siteName}`;
+  }
+
+  if (base.length + suffix.length > MAX_TITLE_LENGTH && suffix.toLowerCase().includes('dakwerken')) {
+    suffix = ' | Feigro';
+  }
+
+  if (base.length + suffix.length > MAX_TITLE_LENGTH) {
+    base = base.slice(0, MAX_TITLE_LENGTH - suffix.length).trimEnd().replace(/[-–|,]$/, '').trimEnd();
+  }
+
+  return `${base}${suffix}`;
+}
+
 export function SEO({
   title,
   description,
@@ -15,7 +46,8 @@ export function SEO({
   keywords,
   siteName = 'FEIGRO Dakwerken',
 }: SEOProps) {
-  const fullTitle = title.includes('FEIGRO') ? title : `${title} | ${siteName}`;
+  const fullTitle = buildTitle(title, siteName);
+
   const baseUrl = 'https://feigro.nl';
   const fullCanonical = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;

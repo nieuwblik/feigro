@@ -4,30 +4,30 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 
 // Pages
-import Index from './pages/Index';
-import NotFound from './pages/NotFound';
-import OverOns from './pages/OverOns';
-import Projecten from './pages/Projecten';
-import Diensten from './pages/Diensten';
-import Spoedservice from './pages/Spoedservice';
-import Contact from './pages/Contact';
-import Nieuws from './pages/Nieuws';
-import BlogDetail from './pages/BlogDetail';
-import Vacatures from './pages/Vacatures';
-import Cookies from './pages/Cookies';
-import ProjectDetail from './pages/ProjectDetail';
+const Index = lazy(() => import('./pages/Index'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const OverOns = lazy(() => import('./pages/OverOns'));
+const Projecten = lazy(() => import('./pages/Projecten'));
+const Diensten = lazy(() => import('./pages/Diensten'));
+const Spoedservice = lazy(() => import('./pages/Spoedservice'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Nieuws = lazy(() => import('./pages/Nieuws'));
+const BlogDetail = lazy(() => import('./pages/BlogDetail'));
+const Vacatures = lazy(() => import('./pages/Vacatures'));
+const Cookies = lazy(() => import('./pages/Cookies'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 // Service Pages
-import VveVastgoedbeheer from './pages/services/VveVastgoedbeheer';
-import Daklekkage from './pages/services/Daklekkage';
-import Dakreparatie from './pages/services/Dakreparatie';
-import Dakonderhoud from './pages/services/Dakonderhoud';
-import Dakrenovatie from './pages/services/Dakrenovatie';
-import Valbeveiliging from './pages/services/Valbeveiliging';
+const VveVastgoedbeheer = lazy(() => import('./pages/services/VveVastgoedbeheer'));
+const Daklekkage = lazy(() => import('./pages/services/Daklekkage'));
+const Dakreparatie = lazy(() => import('./pages/services/Dakreparatie'));
+const Dakonderhoud = lazy(() => import('./pages/services/Dakonderhoud'));
+const Dakrenovatie = lazy(() => import('./pages/services/Dakrenovatie'));
+const Valbeveiliging = lazy(() => import('./pages/services/Valbeveiliging'));
 
 const queryClient = new QueryClient();
 
@@ -60,7 +60,8 @@ const App = () => (
             <BrowserRouter>
               <ScrollToTop />
               <MainLayout>
-                <Routes>
+                <Suspense fallback={<div className="min-h-screen" />}>
+                  <Routes>
                   {/* Main Pages */}
                   <Route path="/" element={<Index />} />
                   <Route path="/diensten" element={<Diensten />} />
@@ -85,6 +86,7 @@ const App = () => (
                   {/* 404 - Must be last */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
+                </Suspense>
               </MainLayout>
             </BrowserRouter>
           </ScrollManager>

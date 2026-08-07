@@ -5,8 +5,10 @@ export interface PageSEO {
   description: string;
   canonical: string;
   ogImage?: string;
-  schema?: Record<string, unknown>;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   keywords?: string[];
+
 }
 
 export interface NavigationItem {

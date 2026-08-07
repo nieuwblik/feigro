@@ -126,9 +126,9 @@ export default function Cookies() {
             <aside className="hidden lg:block">
               <div className="sticky top-32">
                 <div className="bg-white rounded-xl border border-slate-200 p-6">
-                  <h3 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-4">
+                  <h2 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-4">
                     Inhoudsopgave
-                  </h3>
+                  </h2>
                   <nav className="space-y-1">
                     {tableOfContents.map((item) => (
                       <button
@@ -149,9 +149,9 @@ export default function Cookies() {
 
                 {/* Contact Card */}
                 <div className="bg-brand-green/10 rounded-xl p-6 mt-6">
-                  <h4 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-3">
+                  <h3 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-3">
                     Vragen?
-                  </h4>
+                  </h3>
                   <p className="text-sm text-slate-600 mb-4">
                     Neem contact met ons op voor vragen over uw privacy.
                   </p>

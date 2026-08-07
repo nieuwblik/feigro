@@ -196,7 +196,7 @@ export default function Contact() {
             {/* Right Column: Form */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
               <div className="bg-slate-50 border border-slate-200 p-8 md:p-12 lg:p-16 rounded-xl md:rounded-[2rem] relative z-10 select-none" id="contact-form">
-                <h3 className="text-2xl md:text-3xl font-heading text-slate-900 mb-8 md:mb-10 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h3>
+                <h2 className="text-2xl md:text-3xl font-heading text-slate-900 mb-8 md:mb-10 uppercase tracking-tighter">Stuur een <span className="text-brand-green italic">Bericht</span></h2>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

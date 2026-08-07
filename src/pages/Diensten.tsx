@@ -105,6 +105,9 @@ const Diensten = () => {
       {/* Services Grid */}
       <section className="py-20 md:py-28 lg:py-36 bg-white relative">
         <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-slate-900 mb-10 md:mb-14 tracking-tighter uppercase">
+            Onze dakwerken diensten
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {servicesDetail.map((service, i) => (
               <motion.div

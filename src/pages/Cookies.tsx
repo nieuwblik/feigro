@@ -128,7 +128,7 @@ export default function Cookies() {
                 <div className="bg-white rounded-xl border border-slate-200 p-6">
                   <h2 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-4">
                     Inhoudsopgave
-                  </h3>
+                  </h2>
                   <nav className="space-y-1">
                     {tableOfContents.map((item) => (
                       <button

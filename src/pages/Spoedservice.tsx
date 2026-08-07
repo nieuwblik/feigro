@@ -162,7 +162,7 @@ export default function Spoedservice() {
                       </div>
                       <h2 className="text-xl md:text-2xl font-heading mb-4 md:mb-5 text-slate-900 group-hover:text-brand-green transition-colors uppercase">
                         {feature.title}
-                      </h3>
+                      </h2>
                       <p className="text-slate-600 leading-relaxed text-sm font-light">
                         {feature.description}
                       </p>

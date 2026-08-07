@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { PasswordGate } from '@/components/PasswordGate';
 
 // Pages
 import Index from './pages/Index';
@@ -51,8 +50,8 @@ function ScrollToTop() {
 import { ScrollManager } from '@/components/ui/ScrollManager';
 
 const App = () => (
-  <PasswordGate>
-    <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+
       <HelmetProvider>
         <TooltipProvider>
           <ScrollManager>
@@ -91,8 +90,7 @@ const App = () => (
           </ScrollManager>
         </TooltipProvider>
       </HelmetProvider>
-    </QueryClientProvider>
-  </PasswordGate>
+  </QueryClientProvider>
 );
 
 export default App;

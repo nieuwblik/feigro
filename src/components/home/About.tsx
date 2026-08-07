@@ -1,7 +1,7 @@
 import React from 'react';
 import { InversedFlipButton } from '@/components/buttons';
 import { ParallaxImage, FadeIn } from '@/components/ui/ParallaxImage';
-import aboutImage from '@/assets/feigro-hoodielogokleur.jpg';
+import aboutImage from '@/assets/feigro-hoodielogokleur.webp';
 
 export const About = () => {
   return (

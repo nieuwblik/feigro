@@ -9,7 +9,7 @@ export const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="mb-6">
               <img 
-                src="/images/feigro-logo-wit.png" 
+                src="/images/feigro-logo-wit.webp" 
                 alt="FEIGRO Dakwerken" 
                 className="h-10 w-auto"
               />

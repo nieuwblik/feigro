@@ -8,7 +8,7 @@ import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/EPDM foto.webp';
 import footerImg3 from '@/assets/dakdekker-werk.webp';
 import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
-import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.png';
+import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.webp';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
@@ -75,7 +75,7 @@ export const Footer = () => {
   return <footer ref={footerRef} className="relative bg-white flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
     <div className="relative min-h-[500px] md:h-[60vh] w-full flex flex-col justify-center overflow-hidden">
-      <motion.img src="/images/footer_bg_roofing.png" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.45] scale-110" style={{
+      <motion.img src="/images/footer_bg_roofing.webp" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.45] scale-110" style={{
         y: backgroundY
       }} />
 

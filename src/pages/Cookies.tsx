@@ -151,7 +151,7 @@ export default function Cookies() {
                 <div className="bg-brand-green/10 rounded-xl p-6 mt-6">
                   <h3 className="font-heading text-sm uppercase tracking-wider text-slate-900 mb-3">
                     Vragen?
-                  </h4>
+                  </h3>
                   <p className="text-sm text-slate-600 mb-4">
                     Neem contact met ons op voor vragen over uw privacy.
                   </p>

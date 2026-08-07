@@ -68,6 +68,10 @@ export default function Projecten() {
     {/* Projects Grid */}
     <section className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-slate-900 mb-10 md:mb-14 tracking-tighter uppercase">
+          Uitgevoerde dakprojecten
+        </h2>
+
         {projectsList.length === 0 ? <div className="text-center py-20">
           <p className="text-slate-600 text-lg">Nog geen projecten beschikbaar.</p>
         </div> : <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">

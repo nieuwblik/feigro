@@ -60,12 +60,6 @@
 
   <!-- Service Pages -->
   <url>
-    <loc>https://feigro.nl/dakinspectie</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://feigro.nl/dakonderhoud</loc>
     <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>

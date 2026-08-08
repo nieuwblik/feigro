@@ -25,13 +25,9 @@ const staticPages: SitemapUrl[] = [
   { loc: '/contact', lastmod: TODAY, changefreq: 'monthly', priority: '0.7' },
   { loc: '/vacatures', lastmod: TODAY, changefreq: 'monthly', priority: '0.5' },
   // Service pages
-  { loc: '/dakinspectie', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
   { loc: '/dakonderhoud', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
   { loc: '/dakrenovatie', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
   { loc: '/dakreparatie', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
-  { loc: '/dakbedekking-vervangen', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
-  { loc: '/bitumen-dakbedekking', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
-  { loc: '/epdm-dakbedekking', lastmod: TODAY, changefreq: 'monthly', priority: '0.8' },
   { loc: '/valbeveiliging', lastmod: TODAY, changefreq: 'monthly', priority: '0.7' },
   { loc: '/vve-vastgoedbeheer', lastmod: TODAY, changefreq: 'monthly', priority: '0.7' },
   // Project detail pages

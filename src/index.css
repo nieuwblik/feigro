@@ -135,15 +135,19 @@
     @apply text-foreground;
   }
 
-  /* Lazy loading for images */
   img {
     @apply max-w-full h-auto;
   }
 
-  img[loading="lazy"] {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-  }
+  /*
+   * Hier stond een regel `img[loading="lazy"] { opacity: 1; transition: opacity
+   * .3s }`. Die deed niets nuttigs - opacity is al 1 en er was geen fade-in-
+   * state - maar hij brak wel elke andere transitie op een lazy-loaded foto:
+   * `img[loading="lazy"]` heeft specificiteit (0,1,1) en wint daarmee van zowel
+   * `.media-zoom` als Tailwinds `.transition-transform` (beide 0,1,0). Op elke
+   * kaartfoto werd transition-property dus teruggezet naar `opacity`, waardoor
+   * de hover-zoom zonder animatie versprong. Niet opnieuw toevoegen.
+   */
 
   /* Focus styles for accessibility */
   :focus-visible {
@@ -167,6 +171,62 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+@layer components {
+
+  /**
+   * Zachte zoom op foto's in kaarten (projecten, nieuws, diensten).
+   *
+   * Eén klasse in plaats van per kaart een eigen combinatie van
+   * transition-transform/duration/group-hover:scale: dat liep uiteen van 500 tot
+   * 1000 ms, en op een aantal plekken stond er wel een transition maar geen
+   * hover-doel - daar bewoog dus niets.
+   *
+   * De easing is dezelfde expo-out curve als de scroll-animaties elders op de
+   * site, zodat de zoom vlot inzet en rustig uitloopt in plaats van lineair aan
+   * te voelen. backface-visibility zet de foto op een eigen compositielaag;
+   * zonder die promotie herberekent de browser het schalen van een grote foto
+   * per frame op de CPU en oogt de zoom hakkerig.
+   *
+   * Gebruik: zet `group` op het klikbare element en `media-zoom` op de <img>.
+   */
+  .media-zoom {
+    transform: scale(1);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    backface-visibility: hidden;
+  }
+
+  /**
+   * Hoogtebegrenzing voor de cookiebalk.
+   *
+   * Zonder deze grens liep de balk met de instellingen open over de onderkant
+   * van het scherm heen op liggende telefoons (107% van de viewport), waardoor
+   * de bovenste schakelaars niet meer te bereiken waren.
+   *
+   * dvh houdt rekening met de in- en uitschuivende browserbalk op mobiel; de
+   * vh-regel erboven blijft staan als terugval voor browsers zonder dvh.
+   */
+  .cookie-bar {
+    max-height: 85vh;
+    max-height: 85dvh;
+  }
+
+  .group:hover .media-zoom,
+  .group:focus-visible .media-zoom {
+    transform: scale(1.06);
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .media-zoom,
+  .group:hover .media-zoom,
+  .group:focus-visible .media-zoom {
+    transition: none;
+    transform: none;
+  }
 }
 
 @layer utilities {

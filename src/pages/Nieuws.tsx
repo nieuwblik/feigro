@@ -109,7 +109,7 @@ export default function Nieuws() {
           {/* Image */}
           <div className="relative group">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200">
-              <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+              <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover media-zoom" />
             </div>
             <div className="absolute -bottom-4 -right-4 bg-brand-green text-white px-6 py-3 rounded-xl">
               <span className="text-xs font-bold uppercase tracking-wider">Uitgelicht</span>
@@ -190,7 +190,7 @@ export default function Nieuws() {
                 <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-brand-green/30 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
                   {/* Image */}
                   <div className="aspect-[16/9] overflow-hidden relative">
-                    <img loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
+                    <img loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-full object-cover media-zoom" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
                       <span className="bg-brand-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">

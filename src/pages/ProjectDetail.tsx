@@ -193,7 +193,7 @@ export default function ProjectDetail() {
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
+                        className={`group flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
                             ? 'border-brand-green ring-2 ring-brand-green/20'
                             : 'border-slate-200 hover:border-slate-400'
                           }`}
@@ -201,7 +201,7 @@ export default function ProjectDetail() {
                         <img loading="lazy" decoding="async"
                           src={img}
                           alt={`${project.title} - Thumbnail ${idx + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover media-zoom"
                         />
                       </button>
                     ))}
@@ -323,11 +323,13 @@ export default function ProjectDetail() {
                         to={`/projecten/${p.slug}`}
                         className="group flex gap-4 items-center"
                       >
-                        <img loading="lazy" decoding="async"
-                          src={p.imageAfter}
-                          alt={p.title}
-                          className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                        />
+                        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                          <img loading="lazy" decoding="async"
+                            src={p.imageAfter}
+                            alt={p.title}
+                            className="w-full h-full object-cover media-zoom"
+                          />
+                        </div>
                         <div>
                           <h4 className="font-medium text-slate-900 group-hover:text-brand-green transition-colors text-sm">
                             {p.title}

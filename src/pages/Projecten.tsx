@@ -91,7 +91,7 @@ export default function Projecten() {
             <Link to={`/projecten/${project.slug}`} className="group block">
               {/* Image Container */}
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-slate-200">
-                <img loading="lazy" decoding="async" src={project.imageAfter} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={project.imageAfter} alt={project.title} className="w-full h-full object-cover media-zoom" />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
 
                 {/* Hover Arrow */}

@@ -54,7 +54,7 @@ export const FeaturedProjects = () => {
                     <img loading="lazy" decoding="async"
                       src={project.imageAfter}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover media-zoom"
                     />
                     {/* Dark overlay for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -124,7 +124,7 @@ export const FeaturedProjects = () => {
                     <img loading="lazy" decoding="async"
                       src={project.imageAfter}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover media-zoom"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </AspectRatio>

@@ -38,7 +38,7 @@ export default function Vacatures() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
+      <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 px-4 md:px-6 overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black"></div>
         <div className="container mx-auto relative z-10">
           <motion.div

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/epdm-dakbedekking.webp';
@@ -11,6 +12,7 @@ import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
 import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.webp';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { resetConsent } = useCookieConsent();
   const footerRef = useRef<HTMLElement>(null);
   const {
     scrollYProgress
@@ -200,9 +202,20 @@ export const Footer = () => {
 
       {/* Bottom Bar Row */}
       <FadeIn className="mt-12 md:mt-24 pt-6 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-        <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
-          © {currentYear} FEIGRO DAKWERKEN — ALLE RECHTEN VOORBEHOUDEN
-        </p>
+        <div className="flex flex-col items-center gap-3 md:flex-row md:gap-6">
+          <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
+            © {currentYear} FEIGRO DAKWERKEN — ALLE RECHTEN VOORBEHOUDEN
+          </p>
+          {/* Toestemming intrekken moet net zo makkelijk zijn als geven; deze
+              knop haalt de cookiebalk direct weer terug. */}
+          <button
+            type="button"
+            onClick={resetConsent}
+            className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium transition-colors hover:text-brand-green"
+          >
+            Cookievoorkeuren
+          </button>
+        </div>
 
         <div className="flex items-center gap-2 md:gap-3">
           <span className="text-slate-300 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium">MADE BY</span>

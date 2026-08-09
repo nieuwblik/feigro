@@ -1,251 +1,212 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useId, useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, Cookie, BarChart3, Megaphone, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Cookie } from 'lucide-react';
 import { useCookieConsent, CookiePreferences } from '@/hooks/useCookieConsent';
 import { Switch } from '@/components/ui/switch';
-import { cn } from '@/lib/utils';
 
-interface CookieCategoryProps {
-  icon: React.ReactNode;
+/**
+ * Cookiebanner: een smalle balk onderaan de site.
+ *
+ * De vorige versie was een kaart van zo'n 500 pixels hoog die op desktop de
+ * rechterkolom afdekte en op mobiel het hele scherm achter een backdrop zette.
+ * Daardoor was een deel van de pagina niet te lezen of aan te klikken zolang er
+ * geen keuze gemaakt was.
+ *
+ * Deze versie blijft binnen de onderrand, houdt de tekst tot één regel en zet de
+ * categorieën pas uit als iemand op Instellingen klikt. Weigeren kost precies
+ * evenveel klikken als accepteren; dat is niet alleen netjes maar ook wat de
+ * AVG-toezichthouders van een cookiebanner verwachten.
+ */
+
+interface CategoryRowProps {
   title: string;
   description: string;
-  enabled: boolean;
-  onToggle?: (enabled: boolean) => void;
-  required?: boolean;
-  expanded?: boolean;
-  onExpand?: () => void;
+  checked: boolean;
+  onCheckedChange?: (checked: boolean) => void;
+  locked?: boolean;
 }
 
-function CookieCategory({ 
-  icon, 
-  title, 
-  description, 
-  enabled, 
-  onToggle, 
-  required,
-  expanded,
-  onExpand
-}: CookieCategoryProps) {
+function CategoryRow({ title, description, checked, onCheckedChange, locked }: CategoryRowProps) {
   return (
-    <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-      <div 
-        className="flex items-center justify-between cursor-pointer"
-        onClick={onExpand}
-      >
-        <div className="flex items-center gap-3">
-          <div className={cn(
-            "w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
-            enabled ? "bg-brand-green/10 text-brand-green" : "bg-slate-200 text-slate-500"
-          )}>
-            {icon}
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-heading text-sm uppercase tracking-wide text-slate-900">
-                {title}
-              </span>
-              {required && (
-                <span className="text-[10px] uppercase tracking-wider bg-brand-green/10 text-brand-green px-2 py-0.5 rounded-full font-medium">
-                  Vereist
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          {expanded !== undefined && (
-            <button className="text-slate-400 hover:text-slate-600 transition-colors p-1">
-              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
+    <div className="py-3 md:py-0">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="font-heading text-xs uppercase tracking-wider text-slate-900">
+            {title}
+          </span>
+          {locked && (
+            <span className="text-[10px] uppercase tracking-wider text-slate-400">
+              Altijd aan
+            </span>
           )}
-          <Switch
-            checked={enabled}
-            onCheckedChange={onToggle}
-            disabled={required}
-            className={cn(
-              "data-[state=checked]:bg-brand-green",
-              required && "opacity-100 cursor-not-allowed"
-            )}
-          />
         </div>
+        <Switch
+          checked={checked}
+          onCheckedChange={onCheckedChange}
+          disabled={locked}
+          aria-label={title}
+          className="shrink-0 data-[state=checked]:bg-brand-green"
+        />
       </div>
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <p className="text-sm text-slate-600 mt-3 pl-[52px] leading-relaxed">
-              {description}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+        {description}
+      </p>
     </div>
   );
 }
 
 export function CookieConsent() {
-  const { hasConsented, preferences, isLoaded, acceptAll, savePreferences } = useCookieConsent();
-  const [showDetails, setShowDetails] = useState(false);
-  const [localPrefs, setLocalPrefs] = useState<CookiePreferences>({
-    necessary: true,
-    analytics: false,
-    marketing: false,
-  });
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const { hasConsented, preferences, isLoaded, acceptAll, acceptNecessaryOnly, savePreferences } =
+    useCookieConsent();
+  const [showSettings, setShowSettings] = useState(false);
+  const [localPrefs, setLocalPrefs] = useState<CookiePreferences>(preferences);
+  const reduceMotion = useReducedMotion();
+  const titleId = useId();
 
   useEffect(() => {
     setLocalPrefs(preferences);
   }, [preferences]);
 
-  // Don't render until loaded to prevent flash
-  if (!isLoaded || hasConsented) {
-    return null;
-  }
-
-  const handleSavePreferences = () => {
-    savePreferences(localPrefs);
-  };
-
-  const toggleCategory = (category: string) => {
-    setExpandedCategory(expandedCategory === category ? null : category);
-  };
+  // Niets tonen tot de opgeslagen keuze geladen is, anders flitst de balk even
+  // in beeld bij bezoekers die al gekozen hebben.
+  if (!isLoaded || hasConsented) return null;
 
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 100, opacity: 0 }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="fixed bottom-0 left-0 right-0 md:bottom-6 md:left-auto md:right-6 z-50 md:max-w-md"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby={titleId}
+        initial={reduceMotion ? { opacity: 0 } : { y: '100%' }}
+        animate={reduceMotion ? { opacity: 1 } : { y: 0 }}
+        exit={reduceMotion ? { opacity: 0 } : { y: '100%' }}
+        transition={reduceMotion ? { duration: 0.2 } : { duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        className="cookie-bar fixed inset-x-0 bottom-0 z-[60] flex flex-col border-t border-slate-200 bg-white/95 backdrop-blur-md shadow-[0_-8px_30px_rgba(15,23,42,0.08)]"
       >
-        {/* Backdrop for mobile */}
-        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden -z-10" />
-        
-        <div className="bg-white/95 backdrop-blur-lg border border-slate-200 md:rounded-2xl shadow-2xl overflow-hidden">
-          {/* Header */}
-          <div className="p-6 pb-4">
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-brand-green" />
+        <div className="mx-auto flex w-full min-h-0 max-w-7xl flex-col px-4 py-3 md:px-6 md:py-5 [@media(max-height:600px)]:py-2">
+          {/* Uitklapbare voorkeuren, boven de knoppen zodat de balk niet verspringt */}
+          <AnimatePresence initial={false}>
+            {showSettings && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+                /*
+                 * min-h-0 + overflow-y-auto: alleen dit paneel scrollt als de
+                 * ruimte krap is. De toelichting en de knoppen eronder blijven
+                 * daardoor altijd zichtbaar, ook op een liggende telefoon.
+                 */
+                className="min-h-0 overflow-y-auto"
+              >
+                <div className="mb-3 rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-1 md:mb-4 md:px-5 md:py-4">
+                  {/* Op mobiel onder elkaar met scheidingslijnen, op desktop drie
+                      kolommen zodat elke schakelaar naast zijn eigen label staat
+                      in plaats van aan de andere kant van het scherm. */}
+                  <div className="divide-y divide-slate-200/70 md:grid md:grid-cols-3 md:gap-x-8 md:divide-y-0">
+                    <CategoryRow
+                      title="Noodzakelijk"
+                      description="Nodig om de site te laten werken, bijvoorbeeld om uw cookiekeuze te onthouden."
+                      checked
+                      locked
+                    />
+                    <CategoryRow
+                      title="Analytisch"
+                      description="Anonieme statistieken over het gebruik van de site, zodat we hem kunnen verbeteren."
+                      checked={localPrefs.analytics}
+                      onCheckedChange={analytics => setLocalPrefs(prev => ({ ...prev, analytics }))}
+                    />
+                    <CategoryRow
+                      title="Marketing"
+                      description="Volgt uw bezoek om advertenties te tonen die aansluiten op uw interesses."
+                      checked={localPrefs.marketing}
+                      onCheckedChange={marketing => setLocalPrefs(prev => ({ ...prev, marketing }))}
+                    />
+                  </div>
+
+                  {/* Opslaan hoort bij de schakelaars, niet bij de hoofdknoppen:
+                      zo blijven Weigeren en Accepteren altijd op hun plek staan. */}
+                  <div className="mt-1 flex justify-end border-t border-slate-200/70 pt-3 md:mt-4">
+                    <button
+                      type="button"
+                      onClick={() => savePreferences(localPrefs)}
+                      className="whitespace-nowrap rounded-xl border-2 border-slate-200 bg-white px-4 py-2 font-heading text-[11px] uppercase tracking-wider text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:text-xs"
+                    >
+                      Voorkeuren opslaan
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading text-lg uppercase tracking-tight text-slate-900">
-                    Privacy<span className="text-brand-green italic">voorkeuren</span>
-                  </h3>
-                  <p className="text-xs text-slate-500">FEIGRO respecteert uw privacy</p>
-                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="flex shrink-0 flex-col gap-3 md:gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            {/* Toelichting */}
+            <div className="flex items-start gap-3 lg:items-center">
+              <span
+                aria-hidden="true"
+                className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green sm:flex [@media(max-height:600px)]:sm:hidden"
+              >
+                <Cookie className="h-5 w-5" />
+              </span>
+              <div className="min-w-0">
+                <h2
+                  id={titleId}
+                  className="font-heading text-[13px] uppercase tracking-tight text-slate-900 sm:text-sm"
+                >
+                  Cookies op deze site
+                </h2>
+                <p className="mt-1 text-[13px] leading-relaxed text-slate-600 sm:text-sm">
+                  Analytische en marketingcookies gebruiken we alleen met uw toestemming.{' '}
+                  <Link
+                    to="/cookies"
+                    className="font-medium text-brand-green underline underline-offset-2 hover:text-brand-green/80"
+                  >
+                    Meer over ons cookiebeleid
+                  </Link>
+                </p>
               </div>
             </div>
-            
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Wij gebruiken cookies om uw ervaring te verbeteren en onze website te optimaliseren. 
-              U kunt uw voorkeuren hieronder aanpassen.
-            </p>
-          </div>
 
-          {/* Cookie Categories */}
-          <div className="px-6 space-y-3">
-            <CookieCategory
-              icon={<Cookie className="w-5 h-5" />}
-              title="Noodzakelijk"
-              description="Deze cookies zijn essentieel voor de basisfunctionaliteit van de website. Ze zorgen ervoor dat u door de site kunt navigeren en functies kunt gebruiken."
-              enabled={true}
-              required
-              expanded={expandedCategory === 'necessary'}
-              onExpand={() => toggleCategory('necessary')}
-            />
-            
-            {showDetails && (
-              <>
-                <CookieCategory
-                  icon={<BarChart3 className="w-5 h-5" />}
-                  title="Analytisch"
-                  description="Met analytische cookies kunnen wij het gebruik van onze website analyseren en verbeteren. Deze gegevens worden anoniem verzameld en maken geen inbreuk op uw privacy."
-                  enabled={localPrefs.analytics}
-                  onToggle={(enabled) => setLocalPrefs(prev => ({ ...prev, analytics: enabled }))}
-                  expanded={expandedCategory === 'analytics'}
-                  onExpand={() => toggleCategory('analytics')}
-                />
-                
-                <CookieCategory
-                  icon={<Megaphone className="w-5 h-5" />}
-                  title="Marketing"
-                  description="Marketing cookies worden gebruikt om bezoekers te volgen en relevante advertenties te tonen. Deze cookies verzamelen informatie over uw surfgedrag."
-                  enabled={localPrefs.marketing}
-                  onToggle={(enabled) => setLocalPrefs(prev => ({ ...prev, marketing: enabled }))}
-                  expanded={expandedCategory === 'marketing'}
-                  onExpand={() => toggleCategory('marketing')}
-                />
-              </>
-            )}
-          </div>
-
-          {/* Toggle Details */}
-          <div className="px-6 pt-3">
-            <button
-              onClick={() => setShowDetails(!showDetails)}
-              className="flex items-center gap-2 text-sm text-slate-500 hover:text-brand-green transition-colors"
-            >
-              {showDetails ? (
-                <>
-                  <ChevronUp className="w-4 h-4" />
-                  Minder opties
-                </>
-              ) : (
-                <>
-                  <ChevronDown className="w-4 h-4" />
-                  Meer opties
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Actions */}
-          <div className="p-6 pt-4 space-y-3">
-            <div className="flex gap-3">
+            {/*
+              Acties. Weigeren en accepteren staan naast elkaar in dezelfde maat:
+              even zichtbaar en even veel klikken, zoals de AVG voorschrijft.
+              Instellingen staat eronder als tekstknop, want dat is de minst
+              gekozen route.
+            */}
+            {/*
+              Geen whitespace-nowrap op de twee hoofdknoppen: op een 320px-scherm
+              past "Alleen noodzakelijk" niet op een regel en werd het label
+              afgekapt. Nu breekt het netjes over twee regels, gecentreerd, en
+              blijven beide knoppen even groot.
+            */}
+            <div className="grid w-full grid-cols-2 gap-2 sm:gap-3 lg:flex lg:w-auto lg:items-center">
               <button
+                type="button"
+                onClick={() => setShowSettings(prev => !prev)}
+                aria-expanded={showSettings}
+                className="col-span-2 order-last min-w-0 whitespace-nowrap rounded-xl px-3 py-2 font-heading text-[11px] uppercase tracking-wider text-slate-500 transition-colors hover:text-slate-900 sm:text-xs lg:order-first lg:col-span-1 lg:px-4 lg:py-3"
+              >
+                {showSettings ? 'Verbergen' : 'Instellingen'}
+              </button>
+
+              <button
+                type="button"
+                onClick={acceptNecessaryOnly}
+                className="min-w-0 text-balance rounded-xl border-2 border-slate-200 px-2 py-2.5 text-center font-heading text-[10px] uppercase leading-tight tracking-wider text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-5 sm:text-xs lg:whitespace-nowrap lg:py-3"
+              >
+                Alleen noodzakelijk
+              </button>
+
+              <button
+                type="button"
                 onClick={acceptAll}
-                className="flex-1 bg-brand-green text-feigro-dark font-heading uppercase tracking-wider text-sm py-3 px-4 rounded-xl hover:bg-brand-green/90 transition-colors"
+                className="min-w-0 text-balance rounded-xl bg-brand-green px-2 py-2.5 text-center font-heading text-[10px] uppercase leading-tight tracking-wider text-feigro-dark transition-colors hover:bg-brand-green/90 sm:px-5 sm:text-xs lg:whitespace-nowrap lg:py-3"
               >
                 Alles accepteren
               </button>
-              {showDetails && (
-                <button
-                  onClick={handleSavePreferences}
-                  className="flex-1 border-2 border-slate-200 text-slate-700 font-heading uppercase tracking-wider text-sm py-3 px-4 rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-colors"
-                >
-                  Opslaan
-                </button>
-              )}
             </div>
-            
-            {!showDetails && (
-              <button
-                onClick={() => savePreferences({ necessary: true, analytics: false, marketing: false })}
-                className="w-full text-sm text-slate-500 hover:text-slate-700 transition-colors py-2"
-              >
-                Alleen noodzakelijke cookies
-              </button>
-            )}
-          </div>
-
-          {/* Footer Link */}
-          <div className="px-6 pb-6 pt-0">
-            <Link
-              to="/cookies"
-              className="flex items-center justify-center gap-2 text-sm text-brand-green hover:underline transition-colors"
-            >
-              Bekijk ons volledige privacy- en cookiebeleid
-              <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            </Link>
           </div>
         </div>
       </motion.div>

@@ -6,7 +6,9 @@ export interface PageSEO {
   canonical: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
-  schema?: Record<string, unknown> | Record<string, unknown>[];
+  // `object` in plaats van Record<string, unknown>, zodat de getypeerde
+  // schema-interfaces uit types/seo.ts hier zonder cast in passen.
+  schema?: object | object[];
   keywords?: string[];
 
 }

@@ -1,5 +1,6 @@
-import { ServicePageData } from '@/types';
+import { PageSEO, ServicePageData } from '@/types';
 import { seoMetadata } from './seo-metadata';
+import { generateServiceSchema } from '@/lib/structured-data';
 import imgWestfriesland from '@/assets/feigro-dakdekking-westfriesland.webp';
 import imgInspectie from '@/assets/dakinspectie-noord-holland.webp';
 import imgEnkhuizen from '@/assets/epdm-dakbedekking.webp';
@@ -13,8 +14,27 @@ import imgDakreparatieWerk from '@/assets/dakreparatie-werk.webp';
 import imgDakonderhoudWerk from '@/assets/dakonderhoud-werk.webp';
 import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.webp';
 
+/**
+ * Hangt een Service-schema aan de bestaande paginametadata.
+ *
+ * De <SEO> component zet `schema` als JSON-LD in de head; door het hier te doen
+ * krijgt elke dienstpagina automatisch een Service-node die via provider.@id aan
+ * de RoofingContractor-entiteit gekoppeld is - zonder dat de pagina's zelf iets
+ * hoeven te weten van schema.org.
+ */
+function withServiceSchema(seo: PageSEO, serviceName: string): PageSEO {
+  return {
+    ...seo,
+    schema: generateServiceSchema({
+      name: serviceName,
+      description: seo.description,
+      url: seo.canonical,
+    }),
+  };
+}
+
 export const vveVastgoedbeheerData: ServicePageData = {
-  seo: seoMetadata.vveVastgoedbeheer,
+  seo: withServiceSchema(seoMetadata.vveVastgoedbeheer, 'Dakonderhoud voor VvE en vastgoedbeheer'),
   hero: {
     title: 'Samenwerk mogelijkheden voor VVE en Vastgoedbeheer',
     subtitle: 'Een samenwerking met Feigro Dakwerken biedt uw VvE en Vastgoed de zekerheid van duurzame dakzorg.',
@@ -107,7 +127,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
 };
 
 export const dakinspectieData: ServicePageData = {
-  seo: seoMetadata.dakinspectie,
+  seo: withServiceSchema(seoMetadata.dakinspectie, 'Dakinspectie'),
   hero: {
     title: 'Professionele Dakinspectie',
     subtitle: 'Een grondige dakinspectie voorkomt dure reparaties. Onze gecertificeerde dakspecialisten controleren uw dak op gebreken en advieseren over noodzakelijk onderhoud.',
@@ -145,7 +165,7 @@ export const dakinspectieData: ServicePageData = {
     {
       icon: 'Clock',
       title: 'Snel Resultaat',
-      description: 'Binnen 48 uur na inspectie ontvangt u het volledige inspectierapp ort met bevindingen en advies.',
+      description: 'Binnen 48 uur na inspectie ontvangt u het volledige inspectierapport met bevindingen en advies.',
     },
   ],
   info: {
@@ -182,7 +202,7 @@ export const dakinspectieData: ServicePageData = {
 };
 
 export const dakonderhoudData: ServicePageData = {
-  seo: seoMetadata.dakonderhoud,
+  seo: withServiceSchema(seoMetadata.dakonderhoud, 'Dakonderhoud'),
   hero: {
     title: 'Vakkundig Dakonderhoud',
     subtitle: 'Regelmatig onderhoud verlengt de levensduur van uw dak aanzienlijk. FEIGRO zorgt voor professioneel onderhoud aan alle type daken.',
@@ -250,7 +270,7 @@ export const dakonderhoudData: ServicePageData = {
 };
 
 export const dakrenovatieData: ServicePageData = {
-  seo: seoMetadata.dakrenovatie,
+  seo: withServiceSchema(seoMetadata.dakrenovatie, 'Dakrenovatie'),
   hero: {
     title: 'Complete Dakrenovatie',
     subtitle: 'Complete dakrenovatie Feigro dakwerken ontzorgt.',
@@ -324,7 +344,7 @@ export const dakrenovatieData: ServicePageData = {
 };
 
 export const dakbedekkingVervangenData: ServicePageData = {
-  seo: seoMetadata.dakbedekkingVervangen,
+  seo: withServiceSchema(seoMetadata.dakbedekkingVervangen, 'Dakbedekking vervangen'),
   hero: {
     title: 'Dakbedekking Vervangen',
     subtitle: 'Uw dakbedekking aan vervanging toe? FEIGRO vervangt professioneel alle soorten dakbedekkingen. EPDM, bitumen, PVC of pannen - wij doen het allemaal.',
@@ -399,7 +419,7 @@ export const dakbedekkingVervangenData: ServicePageData = {
 };
 
 export const bitumenDakbedekkingData: ServicePageData = {
-  seo: seoMetadata.bitumenDakbedekking,
+  seo: withServiceSchema(seoMetadata.bitumenDakbedekking, 'Bitumen dakbedekking'),
   hero: {
     title: 'Bitumen Dakbedekking',
     subtitle: 'Bitumen dakbedekking: betrouwbaar, betaalbaar en bewezen. FEIGRO is specialist in het aanbrengen van bitumen op platte daken.',
@@ -474,7 +494,7 @@ export const bitumenDakbedekkingData: ServicePageData = {
 };
 
 export const epdmDakbedekkingData: ServicePageData = {
-  seo: seoMetadata.epdmDakbedekking,
+  seo: withServiceSchema(seoMetadata.epdmDakbedekking, 'EPDM dakbedekking'),
   hero: {
     title: 'EPDM Dakbedekking',
     subtitle: 'EPDM rubber dakbedekking: 50 jaar levensduur, onderhoudsarm en hoogwaardig. FEIGRO is gecertificeerd EPDM specialist.',
@@ -545,7 +565,7 @@ export const epdmDakbedekkingData: ServicePageData = {
 };
 
 export const daklekkageData: ServicePageData = {
-  seo: seoMetadata.daklekkage,
+  seo: withServiceSchema(seoMetadata.daklekkage, 'Spoedservice daklekkage'),
   hero: {
     title: 'Daklekkage? Direct Hulp!',
     subtitle: 'Acute daklekkage? FEIGRO staat 24/7 voor u klaar. Snelle respons, vakkundige reparatie.',
@@ -602,7 +622,7 @@ export const daklekkageData: ServicePageData = {
 // (dakinspectieData, dakonderhoudData, dakrenovatieData, etc.)
 
 export const dakreparatieData: ServicePageData = {
-  seo: seoMetadata.dakreparatie,
+  seo: withServiceSchema(seoMetadata.dakreparatie, 'Dakreparatie'),
   hero: {
     title: 'Professionele Dakreparatie',
     subtitle: 'Dakschade of lekkage? FEIGRO repareert snel en vakkundig alle soorten dakschades. Van kleine reparaties tot grote herstelwerkzaamheden.',
@@ -662,7 +682,7 @@ export const dakreparatieData: ServicePageData = {
 };
 
 export const valbeveiligingssysteemData: ServicePageData = {
-  seo: seoMetadata.valbeveiliging,
+  seo: withServiceSchema(seoMetadata.valbeveiliging, 'Valbeveiliging op daken'),
   hero: {
     title: 'Valbeveiliging systemen',
     subtitle: 'Veilig werken op hoogte met gecertificeerde valbeveiligingssystemen. FEIGRO installeert professionele systemen volgens de nieuwste NEN-normen.',

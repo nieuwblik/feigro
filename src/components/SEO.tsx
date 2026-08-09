@@ -40,10 +40,12 @@ export function SEO({
   title,
   description,
   canonical,
-  ogImage = 'https://storage.googleapis.com/gpt-engineer-file-uploads/3EEbbwIN3rTrzVglyQtstmL7FqT2/social-images/social-1769163940075-social%20image%20feigro.png',
+  ogImage = '/og-image.png',
   ogType = 'website',
   schema,
-  keywords,
+  // `keywords` blijft in PageSEO staan als redactionele houvast per pagina, maar
+  // wordt bewust niet meer als <meta name="keywords"> uitgestuurd: geen enkele
+  // zoekmachine gebruikt die tag nog.
   siteName = 'FEIGRO Dakwerken',
 }: SEOProps) {
   const fullTitle = buildTitle(title, siteName);
@@ -57,9 +59,6 @@ export function SEO({
       {/* Basic meta tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords && keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
-      )}
       <link rel="canonical" href={fullCanonical} />
 
       {/* Open Graph */}

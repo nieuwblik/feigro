@@ -1,4 +1,5 @@
 // SEO Components barrel export
+export { SiteSchema, default as SiteSchemaDefault } from './SiteSchema';
 export { SEOHead, default as SEOHeadDefault } from './SEOHead';
 export { SEOBreadcrumb, default as SEOBreadcrumbDefault } from './SEOBreadcrumb';
 export { RelatedContent, default as RelatedContentDefault } from './RelatedContent';

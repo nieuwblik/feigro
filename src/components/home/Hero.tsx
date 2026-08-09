@@ -8,6 +8,13 @@ import heroSlide1 from '@/assets/hero-slide-1.webp';
 import heroSlide2 from '@/assets/hero-slide-2.webp';
 import heroSlide3 from '@/assets/hero-slide-3.webp';
 const heroImages = [heroSlide1, heroSlide2, heroSlide3];
+
+/** Beschrijvende alt-teksten; de mobiele slides hadden er helemaal geen. */
+const heroImageAlts = [
+  'Dakdekker van Feigro aan het werk op een plat dak in Noord-Holland',
+  'Feigro monteert nieuwe dakbedekking op een bedrijfspand',
+  'Afgeronde dakrenovatie door Feigro Dakwerken',
+];
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,9 +37,13 @@ export const Hero = () => {
           <motion.img
             key={index}
             src={img}
-            alt={`Professional roofing work ${index + 1}`}
+            alt={heroImageAlts[index]}
             className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.9] contrast-[1.05] scale-100"
             loading={index === 0 ? "eager" : "lazy"}
+            // De eerste slide is de LCP van de homepage: hoog prioriteren zodat
+            // de browser hem niet achter de overige assets in de wachtrij zet.
+            fetchPriority={index === 0 ? "high" : "low"}
+            decoding={index === 0 ? "sync" : "async"}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === currentSlide ? 1 : 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -48,7 +59,11 @@ export const Hero = () => {
         <motion.img
           key={index}
           src={img}
+          alt={heroImageAlts[index]}
           className="absolute inset-0 w-full h-full object-cover object-center brightness-[0.9] scale-100"
+          loading={index === 0 ? "eager" : "lazy"}
+          fetchPriority={index === 0 ? "high" : "low"}
+          decoding={index === 0 ? "sync" : "async"}
           animate={{ opacity: index === currentSlide ? 1 : 0 }}
           transition={{ duration: 1.2 }}
         />

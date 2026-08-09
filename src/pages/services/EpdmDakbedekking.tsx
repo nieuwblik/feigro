@@ -6,17 +6,19 @@ import { FAQSection } from '@/components/sections/FAQSection';
 
 import { epdmDakbedekkingData } from '@/data/services';
 
+import { ServiceCTA } from '@/components/sections/ServiceCTA';
+
 export default function EpdmDakbedekking() {
-  const { seo, hero, features, featureTitle, info, faqs } = epdmDakbedekkingData;
+  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = epdmDakbedekkingData;
 
   return (
     <>
       <SEO {...seo} />
       <HeroSection {...hero} />
       <InfoSection {...info} />
-      <FeatureGrid features={features} title={featureTitle} />
+      <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <FAQSection faqs={faqs} />
-
+      <ServiceCTA />
     </>
   );
 }

@@ -190,6 +190,25 @@ export interface LocalBusinessSchema {
     closes: string;
   }[];
   areaServed?: string[];
+  sameAs?: string[];
+}
+
+export interface ServiceSchema {
+  '@context': string;
+  '@type': 'Service';
+  name: string;
+  description: string;
+  serviceType: string;
+  url: string;
+  provider: {
+    '@type': 'RoofingContractor';
+    '@id': string;
+    name: string;
+  };
+  areaServed: {
+    '@type': 'AdministrativeArea';
+    name: string;
+  }[];
 }
 
 export interface AggregateRatingSchema {

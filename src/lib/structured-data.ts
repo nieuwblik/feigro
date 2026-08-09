@@ -14,7 +14,8 @@ import {
   BreadcrumbItem,
   Author,
   ReviewItem,
-  AggregateRatingData
+  AggregateRatingData,
+  ServiceSchema
 } from '@/types/seo';
 import { FAQItem } from '@/types';
 import { getBaseUrl, getSiteName } from './seo-utils';
@@ -22,7 +23,22 @@ import { getBaseUrl, getSiteName } from './seo-utils';
 const BASE_URL = getBaseUrl();
 const SITE_NAME = getSiteName();
 const LOGO_URL = `${BASE_URL}/images/feigro-logo.webp`;
-const PHONE = '+31229274878';
+
+/**
+ * Het nummer dat overal op de site staat (header, footer, alle CTA's).
+ * Houd dit gelijk aan het nummer in Google Business Profile: afwijkende
+ * NAP-gegevens verzwakken de lokale vindbaarheid.
+ */
+const PHONE = '+31613731303';
+
+/**
+ * Profielen waarop hetzelfde bedrijf te vinden is. Zoekmachines en LLM's
+ * gebruiken sameAs om de website aan de juiste entiteit te koppelen.
+ * Vul aan zodra de Google Business Profile- en social-URL's bekend zijn.
+ */
+const SAME_AS: string[] = [];
+
+const AREA_SERVED = ['Noord-Holland', 'Flevoland', 'Utrecht'];
 
 /**
  * Generate Organization schema for homepage/about
@@ -34,9 +50,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     name: SITE_NAME,
     url: BASE_URL,
     logo: LOGO_URL,
-    sameAs: [
-      // Add social profiles when available
-    ],
+    sameAs: SAME_AS,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: PHONE,
@@ -46,6 +60,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     },
     address: {
       '@type': 'PostalAddress',
+      addressLocality: 'Enkhuizen',
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
     }
@@ -224,7 +239,38 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
         closes: '17:00'
       }
     ],
-    areaServed: ['Noord-Holland', 'Flevoland', 'Utrecht']
+    areaServed: AREA_SERVED,
+    sameAs: SAME_AS
+  };
+}
+
+/**
+ * Generate Service schema for a single service page.
+ * Koppelt de dienst aan de RoofingContractor-entiteit via @id, zodat
+ * zoekmachines en LLM's dienst en bedrijf als één geheel lezen.
+ */
+export function generateServiceSchema(service: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType?: string;
+}): ServiceSchema {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.description,
+    serviceType: service.serviceType ?? service.name,
+    url: service.url.startsWith('http') ? service.url : `${BASE_URL}${service.url}`,
+    provider: {
+      '@type': 'RoofingContractor',
+      '@id': BASE_URL,
+      name: SITE_NAME
+    },
+    areaServed: AREA_SERVED.map(name => ({
+      '@type': 'AdministrativeArea' as const,
+      name
+    }))
   };
 }
 

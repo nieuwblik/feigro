@@ -27,6 +27,10 @@ const pageLoaders = {
   dakonderhoud: () => import('./pages/services/Dakonderhoud'),
   dakrenovatie: () => import('./pages/services/Dakrenovatie'),
   valbeveiliging: () => import('./pages/services/Valbeveiliging'),
+  dakinspectie: () => import('./pages/services/Dakinspectie'),
+  dakbedekkingVervangen: () => import('./pages/services/DakbedekkingVervangen'),
+  bitumenDakbedekking: () => import('./pages/services/BitumenDakbedekking'),
+  epdmDakbedekking: () => import('./pages/services/EpdmDakbedekking'),
 };
 
 const Index = lazy(pageLoaders.index);
@@ -47,6 +51,10 @@ const Dakreparatie = lazy(pageLoaders.dakreparatie);
 const Dakonderhoud = lazy(pageLoaders.dakonderhoud);
 const Dakrenovatie = lazy(pageLoaders.dakrenovatie);
 const Valbeveiliging = lazy(pageLoaders.valbeveiliging);
+const Dakinspectie = lazy(pageLoaders.dakinspectie);
+const DakbedekkingVervangen = lazy(pageLoaders.dakbedekkingVervangen);
+const BitumenDakbedekking = lazy(pageLoaders.bitumenDakbedekking);
+const EpdmDakbedekking = lazy(pageLoaders.epdmDakbedekking);
 
 const queryClient = new QueryClient();
 
@@ -82,6 +90,10 @@ const routeLoaders: Record<string, () => Promise<unknown>> = {
   '/dakonderhoud': pageLoaders.dakonderhoud,
   '/dakrenovatie': pageLoaders.dakrenovatie,
   '/valbeveiliging': pageLoaders.valbeveiliging,
+  '/dakinspectie': pageLoaders.dakinspectie,
+  '/dakbedekking-vervangen': pageLoaders.dakbedekkingVervangen,
+  '/bitumen-dakbedekking': pageLoaders.bitumenDakbedekking,
+  '/epdm-dakbedekking': pageLoaders.epdmDakbedekking,
 };
 
 function RoutePrefetcher() {
@@ -181,6 +193,10 @@ const App = () => (
                   <Route path="/dakonderhoud" element={<Dakonderhoud />} />
                   <Route path="/dakrenovatie" element={<Dakrenovatie />} />
                   <Route path="/valbeveiliging" element={<Valbeveiliging />} />
+                  <Route path="/dakinspectie" element={<Dakinspectie />} />
+                  <Route path="/dakbedekking-vervangen" element={<DakbedekkingVervangen />} />
+                  <Route path="/bitumen-dakbedekking" element={<BitumenDakbedekking />} />
+                  <Route path="/epdm-dakbedekking" element={<EpdmDakbedekking />} />
 
                   {/* 404 - Must be last */}
                   <Route path="*" element={<NotFound />} />

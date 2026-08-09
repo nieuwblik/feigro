@@ -125,9 +125,9 @@ export function generateSlug(text: string): string {
 /**
  * Default meta description for the site
  */
-export const DEFAULT_DESCRIPTION = 'FEIGRO Dakwerken - Specialist in dakinspectie, dakonderhoud, dakrenovatie en spoedservice in Noord-Holland. Meer dan 25 jaar ervaring. Bel direct: 0229-274878.';
+export const DEFAULT_DESCRIPTION = 'FEIGRO Dakwerken - Specialist in dakinspectie, dakonderhoud, dakrenovatie en spoedservice in Noord-Holland. Meer dan 25 jaar ervaring. Bel direct: 06-13731303.';
 
 /**
  * Default OG image path
  */
-export const DEFAULT_OG_IMAGE = '/og/default.png';
+export const DEFAULT_OG_IMAGE = '/og-image.png';

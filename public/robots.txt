@@ -1,15 +1,75 @@
 # robots.txt voor FEIGRO Dakwerken
 # https://feigro.nl
+#
+# Alle crawlers zijn welkom, inclusief die van AI-zoekmachines.
+# Vermelding in AI-antwoorden vereist toegang voor zowel de zoek-agents
+# (die citeren) als de trainings-agents (die merkbekendheid opbouwen).
 
-# Googlebot - Volledige toegang
+User-agent: *
+Allow: /
+
+# --- Klassieke zoekmachines ---
 User-agent: Googlebot
 Allow: /
 
-# Bingbot - Volledige toegang
 User-agent: Bingbot
 Allow: /
 
-# Social Media Crawlers - Volledige toegang voor previews
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# --- AI-zoeken, citaties en live ophalen ---
+# OpenAI
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl (voedt veel open datasets)
+User-agent: CCBot
+Allow: /
+
+# --- Social media previews ---
 User-agent: Twitterbot
 Allow: /
 
@@ -19,44 +79,15 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Blokkeer AI Training Bots
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-# Alle andere bots
-User-agent: *
+User-agent: WhatsApp
 Allow: /
 
-# Blokkeer specifieke paden
+# --- Niet-publieke paden ---
+# Tracking-parameters worden bewust NIET geblokkeerd: de canonical-URL in
+# src/lib/seo-utils.ts strips ze al, terwijl een Disallow campagnelandingen
+# oncrawlbaar zou maken.
 Disallow: /api/
 Disallow: /admin/
-Disallow: /private/
-Disallow: /_next/
 
-# Blokkeer tracking parameters (duplicate content preventie)
-Disallow: /*?ref=
-Disallow: /*?utm_source=
-Disallow: /*?utm_medium=
-Disallow: /*?utm_campaign=
-Disallow: /*?utm_term=
-Disallow: /*?utm_content=
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
-
-# Sitemap locatie
+# --- Sitemap ---
 Sitemap: https://feigro.nl/sitemap.xml

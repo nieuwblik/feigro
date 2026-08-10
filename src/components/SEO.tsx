@@ -61,8 +61,10 @@ export function SEO({
   schema,
   keywords,
   siteName = 'FEIGRO Dakwerken',
+  noindex = false,
 }: SEOProps) {
   const fullTitle = buildTitle(title, siteName);
+  const metaDescription = clampDescription(description);
 
   const baseUrl = 'https://feigro.nl';
   const fullCanonical = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
@@ -72,11 +74,20 @@ export function SEO({
     <Helmet>
       {/* Basic meta tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDescription} />
+      <meta
+        name="robots"
+        content={
+          noindex
+            ? 'noindex, follow'
+            : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+        }
+      />
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
       <link rel="canonical" href={fullCanonical} />
+
 
       {/* Open Graph */}
       <meta property="og:type" content={ogType} />

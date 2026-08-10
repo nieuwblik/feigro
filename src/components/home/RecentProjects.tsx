@@ -58,7 +58,7 @@ const GalleryItem: React.FC<{
   aspectRatio
 }) => {
     return <div className={`relative overflow-hidden w-full ${aspectRatio} bg-stone-800`}>
-      <img src={item.url} alt="Feigro Project" className="w-full h-full object-cover transition-all duration-700" loading="lazy" />
+      <img src={item.url} alt={`Dakproject van Feigro: ${item.title ?? 'gerenoveerd dak in Noord-Holland'}`} className="w-full h-full object-cover transition-all duration-700" loading="lazy" />
     </div>;
   };
 export const RecentProjects = () => {

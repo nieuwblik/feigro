@@ -96,7 +96,7 @@ export default function Contact() {
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <ParallaxImage src={imgHero} alt="Contact" speed={80} containerClassName="w-full h-full" className="opacity-30" />
+          <ParallaxImage src={imgHero} alt="Bedrijfswagen en team van Feigro Dakwerken uit Enkhuizen" speed={80} containerClassName="w-full h-full" className="opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>
         </div>

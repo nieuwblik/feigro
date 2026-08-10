@@ -23,7 +23,7 @@ export default function Projecten() {
     <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        {projectsList[0] && <img src={projectsList[0].imageAfter} alt="Projecten" className="w-full h-full object-cover opacity-30" />}
+        {projectsList[0] && <img src={projectsList[0].imageAfter} alt="Gerenoveerd plat dak door Feigro Dakwerken in Noord-Holland" className="w-full h-full object-cover opacity-30" />}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         <div className="absolute inset-0 bg-black/20"></div>
       </div>

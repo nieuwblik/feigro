@@ -75,7 +75,7 @@ export const Footer = () => {
   return <footer ref={footerRef} className="relative bg-white flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
     <div className="relative min-h-[500px] md:h-[60vh] w-full flex flex-col justify-center overflow-hidden">
-      <motion.img src="/images/footer_bg_roofing.webp" alt="Modern Roofing" className="absolute inset-0 w-full h-full object-cover brightness-[0.45] scale-110" style={{
+      <motion.img src="/images/footer_bg_roofing.webp" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover brightness-[0.45] scale-110" style={{
         y: backgroundY
       }} />
 
@@ -122,7 +122,7 @@ export const Footer = () => {
         {/* Brand Column */}
         <FadeIn>
           <Link to="/" className="inline-block mb-2 group">
-            <img loading="lazy" decoding="async" src={feigroLogoKleur} alt="FEIGRO" className="h-8 md:h-10 w-auto group-hover:opacity-80 transition-all" />
+            <img loading="lazy" decoding="async" src={feigroLogoKleur} alt="Logo FEIGRO Dakwerken" className="h-8 md:h-10 w-auto group-hover:opacity-80 transition-all" />
           </Link>
         </FadeIn>
 

@@ -45,6 +45,7 @@ export default function Nieuws() {
         <img
           src={nieuwsHeroBg}
           alt=""
+          aria-hidden="true"
           className="w-full h-full object-cover opacity-40"
         />
       </div>

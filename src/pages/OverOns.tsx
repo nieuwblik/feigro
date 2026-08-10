@@ -42,7 +42,7 @@ export default function OverOns() {
         <div className="absolute inset-0 z-0">
           <ParallaxImage
             src={imgHero}
-            alt="Wie wij zijn"
+            alt="Dakdekkers van Feigro aan het werk op een plat dak in Enkhuizen"
             speed={80}
             containerClassName="w-full h-full"
             className="opacity-30"

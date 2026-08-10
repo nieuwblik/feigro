@@ -3,9 +3,25 @@ import { PageSEO } from '@/types';
 
 interface SEOProps extends PageSEO {
   siteName?: string;
+  /** Zet de pagina op noindex (bijv. juridische pagina's en foutpagina's) */
+  noindex?: boolean;
 }
 
 const MAX_TITLE_LENGTH = 60;
+const MAX_DESCRIPTION_LENGTH = 158;
+
+/**
+ * Kort een meta description netjes af op woordgrens (max 158 tekens).
+ */
+export function clampDescription(description: string) {
+  const clean = description.replace(/\s+/g, ' ').trim();
+  if (clean.length <= MAX_DESCRIPTION_LENGTH) return clean;
+
+  const cut = clean.slice(0, MAX_DESCRIPTION_LENGTH - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–]$/, '')}…`;
+}
+
 
 /**
  * Builds the document title:

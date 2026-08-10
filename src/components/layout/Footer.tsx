@@ -126,10 +126,8 @@ export const Footer = () => {
           }, {
             title: 'SUPPORT',
             items: resources
-          }, {
-            title: 'SOCIAL MEDIA',
-            items: socialLinks
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
+
             <div className="text-left">
               <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
               <ul className="space-y-3 md:space-y-4">

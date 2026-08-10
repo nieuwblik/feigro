@@ -198,23 +198,57 @@ export function generateFAQSchema(faqs: FAQItem[]): FAQPageSchema {
 }
 
 /**
+ * Kernplaatsen binnen het werkgebied (Noord-Holland, Flevoland, Utrecht)
+ */
+export const SERVICE_AREAS = [
+  'Noord-Holland',
+  'Flevoland',
+  'Utrecht',
+  'Enkhuizen',
+  'Hoorn',
+  'Medemblik',
+  'Purmerend',
+  'Alkmaar',
+  'Zaanstad',
+  'Amsterdam',
+  'Almere',
+  'Lelystad',
+  'Dronten',
+  'Utrecht (stad)',
+  'Amersfoort',
+  'Nieuwegein',
+];
+
+/**
  * Generate LocalBusiness schema for FEIGRO
  */
 export function generateLocalBusinessSchema(): LocalBusinessSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'RoofingContractor',
-    '@id': BASE_URL,
+    '@id': `${BASE_URL}/#organisatie`,
     name: SITE_NAME,
+    description:
+      'FEIGRO Dakwerken is dakdekker voor platte en hellende daken in Noord-Holland, Flevoland en Utrecht. Dakrenovatie, dakonderhoud, dakreparatie, valbeveiliging en 24/7 spoedhulp bij daklekkage.',
     image: LOGO_URL,
+    logo: LOGO_URL,
     url: BASE_URL,
     telephone: PHONE,
+    email: 'info@feigro.nl',
     priceRange: '€€',
+    currenciesAccepted: 'EUR',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Kruitmolen 28c',
+      postalCode: '1601 MC',
       addressLocality: 'Enkhuizen',
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 52.7025,
+      longitude: 5.2903
     },
     openingHoursSpecification: [
       {
@@ -222,11 +256,53 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
         closes: '17:00'
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+        description: 'Uitsluitend 24/7 spoedservice bij acute daklekkage'
       }
     ],
-    areaServed: ['Noord-Holland', 'Flevoland', 'Utrecht']
+    areaServed: SERVICE_AREAS,
+    knowsLanguage: ['nl-NL']
   };
 }
+
+/**
+ * Generate Service schema for a service page
+ */
+export function generateServiceSchema(service: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType?: string;
+}): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${BASE_URL}${service.path}#dienst`,
+    name: service.name,
+    description: service.description,
+    serviceType: service.serviceType ?? service.name,
+    url: `${BASE_URL}${service.path}`,
+    provider: {
+      '@type': 'RoofingContractor',
+      '@id': `${BASE_URL}/#organisatie`,
+      name: SITE_NAME,
+      telephone: PHONE,
+      url: BASE_URL
+    },
+    areaServed: SERVICE_AREAS.map(area => ({ '@type': 'AdministrativeArea', name: area })),
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: `${BASE_URL}/contact`,
+      servicePhone: PHONE
+    }
+  };
+}
+
 
 /**
  * Generate AggregateRating schema

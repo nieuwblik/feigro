@@ -57,9 +57,9 @@ export default function ProjectDetail() {
         canonical={`/projecten/${project.slug}`}
         ogImage={project.imageAfter}
         schema={generateBreadcrumbSchema([
-          { name: 'Home', url: '/' },
-          { name: 'Projecten', url: '/projecten' },
-          { name: project.title, url: `/projecten/${project.slug}` },
+          { label: 'Home', href: '/' },
+          { label: 'Projecten', href: '/projecten' },
+          { label: project.title, href: `/projecten/${project.slug}` },
         ]) as unknown as Record<string, unknown>}
       />
 

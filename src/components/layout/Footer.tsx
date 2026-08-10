@@ -61,16 +61,6 @@ export const Footer = () => {
     name: 'Privacy en Cookiebeleid',
     href: '/cookies'
   }];
-  const socialLinks = [{
-    name: 'Instagram',
-    href: '#'
-  }, {
-    name: 'Facebook',
-    href: '#'
-  }, {
-    name: 'LinkedIn',
-    href: '#'
-  }];
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
   return <footer ref={footerRef} className="relative bg-white flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}
@@ -136,10 +126,8 @@ export const Footer = () => {
           }, {
             title: 'SUPPORT',
             items: resources
-          }, {
-            title: 'SOCIAL MEDIA',
-            items: socialLinks
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
+
             <div className="text-left">
               <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
               <ul className="space-y-3 md:space-y-4">

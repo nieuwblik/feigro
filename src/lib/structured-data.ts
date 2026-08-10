@@ -46,11 +46,15 @@ export function generateOrganizationSchema(): OrganizationSchema {
     },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Kruitmolen 28c',
+      postalCode: '1601 MC',
+      addressLocality: 'Enkhuizen',
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
     }
   };
 }
+
 
 /**
  * Generate WebSite schema for homepage

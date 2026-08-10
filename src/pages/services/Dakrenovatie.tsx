@@ -74,7 +74,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageBefore}
-                  alt="Dakrenovatie Enkhuizen - Voor"
+                  alt="Plat dak in Enkhuizen voor de dakrenovatie door Feigro"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-slate-100 text-sm font-bold uppercase tracking-wider text-slate-600">VOOR</p>
@@ -87,7 +87,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageAfter}
-                  alt="Dakrenovatie Enkhuizen - Na"
+                  alt="Plat dak in Enkhuizen na de dakrenovatie door Feigro"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-brand-green text-sm font-bold uppercase tracking-wider text-black">NA</p>

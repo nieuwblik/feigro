@@ -106,7 +106,7 @@ export default function OverOns() {
             <FadeIn scale={0.95} className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200">
               <ParallaxImage
                 src={imgStory}
-                alt="Expert roofers at work"
+                alt="Ervaren dakdekkers van Feigro werken aan een dakrenovatie"
                 speed={50}
                 containerClassName="h-full w-full"
                 className="transition-all duration-700"

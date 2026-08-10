@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import { projects, projectsList } from '@/data/projects';
 import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
 
@@ -54,6 +55,12 @@ export default function ProjectDetail() {
         title={`${project.title} | Feigro`}
         description={project.shortDescription}
         canonical={`/projecten/${project.slug}`}
+        ogImage={project.imageAfter}
+        schema={generateBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Projecten', url: '/projecten' },
+          { name: project.title, url: `/projecten/${project.slug}` },
+        ]) as unknown as Record<string, unknown>}
       />
 
       {/* Hero Section */}

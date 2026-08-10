@@ -61,16 +61,6 @@ export const Footer = () => {
     name: 'Privacy en Cookiebeleid',
     href: '/cookies'
   }];
-  const socialLinks = [{
-    name: 'Instagram',
-    href: '#'
-  }, {
-    name: 'Facebook',
-    href: '#'
-  }, {
-    name: 'LinkedIn',
-    href: '#'
-  }];
   const galleryImages = [footerImg1, footerImg2, footerImg3, footerImg4];
   return <footer ref={footerRef} className="relative bg-white flex flex-col overflow-hidden">
     {/* Top Section with Background Image */}

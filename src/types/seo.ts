@@ -173,10 +173,16 @@ export interface LocalBusinessSchema {
   '@type': 'LocalBusiness' | 'RoofingContractor';
   '@id': string;
   name: string;
+  description?: string;
   image: string;
+  logo?: string;
   url: string;
   telephone: string;
+  email?: string;
   priceRange?: string;
+  currenciesAccepted?: string;
+  knowsLanguage?: string[];
+  sameAs?: string[];
   address: PostalAddressSchema;
   geo?: {
     '@type': 'GeoCoordinates';
@@ -188,6 +194,7 @@ export interface LocalBusinessSchema {
     dayOfWeek: string[];
     opens: string;
     closes: string;
+    description?: string;
   }[];
   areaServed?: string[];
 }

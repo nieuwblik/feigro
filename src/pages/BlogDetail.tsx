@@ -329,7 +329,7 @@ export default function BlogDetail() {
             }} className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center overflow-hidden p-2">
-                  <img loading="lazy" decoding="async" src="/images/feigro-logo-wit.webp" alt="Feigro" className="w-full h-full object-contain" />
+                  <img loading="lazy" decoding="async" src="/images/feigro-logo-wit.webp" alt="Logo FEIGRO Dakwerken" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-slate-900 font-bold">{post.author}</p>

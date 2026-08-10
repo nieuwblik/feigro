@@ -42,7 +42,7 @@ export default function OverOns() {
         <div className="absolute inset-0 z-0">
           <ParallaxImage
             src={imgHero}
-            alt="Wie wij zijn"
+            alt="Dakdekkers van Feigro aan het werk op een plat dak in Enkhuizen"
             speed={80}
             containerClassName="w-full h-full"
             className="opacity-30"
@@ -106,7 +106,7 @@ export default function OverOns() {
             <FadeIn scale={0.95} className="relative aspect-square lg:aspect-video rounded-[1.5rem] overflow-hidden border border-slate-200">
               <ParallaxImage
                 src={imgStory}
-                alt="Expert roofers at work"
+                alt="Ervaren dakdekkers van Feigro werken aan een dakrenovatie"
                 speed={50}
                 containerClassName="h-full w-full"
                 className="transition-all duration-700"

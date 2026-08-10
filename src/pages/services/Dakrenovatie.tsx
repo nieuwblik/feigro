@@ -1,4 +1,10 @@
 import { SEO } from '@/components/SEO';
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generateBreadcrumbsFromPath,
+  generateServiceSchema,
+} from '@/lib/structured-data';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
@@ -17,7 +23,17 @@ export default function Dakrenovatie() {
 
   return (
     <>
-      <SEO {...seo} />
+      <SEO
+                {...seo}
+                schema={combineSchemas(
+                  generateServiceSchema({
+                    name: 'Dakrenovatie',
+                    description: seo.description,
+                    path: seo.canonical,
+                  }),
+                  generateBreadcrumbSchema(generateBreadcrumbsFromPath(seo.canonical)) as unknown as Record<string, unknown>,
+                )}
+              />
       <HeroSection {...hero} />
       <InfoSection {...info} />
       <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
@@ -58,7 +74,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageBefore}
-                  alt="Dakrenovatie Enkhuizen - Voor"
+                  alt="Plat dak in Enkhuizen voor de dakrenovatie door Feigro"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-slate-100 text-sm font-bold uppercase tracking-wider text-slate-600">VOOR</p>
@@ -71,7 +87,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageAfter}
-                  alt="Dakrenovatie Enkhuizen - Na"
+                  alt="Plat dak in Enkhuizen na de dakrenovatie door Feigro"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-brand-green text-sm font-bold uppercase tracking-wider text-black">NA</p>

@@ -3,9 +3,25 @@ import { PageSEO } from '@/types';
 
 interface SEOProps extends PageSEO {
   siteName?: string;
+  /** Zet de pagina op noindex (bijv. juridische pagina's en foutpagina's) */
+  noindex?: boolean;
 }
 
 const MAX_TITLE_LENGTH = 60;
+const MAX_DESCRIPTION_LENGTH = 158;
+
+/**
+ * Kort een meta description netjes af op woordgrens (max 158 tekens).
+ */
+export function clampDescription(description: string) {
+  const clean = description.replace(/\s+/g, ' ').trim();
+  if (clean.length <= MAX_DESCRIPTION_LENGTH) return clean;
+
+  const cut = clean.slice(0, MAX_DESCRIPTION_LENGTH - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:\-–]$/, '')}…`;
+}
+
 
 /**
  * Builds the document title:
@@ -45,8 +61,10 @@ export function SEO({
   schema,
   keywords,
   siteName = 'FEIGRO Dakwerken',
+  noindex = false,
 }: SEOProps) {
   const fullTitle = buildTitle(title, siteName);
+  const metaDescription = clampDescription(description);
 
   const baseUrl = 'https://feigro.nl';
   const fullCanonical = canonical.startsWith('http') ? canonical : `${baseUrl}${canonical}`;
@@ -56,25 +74,34 @@ export function SEO({
     <Helmet>
       {/* Basic meta tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDescription} />
+      <meta
+        name="robots"
+        content={
+          noindex
+            ? 'noindex, follow'
+            : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+        }
+      />
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
       <link rel="canonical" href={fullCanonical} />
+
 
       {/* Open Graph */}
       <meta property="og:type" content={ogType} />
       <meta property="og:locale" content="nl_NL" />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={metaDescription} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={fullOgImage} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={fullOgImage} />
 
       {/* Schema.org JSON-LD */}

@@ -15,7 +15,7 @@ export const About = () => {
               <div className="aspect-[4/5] md:aspect-square rounded-lg md:rounded-[1rem] overflow-hidden border border-slate-200 relative z-10 group">
                 <ParallaxImage
                   src={aboutImage}
-                  alt="Dakwerker aan het werk"
+                  alt="Dakdekker van Feigro legt nieuwe dakbedekking op een plat dak"
                   speed={60}
                   containerClassName="h-full w-full"
                   className="transition-all duration-1000"

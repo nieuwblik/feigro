@@ -65,7 +65,7 @@ const Diensten = () => {
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Vakmanschap"
+            alt="Dakdekker van Feigro brandt bitumen dakbedekking af op een plat dak"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>

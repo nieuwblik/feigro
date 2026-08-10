@@ -187,8 +187,8 @@ export const VveForm = () => {
                         />
                     </div>
 
-                    <Button type="submit" variant="feigro" size="xl" className="w-full shadow-lg shadow-brand-green/20">
-                        Stuur mij het gratis advies
+                    <Button type="submit" variant="feigro" size="xl" disabled={isSubmitting} className="w-full shadow-lg shadow-brand-green/20">
+                        {isSubmitting ? 'Versturen...' : 'Stuur mij het gratis advies'}
                     </Button>
                 </form>
             </Form>

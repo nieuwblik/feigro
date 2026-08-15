@@ -69,7 +69,7 @@ export default function Spoedservice() {
         <div className="absolute inset-0 z-0">
           <ParallaxImage
             src={imgHero}
-            alt="Daklekkage melden"
+            alt="Spoedreparatie bij daklekkage door dakdekker van Feigro"
             speed={56}
             containerClassName="w-full h-full"
             className="opacity-30"

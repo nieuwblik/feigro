@@ -184,10 +184,16 @@ export interface LocalBusinessSchema {
   '@type': 'LocalBusiness' | 'RoofingContractor';
   '@id': string;
   name: string;
+  description?: string;
   image: string;
+  logo?: string;
   url: string;
   telephone: string;
+  email?: string;
   priceRange?: string;
+  currenciesAccepted?: string;
+  knowsLanguage?: string[];
+  sameAs?: string[];
   address: PostalAddressSchema;
   geo?: {
     '@type': 'GeoCoordinates';
@@ -199,6 +205,7 @@ export interface LocalBusinessSchema {
     dayOfWeek: string[];
     opens: string;
     closes: string;
+    description?: string;
   }[];
   areaServed?: string[];
   sameAs?: string[];
@@ -207,6 +214,7 @@ export interface LocalBusinessSchema {
 export interface ServiceSchema {
   '@context': string;
   '@type': 'Service';
+  '@id'?: string;
   name: string;
   description: string;
   serviceType: string;
@@ -215,11 +223,18 @@ export interface ServiceSchema {
     '@type': 'RoofingContractor';
     '@id': string;
     name: string;
+    telephone?: string;
+    url?: string;
   };
   areaServed: {
     '@type': 'AdministrativeArea';
     name: string;
   }[];
+  availableChannel?: {
+    '@type': 'ServiceChannel';
+    serviceUrl: string;
+    servicePhone: string;
+  };
 }
 
 export interface ProductOfferSchema {

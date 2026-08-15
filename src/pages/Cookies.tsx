@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
+import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { 
   Shield, 
@@ -81,11 +82,7 @@ export default function Cookies() {
 
   return (
     <>
-      <SEOHead
-        title="Privacy- en Cookiebeleid | Feigro"
-        description="Lees ons privacy- en cookiebeleid. FEIGRO respecteert uw privacy en is volledig AVG-compliant."
-        canonicalUrl="/cookies"
-      />
+      <SEOHead {...seoMetadata.cookies} />
       <SEOBreadcrumb />
 
       {/* Hero Section */}

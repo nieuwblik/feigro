@@ -1,168 +1,288 @@
 import { PageSEO } from "@/types";
 
+/**
+ * Centrale meta-data per pagina.
+ * Structuur van elke description: dienst + werkgebied + onderscheidend voordeel + call-to-action.
+ * Lengte: 140-158 tekens. Titels: max 60 tekens inclusief merknaam.
+ */
 export const seoMetadata: Record<string, PageSEO> = {
   home: {
     title: "Dakdekker Noord-Holland, Flevoland & Utrecht | Feigro",
     description:
-      "Feigro Dakwerken: uw dakwerker in Noord-Holland, Flevoland en Utrecht. Gratis dakinspectie, 24/7 spoed dakdekker. Vraag vandaag nog een vrijblijvende offerte!",
+      "Dakdekker in Noord-Holland, Flevoland en Utrecht. Feigro doet dakrenovatie, dakonderhoud en 24/7 spoedhulp bij lekkage. Vraag een gratis offerte aan.",
     canonicalUrl: "/",
     keywords: [
       "dakdekker Noord-Holland",
-      "Feigro",
-      "gratis dakinspectie",
-      "spoed dakdekker",
-      "dakrenovatie",
-      "Flevoland",
-      "Utrecht",
+      "dakdekker Flevoland",
+      "dakdekker Utrecht",
+      "dakdekker Enkhuizen",
+      "dakdekker West-Friesland",
+      "plat dak specialist",
+      "24/7 noodreparatie dak",
+      "Feigro Dakwerken",
     ],
   },
 
   dakinspectie: {
-    title: "Gratis Dakinspectie | Feigro Dakwerken Noord-Holland",
+    title: "Dakinspectie | Conditie van uw dak in beeld | Feigro",
     description:
-      "Vraag een gratis dakinspectie aan bij Feigro. Professionele controle door gecertificeerde dakdekkers. Voorkom dure reparaties. Binnen 48 uur rapport!",
+      "Dakinspectie door Feigro in Noord-Holland, Flevoland en Utrecht. Wij leggen schade, lekkagerisico en onderhoud vast in een helder rapport. Plan uw inspectie.",
     canonicalUrl: "/dakinspectie",
     keywords: [
-      "gratis dakinspectie",
-      "dakinspectie aanvragen",
+      "dakinspectie",
+      "dak laten controleren",
+      "dakinspectie Noord-Holland",
+      "lekkage opsporen",
+      "conditiemeting dak NEN 2767",
       "Feigro",
-      "dakdekker Noord-Holland",
-      "preventief dakonderhoud",
     ],
   },
 
   dakonderhoud: {
-    title: "Dakonderhoud | Voorkom Lekkages | Feigro Dakwerken",
+    title: "Dakonderhoud | Voorkom lekkage en schade | Feigro",
     description:
-      "Professioneel dakonderhoud door Feigro. Voorkom dure daklekkages met periodiek onderhoud. Onderhoudscontracten beschikbaar. Vraag gratis advies aan!",
+      "Periodiek dakonderhoud in Noord-Holland, Flevoland en Utrecht. Feigro houdt uw platte of hellende dak lekvrij met vaste onderhoudsrondes. Vraag advies aan.",
     canonicalUrl: "/dakonderhoud",
-    keywords: ["dakonderhoud", "preventief onderhoud", "dakonderhoud contract", "lekkage voorkomen", "Feigro"],
+    keywords: [
+      "dakonderhoud",
+      "onderhoudscontract dak",
+      "preventief dakonderhoud",
+      "dakgoot reinigen",
+      "dakonderhoud VvE",
+      "dakdekker Noord-Holland",
+    ],
   },
 
   dakrenovatie: {
-    title: "Dakrenovatie | Plat Dak & Dakisolatie | Feigro",
+    title: "Dakrenovatie | Plat dak en dakisolatie | Feigro",
     description:
-      "Complete dakrenovatie door Feigro. Plat dak, pannendak, inclusief isolatie. 10+ jaar garantie. Werkzaam in Noord-Holland, Flevoland en Utrecht. Vraag offerte!",
+      "Complete dakrenovatie in Noord-Holland, Flevoland en Utrecht: nieuwe dakbedekking, isolatie en detaillering met garantie. Vraag een vrijblijvende offerte aan.",
     canonicalUrl: "/dakrenovatie",
-    keywords: ["dakrenovatie", "plat dak renovatie", "dakisolatie", "pannendak", "Feigro", "10 jaar garantie"],
+    keywords: [
+      "dakrenovatie",
+      "plat dak renoveren",
+      "dakisolatie",
+      "nieuwe dakbedekking",
+      "dakrenovatie Noord-Holland",
+      "dakrenovatie Almere",
+    ],
   },
 
   dakbedekkingVervangen: {
-    title: "Dakbedekking Vervangen | Nieuwe Dakbedekking | Feigro",
+    title: "Dakbedekking vervangen | EPDM, bitumen, PVC | Feigro",
     description:
-      "Dakbedekking aan vervanging toe? Feigro vervangt uw dakbedekking snel en vakkundig. EPDM, bitumen of PVC. Gratis advies in Noord-Holland, Flevoland, Utrecht.",
+      "Dakbedekking vervangen in Noord-Holland, Flevoland en Utrecht. Feigro legt EPDM, bitumen of PVC vakkundig aan, inclusief isolatie. Vraag een offerte aan.",
     canonicalUrl: "/dakbedekking-vervangen",
-    keywords: ["dakbedekking vervangen", "nieuwe dakbedekking", "EPDM", "bitumen", "PVC dak", "Feigro"],
+    keywords: [
+      "dakbedekking vervangen",
+      "nieuwe dakbedekking",
+      "EPDM dak",
+      "bitumen dakbedekking",
+      "PVC dakbedekking",
+      "plat dak vernieuwen",
+    ],
   },
 
   bitumenDakbedekking: {
-    title: "Bitumen Dakbedekking | Plat Dak Specialist | Feigro",
+    title: "Bitumen dakbedekking | Plat dak specialist | Feigro",
     description:
-      "Bitumen dakbedekking voor platte daken. Waterdicht, brandveilig, 15-25 jaar levensduur. Feigro is erkend installateur. Vraag offerte aan voor uw plat dak!",
+      "Bitumen dakbedekking voor platte daken in Noord-Holland, Flevoland en Utrecht. Waterdicht, brandveilig en tot 25 jaar levensduur. Vraag een offerte aan.",
     canonicalUrl: "/bitumen-dakbedekking",
-    keywords: ["bitumen dakbedekking", "plat dak bitumen", "APP dakbedekking", "waterdicht dak", "Feigro"],
+    keywords: [
+      "bitumen dakbedekking",
+      "plat dak bitumen",
+      "APP dakbedekking",
+      "SBS dakbedekking",
+      "dakleer vervangen",
+      "waterdicht plat dak",
+    ],
   },
 
   epdmDakbedekking: {
-    title: "EPDM Dakbedekking | 50 Jaar Levensduur | Feigro",
+    title: "EPDM dakbedekking | Rubber dak, lange levensduur | Feigro",
     description:
-      "EPDM rubber dakbedekking: 50 jaar levensduur, onderhoudsarm. Feigro is gecertificeerd EPDM specialist. Firestone, Hertalan, Elevate. Vraag vrijblijvend advies!",
+      "EPDM dakbedekking door Feigro in Noord-Holland, Flevoland en Utrecht. Naadloos rubber dak, onderhoudsarm en decennia lang waterdicht. Vraag advies aan.",
     canonicalUrl: "/epdm-dakbedekking",
-    keywords: ["EPDM dakbedekking", "rubber dak", "Firestone EPDM", "plat dak EPDM", "50 jaar garantie", "Feigro"],
+    keywords: [
+      "EPDM dakbedekking",
+      "rubber dakbedekking",
+      "EPDM plat dak",
+      "naadloos dak",
+      "EPDM dakdekker Noord-Holland",
+      "onderhoudsarm dak",
+    ],
   },
 
   daklekkage: {
-    title: "Daklekkage? Spoed Dakdekker 24/7 Bereikbaar | Feigro",
+    title: "Daklekkage verhelpen | Spoed dakdekker 24/7 | Feigro",
     description:
-      "Daklekkage? Bel Feigro direct! 24/7 spoed dakdekker in Noord-Holland, Flevoland en Utrecht. Binnen 2-4 uur ter plaatse. Noodreparatie om schade te beperken.",
+      "Daklekkage in Noord-Holland, Flevoland of Utrecht? Feigro spoort de lekkage op en repareert direct. 24/7 spoed dakdekker bereikbaar. Bel voor snelle hulp.",
     canonicalUrl: "/daklekkage",
-    keywords: ["daklekkage", "spoed dakdekker", "lekkage melden", "24/7 dakdekker", "noodreparatie dak", "Feigro"],
+    keywords: [
+      "daklekkage",
+      "lekkage plat dak",
+      "spoed dakdekker",
+      "24/7 noodreparatie dak",
+      "lekkage opsporen",
+      "daklekkage Noord-Holland",
+    ],
   },
 
   overOns: {
-    title: "Over Feigro | Dakdekker met 20+ Jaar Ervaring",
+    title: "Over Feigro | Dakdekkers uit Enkhuizen",
     description:
-      "Feigro Dakwerken: samenwerking van Feitsma en Groen Dakwerken. 20+ jaar ervaring als dakdekker in Noord-Holland, Flevoland en Utrecht. Ontdek ons verhaal.",
+      "Feigro is de samenwerking van Feitsma Dakwerken en Groen Dakwerken uit Enkhuizen. Ervaren dakdekkers voor Noord-Holland, Flevoland en Utrecht. Lees ons verhaal.",
     canonicalUrl: "/over-ons",
-    keywords: ["Feigro", "Feitsma Dakwerken", "Groen Dakwerken", "dakdekker ervaring", "Noord-Holland", "vakmanschap"],
+    keywords: [
+      "Feigro Dakwerken",
+      "Feitsma Dakwerken",
+      "Groen Dakwerken",
+      "dakdekker Enkhuizen",
+      "dakdekkersbedrijf Noord-Holland",
+      "vakmanschap dak",
+    ],
   },
 
   projecten: {
-    title: "Dakprojecten | Portfolio Feigro Dakwerken",
+    title: "Dakprojecten | Ons werk in beeld | Feigro",
     description:
-      "Bekijk gerealiseerde dakprojecten van Feigro. Voor-en-na foto's van dakrenovaties in Noord-Holland, Flevoland en Utrecht. Zie ons vakmanschap in de praktijk.",
+      "Bekijk uitgevoerde dakprojecten van Feigro in Noord-Holland, Flevoland en Utrecht: dakrenovatie, isolatie en nieuwe dakbedekking. Zie het resultaat per project.",
     canonicalUrl: "/projecten",
-    keywords: ["dakprojecten", "portfolio dakdekker", "dakrenovatie foto's", "Feigro", "gerealiseerde daken"],
+    keywords: [
+      "dakprojecten",
+      "dakrenovatie voorbeelden",
+      "dakdekker portfolio",
+      "plat dak project",
+      "dakisolatie project",
+      "Feigro projecten",
+    ],
   },
 
   spoedservice: {
-    title: "Lekkage Melden | Spoed Dakdekker 24/7 | Feigro",
+    title: "Spoedservice dak | Lekkage melden 24/7 | Feigro",
     description:
-      "Acute daklekkage? Meld uw lekkage direct bij Feigro. Spoed dakdekker 24/7 bereikbaar in Noord-Holland, Flevoland en Utrecht. Binnen 2-4 uur ter plaatse!",
+      "Acute daklekkage of stormschade? Meld het direct bij Feigro. 24/7 spoed dakdekker in Noord-Holland, Flevoland en Utrecht, snel ter plaatse om schade te stoppen.",
     canonicalUrl: "/spoedservice",
     keywords: [
       "lekkage melden",
       "spoed dakdekker",
       "24/7 dakdekker",
-      "noodreparatie",
-      "Feigro",
-      "daklekkage verhelpen",
+      "noodreparatie dak",
+      "stormschade dak",
+      "spoedservice Noord-Holland",
     ],
   },
 
   contact: {
-    title: "Contact | Gratis Offerte Dakdekker | Feigro Dakwerken",
+    title: "Contact | Gratis offerte dakdekker | Feigro",
     description:
-      "Neem contact op met Feigro voor gratis advies en offerte. Dakdekker in Noord-Holland, Flevoland en Utrecht. Snel antwoord gegarandeerd. Bel of mail vandaag!",
+      "Neem contact op met Feigro in Enkhuizen voor advies of een gratis offerte. Dakdekker voor Noord-Holland, Flevoland en Utrecht. Bel of stuur uw aanvraag door.",
     canonicalUrl: "/contact",
-    keywords: ["contact dakdekker", "gratis offerte", "Feigro", "Noord-Holland", "Flevoland", "Utrecht"],
+    keywords: [
+      "contact dakdekker",
+      "offerte dakwerk",
+      "dakdekker Enkhuizen",
+      "dakdekker Noord-Holland",
+      "dakdekker Flevoland",
+      "dakdekker Utrecht",
+    ],
   },
 
   dakreparatie: {
-    title: "Dakreparatie | Snelle Reparatie | Feigro Dakwerken",
+    title: "Dakreparatie | Snel en vakkundig hersteld | Feigro",
     description:
-      "Dakreparatie nodig? Feigro repareert snel en vakkundig. Van kleine lekkage tot grote schade. Spoed service beschikbaar. Bel direct voor hulp in Noord-Holland!",
+      "Dakreparatie in Noord-Holland, Flevoland en Utrecht. Van scheur of losse naad tot stormschade: Feigro herstelt uw dak duurzaam. Vraag direct een reparatie aan.",
     canonicalUrl: "/dakreparatie",
-    keywords: ["dakreparatie", "dak repareren", "lekkage reparatie", "spoed dakreparatie", "Feigro"],
+    keywords: [
+      "dakreparatie",
+      "dak repareren",
+      "reparatie plat dak",
+      "stormschade herstellen",
+      "spoed dakreparatie",
+      "dakreparatie West-Friesland",
+    ],
   },
 
   valbeveiliging: {
-    title: "Valbeveiliging Dak | NEN-Gecertificeerd | Feigro",
+    title: "Valbeveiliging dak | Veilig werken op hoogte | Feigro",
     description:
-      "Professionele valbeveiliging voor daken door Feigro. Gecertificeerde installatie volgens NEN-normen. Veilig werken op hoogte. Vraag vrijblijvend offerte!",
+      "Valbeveiliging voor daken in Noord-Holland, Flevoland en Utrecht. Feigro adviseert, installeert en keurt ankerpunten en lijnsystemen. Vraag een offerte aan.",
     canonicalUrl: "/valbeveiliging",
-    keywords: ["valbeveiliging dak", "NEN veiligheid", "veilig werken op hoogte", "dakbeveiliging", "Feigro"],
+    keywords: [
+      "valbeveiliging dak",
+      "ankerpunten dak",
+      "kabelsysteem dak",
+      "veilig werken op hoogte",
+      "valbeveiliging keuren",
+      "dakveiligheid VvE",
+    ],
   },
 
   vveVastgoedbeheer: {
-    title: "VVE Dakonderhoud | Vastgoedbeheer | Feigro Dakwerken",
+    title: "VvE & vastgoedbeheer | Dakonderhoud op maat | Feigro",
     description:
-      "Feigro: dakonderhoud specialist voor VVE's en vastgoedbeheerders. Meerjarenplannen, 24/7 spoedservice, kostenefficiënt beheer. Neem contact op voor advies!",
+      "Dakonderhoud voor VvE's en vastgoedbeheerders in Noord-Holland, Flevoland en Utrecht. Meerjarenplanning, vaste aanspreekpunten en 24/7 spoed. Vraag advies aan.",
     canonicalUrl: "/vve-vastgoedbeheer",
-    keywords: ["VVE dakonderhoud", "vastgoedbeheer dak", "meerjarenplan dak", "Feigro", "appartement dak"],
+    keywords: [
+      "VvE dakonderhoud",
+      "vastgoedbeheer dak",
+      "meerjarenonderhoudsplan dak",
+      "MJOP dak",
+      "dakonderhoud appartementen",
+      "dakdekker VvE Noord-Holland",
+    ],
   },
 
   diensten: {
-    title: "Dakdekker Diensten | Feigro - Noord-Holland & Flevoland",
+    title: "Diensten dakdekker | Alle dakwerken | Feigro",
     description:
-      "Alle dakdiensten van Feigro: dakrenovatie, dakreparatie, dakonderhoud, lekkage en valbeveiliging. Vakmanschap in Noord-Holland, Flevoland en Utrecht.",
+      "Alle dakwerken van Feigro: dakrenovatie, dakreparatie, dakonderhoud, daklekkage en valbeveiliging in Noord-Holland, Flevoland en Utrecht. Bekijk onze diensten.",
     canonicalUrl: "/diensten",
-    keywords: ["dakdekker diensten", "dakrenovatie", "dakreparatie", "dakonderhoud", "Feigro", "Noord-Holland"],
+    keywords: [
+      "dakdekker diensten",
+      "dakrenovatie",
+      "dakreparatie",
+      "dakonderhoud",
+      "daklekkage",
+      "valbeveiliging dak",
+    ],
   },
 
   vacatures: {
-    title: "Vacatures Dakdekker | Werken bij Feigro Dakwerken",
+    title: "Vacatures dakdekker | Werken bij Feigro",
     description:
-      "Zoek je werk als dakdekker? Bekijk vacatures bij Feigro in Noord-Holland. Ervaren of starter, wij bieden doorgroeimogelijkheden. Solliciteer vandaag!",
+      "Werken als dakdekker in Noord-Holland? Bekijk de vacatures bij Feigro in Enkhuizen: vast team, goed materieel en ruimte om te groeien. Solliciteer vandaag nog.",
     canonicalUrl: "/vacatures",
-    keywords: ["vacatures dakdekker", "werken als dakdekker", "dakdekker baan", "Feigro vacatures"],
+    keywords: [
+      "vacature dakdekker",
+      "baan dakdekker Noord-Holland",
+      "werken bij Feigro",
+      "dakdekker Enkhuizen vacature",
+      "leerling dakdekker",
+    ],
   },
 
   nieuws: {
-    title: "Nieuws & Tips | Feigro Dakwerken Blog",
+    title: "Nieuws & daktips | Feigro Dakwerken",
     description:
-      "Lees het laatste nieuws over dakwerken, tips voor dakrenovatie en onderhoud. Blog van Feigro Dakwerken. Praktische informatie voor huiseigenaren en VVE's.",
+      "Daktips en nieuws van Feigro: onderhoud, materialen zoals EPDM en bitumen, en duurzame daken. Praktische informatie voor huiseigenaren, VvE's en beheerders.",
     canonicalUrl: "/nieuws",
-    keywords: ["dakwerken nieuws", "dakrenovatie tips", "dak blog", "dakonderhoud tips", "Feigro"],
+    keywords: [
+      "daktips",
+      "nieuws dakwerken",
+      "EPDM informatie",
+      "duurzame dakbedekking",
+      "dakonderhoud tips",
+      "Feigro blog",
+    ],
+  },
+
+  cookies: {
+    title: "Privacy- en cookiebeleid | Feigro Dakwerken",
+    description:
+      "Lees hoe Feigro Dakwerken omgaat met uw persoonsgegevens en cookies. Volledig AVG-conform, met uitleg over welke gegevens wij bewaren en waarom.",
+    canonicalUrl: "/cookies",
+    keywords: ["privacybeleid", "cookiebeleid", "AVG", "Feigro Dakwerken"],
+    noindex: true,
   },
 };

@@ -17,6 +17,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       <main className="flex-1 w-full">
         {children}
       </main>
+
       <Footer />
       <BackToTop />
       <CookieConsent />

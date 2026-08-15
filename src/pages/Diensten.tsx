@@ -86,12 +86,12 @@ const Diensten = () => {
       <SEOHead {...seoMetadata.diensten} />
       <SEOBreadcrumb />
       {/* Page Header */}
-      <section className="bg-black pt-36 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center px-4 md:px-6">
+      <section className="bg-black pt-36 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center px-4 md:px-6">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Vakmanschap"
+            alt="Dakdekker van Feigro brandt bitumen dakbedekking af op een plat dak"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>

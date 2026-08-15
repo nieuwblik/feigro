@@ -57,7 +57,7 @@ describe('structured data', () => {
       url: '/dakrenovatie',
     });
     expect(service.url).toBe('https://feigro.nl/dakrenovatie');
-    expect(service.provider['@id']).toBe('https://feigro.nl');
+    expect(service.provider['@id']).toBe('https://feigro.nl/#organisatie');
     expect(service.areaServed.map(a => a.name)).toContain('Noord-Holland');
   });
 
@@ -93,8 +93,8 @@ describe('structured data', () => {
 
   it('geeft het bedrijf geo-coördinaten mee', () => {
     const geo = generateLocalBusinessSchema().geo;
-    expect(geo?.latitude).toBeCloseTo(52.7047, 3);
-    expect(geo?.longitude).toBeCloseTo(5.2891, 3);
+    expect(geo?.latitude).toBeCloseTo(52.7025, 3);
+    expect(geo?.longitude).toBeCloseTo(5.2903, 3);
   });
 
   it('combineSchemas zet meerdere schema-objecten in dezelfde volgorde in één array', () => {

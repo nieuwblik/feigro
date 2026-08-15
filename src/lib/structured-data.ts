@@ -40,15 +40,12 @@ const PHONE = '+31613731303';
  */
 const SAME_AS: string[] = [];
 
-const AREA_SERVED = ['Noord-Holland', 'Flevoland', 'Utrecht'];
-
 /**
- * Centrumcoördinaten van Enkhuizen (geen exact vestigingsadres - dat is niet
- * bekend, alleen de plaatsnaam). Prima voor lokale-SEO-relevantie op
- * stadsniveau; vervang door de exacte geocode van het pand zodra die
- * beschikbaar is (bv. via Google Business Profile).
+ * Geocode van Kruitmolen 28c, 1601 MC Enkhuizen (het echte vestigingsadres,
+ * zie het adres hieronder). Vervang door de exacte Google Business Profile-
+ * geocode zodra die geverifieerd is.
  */
-const GEO = { latitude: 52.7047, longitude: 5.2891 };
+const GEO = { latitude: 52.7025, longitude: 5.2903 };
 
 /**
  * Generate Organization schema for homepage/about
@@ -70,12 +67,15 @@ export function generateOrganizationSchema(): OrganizationSchema {
     },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Kruitmolen 28c',
+      postalCode: '1601 MC',
       addressLocality: 'Enkhuizen',
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
     }
   };
 }
+
 
 /**
  * Generate WebSite schema for homepage.
@@ -260,20 +260,49 @@ export function generateFAQSchema(faqs: FAQItem[]): FAQPageSchema {
 }
 
 /**
+ * Kernplaatsen binnen het werkgebied (Noord-Holland, Flevoland, Utrecht)
+ */
+export const SERVICE_AREAS = [
+  'Noord-Holland',
+  'Flevoland',
+  'Utrecht',
+  'Enkhuizen',
+  'Hoorn',
+  'Medemblik',
+  'Purmerend',
+  'Alkmaar',
+  'Zaanstad',
+  'Amsterdam',
+  'Almere',
+  'Lelystad',
+  'Dronten',
+  'Utrecht (stad)',
+  'Amersfoort',
+  'Nieuwegein',
+];
+
+/**
  * Generate LocalBusiness schema for FEIGRO
  */
 export function generateLocalBusinessSchema(): LocalBusinessSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'RoofingContractor',
-    '@id': BASE_URL,
+    '@id': `${BASE_URL}/#organisatie`,
     name: SITE_NAME,
+    description:
+      'FEIGRO Dakwerken is dakdekker voor platte en hellende daken in Noord-Holland, Flevoland en Utrecht. Dakrenovatie, dakonderhoud, dakreparatie, valbeveiliging en 24/7 spoedhulp bij daklekkage.',
     image: LOGO_URL,
+    logo: LOGO_URL,
     url: BASE_URL,
     telephone: PHONE,
+    email: 'info@feigro.nl',
     priceRange: '€€',
+    currenciesAccepted: 'EUR',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Kruitmolen 28c',
+      postalCode: '1601 MC',
       addressLocality: 'Enkhuizen',
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
@@ -288,9 +317,17 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
         closes: '17:00'
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+        description: 'Uitsluitend 24/7 spoedservice bij acute daklekkage'
       }
     ],
-    areaServed: AREA_SERVED,
+    areaServed: SERVICE_AREAS,
+    knowsLanguage: ['nl-NL'],
     sameAs: SAME_AS
   };
 }
@@ -306,22 +343,32 @@ export function generateServiceSchema(service: {
   url: string;
   serviceType?: string;
 }): ServiceSchema {
+  const path = service.url.startsWith('http') ? new URL(service.url).pathname : service.url;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${BASE_URL}${path}#dienst`,
     name: service.name,
     description: service.description,
     serviceType: service.serviceType ?? service.name,
     url: service.url.startsWith('http') ? service.url : `${BASE_URL}${service.url}`,
     provider: {
       '@type': 'RoofingContractor',
-      '@id': BASE_URL,
-      name: SITE_NAME
+      '@id': `${BASE_URL}/#organisatie`,
+      name: SITE_NAME,
+      telephone: PHONE,
+      url: BASE_URL
     },
-    areaServed: AREA_SERVED.map(name => ({
+    areaServed: SERVICE_AREAS.map(name => ({
       '@type': 'AdministrativeArea' as const,
       name
-    }))
+    })),
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: `${BASE_URL}/contact`,
+      servicePhone: PHONE
+    }
   };
 }
 

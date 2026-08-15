@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from 'sonner';
 import { Send } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const formSchema = z.object({
     firstName: z.string().min(2, 'Voornaam is verplicht'),
@@ -20,6 +21,7 @@ const formSchema = z.object({
 });
 
 export const VveForm = () => {
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -33,12 +35,37 @@ export const VveForm = () => {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
-        toast.success('Uw aanvraag is verzonden!', {
-            description: 'We nemen zo snel mogelijk contact met u op.',
-        });
-        form.reset();
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsSubmitting(true);
+        try {
+            const name = `${values.firstName.trim()} ${values.lastName.trim()}`.trim();
+            const message = values.address?.trim()
+                ? `${values.message.trim()}\n\nAdres: ${values.address.trim()}`
+                : values.message.trim();
+
+            const { data: responseData, error } = await supabase.functions.invoke('send-form-email/contact', {
+                body: {
+                    name,
+                    email: values.email.trim(),
+                    phone: values.phone.trim(),
+                    subject: values.subject?.trim() || 'VvE & Vastgoedbeheer aanvraag',
+                    message,
+                },
+            });
+
+            if (error) throw error;
+            if (!responseData?.success) throw new Error(responseData?.error || 'Onbekende fout');
+
+            toast.success('Uw aanvraag is verzonden!', {
+                description: 'We nemen zo snel mogelijk contact met u op.',
+            });
+            setTimeout(() => form.reset(), 0);
+        } catch (err) {
+            console.error('VvE form submission error:', err);
+            toast.error('Er ging iets mis. Probeer het opnieuw of bel ons direct.');
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -160,8 +187,8 @@ export const VveForm = () => {
                         />
                     </div>
 
-                    <Button type="submit" variant="feigro" size="xl" className="w-full shadow-lg shadow-brand-green/20">
-                        Stuur mij het gratis advies
+                    <Button type="submit" variant="feigro" size="xl" disabled={isSubmitting} className="w-full shadow-lg shadow-brand-green/20">
+                        {isSubmitting ? 'Versturen...' : 'Stuur mij het gratis advies'}
                     </Button>
                 </form>
             </Form>

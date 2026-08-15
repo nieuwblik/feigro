@@ -24,7 +24,7 @@ export function HeroSection({
   const isStartHighlight = highlightPosition === 'start';
   const highlightText = isStartHighlight ? words.slice(0, highlightWordCount).join(' ') : words.slice(-highlightWordCount).join(' ');
   const mainText = isStartHighlight ? words.slice(highlightWordCount).join(' ') : words.slice(0, -highlightWordCount).join(' ');
-  return <section className={cn('relative bg-black pt-32 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center', className)}>
+  return <section className={cn('relative bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 px-4 md:px-6 overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center', className)}>
     {/* Background Image with Overlay */}
     {/* Dit is de hero op elke dienstpagina - vrijwel altijd het LCP-element.
         loading="lazy" hoort hier NOOIT op: dat vertraagt precies de image die

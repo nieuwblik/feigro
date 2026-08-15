@@ -55,6 +55,7 @@ export default function ProjectDetail() {
         title={`${project.title} | Feigro`}
         description={project.shortDescription}
         canonicalUrl={`/projecten/${project.slug}`}
+        ogImage={project.imageAfter}
       />
       <SEOBreadcrumb
         items={[

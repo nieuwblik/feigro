@@ -1,74 +1,87 @@
 # robots.txt voor FEIGRO Dakwerken
 # https://feigro.nl
+#
+# Alle crawlers zijn welkom, inclusief die van AI-zoekmachines.
+# Vermelding in AI-antwoorden vereist toegang voor zowel de zoek-agents
+# (die citeren) als de trainings-agents (die merkbekendheid opbouwen).
+#
+# Meerdere User-agent-regels die direct na elkaar staan (zonder Allow/Disallow
+# ertussen) delen dezelfde regels erna - zo hoeven /api/, /admin/ en /private/
+# maar één keer te worden opgesomd voor alle hieronder genoemde bots. Los
+# neergezette Disallow-regels gelden namelijk uitsluitend voor de laatst
+# genoemde User-agent ervoor, niet voor alles daarboven.
 
-# Googlebot - Volledige toegang
-User-agent: Googlebot
-Allow: /
-
-# Bingbot - Volledige toegang
-User-agent: Bingbot
-Allow: /
-
-# Social Media Crawlers - Volledige toegang voor previews
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# AI- en LLM-crawlers - toegestaan voor vindbaarheid in AI-zoekresultaten
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# Alle andere bots
 User-agent: *
 Allow: /
-
-# Blokkeer specifieke paden
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: /_next/
 
-# Blokkeer tracking parameters (duplicate content preventie)
-Disallow: /*?ref=
-Disallow: /*?utm_source=
-Disallow: /*?utm_medium=
-Disallow: /*?utm_campaign=
-Disallow: /*?utm_term=
-Disallow: /*?utm_content=
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
+# --- Klassieke zoekmachines ---
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
 
-# Sitemap locatie
+# --- AI-zoeken, citaties en live ophalen ---
+# OpenAI
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+
+# Anthropic
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+
+# Meta AI
+User-agent: meta-externalagent
+
+# Amazon
+User-agent: Amazonbot
+
+# Common Crawl (voedt veel open datasets)
+User-agent: CCBot
+
+# --- Social media previews ---
+User-agent: Twitterbot
+User-agent: facebookexternalhit
+User-agent: LinkedInBot
+User-agent: WhatsApp
+
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# --- Agressieve SEO-crawlers: niet blokkeren, wel afremmen ---
+# Deze bots leveren geen bezoekers of AI-citaties op, maar crawlen soms
+# zwaar genoeg om serverbelasting te veroorzaken. Crawl-delay wordt door
+# Google en Bing genegeerd (vandaar geen delay in de groepen hierboven);
+# bots die de directive wel respecteren worden hiermee afgeremd zonder ze
+# volledig te weren.
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+Allow: /
+Crawl-delay: 10
+
+# --- Tracking-parameters ---
+# ?utm_*, ?ref= e.d. worden bewust NIET geblokkeerd: de canonical-URL in
+# src/lib/seo-utils.ts strip ze al voor indexeringsdoeleinden, terwijl een
+# Disallow campagnelandingspagina's die (nog) geen andere ingang hebben
+# oncrawlbaar zou maken.
+
+# --- Sitemap ---
 Sitemap: https://feigro.nl/sitemap.xml

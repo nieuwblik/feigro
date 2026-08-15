@@ -1,11 +1,11 @@
 import { Hero, Services, About, BlogSection, CompanyHeritage, FeaturedProjects } from '@/components/home';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
 import { seoMetadata } from '@/data/seo-metadata';
 
 const Index = () => {
   return (
     <div className="w-full">
-      <SEO {...seoMetadata.home} />
+      <SEOHead {...seoMetadata.home} />
       <Hero />
       <Services />
       <About />

@@ -1,15 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers } from 'lucide-react';
+import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers, Search, Flame, Droplets } from 'lucide-react';
 import heroImage from '@/assets/dakinspectie-noord-holland.webp';
 import { Link } from 'react-router-dom';
 
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { FAQItem } from '@/types';
 
 const servicesDetail = [
+  {
+    title: 'Dakinspectie',
+    desc: 'Gratis, grondige controle van uw complete dak, met fotorapportage en advies binnen 48 uur.',
+    icon: <Search size={40} />,
+    href: '/dakinspectie'
+  },
   {
     title: 'VVE & Vastgoedbeheer',
     desc: 'Professioneel dakbeheer voor VVE\'s en vastgoedbeheerders, gericht op duurzame oplossingen en kostenbesparing.',
@@ -45,6 +52,24 @@ const servicesDetail = [
     desc: 'Veilige werkplekken met gecertificeerde valbeveiliging, volgens de laatste veiligheidsnormen.',
     icon: <ShieldCheck size={40} />,
     href: '/valbeveiliging'
+  },
+  {
+    title: 'Dakbedekking Vervangen',
+    desc: 'Versleten dakbedekking volledig vervangen door EPDM, bitumen of PVC, afgestemd op uw dak.',
+    icon: <Layers size={40} />,
+    href: '/dakbedekking-vervangen'
+  },
+  {
+    title: 'Bitumen Dakbedekking',
+    desc: 'Waterdichte, brandveilige bitumen dakbedekking voor platte daken, met 15 tot 25 jaar levensduur.',
+    icon: <Flame size={40} />,
+    href: '/bitumen-dakbedekking'
+  },
+  {
+    title: 'EPDM Dakbedekking',
+    desc: 'Rubber dakbedekking die tot 50 jaar meegaat en vrijwel geen onderhoud nodig heeft.',
+    icon: <Droplets size={40} />,
+    href: '/epdm-dakbedekking'
   }
 ];
 
@@ -58,7 +83,8 @@ const dienstenFaqs: FAQItem[] = [
 const Diensten = () => {
   return (
     <div className="w-full">
-      <SEO {...seoMetadata.diensten} />
+      <SEOHead {...seoMetadata.diensten} />
+      <SEOBreadcrumb />
       {/* Page Header */}
       <section className="bg-black pt-36 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center px-4 md:px-6">
         {/* Background Image with Overlay */}

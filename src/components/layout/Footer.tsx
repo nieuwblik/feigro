@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 import footerImg1 from '@/assets/dakrenovatie-noordholland.webp';
 import footerImg2 from '@/assets/epdm-dakbedekking.webp';
@@ -11,6 +12,7 @@ import footerImg4 from '@/assets/dak-valbeveiliging-montage.webp';
 import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.webp';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { resetConsent } = useCookieConsent();
   const footerRef = useRef<HTMLElement>(null);
   const {
     scrollYProgress
@@ -116,7 +118,7 @@ export const Footer = () => {
           </Link>
         </FadeIn>
 
-        <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-12 lg:gap-y-0 gap-x-10">
+        <nav className="grid grid-cols-2 lg:flex lg:justify-between gap-y-12 lg:gap-y-0 gap-x-10" aria-label="Footer navigatie">
           {[{
             title: 'DIENSTEN',
             items: services
@@ -129,7 +131,12 @@ export const Footer = () => {
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
 
             <div className="text-left">
-              <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
+              {/* Visueel label voor deze linkgroep, geen <h*>: de footer landt
+                  na de paginaïnhoud, en of de vorige kop daar op h2 of h3 stond
+                  wisselt per pagina - een vast kopniveau hier kan dus altijd
+                  een niveau overslaan. De <nav aria-label> hierboven geeft het
+                  blok al een naam voor schermlezers. */}
+              <p className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</p>
               <ul className="space-y-3 md:space-y-4">
                 {col.items.map(item => <li key={item.name}>
                   <Link to={item.href} className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium">
@@ -139,14 +146,15 @@ export const Footer = () => {
               </ul>
             </div>
           </FadeIn>)}
-        </div>
+        </nav>
       </div>
 
       {/* Row 2: Contact info on left, Photos on right */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 pt-16 md:pt-24">
         {/* Contact Section (Spans 3 columns to align with Logo/Services/Explore) */}
         <FadeIn className="lg:col-span-3" delay={0.3}>
-          <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>
+          {/* Zelfde reden als de linkgroep-labels hierboven: geen vast kopniveau in een footer die na elke pagina landt. */}
+          <p className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
             {/* Row 1: Algemeen & Spoed */}
@@ -188,9 +196,20 @@ export const Footer = () => {
 
       {/* Bottom Bar Row */}
       <FadeIn className="mt-12 md:mt-24 pt-6 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-        <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
-          © {currentYear} FEIGRO DAKWERKEN — ALLE RECHTEN VOORBEHOUDEN
-        </p>
+        <div className="flex flex-col items-center gap-3 md:flex-row md:gap-6">
+          <p className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-center md:text-left">
+            © {currentYear} FEIGRO DAKWERKEN — ALLE RECHTEN VOORBEHOUDEN
+          </p>
+          {/* Toestemming intrekken moet net zo makkelijk zijn als geven; deze
+              knop haalt de cookiebalk direct weer terug. */}
+          <button
+            type="button"
+            onClick={resetConsent}
+            className="text-slate-400 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium transition-colors hover:text-brand-green"
+          >
+            Cookievoorkeuren
+          </button>
+        </div>
 
         <div className="flex items-center gap-2 md:gap-3">
           <span className="text-slate-300 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium">MADE BY</span>

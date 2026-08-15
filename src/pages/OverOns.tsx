@@ -1,7 +1,8 @@
 import React from 'react';
 import { CheckCircle, Users, Award, Heart, ArrowRight } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
@@ -34,7 +35,8 @@ export default function OverOns() {
 
   return (
     <div className="w-full">
-      <SEO {...seoMetadata.overOns} />
+      <SEOHead {...seoMetadata.overOns} />
+      <SEOBreadcrumb />
 
       {/* Hero */}
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">
@@ -46,6 +48,8 @@ export default function OverOns() {
             speed={80}
             containerClassName="w-full h-full"
             className="opacity-30"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>

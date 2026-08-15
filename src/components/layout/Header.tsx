@@ -173,7 +173,7 @@ export const Header = () => {
         <Logo />
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-12">
+        <nav className="hidden lg:flex items-center gap-12" aria-label="Hoofdnavigatie">
           {/* Diensten Dropdown */}
           <div
             className="relative"
@@ -355,7 +355,7 @@ export const Header = () => {
               variants={contentVariants}
               className="flex-1 flex flex-col p-8 pt-4 container mx-auto overflow-y-auto"
             >
-              <nav className="flex flex-col gap-6 text-left">
+              <nav className="flex flex-col gap-6 text-left" aria-label="Mobiele navigatie">
                 {/* Mobile Diensten Dropdown */}
                 <div className="flex flex-col gap-4">
                   <button

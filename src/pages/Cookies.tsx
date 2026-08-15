@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { 
@@ -81,7 +82,8 @@ export default function Cookies() {
 
   return (
     <>
-      <SEO {...seoMetadata.cookies} noindex />
+      <SEOHead {...seoMetadata.cookies} />
+      <SEOBreadcrumb />
 
       {/* Hero Section */}
       <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-[50vh] md:h-[40vh] flex items-center">

@@ -1,10 +1,6 @@
-import { SEO } from '@/components/SEO';
-import {
-  combineSchemas,
-  generateBreadcrumbSchema,
-  generateBreadcrumbsFromPath,
-  generateServiceSchema,
-} from '@/lib/structured-data';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
+import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
@@ -16,6 +12,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { ArrowRight } from 'lucide-react';
+import { getRelatedServices } from '@/lib/related-content';
 
 export default function Dakrenovatie() {
   const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakrenovatieData;
@@ -23,17 +20,8 @@ export default function Dakrenovatie() {
 
   return (
     <>
-      <SEO
-                {...seo}
-                schema={combineSchemas(
-                  generateServiceSchema({
-                    name: 'Dakrenovatie',
-                    description: seo.description,
-                    path: seo.canonical,
-                  }),
-                  generateBreadcrumbSchema(generateBreadcrumbsFromPath(seo.canonical)) as unknown as Record<string, unknown>,
-                )}
-              />
+      <SEOHead {...seo} />
+      <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />
       <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
@@ -74,7 +62,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageBefore}
-                  alt="Plat dak in Enkhuizen voor de dakrenovatie door Feigro"
+                  alt="Dakrenovatie Enkhuizen - Voor"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-slate-100 text-sm font-bold uppercase tracking-wider text-slate-600">VOOR</p>
@@ -87,7 +75,7 @@ export default function Dakrenovatie() {
               >
                 <img loading="lazy" decoding="async"
                   src={enkhuizenProject.imageAfter}
-                  alt="Plat dak in Enkhuizen na de dakrenovatie door Feigro"
+                  alt="Dakrenovatie Enkhuizen - Na"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <p className="text-center py-3 bg-brand-green text-sm font-bold uppercase tracking-wider text-black">NA</p>
@@ -128,6 +116,7 @@ export default function Dakrenovatie() {
       )}
 
       <FAQSection faqs={faqs} />
+      <RelatedContent title="Gerelateerde diensten" items={getRelatedServices('/dakrenovatie')} />
       <ServiceCTA />
     </>
   );

@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, MapPin, Calendar, ArrowUpRight, Ruler } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 
 import { projectsList } from '@/data/projects';
@@ -17,7 +18,8 @@ export default function Projecten() {
     });
   };
   return <div className="w-full bg-white">
-    <SEO {...seoMetadata.projecten} />
+    <SEOHead {...seoMetadata.projecten} />
+    <SEOBreadcrumb />
 
     {/* Hero */}
     <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">
@@ -91,7 +93,7 @@ export default function Projecten() {
             <Link to={`/projecten/${project.slug}`} className="group block">
               {/* Image Container */}
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-slate-200">
-                <img loading="lazy" decoding="async" src={project.imageAfter} alt={`${project.title} — dakproject uitgevoerd door Feigro`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={project.imageAfter} alt={`${project.title} — dakproject uitgevoerd door Feigro`} className="w-full h-full object-cover media-zoom" />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
 
                 {/* Hover Arrow */}

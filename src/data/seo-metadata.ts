@@ -10,7 +10,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakdekker Noord-Holland, Flevoland & Utrecht | Feigro",
     description:
       "Dakdekker in Noord-Holland, Flevoland en Utrecht. Feigro doet dakrenovatie, dakonderhoud en 24/7 spoedhulp bij lekkage. Vraag een gratis offerte aan.",
-    canonical: "/",
+    canonicalUrl: "/",
     keywords: [
       "dakdekker Noord-Holland",
       "dakdekker Flevoland",
@@ -27,7 +27,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakinspectie | Conditie van uw dak in beeld | Feigro",
     description:
       "Dakinspectie door Feigro in Noord-Holland, Flevoland en Utrecht. Wij leggen schade, lekkagerisico en onderhoud vast in een helder rapport. Plan uw inspectie.",
-    canonical: "/dakinspectie",
+    canonicalUrl: "/dakinspectie",
     keywords: [
       "dakinspectie",
       "dak laten controleren",
@@ -42,7 +42,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakonderhoud | Voorkom lekkage en schade | Feigro",
     description:
       "Periodiek dakonderhoud in Noord-Holland, Flevoland en Utrecht. Feigro houdt uw platte of hellende dak lekvrij met vaste onderhoudsrondes. Vraag advies aan.",
-    canonical: "/dakonderhoud",
+    canonicalUrl: "/dakonderhoud",
     keywords: [
       "dakonderhoud",
       "onderhoudscontract dak",
@@ -57,7 +57,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakrenovatie | Plat dak en dakisolatie | Feigro",
     description:
       "Complete dakrenovatie in Noord-Holland, Flevoland en Utrecht: nieuwe dakbedekking, isolatie en detaillering met garantie. Vraag een vrijblijvende offerte aan.",
-    canonical: "/dakrenovatie",
+    canonicalUrl: "/dakrenovatie",
     keywords: [
       "dakrenovatie",
       "plat dak renoveren",
@@ -72,7 +72,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakbedekking vervangen | EPDM, bitumen, PVC | Feigro",
     description:
       "Dakbedekking vervangen in Noord-Holland, Flevoland en Utrecht. Feigro legt EPDM, bitumen of PVC vakkundig aan, inclusief isolatie. Vraag een offerte aan.",
-    canonical: "/dakbedekking-vervangen",
+    canonicalUrl: "/dakbedekking-vervangen",
     keywords: [
       "dakbedekking vervangen",
       "nieuwe dakbedekking",
@@ -87,7 +87,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Bitumen dakbedekking | Plat dak specialist | Feigro",
     description:
       "Bitumen dakbedekking voor platte daken in Noord-Holland, Flevoland en Utrecht. Waterdicht, brandveilig en tot 25 jaar levensduur. Vraag een offerte aan.",
-    canonical: "/bitumen-dakbedekking",
+    canonicalUrl: "/bitumen-dakbedekking",
     keywords: [
       "bitumen dakbedekking",
       "plat dak bitumen",
@@ -102,7 +102,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "EPDM dakbedekking | Rubber dak, lange levensduur | Feigro",
     description:
       "EPDM dakbedekking door Feigro in Noord-Holland, Flevoland en Utrecht. Naadloos rubber dak, onderhoudsarm en decennia lang waterdicht. Vraag advies aan.",
-    canonical: "/epdm-dakbedekking",
+    canonicalUrl: "/epdm-dakbedekking",
     keywords: [
       "EPDM dakbedekking",
       "rubber dakbedekking",
@@ -117,7 +117,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Daklekkage verhelpen | Spoed dakdekker 24/7 | Feigro",
     description:
       "Daklekkage in Noord-Holland, Flevoland of Utrecht? Feigro spoort de lekkage op en repareert direct. 24/7 spoed dakdekker bereikbaar. Bel voor snelle hulp.",
-    canonical: "/daklekkage",
+    canonicalUrl: "/daklekkage",
     keywords: [
       "daklekkage",
       "lekkage plat dak",
@@ -132,7 +132,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Over Feigro | Dakdekkers uit Enkhuizen",
     description:
       "Feigro is de samenwerking van Feitsma Dakwerken en Groen Dakwerken uit Enkhuizen. Ervaren dakdekkers voor Noord-Holland, Flevoland en Utrecht. Lees ons verhaal.",
-    canonical: "/over-ons",
+    canonicalUrl: "/over-ons",
     keywords: [
       "Feigro Dakwerken",
       "Feitsma Dakwerken",
@@ -147,7 +147,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakprojecten | Ons werk in beeld | Feigro",
     description:
       "Bekijk uitgevoerde dakprojecten van Feigro in Noord-Holland, Flevoland en Utrecht: dakrenovatie, isolatie en nieuwe dakbedekking. Zie het resultaat per project.",
-    canonical: "/projecten",
+    canonicalUrl: "/projecten",
     keywords: [
       "dakprojecten",
       "dakrenovatie voorbeelden",
@@ -162,7 +162,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Spoedservice dak | Lekkage melden 24/7 | Feigro",
     description:
       "Acute daklekkage of stormschade? Meld het direct bij Feigro. 24/7 spoed dakdekker in Noord-Holland, Flevoland en Utrecht, snel ter plaatse om schade te stoppen.",
-    canonical: "/spoedservice",
+    canonicalUrl: "/spoedservice",
     keywords: [
       "lekkage melden",
       "spoed dakdekker",
@@ -177,7 +177,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Contact | Gratis offerte dakdekker | Feigro",
     description:
       "Neem contact op met Feigro in Enkhuizen voor advies of een gratis offerte. Dakdekker voor Noord-Holland, Flevoland en Utrecht. Bel of stuur uw aanvraag door.",
-    canonical: "/contact",
+    canonicalUrl: "/contact",
     keywords: [
       "contact dakdekker",
       "offerte dakwerk",
@@ -192,7 +192,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Dakreparatie | Snel en vakkundig hersteld | Feigro",
     description:
       "Dakreparatie in Noord-Holland, Flevoland en Utrecht. Van scheur of losse naad tot stormschade: Feigro herstelt uw dak duurzaam. Vraag direct een reparatie aan.",
-    canonical: "/dakreparatie",
+    canonicalUrl: "/dakreparatie",
     keywords: [
       "dakreparatie",
       "dak repareren",
@@ -207,7 +207,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Valbeveiliging dak | Veilig werken op hoogte | Feigro",
     description:
       "Valbeveiliging voor daken in Noord-Holland, Flevoland en Utrecht. Feigro adviseert, installeert en keurt ankerpunten en lijnsystemen. Vraag een offerte aan.",
-    canonical: "/valbeveiliging",
+    canonicalUrl: "/valbeveiliging",
     keywords: [
       "valbeveiliging dak",
       "ankerpunten dak",
@@ -222,7 +222,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "VvE & vastgoedbeheer | Dakonderhoud op maat | Feigro",
     description:
       "Dakonderhoud voor VvE's en vastgoedbeheerders in Noord-Holland, Flevoland en Utrecht. Meerjarenplanning, vaste aanspreekpunten en 24/7 spoed. Vraag advies aan.",
-    canonical: "/vve-vastgoedbeheer",
+    canonicalUrl: "/vve-vastgoedbeheer",
     keywords: [
       "VvE dakonderhoud",
       "vastgoedbeheer dak",
@@ -237,7 +237,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Diensten dakdekker | Alle dakwerken | Feigro",
     description:
       "Alle dakwerken van Feigro: dakrenovatie, dakreparatie, dakonderhoud, daklekkage en valbeveiliging in Noord-Holland, Flevoland en Utrecht. Bekijk onze diensten.",
-    canonical: "/diensten",
+    canonicalUrl: "/diensten",
     keywords: [
       "dakdekker diensten",
       "dakrenovatie",
@@ -252,7 +252,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Vacatures dakdekker | Werken bij Feigro",
     description:
       "Werken als dakdekker in Noord-Holland? Bekijk de vacatures bij Feigro in Enkhuizen: vast team, goed materieel en ruimte om te groeien. Solliciteer vandaag nog.",
-    canonical: "/vacatures",
+    canonicalUrl: "/vacatures",
     keywords: [
       "vacature dakdekker",
       "baan dakdekker Noord-Holland",
@@ -266,7 +266,7 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Nieuws & daktips | Feigro Dakwerken",
     description:
       "Daktips en nieuws van Feigro: onderhoud, materialen zoals EPDM en bitumen, en duurzame daken. Praktische informatie voor huiseigenaren, VvE's en beheerders.",
-    canonical: "/nieuws",
+    canonicalUrl: "/nieuws",
     keywords: [
       "daktips",
       "nieuws dakwerken",
@@ -281,7 +281,8 @@ export const seoMetadata: Record<string, PageSEO> = {
     title: "Privacy- en cookiebeleid | Feigro Dakwerken",
     description:
       "Lees hoe Feigro Dakwerken omgaat met uw persoonsgegevens en cookies. Volledig AVG-conform, met uitleg over welke gegevens wij bewaren en waarom.",
-    canonical: "/cookies",
+    canonicalUrl: "/cookies",
     keywords: ["privacybeleid", "cookiebeleid", "AVG", "Feigro Dakwerken"],
+    noindex: true,
   },
 };

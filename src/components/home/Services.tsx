@@ -132,7 +132,7 @@ export const Services = () => {
                 <img loading="lazy" decoding="async"
                   src={ctaImage}
                   alt="FEIGRO Dakwerken professional"
-                  className="w-full h-full object-cover transition-all duration-1000"
+                  className="w-full h-full object-cover media-zoom"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
               </div>

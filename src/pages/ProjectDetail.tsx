@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SEO } from '@/components/SEO';
-import { generateBreadcrumbSchema } from '@/lib/structured-data';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { projects, projectsList } from '@/data/projects';
 import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
 
@@ -50,17 +50,19 @@ export default function ProjectDetail() {
   const otherProjects = projectsList.filter(p => p.slug !== slug).slice(0, 3);
 
   return (
-    <div className="w-full bg-white">
-      <SEO
+    <article className="w-full bg-white">
+      <SEOHead
         title={`${project.title} | Feigro`}
         description={project.shortDescription}
-        canonical={`/projecten/${project.slug}`}
+        canonicalUrl={`/projecten/${project.slug}`}
         ogImage={project.imageAfter}
-        schema={generateBreadcrumbSchema([
+      />
+      <SEOBreadcrumb
+        items={[
           { label: 'Home', href: '/' },
           { label: 'Projecten', href: '/projecten' },
-          { label: project.title, href: `/projecten/${project.slug}` },
-        ]) as unknown as Record<string, unknown>}
+          { label: project.title, href: `/projecten/${project.slug}` }
+        ]}
       />
 
       {/* Hero Section */}
@@ -200,7 +202,7 @@ export default function ProjectDetail() {
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
+                        className={`group flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${idx === currentImageIndex
                             ? 'border-brand-green ring-2 ring-brand-green/20'
                             : 'border-slate-200 hover:border-slate-400'
                           }`}
@@ -208,7 +210,7 @@ export default function ProjectDetail() {
                         <img loading="lazy" decoding="async"
                           src={img}
                           alt={`${project.title} - Thumbnail ${idx + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover media-zoom"
                         />
                       </button>
                     ))}
@@ -283,7 +285,7 @@ export default function ProjectDetail() {
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
+            <aside className="lg:col-span-1">
               {/* Project Info Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -330,11 +332,13 @@ export default function ProjectDetail() {
                         to={`/projecten/${p.slug}`}
                         className="group flex gap-4 items-center"
                       >
-                        <img loading="lazy" decoding="async"
-                          src={p.imageAfter}
-                          alt={p.title}
-                          className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                        />
+                        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                          <img loading="lazy" decoding="async"
+                            src={p.imageAfter}
+                            alt={p.title}
+                            className="w-full h-full object-cover media-zoom"
+                          />
+                        </div>
                         <div>
                           <h4 className="font-medium text-slate-900 group-hover:text-brand-green transition-colors text-sm">
                             {p.title}
@@ -346,10 +350,10 @@ export default function ProjectDetail() {
                   </div>
                 </motion.div>
               )}
-            </div>
+            </aside>
           </div>
         </div>
       </section>
-    </div>
+    </article>
   );
 }

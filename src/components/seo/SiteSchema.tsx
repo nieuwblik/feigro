@@ -1,32 +1,37 @@
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
 import {
-  generateLocalBusinessSchema,
   generateOrganizationSchema,
   generateWebsiteSchema,
+  generateLocalBusinessSchema,
 } from '@/lib/structured-data';
 
 /**
- * Sitewide JSON-LD: Organization en WebSite op elke pagina.
- * De RoofingContractor (LocalBusiness) wordt buiten de homepage geplaatst;
- * op de homepage levert de reviews-sectie dezelfde entiteit inclusief beoordelingen.
+ * Site-brede JSON-LD, één keer per pagina gerenderd vanuit de layout.
+ *
+ * Vervangt de statische <script type="application/ld+json"> blokken die in
+ * index.html stonden. Die kwamen op élke URL terecht en liepen uit de pas met
+ * src/lib/structured-data.ts (verkeerde provincie, verkeerd telefoonnummer,
+ * logo-URL die 404'de). Door het hier te renderen is er nog één bron.
+ *
+ * Bevat GEEN BreadcrumbList: elke subpagina rendert daarvoor zelf
+ * <SEOBreadcrumb />, dat zowel de zichtbare nav als de bijbehorende JSON-LD
+ * levert. Eén component is de enige bron voor breadcrumbs, in plaats van dit
+ * generieke, pad-gebaseerde schema hier én een rijkere variant per pagina -
+ * dat gaf eerder dubbele/tegenstrijdige BreadcrumbList-schema's op dezelfde
+ * pagina (zie de blogartikel-categorie-breadcrumb).
  */
 export function SiteSchema() {
-  const { pathname } = useLocation();
-  const isHome = pathname === '/';
-
-  const schemas: Record<string, unknown>[] = [
-    generateOrganizationSchema() as unknown as Record<string, unknown>,
-    generateWebsiteSchema() as unknown as Record<string, unknown>,
+  const graph: object[] = [
+    generateOrganizationSchema(),
+    generateWebsiteSchema(),
+    generateLocalBusinessSchema(),
   ];
-
-  if (!isHome) {
-    schemas.push(generateLocalBusinessSchema() as unknown as Record<string, unknown>);
-  }
 
   return (
     <Helmet>
-      <script type="application/ld+json">{JSON.stringify(schemas)}</script>
+      <script type="application/ld+json">{JSON.stringify(graph)}</script>
     </Helmet>
   );
 }
+
+export default SiteSchema;

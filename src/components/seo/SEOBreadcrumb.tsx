@@ -4,6 +4,7 @@ import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { BreadcrumbItem } from '@/types/seo';
 import { generateBreadcrumbSchema, generateBreadcrumbsFromPath } from '@/lib/structured-data';
+import { StructuredData } from '@/components/seo/StructuredData';
 
 interface SEOBreadcrumbProps {
   items?: BreadcrumbItem[];
@@ -33,11 +34,8 @@ export function SEOBreadcrumb({
 
   return (
     <>
-      {/* JSON-LD Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
-      
+      <StructuredData schemas={[schema]} />
+
       {/* Breadcrumb Navigation */}
       <nav 
         aria-label="Breadcrumb" 

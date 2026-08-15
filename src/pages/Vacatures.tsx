@@ -1,4 +1,5 @@
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
@@ -32,7 +33,8 @@ const vacatures = [
 export default function Vacatures() {
   return (
     <>
-      <SEO {...seoMetadata.vacatures} />
+      <SEOHead {...seoMetadata.vacatures} />
+      <SEOBreadcrumb />
 
       {/* Hero Section */}
       <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 px-4 md:px-6 overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">

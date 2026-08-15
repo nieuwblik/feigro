@@ -1,14 +1,11 @@
-import { SEO } from '@/components/SEO';
-import {
-  combineSchemas,
-  generateBreadcrumbSchema,
-  generateBreadcrumbsFromPath,
-  generateServiceSchema,
-} from '@/lib/structured-data';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
+import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { InfoSection } from '@/components/sections/InfoSection';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { getRelatedServices } from '@/lib/related-content';
 
 import { daklekkageData } from '@/data/services';
 
@@ -20,22 +17,14 @@ export default function Daklekkage() {
 
   return (
     <>
-      <SEO
-                {...seo}
-                schema={combineSchemas(
-                  generateServiceSchema({
-                    name: 'Daklekkage verhelpen',
-                    description: seo.description,
-                    path: seo.canonical,
-                  }),
-                  generateBreadcrumbSchema(generateBreadcrumbsFromPath(seo.canonical)) as unknown as Record<string, unknown>,
-                )}
-              />
+      <SEOHead {...seo} />
+      <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />
       <EmergencyContactRow />
       <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} />
       <FAQSection faqs={faqs} />
+      <RelatedContent title="Gerelateerde diensten" items={getRelatedServices('/daklekkage')} />
       <ServiceCTA />
     </>
   );

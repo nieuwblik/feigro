@@ -80,7 +80,7 @@ export const BlogSection = () => {
               <div className="relative h-full min-h-[400px] md:min-h-[500px] rounded-2xl overflow-hidden bg-feigro-dark shadow-xl shadow-feigro-dark/20 group-hover:shadow-2xl group-hover:shadow-feigro-dark/30 transition-shadow duration-500">
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img loading="lazy" decoding="async" src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover media-zoom" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
 
@@ -138,7 +138,7 @@ export const BlogSection = () => {
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-4 p-4 md:p-5 rounded-2xl bg-feigro-dark/5 border border-feigro-dark/10 shadow-md shadow-feigro-dark/5 hover:shadow-lg hover:shadow-feigro-dark/10 active:scale-[0.98] hover:border-brand-green/30 hover:bg-feigro-dark/10 transition-all duration-300">
                   {/* Image */}
                   <div className="relative w-full sm:w-32 lg:w-full h-40 sm:h-24 lg:h-40 rounded-xl overflow-hidden shrink-0">
-                    <img loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-full object-cover media-zoom" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
 
                     {/* Category Badge */}

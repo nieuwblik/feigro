@@ -26,8 +26,18 @@ export function HeroSection({
   const mainText = isStartHighlight ? words.slice(highlightWordCount).join(' ') : words.slice(0, -highlightWordCount).join(' ');
   return <section className={cn('relative bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 px-4 md:px-6 overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center', className)}>
     {/* Background Image with Overlay */}
+    {/* Dit is de hero op elke dienstpagina - vrijwel altijd het LCP-element.
+        loading="lazy" hoort hier NOOIT op: dat vertraagt precies de image die
+        Core Web Vitals meet als Largest Contentful Paint. eager + fetchPriority
+        "high" laat de browser 'm zo vroeg mogelijk ophalen. */}
     {backgroundImage && <div className="absolute inset-0 z-0">
-      <img src={backgroundImage} alt={title} className="w-full h-full object-cover opacity-30" loading="lazy" />
+      <img
+        src={backgroundImage}
+        alt={title}
+        className="w-full h-full object-cover opacity-30"
+        loading="eager"
+        fetchPriority="high"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
       <div className="absolute inset-0 bg-black/20"></div>
     </div>}

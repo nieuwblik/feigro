@@ -8,6 +8,14 @@ interface ParallaxImageProps {
     containerClassName?: string;
     speed?: number; // Relative pixels to move. Positive moves against scroll (parallax), negative moves with scroll
     direction?: 'up' | 'down';
+    /**
+     * Deze component wordt zowel voor hero-achtergronden (LCP-kandidaat) als
+     * voor onderaan-de-pagina content (footer-gallerij, "over ons"-secties)
+     * gebruikt. Standaard lazy, want de meeste aanroepen zijn dat laatste -
+     * zet 'm expliciet op "eager" voor de hero-afbeelding van een pagina.
+     */
+    loading?: 'eager' | 'lazy';
+    fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 export const ParallaxImage: React.FC<ParallaxImageProps> = ({
@@ -16,7 +24,9 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
     className = '',
     containerClassName = '',
     speed = 50,
-    direction = 'up'
+    direction = 'up',
+    loading = 'lazy',
+    fetchPriority = 'auto'
 }) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -36,6 +46,9 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
             <motion.img
                 src={src}
                 alt={alt}
+                loading={loading}
+                fetchPriority={fetchPriority}
+                decoding={loading === 'eager' ? 'sync' : 'async'}
                 className={`w-full h-[140%] object-cover absolute top-[-20%] left-0 ${className}`}
                 style={{
                     y,

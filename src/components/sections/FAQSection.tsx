@@ -8,6 +8,7 @@ import { FAQItem } from '@/types';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { generateFAQSchema } from '@/lib/structured-data';
+import { StructuredData } from '@/components/seo/StructuredData';
 
 interface FAQSectionProps {
   faqs: FAQItem[];
@@ -43,12 +44,7 @@ export function FAQSection({
 
   return (
     <>
-      {/* JSON-LD FAQ Schema */}
-      {faqSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      )}
+      <StructuredData schemas={[faqSchema]} />
 
       <section className={cn('py-20 md:py-28 lg:py-36 px-4 md:px-6 bg-white', className)}>
         <div className="container mx-auto max-w-4xl">

@@ -17,19 +17,21 @@ import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.webp';
 /**
  * Hangt een Service-schema aan de bestaande paginametadata.
  *
- * De <SEO> component zet `schema` als JSON-LD in de head; door het hier te doen
- * krijgt elke dienstpagina automatisch een Service-node die via provider.@id aan
- * de RoofingContractor-entiteit gekoppeld is - zonder dat de pagina's zelf iets
+ * De <SEOHead> component zet `structuredData` als JSON-LD in de head; door het hier
+ * te doen krijgt elke dienstpagina automatisch een Service-node die via provider.@id
+ * aan de RoofingContractor-entiteit gekoppeld is - zonder dat de pagina's zelf iets
  * hoeven te weten van schema.org.
  */
 function withServiceSchema(seo: PageSEO, serviceName: string): PageSEO {
   return {
     ...seo,
-    schema: generateServiceSchema({
-      name: serviceName,
-      description: seo.description,
-      url: seo.canonical,
-    }),
+    structuredData: [
+      generateServiceSchema({
+        name: serviceName,
+        description: seo.description,
+        url: seo.canonicalUrl,
+      }),
+    ],
   };
 }
 

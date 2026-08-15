@@ -36,8 +36,15 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Fonts with display swap for better performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Kritiek lettertype (Lustra, alle koppen sitebreed) zelf gehost vanuit
+         public/fonts - preloaden kan alleen met een stabiele URL, niet met een
+         door Vite gehashte src/assets-import. -->
+    <link rel="preload" href="/fonts/lustra-text-semi-bold.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- Fonts with display swap for better performance.
+         Inter, DM Sans én Aldrich in één request (was twee losse Google Fonts-
+         aanvragen: deze <link> plus een render-blocking @import in index.css). -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Aldrich&display=swap" rel="stylesheet" />
     
     <!--
       Schema.org JSON-LD wordt op runtime gezet door <SiteSchema /> (src/components/seo/SiteSchema.tsx),

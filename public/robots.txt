@@ -4,90 +4,84 @@
 # Alle crawlers zijn welkom, inclusief die van AI-zoekmachines.
 # Vermelding in AI-antwoorden vereist toegang voor zowel de zoek-agents
 # (die citeren) als de trainings-agents (die merkbekendheid opbouwen).
+#
+# Meerdere User-agent-regels die direct na elkaar staan (zonder Allow/Disallow
+# ertussen) delen dezelfde regels erna - zo hoeven /api/, /admin/ en /private/
+# maar één keer te worden opgesomd voor alle hieronder genoemde bots. Los
+# neergezette Disallow-regels gelden namelijk uitsluitend voor de laatst
+# genoemde User-agent ervoor, niet voor alles daarboven.
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
 # --- Klassieke zoekmachines ---
 User-agent: Googlebot
-Allow: /
-
 User-agent: Bingbot
-Allow: /
-
 User-agent: Applebot
-Allow: /
-
 User-agent: DuckDuckBot
-Allow: /
 
 # --- AI-zoeken, citaties en live ophalen ---
 # OpenAI
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: GPTBot
-Allow: /
 
 # Anthropic
 User-agent: Claude-SearchBot
-Allow: /
-
 User-agent: Claude-User
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
 
 # Perplexity
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: Perplexity-User
-Allow: /
 
 # Google Gemini / AI Overviews
 User-agent: Google-Extended
-Allow: /
 
 # Apple Intelligence
 User-agent: Applebot-Extended
-Allow: /
 
 # Meta AI
 User-agent: meta-externalagent
-Allow: /
 
 # Amazon
 User-agent: Amazonbot
-Allow: /
 
 # Common Crawl (voedt veel open datasets)
 User-agent: CCBot
-Allow: /
 
 # --- Social media previews ---
 User-agent: Twitterbot
-Allow: /
-
 User-agent: facebookexternalhit
-Allow: /
-
 User-agent: LinkedInBot
-Allow: /
-
 User-agent: WhatsApp
-Allow: /
 
-# --- Niet-publieke paden ---
-# Tracking-parameters worden bewust NIET geblokkeerd: de canonical-URL in
-# src/lib/seo-utils.ts strips ze al, terwijl een Disallow campagnelandingen
-# oncrawlbaar zou maken.
+Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /private/
+
+# --- Agressieve SEO-crawlers: niet blokkeren, wel afremmen ---
+# Deze bots leveren geen bezoekers of AI-citaties op, maar crawlen soms
+# zwaar genoeg om serverbelasting te veroorzaken. Crawl-delay wordt door
+# Google en Bing genegeerd (vandaar geen delay in de groepen hierboven);
+# bots die de directive wel respecteren worden hiermee afgeremd zonder ze
+# volledig te weren.
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+Allow: /
+Crawl-delay: 10
+
+# --- Tracking-parameters ---
+# ?utm_*, ?ref= e.d. worden bewust NIET geblokkeerd: de canonical-URL in
+# src/lib/seo-utils.ts strip ze al voor indexeringsdoeleinden, terwijl een
+# Disallow campagnelandingspagina's die (nog) geen andere ingang hebben
+# oncrawlbaar zou maken.
 
 # --- Sitemap ---
 Sitemap: https://feigro.nl/sitemap.xml

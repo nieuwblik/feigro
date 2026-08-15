@@ -21,24 +21,34 @@ export function SEOHead({
   description = DEFAULT_DESCRIPTION,
   keywords = [],
   canonicalUrl,
+  canonicalParams,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = 'website',
   noindex = false,
   structuredData = [],
-  article
+  article,
+  prevUrl,
+  nextUrl
 }: SEOHeadProps) {
   const location = useLocation();
-  
+
   // Format title with site name
   const fullTitle = formatTitle(title || SITE_NAME);
-  
+
   // Truncate description to 160 chars
   const truncatedDescription = truncateDescription(description, 160);
-  
-  // Build canonical URL
-  const canonical = canonicalUrl 
-    ? getCanonicalUrl(canonicalUrl)
-    : getCanonicalUrl(location.pathname);
+
+  // Build canonical URL - self-referencing by default (huidig pad) tenzij
+  // canonicalUrl expliciet iets anders aanwijst (bv. bij een duplicate-content
+  // variant). canonicalParams voegt bv. ?page=2 toe voor gepagineerde content.
+  const canonical = canonicalUrl
+    ? getCanonicalUrl(canonicalUrl, canonicalParams)
+    : getCanonicalUrl(location.pathname, canonicalParams);
+
+  // rel="prev" / rel="next" voor gepagineerde content; genormaliseerd via
+  // dezelfde getCanonicalUrl als de canonical zelf.
+  const prevHref = prevUrl ? getCanonicalUrl(prevUrl) : undefined;
+  const nextHref = nextUrl ? getCanonicalUrl(nextUrl) : undefined;
   
   // Build OG image URL
   const fullOgImage = getAbsoluteOgUrl(ogImage);
@@ -58,6 +68,8 @@ export function SEOHead({
       )}
       <meta name="robots" content={robotsContent} />
       <link rel="canonical" href={canonical} />
+      {prevHref && <link rel="prev" href={prevHref} />}
+      {nextHref && <link rel="next" href={nextHref} />}
 
       {/* Open Graph */}
       <meta property="og:type" content={ogType} />

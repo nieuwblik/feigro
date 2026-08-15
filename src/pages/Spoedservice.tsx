@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Clock, Zap, Shield, CheckCircle } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { LekkageForm } from '@/components/forms/LekkageForm';
@@ -59,7 +60,8 @@ export default function Spoedservice() {
 
   return (
     <div className="w-full bg-white">
-      <SEO {...seoMetadata.spoedservice} />
+      <SEOHead {...seoMetadata.spoedservice} />
+      <SEOBreadcrumb />
 
       {/* Hero */}
       <section ref={containerRef} className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden min-h-screen flex items-center">
@@ -71,6 +73,8 @@ export default function Spoedservice() {
             speed={56}
             containerClassName="w-full h-full"
             className="opacity-30"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>

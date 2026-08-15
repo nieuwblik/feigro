@@ -1,9 +1,9 @@
 // JSON-LD Structured Data Generators for FEIGRO Dakwerken
 
-import { 
-  OrganizationSchema, 
-  WebSiteSchema, 
-  WebPageSchema, 
+import {
+  OrganizationSchema,
+  WebSiteSchema,
+  WebPageSchema,
   BreadcrumbListSchema,
   ArticleSchema,
   FAQPageSchema,
@@ -15,7 +15,9 @@ import {
   Author,
   ReviewItem,
   AggregateRatingData,
-  ServiceSchema
+  ServiceSchema,
+  ProductSchema,
+  HowToSchema
 } from '@/types/seo';
 import { FAQItem } from '@/types';
 import { getBaseUrl, getSiteName } from './seo-utils';
@@ -39,6 +41,14 @@ const PHONE = '+31613731303';
 const SAME_AS: string[] = [];
 
 const AREA_SERVED = ['Noord-Holland', 'Flevoland', 'Utrecht'];
+
+/**
+ * Centrumcoördinaten van Enkhuizen (geen exact vestigingsadres - dat is niet
+ * bekend, alleen de plaatsnaam). Prima voor lokale-SEO-relevantie op
+ * stadsniveau; vervang door de exacte geocode van het pand zodra die
+ * beschikbaar is (bv. via Google Business Profile).
+ */
+const GEO = { latitude: 52.7047, longitude: 5.2891 };
 
 /**
  * Generate Organization schema for homepage/about
@@ -68,14 +78,25 @@ export function generateOrganizationSchema(): OrganizationSchema {
 }
 
 /**
- * Generate WebSite schema for homepage
+ * Generate WebSite schema for homepage.
+ *
+ * `searchUrlTemplate` voegt een SearchAction toe (bv. '/zoeken?q={search_term_string}')
+ * voor Google's sitelinks-zoekvak. De site heeft momenteel geen zoekfunctie,
+ * dus dit blijft leeg totdat die er is - geef 'm dan het pad van de zoekpagina mee.
  */
-export function generateWebsiteSchema(): WebSiteSchema {
+export function generateWebsiteSchema(searchUrlTemplate?: string): WebSiteSchema {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
-    url: BASE_URL
+    url: BASE_URL,
+    ...(searchUrlTemplate && {
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: searchUrlTemplate.startsWith('http') ? searchUrlTemplate : `${BASE_URL}${searchUrlTemplate}`,
+        'query-input': 'required name=search_term_string'
+      }
+    })
   };
 }
 
@@ -156,6 +177,32 @@ export function generateBreadcrumbsFromPath(path: string): BreadcrumbItem[] {
 }
 
 /**
+ * Generate breadcrumbs for an article, including its category as its own level
+ * (Home > Nieuws > <category> > <title>). Path-based generateBreadcrumbsFromPath
+ * can't produce this on its own: the URL only has a slug, not a category segment.
+ *
+ * De categorie-crumb linkt vooralsnog terug naar het bloglijst-overzicht - er is
+ * nog geen aparte categoriepagina. Zodra die er komt, hier de href aanpassen.
+ */
+export function generateArticleBreadcrumbs(article: {
+  category: string;
+  title: string;
+  slug: string;
+  sectionLabel?: string;
+  basePath?: string;
+}): BreadcrumbItem[] {
+  const basePath = article.basePath ?? '/nieuws';
+  const sectionLabel = article.sectionLabel ?? 'Nieuws';
+
+  return [
+    { label: 'Home', href: '/' },
+    { label: sectionLabel, href: basePath },
+    { label: article.category, href: basePath },
+    { label: article.title, href: `${basePath}/${article.slug}` }
+  ];
+}
+
+/**
  * Generate Article/BlogPosting schema for blog posts
  */
 export function generateArticleSchema(article: {
@@ -231,6 +278,10 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
       addressRegion: 'Noord-Holland',
       addressCountry: 'NL'
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      ...GEO
+    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -270,6 +321,100 @@ export function generateServiceSchema(service: {
     areaServed: AREA_SERVED.map(name => ({
       '@type': 'AdministrativeArea' as const,
       name
+    }))
+  };
+}
+
+/**
+ * Generate Product schema (voor eventuele productpagina's, bv. materialen/onderdelen).
+ */
+export function generateProductSchema(product: {
+  name: string;
+  description: string;
+  image: string | string[];
+  sku?: string;
+  brandName?: string;
+  offer?: {
+    price: string;
+    priceCurrency?: string;
+    availability?: 'InStock' | 'OutOfStock' | 'PreOrder';
+    url?: string;
+    priceValidUntil?: string;
+  };
+  aggregateRating?: AggregateRatingData;
+  reviews?: ReviewItem[];
+}): ProductSchema {
+  const toAbsolute = (path: string) => path.startsWith('http') ? path : `${BASE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    image: Array.isArray(product.image) ? product.image.map(toAbsolute) : toAbsolute(product.image),
+    ...(product.sku && { sku: product.sku }),
+    ...(product.brandName && { brand: { '@type': 'Brand', name: product.brandName } }),
+    ...(product.offer && {
+      offers: {
+        '@type': 'Offer',
+        price: product.offer.price,
+        priceCurrency: product.offer.priceCurrency ?? 'EUR',
+        ...(product.offer.availability && { availability: `https://schema.org/${product.offer.availability}` }),
+        ...(product.offer.url && { url: toAbsolute(product.offer.url) }),
+        ...(product.offer.priceValidUntil && { priceValidUntil: product.offer.priceValidUntil })
+      }
+    }),
+    ...(product.aggregateRating && { aggregateRating: generateAggregateRatingSchema(product.aggregateRating) }),
+    ...(product.reviews && product.reviews.length > 0 && { review: generateReviewsSchema(product.reviews) })
+  };
+}
+
+/**
+ * Generate HowTo schema (voor stapsgewijze content, bv. "hoe herken je een
+ * daklekkage" of onderhoudsinstructies). Stap-volgorde komt uit de array-
+ * volgorde van `steps`, zoals schema.org's eigen voorbeelden dat ook doen -
+ * een expliciete `position` per stap is voor HowToStep niet vereist.
+ */
+export function generateHowToSchema(howTo: {
+  name: string;
+  description: string;
+  image?: string;
+  /** ISO 8601-duur, bv. 'PT2H30M' voor 2,5 uur. */
+  totalTime?: string;
+  estimatedCost?: { currency: string; value: string };
+  supplies?: string[];
+  tools?: string[];
+  steps: { name: string; text: string; image?: string }[];
+}): HowToSchema {
+  const toAbsolute = (path: string) => (path.startsWith('http') ? path : `${BASE_URL}${path}`);
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    ...(howTo.image && { image: toAbsolute(howTo.image) }),
+    ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+    ...(howTo.estimatedCost && {
+      estimatedCost: {
+        '@type': 'MonetaryAmount',
+        currency: howTo.estimatedCost.currency,
+        value: howTo.estimatedCost.value
+      }
+    }),
+    ...(howTo.supplies &&
+      howTo.supplies.length > 0 && {
+        supply: howTo.supplies.map(name => ({ '@type': 'HowToSupply' as const, name }))
+      }),
+    ...(howTo.tools &&
+      howTo.tools.length > 0 && {
+        tool: howTo.tools.map(name => ({ '@type': 'HowToTool' as const, name }))
+      }),
+    step: howTo.steps.map(s => ({
+      '@type': 'HowToStep' as const,
+      name: s.name,
+      text: s.text,
+      ...(s.image && { image: toAbsolute(s.image) })
     }))
   };
 }

@@ -8,7 +8,7 @@ export const dakreparatieData: ServicePageData = {
     seo: {
         title: 'Dakreparatie | Snelle en Vakkundige Reparaties | FEIGRO Dakwerken',
         description: 'Professionele dakreparatie door FEIGRO. Van kleine lekkages tot grote schades - wij repareren snel en vakkundig. Bel voor spoedservice!',
-        canonical: '/dakreparatie',
+        canonicalUrl: '/dakreparatie',
         ogImage: '/images/og-dakreparatie.jpg',
     },
     hero: {
@@ -83,7 +83,7 @@ export const valbeveiligingssysteemData: ServicePageData = {
     seo: {
         title: 'Valbeveiligingssysteem | Veilig Werken op Hoogte | FEIGRO Dakwerken',
         description: 'Professionele valbeveiligingssystemen van FEIGRO. Gecertificeerde installatie volgens NEN-normen. Veilig werken op hoogte gegarandeerd.',
-        canonical: '/valbeveiligingssysteem',
+        canonicalUrl: '/valbeveiligingssysteem',
         ogImage: '/images/og-valbeveiliging.jpg',
     },
     hero: {

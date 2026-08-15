@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
-import { MemoryRouter } from 'react-router-dom';
 import { SiteSchema } from '@/components/seo/SiteSchema';
 
 /**
@@ -9,12 +8,10 @@ import { SiteSchema } from '@/components/seo/SiteSchema';
  * De statische blokken in index.html zijn verwijderd, dus als dit component
  * stilvalt heeft de site helemaal geen structured data meer.
  */
-function renderAt(path: string) {
+function renderSiteSchema() {
   render(
     <HelmetProvider>
-      <MemoryRouter initialEntries={[path]}>
-        <SiteSchema />
-      </MemoryRouter>
+      <SiteSchema />
     </HelmetProvider>
   );
 }
@@ -29,7 +26,7 @@ async function readGraph(): Promise<Record<string, unknown>[]> {
 
 describe('SiteSchema', () => {
   it('zet Organization, WebSite en RoofingContractor in de head', async () => {
-    renderAt('/');
+    renderSiteSchema();
     const types = (await readGraph()).map(node => node['@type']);
 
     expect(types).toContain('Organization');
@@ -37,12 +34,13 @@ describe('SiteSchema', () => {
     expect(types).toContain('RoofingContractor');
   });
 
-  it('voegt breadcrumbs toe op een subpagina, maar niet op de homepage', async () => {
-    renderAt('/dakrenovatie');
+  it('bevat geen BreadcrumbList, want dat is nu exclusief de taak van <SEOBreadcrumb> per pagina', async () => {
+    // Regressietest: dit voorkomt dat SiteSchema en een pagina's eigen
+    // <SEOBreadcrumb> weer allebei een (mogelijk tegenstrijdige) BreadcrumbList
+    // op dezelfde pagina zetten.
+    renderSiteSchema();
     const graph = await readGraph();
-    const breadcrumb = graph.find(node => node['@type'] === 'BreadcrumbList');
 
-    expect(breadcrumb).toBeDefined();
-    expect((breadcrumb as { itemListElement: unknown[] }).itemListElement).toHaveLength(2);
+    expect(graph.some(node => node['@type'] === 'BreadcrumbList')).toBe(false);
   });
 });

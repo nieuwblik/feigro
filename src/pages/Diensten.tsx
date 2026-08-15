@@ -4,7 +4,8 @@ import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers, Searc
 import heroImage from '@/assets/dakinspectie-noord-holland.webp';
 import { Link } from 'react-router-dom';
 
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { FAQItem } from '@/types';
@@ -82,7 +83,8 @@ const dienstenFaqs: FAQItem[] = [
 const Diensten = () => {
   return (
     <div className="w-full">
-      <SEO {...seoMetadata.diensten} />
+      <SEOHead {...seoMetadata.diensten} />
+      <SEOBreadcrumb />
       {/* Page Header */}
       <section className="bg-black pt-36 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center px-4 md:px-6">
         {/* Background Image with Overlay */}

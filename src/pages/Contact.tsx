@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
 import { supabase } from '@/integrations/supabase/client';
@@ -62,7 +63,8 @@ export default function Contact() {
   if (isSubmitted) {
     return (
       <div className="w-full bg-white">
-        <SEO {...seoMetadata.contact} />
+        <SEOHead {...seoMetadata.contact} />
+        <SEOBreadcrumb />
         <section className="min-h-screen flex items-center justify-center py-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -72,7 +74,9 @@ export default function Contact() {
             <div className="w-20 h-20 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle className="text-brand-green w-10 h-10" />
             </div>
-            <h3 className="text-3xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">Bedankt!</h3>
+            {/* Enige koptekst op deze staat van de pagina, dus h1 - geen h3
+                die niets boven zich heeft staan. */}
+            <h1 className="text-3xl font-heading text-slate-900 mb-4 uppercase tracking-tighter">Bedankt!</h1>
             <p className="text-slate-600 text-lg leading-relaxed font-light mb-8">
               Uw bericht is ontvangen. We nemen binnen 24 uur contact met u op.
             </p>
@@ -90,13 +94,13 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-white">
-      <SEO {...seoMetadata.contact} />
+      <SEOHead {...seoMetadata.contact} />
 
       {/* Hero */}
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <ParallaxImage src={imgHero} alt="Contact" speed={80} containerClassName="w-full h-full" className="opacity-30" />
+          <ParallaxImage src={imgHero} alt="Contact" speed={80} containerClassName="w-full h-full" className="opacity-30" loading="eager" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/20"></div>
         </div>

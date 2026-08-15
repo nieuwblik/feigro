@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+/* Aldrich (Google Fonts) en de basisfonts (Inter/DM Sans) worden via een
+   <link> in index.html geladen, niet via @import hier: een CSS @import is
+   render-blocking en wordt pas ontdekt nádat de browser dit hele stylesheet
+   heeft opgehaald - een <link> in <head> ontdekt de preload-scanner meteen
+   bij het parsen van de HTML, ruim eerder. */
 
-/* Custom Brand Font */
+/* Custom Brand Font - zelf gehost vanuit public/, met een stabiele URL zodat
+   'm in index.html gepreload kan worden (een Vite-asset-import in src/ krijgt
+   een gehashte bestandsnaam per build, wat preloaden onmogelijk maakt). */
 @font-face {
   font-family: 'Lustra';
-  src: url('/src/assets/fonts/lustra-text-semi-bold.ttf') format('truetype');
+  src: url('/fonts/lustra-text-semi-bold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;

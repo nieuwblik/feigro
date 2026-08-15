@@ -1,4 +1,5 @@
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -31,11 +32,12 @@ const vacatures = [
 export default function Vacatures() {
   return (
     <>
-      <SEO
+      <SEOHead
         title="Vacatures | FEIGRO Dakwerken"
         description="Bekijk onze openstaande vacatures en word onderdeel van het FEIGRO team. Wij zoeken gedreven dakdekkers en professionals."
-        canonical="/vacatures"
+        canonicalUrl="/vacatures"
       />
+      <SEOBreadcrumb />
 
       {/* Hero Section */}
       <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">

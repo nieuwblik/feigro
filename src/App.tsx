@@ -158,6 +158,8 @@ function PageLoadingFallback() {
 }
 
 import { ScrollManager } from '@/components/ui/ScrollManager';
+import { CanonicalUrlGuard } from '@/components/seo/CanonicalUrlGuard';
+import { HeadingHierarchyChecker } from '@/components/seo/HeadingHierarchyChecker';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -169,6 +171,8 @@ const App = () => (
             <Sonner />
             <BrowserRouter>
               <ScrollToTop />
+              <CanonicalUrlGuard />
+              <HeadingHierarchyChecker />
               <RoutePrefetcher />
               <MainLayout>
                 <Suspense fallback={<PageLoadingFallback />}>

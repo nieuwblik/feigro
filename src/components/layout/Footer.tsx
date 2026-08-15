@@ -128,7 +128,7 @@ export const Footer = () => {
           </Link>
         </FadeIn>
 
-        <div className="grid grid-cols-2 lg:flex lg:justify-between gap-y-12 lg:gap-y-0 gap-x-10">
+        <nav className="grid grid-cols-2 lg:flex lg:justify-between gap-y-12 lg:gap-y-0 gap-x-10" aria-label="Footer navigatie">
           {[{
             title: 'DIENSTEN',
             items: services
@@ -143,7 +143,12 @@ export const Footer = () => {
             items: socialLinks
           }].map((col, i) => <FadeIn key={col.title} delay={0.1 + i * 0.05} className="w-full lg:w-auto">
             <div className="text-left">
-              <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</h4>
+              {/* Visueel label voor deze linkgroep, geen <h*>: de footer landt
+                  na de paginaïnhoud, en of de vorige kop daar op h2 of h3 stond
+                  wisselt per pagina - een vast kopniveau hier kan dus altijd
+                  een niveau overslaan. De <nav aria-label> hierboven geeft het
+                  blok al een naam voor schermlezers. */}
+              <p className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10">{col.title}</p>
               <ul className="space-y-3 md:space-y-4">
                 {col.items.map(item => <li key={item.name}>
                   <Link to={item.href} className="text-slate-500 hover:text-brand-green transition-colors text-xs md:text-sm font-medium">
@@ -153,14 +158,15 @@ export const Footer = () => {
               </ul>
             </div>
           </FadeIn>)}
-        </div>
+        </nav>
       </div>
 
       {/* Row 2: Contact info on left, Photos on right */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-12 pt-16 md:pt-24">
         {/* Contact Section (Spans 3 columns to align with Logo/Services/Explore) */}
         <FadeIn className="lg:col-span-3" delay={0.3}>
-          <h4 className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</h4>
+          {/* Zelfde reden als de linkgroep-labels hierboven: geen vast kopniveau in een footer die na elke pagina landt. */}
+          <p className="text-slate-900 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-8 md:mb-10 text-left">CONTACT</p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
             {/* Row 1: Algemeen & Spoed */}

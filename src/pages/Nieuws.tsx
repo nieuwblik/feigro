@@ -1,4 +1,5 @@
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -36,7 +37,8 @@ export default function Nieuws() {
 
 
   return <>
-    <SEO title="Dakdekkers Nieuws | FEIGRO Dakwerken" description="Blijf op de hoogte van het laatste nieuws over dakwerken, innovaties en trends in de dakbedekkingsbranche." canonical="/nieuws" />
+    <SEOHead title="Dakdekkers Nieuws | FEIGRO Dakwerken" description="Blijf op de hoogte van het laatste nieuws over dakwerken, innovaties en trends in de dakbedekkingsbranche." canonicalUrl="/nieuws" />
+    <SEOBreadcrumb />
 
     {/* Hero Section */}
     <section className="relative bg-black pt-36 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">

@@ -3,14 +3,14 @@
 export interface PageSEO {
   title: string;
   description: string;
-  canonical: string;
+  canonicalUrl: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
-  // `object` in plaats van Record<string, unknown>, zodat de getypeerde
+  // `object[]` in plaats van Record<string, unknown>[], zodat de getypeerde
   // schema-interfaces uit types/seo.ts hier zonder cast in passen.
-  schema?: object | object[];
+  structuredData?: object[];
   keywords?: string[];
-
+  noindex?: boolean;
 }
 
 export interface NavigationItem {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { motion } from 'framer-motion';
 import { 
   Shield, 
@@ -80,11 +81,12 @@ export default function Cookies() {
 
   return (
     <>
-      <SEO
+      <SEOHead
         title="Privacy- en Cookiebeleid | Feigro"
         description="Lees ons privacy- en cookiebeleid. FEIGRO respecteert uw privacy en is volledig AVG-compliant."
-        canonical="/cookies"
+        canonicalUrl="/cookies"
       />
+      <SEOBreadcrumb />
 
       {/* Hero Section */}
       <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-20 px-4 md:px-6 overflow-hidden h-[50vh] md:h-[40vh] flex items-center">

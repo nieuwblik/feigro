@@ -1,11 +1,8 @@
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
 import {
   generateOrganizationSchema,
   generateWebsiteSchema,
   generateLocalBusinessSchema,
-  generateBreadcrumbSchema,
-  generateBreadcrumbsFromPath,
 } from '@/lib/structured-data';
 
 /**
@@ -16,24 +13,19 @@ import {
  * src/lib/structured-data.ts (verkeerde provincie, verkeerd telefoonnummer,
  * logo-URL die 404'de). Door het hier te renderen is er nog één bron.
  *
- * De BreadcrumbList wordt afgeleid van het huidige pad, zodat elke subpagina
- * automatisch breadcrumbs in de zoekresultaten kan krijgen zonder dat er
- * zichtbaar iets aan de pagina verandert.
+ * Bevat GEEN BreadcrumbList: elke subpagina rendert daarvoor zelf
+ * <SEOBreadcrumb />, dat zowel de zichtbare nav als de bijbehorende JSON-LD
+ * levert. Eén component is de enige bron voor breadcrumbs, in plaats van dit
+ * generieke, pad-gebaseerde schema hier én een rijkere variant per pagina -
+ * dat gaf eerder dubbele/tegenstrijdige BreadcrumbList-schema's op dezelfde
+ * pagina (zie de blogartikel-categorie-breadcrumb).
  */
 export function SiteSchema() {
-  const { pathname } = useLocation();
-
   const graph: object[] = [
     generateOrganizationSchema(),
     generateWebsiteSchema(),
     generateLocalBusinessSchema(),
   ];
-
-  // Op de homepage voegt een breadcrumb met één item niets toe.
-  const breadcrumbs = generateBreadcrumbsFromPath(pathname);
-  if (breadcrumbs.length > 1) {
-    graph.push(generateBreadcrumbSchema(breadcrumbs));
-  }
 
   return (
     <Helmet>

@@ -5,11 +5,22 @@ export interface SEOHeadProps {
   description?: string;
   keywords?: string[];
   canonicalUrl?: string;
+  // Extra query-parameters voor de canonical-tag, bv. { page: '2' } bij
+  // gepagineerde content. Tracking-namen (utm_*, ref, ...) worden altijd
+  // genegeerd, ook als ze hier per ongeluk in staan.
+  canonicalParams?: Record<string, string>;
   ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
-  structuredData?: Record<string, unknown>[];
+  // `object[]` in plaats van Record<string, unknown>[], zodat de getypeerde
+  // schema-interfaces hieronder (en PageSEO.structuredData) zonder cast passen.
+  structuredData?: object[];
   article?: ArticleMeta;
+  // rel="prev" / rel="next" voor gepagineerde content (pad + query, of absolute
+  // URL). Google negeert ze sinds 2019, Bing gebruikt ze nog. Zie
+  // getPaginationLinks() in lib/seo-utils.ts om ze te genereren.
+  prevUrl?: string;
+  nextUrl?: string;
 }
 
 export interface ArticleMeta {
@@ -211,6 +222,31 @@ export interface ServiceSchema {
   }[];
 }
 
+export interface ProductOfferSchema {
+  '@type': 'Offer';
+  price: string;
+  priceCurrency: string;
+  availability?: string;
+  url?: string;
+  priceValidUntil?: string;
+}
+
+export interface ProductSchema {
+  '@context': string;
+  '@type': 'Product';
+  name: string;
+  description: string;
+  image: string | string[];
+  sku?: string;
+  brand?: {
+    '@type': 'Brand';
+    name: string;
+  };
+  offers?: ProductOfferSchema;
+  aggregateRating?: AggregateRatingSchema;
+  review?: ReviewSchema[];
+}
+
 export interface AggregateRatingSchema {
   '@type': 'AggregateRating';
   ratingValue: number;
@@ -231,4 +267,35 @@ export interface ReviewSchema {
     bestRating: number;
     worstRating: number;
   };
+}
+
+export interface HowToStepSchema {
+  '@type': 'HowToStep';
+  name: string;
+  text: string;
+  image?: string;
+  url?: string;
+}
+
+export interface HowToItemSchema {
+  '@type': 'HowToSupply' | 'HowToTool';
+  name: string;
+}
+
+export interface HowToSchema {
+  '@context': string;
+  '@type': 'HowTo';
+  name: string;
+  description: string;
+  image?: string;
+  /** ISO 8601-duur, bv. 'PT2H30M' voor 2,5 uur. */
+  totalTime?: string;
+  estimatedCost?: {
+    '@type': 'MonetaryAmount';
+    currency: string;
+    value: string;
+  };
+  supply?: HowToItemSchema[];
+  tool?: HowToItemSchema[];
+  step: HowToStepSchema[];
 }

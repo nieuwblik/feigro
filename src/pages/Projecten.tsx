@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, MapPin, Calendar, ArrowUpRight, Ruler } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 
 import { projectsList } from '@/data/projects';
@@ -17,7 +18,8 @@ export default function Projecten() {
     });
   };
   return <div className="w-full bg-white">
-    <SEO {...seoMetadata.projecten} />
+    <SEOHead {...seoMetadata.projecten} />
+    <SEOBreadcrumb />
 
     {/* Hero */}
     <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden h-[70vh] md:h-[50vh] lg:h-[60vh] min-h-[400px] flex items-center">

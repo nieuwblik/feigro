@@ -1,9 +1,13 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { SEO } from '@/components/SEO';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { CTAFooter } from '@/components/sections/CTAFooter';
+import { generateArticleSchema, generateArticleBreadcrumbs } from '@/lib/structured-data';
+import { estimateReadingTime } from '@/lib/seo-utils';
+import { Author } from '@/types/seo';
 import imgEPDM from '@/assets/epdm-dakbedekking.webp';
 import imgDuurzaam from '@/assets/sedum-dak.webp';
 interface BlogSection {
@@ -20,11 +24,23 @@ interface BlogPost {
   subtitle: string;
   excerpt: string;
   date: string;
-  readTime: string;
+  /** ISO-datum van de laatste inhoudelijke update; laat weg als het artikel nooit is bijgewerkt. */
+  modifiedDate?: string;
+  /** Handmatige override; ontbreekt hij, dan wordt de leestijd geschat op basis van het aantal woorden. */
+  readTime?: string;
   category: string;
+  /** Losse tags naast de categorie, voor article:tag en JSON-LD keywords. */
+  tags?: string[];
   image: string;
-  author: string;
+  authors: Author[];
   sections: BlogSection[];
+}
+
+/** Voegt alle tekst van een artikel samen tot één string, voor de leestijdschatting. */
+function getArticleText(post: BlogPost): string {
+  return post.sections
+    .map(section => [section.content, ...(section.items ?? [])].filter(Boolean).join(' '))
+    .join(' ');
 }
 const blogPosts: Record<string, BlogPost> = {
   'epdm-dakbedekking': {
@@ -33,10 +49,10 @@ const blogPosts: Record<string, BlogPost> = {
     subtitle: 'De duurzame keuze voor uw platte dak',
     excerpt: 'EPDM is een van de meest duurzame opties voor platte daken met een levensduur van 40-50 jaar.',
     date: '2026-02-02',
-    readTime: '5 min',
     category: 'Materialen',
+    tags: ['EPDM', 'Plat dak', 'Dakbedekking'],
     image: imgEPDM,
-    author: 'FEIGRO Dakwerken',
+    authors: [{ name: 'FEIGRO Dakwerken', url: 'https://feigro.nl/over-ons' }],
     sections: [{
       type: 'paragraph',
       content: 'EPDM (Ethyleen Propeen Dieen Monomeer) is een synthetisch rubber dat al decennia lang wordt gebruikt voor dakbedekking. Met een levensduur van 40-50 jaar is het een van de meest duurzame opties voor platte daken. In dit artikel ontdekt u waarom steeds meer huiseigenaren en bedrijven kiezen voor EPDM.'
@@ -81,10 +97,10 @@ const blogPosts: Record<string, BlogPost> = {
     subtitle: 'De grootste trends van 2026',
     excerpt: 'Een van de grootste trends in 2026 is de opkomst van duurzame dakbedekkingen.',
     date: '2026-02-02',
-    readTime: '4 min',
     category: 'Trends',
+    tags: ['Duurzaamheid', 'Sedumdak', 'Trends 2026'],
     image: imgDuurzaam,
-    author: 'FEIGRO Dakwerken',
+    authors: [{ name: 'FEIGRO Dakwerken', url: 'https://feigro.nl/over-ons' }],
     sections: [{
       type: 'paragraph',
       content: 'Een van de grootste trends in 2026 is de opkomst van duurzame dakbedekkingen. Materialen zoals sedum daken, zonnepanelen en gerecyclede dakbedekking worden steeds populairder. In dit artikel bespreken we de belangrijkste ontwikkelingen en wat ze betekenen voor uw dak.'
@@ -135,6 +151,14 @@ export default function BlogDetail() {
     return <Navigate to="/nieuws" replace />;
   }
   const otherPosts = Object.values(blogPosts).filter(p => p.id !== post.id).slice(0, 2);
+  const readTimeMinutes = estimateReadingTime(getArticleText(post));
+  const readTimeLabel = post.readTime ?? `${readTimeMinutes} min`;
+  const authorNames = post.authors.map(author => author.name).join(' & ');
+  const breadcrumbItems = generateArticleBreadcrumbs({
+    category: post.category,
+    title: post.title,
+    slug: post.id
+  });
   const renderSection = (section: BlogSection, index: number) => {
     switch (section.type) {
       case 'paragraph':
@@ -203,28 +227,32 @@ export default function BlogDetail() {
     }
   };
   return <>
-    <SEO
+    <SEOHead
       title={`${post.title} | Feigro`}
       description={post.excerpt}
-      canonical={`/nieuws/${post.id}`}
+      canonicalUrl={`/nieuws/${post.id}`}
+      ogImage={post.image}
       ogType="article"
-      schema={{
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: post.title,
-        description: post.excerpt,
-        datePublished: post.date,
-        dateModified: post.date,
-        articleSection: post.category,
-        inLanguage: 'nl-NL',
-        author: { '@type': 'Organization', name: post.author },
-        publisher: {
-          '@type': 'Organization',
-          name: 'FEIGRO Dakwerken',
-          logo: { '@type': 'ImageObject', url: 'https://feigro.nl/images/feigro-logo.webp' },
-        },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `https://feigro.nl/nieuws/${post.id}` },
+      article={{
+        publishedTime: post.date,
+        modifiedTime: post.modifiedDate,
+        authors: post.authors,
+        section: post.category,
+        tags: post.tags
       }}
+      structuredData={[
+        generateArticleSchema({
+          headline: post.title,
+          description: post.excerpt,
+          image: post.image,
+          datePublished: post.date,
+          dateModified: post.modifiedDate,
+          authors: post.authors,
+          url: `/nieuws/${post.id}`,
+          section: post.category,
+          keywords: post.tags
+        })
+      ]}
     />
 
     {/* Hero Section */}
@@ -274,7 +302,7 @@ export default function BlogDetail() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock size={14} />
-                  {post.readTime}
+                  {readTimeLabel} leestijd
                 </span>
               </div>
             </motion.div>
@@ -308,8 +336,10 @@ export default function BlogDetail() {
     </section>
 
     {/* Article Content with Sidebar */}
-    <article className="py-16 md:py-24 px-4 md:px-6 bg-white">
+    <article className="pt-8 pb-16 md:pt-10 md:pb-24 px-4 md:px-6 bg-white">
       <div className="container mx-auto">
+        <SEOBreadcrumb items={breadcrumbItems} className="px-0 mb-8" />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Main Content */}
           <div className="lg:col-span-2">
@@ -332,7 +362,7 @@ export default function BlogDetail() {
                   <img loading="lazy" decoding="async" src="/images/feigro-logo-wit.webp" alt="Feigro" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <p className="text-slate-900 font-bold">{post.author}</p>
+                  <p className="text-slate-900 font-bold">{authorNames}</p>
                   <p className="text-slate-500 text-sm">Dakwerken Specialist</p>
                 </div>
               </div>

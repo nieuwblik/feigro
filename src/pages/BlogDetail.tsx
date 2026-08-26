@@ -42,7 +42,7 @@ function getArticleText(post: BlogPost): string {
     .map(section => [section.content, ...(section.items ?? [])].filter(Boolean).join(' '))
     .join(' ');
 }
-const blogPosts: Record<string, BlogPost> = {
+export const blogPosts: Record<string, BlogPost> = {
   'epdm-dakbedekking': {
     id: 'epdm-dakbedekking',
     title: 'EPDM Dakbedekking',

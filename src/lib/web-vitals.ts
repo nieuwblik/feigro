@@ -26,7 +26,7 @@ const THRESHOLDS: Record<string, { good: number; needsImprovement: number }> = {
   TTFB: { good: 800, needsImprovement: 1800 }
 };
 
-export function rateMetric(metric: Pick<Metric, 'name' | 'value'>): WebVitalRating {
+export function rateMetric(metric: { name: string; value: number }): WebVitalRating {
   const thresholds = THRESHOLDS[metric.name];
   if (!thresholds) return 'good';
   if (metric.value <= thresholds.good) return 'good';

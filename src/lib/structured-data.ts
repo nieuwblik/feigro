@@ -511,6 +511,6 @@ export function generateReviewsSchema(reviews: ReviewItem[]): ReviewSchema[] {
 /**
  * Combine multiple schemas into a single array for injection
  */
-export function combineSchemas(...schemas: Record<string, unknown>[]): Record<string, unknown>[] {
+export function combineSchemas(...schemas: object[]): object[] {
   return schemas;
 }

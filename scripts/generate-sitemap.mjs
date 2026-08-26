@@ -70,8 +70,9 @@ function hintFor(path, isDetail) {
 }
 
 function buildSitemap() {
-  const today = new Date().toISOString().split('T')[0];
-
+  // Bewust geen <lastmod>: we hebben geen betrouwbare, pagina-specifieke
+  // wijzigingsdatum. Een builddatum voor alle URL's is een vals signaal dat
+  // Google en Bing leren negeren, wat erger is dan geen lastmod.
   const entries = [
     ...getStaticRoutes().map(path => ({ path, ...hintFor(path, false) })),
     ...getProjectUrls().map(path => ({ path, ...hintFor(path, true) })),
@@ -94,7 +95,6 @@ function buildSitemap() {
       return [
         '  <url>',
         `    <loc>${loc}</loc>`,
-        `    <lastmod>${today}</lastmod>`,
         `    <changefreq>${changefreq}</changefreq>`,
         `    <priority>${priority}</priority>`,
         '  </url>',

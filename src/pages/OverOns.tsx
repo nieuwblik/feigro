@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckCircle, Users, Award, Heart, ArrowRight } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
@@ -35,7 +34,6 @@ export default function OverOns() {
 
   return (
     <div className="w-full">
-      <SEOHead {...seoMetadata.overOns} />
       <SEOBreadcrumb />
 
       {/* Hero */}

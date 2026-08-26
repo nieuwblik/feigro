@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
@@ -38,7 +37,6 @@ export default function Nieuws() {
 
 
   return <>
-    <SEOHead {...seoMetadata.nieuws} />
     <SEOBreadcrumb />
 
     {/* Hero Section */}

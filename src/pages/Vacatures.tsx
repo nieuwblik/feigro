@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
@@ -33,7 +32,6 @@ const vacatures = [
 export default function Vacatures() {
   return (
     <>
-      <SEOHead {...seoMetadata.vacatures} />
       <SEOBreadcrumb />
 
       {/* Hero Section */}

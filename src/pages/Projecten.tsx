@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, MapPin, Calendar, ArrowUpRight, Ruler } from 'lucide-react';
 import { Link, useNavigate } from '@/lib/router-compat';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 
@@ -18,7 +17,6 @@ export default function Projecten() {
     });
   };
   return <div className="w-full bg-white">
-    <SEOHead {...seoMetadata.projecten} />
     <SEOBreadcrumb />
 
     {/* Hero */}

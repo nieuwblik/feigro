@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Clock, Zap, Shield, CheckCircle } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
@@ -60,7 +59,6 @@ export default function Spoedservice() {
 
   return (
     <div className="w-full bg-white">
-      <SEOHead {...seoMetadata.spoedservice} />
       <SEOBreadcrumb />
 
       {/* Hero */}

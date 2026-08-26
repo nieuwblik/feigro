@@ -1,5 +1,4 @@
 import { useParams, Link, Navigate } from '@/lib/router-compat';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, ArrowRight, CheckCircle2, Phone, MapPin, Wrench } from 'lucide-react';
@@ -227,33 +226,6 @@ export default function BlogDetail() {
     }
   };
   return <>
-    <SEOHead
-      title={`${post.title} | Feigro`}
-      description={post.excerpt}
-      canonicalUrl={`/nieuws/${post.id}`}
-      ogImage={post.image}
-      ogType="article"
-      article={{
-        publishedTime: post.date,
-        modifiedTime: post.modifiedDate,
-        authors: post.authors,
-        section: post.category,
-        tags: post.tags
-      }}
-      structuredData={[
-        generateArticleSchema({
-          headline: post.title,
-          description: post.excerpt,
-          image: post.image,
-          datePublished: post.date,
-          dateModified: post.modifiedDate,
-          authors: post.authors,
-          url: `/nieuws/${post.id}`,
-          section: post.category,
-          keywords: post.tags
-        })
-      ]}
-    />
 
     {/* Hero Section */}
     <section className="relative bg-black pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 overflow-hidden min-h-[60vh] flex items-end">

@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -17,7 +16,6 @@ export default function Daklekkage() {
 
   return (
     <>
-      <SEOHead {...seo} />
       <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />

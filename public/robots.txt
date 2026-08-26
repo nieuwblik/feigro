@@ -85,3 +85,8 @@ Crawl-delay: 10
 
 # --- Sitemap ---
 Sitemap: https://feigro.nl/sitemap.xml
+
+# --- IndexNow ---
+# Sleutelbestand: https://feigro.nl/a4fb1eaa08e3e7f8d49c799d4305e32a.txt
+# Hiermee kunnen Bing (en daarmee Yahoo) en Yandex direct op de hoogte
+# worden gebracht van nieuwe of gewijzigde pagina's.

@@ -187,7 +187,7 @@ export const Footer = () => {
           {galleryImages.map((src, idx) => <FadeIn key={idx} delay={0.4 + idx * 0.1} distance={20} className="parallax-fast" style={{
             '--parallax-speed': 0.05 + idx * 0.02
           } as any}>
-            <div className="aspect-square rounded-lg md:rounded-xl overflow-hidden bg-white border border-slate-100 h-full shadow-sm">
+            <div className="aspect-square rounded-lg md:rounded-xl overflow-hidden bg-white border border-slate-100 h-full shadow-xs">
               <ParallaxImage src={src} alt={`Uitgevoerd dakproject ${idx + 1} van Feigro Dakwerken`} speed={30} containerClassName="h-full w-full" className="transition-all duration-700" />
             </div>
           </FadeIn>)}

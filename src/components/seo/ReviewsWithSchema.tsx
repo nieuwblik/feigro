@@ -151,7 +151,7 @@ function ReviewCard({ review }: ReviewCardProps) {
   });
 
   return (
-    <article className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm">
+    <article className="p-6 bg-white border border-slate-200 rounded-2xl shadow-xs">
       <div className="flex items-center justify-between mb-4">
         <StarRating rating={review.ratingValue} />
         <time dateTime={review.datePublished} className="text-xs text-slate-500">

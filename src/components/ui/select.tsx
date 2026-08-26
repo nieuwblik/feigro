@@ -17,7 +17,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-12 w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-medium ring-offset-white placeholder:text-slate-400 focus:outline-none focus:border-brand-green focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-all duration-300 hover:border-brand-green/30",
+      "flex h-12 w-full items-center justify-between rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-medium ring-offset-white placeholder:text-slate-400 focus:outline-hidden focus:border-brand-green focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-all duration-300 hover:border-brand-green/30",
       className,
     )}
     {...props}
@@ -105,7 +105,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center rounded-xl py-3 pl-10 pr-4 text-sm font-medium outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-brand-green/10 focus:text-brand-green data-[state=checked]:bg-brand-green data-[state=checked]:text-white transition-all duration-200",
+      "relative flex w-full cursor-pointer select-none items-center rounded-xl py-3 pl-10 pr-4 text-sm font-medium outline-hidden data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus:bg-brand-green/10 focus:text-brand-green data-[state=checked]:bg-brand-green data-[state=checked]:text-white transition-all duration-200",
       className,
     )}
     {...props}

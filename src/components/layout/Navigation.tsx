@@ -30,7 +30,7 @@ export function Navigation() {
                           <Link
                             to={child.href}
                             className={cn(
-                              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
+                              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors',
                               'hover:bg-feigro-accent/10 hover:text-feigro-accent focus:bg-feigro-accent/10 focus:text-feigro-accent'
                             )}
                           >

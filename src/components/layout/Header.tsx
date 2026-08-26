@@ -167,7 +167,7 @@ export const Header = () => {
   return (
     <header className={cn(
       "fixed w-full z-[9999] transition-all duration-500",
-      isScrolled ? "bg-white/95 backdrop-blur-md py-4 shadow-xl" : "bg-white py-6 shadow-sm"
+      isScrolled ? "bg-white/95 backdrop-blur-md py-4 shadow-xl" : "bg-white py-6 shadow-xs"
     )}>
       <div className="container mx-auto px-6 flex justify-between items-center relative z-[110]">
         <Logo />
@@ -182,7 +182,7 @@ export const Header = () => {
           >
             <Link
               to="/diensten"
-              className={cn("flex items-center gap-1.5 transition-colors text-[10px] font-bold uppercase tracking-widest outline-none py-2", headerLinkClass)}
+              className={cn("flex items-center gap-1.5 transition-colors text-[10px] font-bold uppercase tracking-widest outline-hidden py-2", headerLinkClass)}
             >
               Diensten
               <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'diensten' ? 'rotate-180' : ''}`} />

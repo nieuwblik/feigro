@@ -69,7 +69,7 @@ export const VveForm = () => {
     }
 
     return (
-        <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm sticky top-32">
+        <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 shadow-xs sticky top-32">
             <div className="mb-8">
                 <h3 className="text-2xl font-heading font-bold text-slate-900 mb-2">Uw gegevens</h3>
                 <p className="text-slate-500 text-sm">Laat ons weten hoe we u kunnen helpen.</p>

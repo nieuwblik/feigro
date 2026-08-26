@@ -9,7 +9,7 @@ import { ServiceCTA } from '@/components/sections/ServiceCTA';
 import { dakrenovatieData } from '@/data/services';
 import { projects } from '@/data/projects';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedServices } from '@/lib/related-content';

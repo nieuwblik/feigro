@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from '@/lib/router-compat';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEOHead } from '@/components/seo/SEOHead';

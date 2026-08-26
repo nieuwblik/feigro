@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { ArrowRight, Phone } from 'lucide-react';
 import { PrimaryFlipButton, EmergencyFlipButton } from '@/components/buttons';
 import { HeroData } from '@/types';

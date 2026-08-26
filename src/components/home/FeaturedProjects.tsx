@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import { projectsList } from '@/data/projects';

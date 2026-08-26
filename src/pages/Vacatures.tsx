@@ -3,7 +3,7 @@ import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { PrimaryFlipButton } from '@/components/buttons';
 
 const vacatures = [

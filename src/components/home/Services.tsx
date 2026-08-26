@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Search, Settings, Hammer, Layers, Flame, ShieldCheck, AlertTriangle, ArrowRight } from 'lucide-react';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 const servicesList = [{
   title: 'VVE & Vastgoedbeheer',
   desc: 'Professioneel dakbeheer voor VVE\'s en vastgoedbeheerders, gericht op duurzame oplossingen en kostenbesparing.',

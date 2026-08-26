@@ -3,7 +3,7 @@ import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import imgEPDM from '@/assets/epdm-dakbedekking.webp';
 import imgDuurzaam from '@/assets/sedum-dak.webp';
 import nieuwsHeroBg from '@/assets/nieuws-hero-bg.webp';

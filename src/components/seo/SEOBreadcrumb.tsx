@@ -1,5 +1,5 @@
 // SEO-friendly Breadcrumb Component with JSON-LD Schema
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from '@/lib/router-compat';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { BreadcrumbItem } from '@/types/seo';

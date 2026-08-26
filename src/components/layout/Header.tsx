@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Phone, Settings, Hammer, Layers, ShieldCheck, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from '@/lib/router-compat';
 import { cn } from '@/lib/utils';
 import feigroLogoKleur from '@/assets/feigro-logo-kleur-nieuw.webp';
 

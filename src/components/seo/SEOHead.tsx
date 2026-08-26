@@ -1,5 +1,5 @@
 // Enhanced SEOHead Component for FEIGRO Dakwerken
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/lib/helmet-compat';
 import { useLocation } from '@/lib/router-compat';
 import { SEOHeadProps } from '@/types/seo';
 import { 

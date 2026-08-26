@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/lib/helmet-compat';
 
 interface StructuredDataProps {
   /** Eén of meer JSON-LD-objecten. Falsy waarden (null/undefined uit een

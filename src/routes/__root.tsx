@@ -7,7 +7,7 @@ import {
   Scripts,
   useRouter,
 } from "@tanstack/react-router";
-import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "@/lib/helmet-compat";
 import { useEffect, type ReactNode } from "react";
 
 import { Toaster } from "@/components/ui/toaster";

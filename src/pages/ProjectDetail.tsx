@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from '@/lib/router-compat';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Ruler, CheckCircle2, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { projects, projectsList } from '@/data/projects';
 import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
@@ -51,12 +50,6 @@ export default function ProjectDetail() {
 
   return (
     <article className="w-full bg-white">
-      <SEOHead
-        title={`${project.title} | Feigro`}
-        description={project.shortDescription}
-        canonicalUrl={`/projecten/${project.slug}`}
-        ogImage={project.imageAfter}
-      />
       <SEOBreadcrumb
         items={[
           { label: 'Home', href: '/' },

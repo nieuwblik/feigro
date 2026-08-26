@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -12,11 +11,10 @@ import { dakonderhoudData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Dakonderhoud() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakonderhoudData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = dakonderhoudData;
 
   return (
     <>
-      <SEOHead {...seo} />
       <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />

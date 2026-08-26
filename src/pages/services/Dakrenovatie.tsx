@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -15,12 +14,11 @@ import { ArrowRight } from 'lucide-react';
 import { getRelatedServices } from '@/lib/related-content';
 
 export default function Dakrenovatie() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakrenovatieData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = dakrenovatieData;
   const enkhuizenProject = projects['dakrenovatie-enkhuizen'];
 
   return (
     <>
-      <SEOHead {...seo} />
       <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />

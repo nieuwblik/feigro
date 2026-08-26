@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
@@ -63,7 +61,6 @@ export default function Contact() {
   if (isSubmitted) {
     return (
       <div className="w-full bg-white">
-        <SEOHead {...seoMetadata.contact} />
         <SEOBreadcrumb />
         <section className="min-h-screen flex items-center justify-center py-20">
           <motion.div
@@ -94,7 +91,6 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-white">
-      <SEOHead {...seoMetadata.contact} />
 
       {/* Hero */}
       <section className="bg-black pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24 relative overflow-hidden min-h-[70vh] md:min-h-[460px] lg:min-h-[540px] h-auto flex items-center">

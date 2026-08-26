@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -12,11 +11,10 @@ import { bitumenDakbedekkingData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function BitumenDakbedekking() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = bitumenDakbedekkingData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = bitumenDakbedekkingData;
 
   return (
     <>
-      <SEOHead {...seo} />
       <SEOBreadcrumb />
       <HeroSection {...hero} />
       <InfoSection {...info} />

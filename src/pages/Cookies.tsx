@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { 
   Shield, 
@@ -82,7 +80,6 @@ export default function Cookies() {
 
   return (
     <>
-      <SEOHead {...seoMetadata.cookies} />
       <SEOBreadcrumb />
 
       {/* Hero Section */}

@@ -1,4 +1,3 @@
-import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
 import { RelatedContent } from '@/components/seo/RelatedContent';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -12,11 +11,10 @@ import { dakreparatieData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Dakreparatie() {
-    const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakreparatieData;
+    const { hero, features, featureTitle, featureHighlight, info, faqs } = dakreparatieData;
 
     return (
         <>
-            <SEOHead {...seo} />
             <SEOBreadcrumb />
             <HeroSection {...hero} />
             <InfoSection {...info} />

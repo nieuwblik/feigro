@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from 'lucide-r
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { ParallaxImage } from '@/components/ui/ParallaxImage';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';

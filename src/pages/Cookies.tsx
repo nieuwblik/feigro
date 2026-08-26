@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { 
   Shield, 

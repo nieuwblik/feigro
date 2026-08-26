@@ -11,7 +11,7 @@ import { bitumenDakbedekkingData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function BitumenDakbedekking() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = bitumenDakbedekkingData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = bitumenDakbedekkingData;
 
   return (
     <>

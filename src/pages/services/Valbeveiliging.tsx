@@ -11,7 +11,7 @@ import { valbeveiligingssysteemData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Valbeveiliging() {
-    const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = valbeveiligingssysteemData;
+    const { hero, features, featureTitle, featureHighlight, info, faqs } = valbeveiligingssysteemData;
 
     return (
         <>

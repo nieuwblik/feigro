@@ -12,7 +12,7 @@ import { ServiceCTA } from '@/components/sections/ServiceCTA';
 import { EmergencyContactRow } from '@/components/sections/EmergencyContactRow';
 
 export default function Daklekkage() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = daklekkageData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = daklekkageData;
 
   return (
     <>

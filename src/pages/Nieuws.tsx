@@ -1,5 +1,4 @@
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { Link } from '@/lib/router-compat';

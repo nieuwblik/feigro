@@ -11,7 +11,7 @@ import { epdmDakbedekkingData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function EpdmDakbedekking() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = epdmDakbedekkingData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = epdmDakbedekkingData;
 
   return (
     <>

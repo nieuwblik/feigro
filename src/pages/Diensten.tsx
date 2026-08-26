@@ -5,7 +5,6 @@ import heroImage from '@/assets/dakinspectie-noord-holland.webp';
 import { Link } from '@/lib/router-compat';
 
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { FAQItem } from '@/types';
 

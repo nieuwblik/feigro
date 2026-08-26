@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Star, MapPin, Calendar, ArrowUpRight, Ruler } from 'lucide-react';
 import { Link, useNavigate } from '@/lib/router-compat';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 
 import { projectsList } from '@/data/projects';
 export default function Projecten() {

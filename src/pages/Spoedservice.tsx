@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Phone, Clock, Zap, Shield, CheckCircle } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';
-import { seoMetadata } from '@/data/seo-metadata';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 import { LekkageForm } from '@/components/forms/LekkageForm';
 import imgHero from '@/assets/lekkage-feitsma.webp';

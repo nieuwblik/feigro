@@ -11,7 +11,7 @@ import { dakinspectieData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function Dakinspectie() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakinspectieData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = dakinspectieData;
 
   return (
     <>

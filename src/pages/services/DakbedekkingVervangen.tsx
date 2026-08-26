@@ -11,7 +11,7 @@ import { dakbedekkingVervangenData } from '@/data/services';
 import { ServiceCTA } from '@/components/sections/ServiceCTA';
 
 export default function DakbedekkingVervangen() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakbedekkingVervangenData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = dakbedekkingVervangenData;
 
   return (
     <>

@@ -13,7 +13,7 @@ import { VveForm } from '@/components/forms/VveForm';
 import { vveVastgoedbeheerData } from '@/data/services';
 
 export default function VveVastgoedbeheer() {
-  const { seo, hero, features, featureTitle, info, faqs } = vveVastgoedbeheerData;
+  const { hero, features, featureTitle, info, faqs } = vveVastgoedbeheerData;
 
   return (
     <>

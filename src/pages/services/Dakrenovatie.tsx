@@ -14,7 +14,7 @@ import { ArrowRight } from 'lucide-react';
 import { getRelatedServices } from '@/lib/related-content';
 
 export default function Dakrenovatie() {
-  const { seo, hero, features, featureTitle, featureHighlight, info, faqs } = dakrenovatieData;
+  const { hero, features, featureTitle, featureHighlight, info, faqs } = dakrenovatieData;
   const enkhuizenProject = projects['dakrenovatie-enkhuizen'];
 
   return (

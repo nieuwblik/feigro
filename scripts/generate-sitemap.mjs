@@ -44,11 +44,29 @@ function read(relativePath) {
   return readFileSync(join(ROOT, relativePath), 'utf8');
 }
 
-/** Alle statische routes uit App.tsx, dus zonder :params en zonder catch-all. */
+/** Alle statische routes uit src/routes/ (TanStack file-based routing),
+ *  dus zonder $params en zonder __root. */
 function getStaticRoutes() {
-  const app = read('src/App.tsx');
-  const routes = [...app.matchAll(/<Route\s+path="([^"]+)"/g)].map(m => m[1]);
-  return routes.filter(path => !path.includes(':') && !EXCLUDED.has(path));
+  const { readdirSync } = await_import_fs();
+  const routes = [];
+  const walk = (dir, prefix) => {
+    for (const entry of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        walk(`${dir}/${entry.name}`, `${prefix}/${entry.name}`);
+        continue;
+      }
+      if (!entry.name.endsWith('.tsx')) continue;
+      const base = entry.name.replace(/\.tsx$/, '');
+      if (base === '__root' || base.startsWith('$')) continue;
+      routes.push(base === 'index' ? (prefix || '/') : `${prefix}/${base}`);
+    }
+  };
+  walk('src/routes', '');
+  return routes.filter(path => !EXCLUDED.has(path));
+}
+
+function await_import_fs() {
+  return { readdirSync };
 }
 
 /** Projectslugs uit de projectdata. */

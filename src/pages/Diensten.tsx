@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Hammer, AlertTriangle, ArrowRight, ShieldCheck, Layers, Search, Flame, Droplets } from 'lucide-react';
 import heroImage from '@/assets/dakinspectie-noord-holland.webp';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 
 import { SEOHead } from '@/components/seo/SEOHead';
 import { SEOBreadcrumb } from '@/components/seo/SEOBreadcrumb';

@@ -1,0 +1,3 @@
+{"functions": [
+  {"name": "send-form-email", "classification": "internal-only", "signal": "called from 3 src/ files (contact/spoed/vve forms); production-critical Resend email flow with rate limiting and attachments — left in place this turn, can be migrated as follow-up", "outcome": "left"}
+]}

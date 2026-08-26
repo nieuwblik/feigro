@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/router-compat';
 import { PrimaryFlipButton } from '@/components/buttons';
 import { FadeIn, ParallaxImage } from '@/components/ui/ParallaxImage';
 

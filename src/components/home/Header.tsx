@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/router-compat';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { InversedFlipButton, PrimaryFlipButton } from '@/components/buttons';
 

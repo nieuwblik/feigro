@@ -84,33 +84,37 @@ function checkImages() {
 
 // ---------------------------------------------------------------------------
 // 2. Fonts: font-display swap + preload van het kritieke lettertype
+// (head-tags leven sinds de TanStack-migratie in src/routes/__root.tsx)
 // ---------------------------------------------------------------------------
+const rootRoute = () => readFileSync(join(SRC, 'routes', '__root.tsx'), 'utf8');
+const stylesCss = () => (existsSync(join(SRC, 'styles.css')) ? readFileSync(join(SRC, 'styles.css'), 'utf8') : '');
+
 function checkFonts() {
-  const indexHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const indexCss = existsSync(join(SRC, 'index.css')) ? readFileSync(join(SRC, 'index.css'), 'utf8') : '';
-  const hasSwap = /display=swap/.test(indexHtml) || /font-display:\s*swap/.test(indexCss);
-  const hasFontPreload = /<link[^>]+rel=["']preload["'][^>]+as=["']font["']/.test(indexHtml);
-  const hasBlockingFontImport = /@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/.test(indexCss);
+  const head = rootRoute();
+  const css = stylesCss();
+  const hasSwap = /display=swap/.test(head) || /font-display:\s*swap/.test(css);
+  const hasFontPreload = /rel:\s*["']preload["'][^}]*as:\s*["']font["']|rel=["']preload["'][^>]+as=["']font["']/.test(head);
+  const hasBlockingFontImport = /@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/.test(css);
 
   return [
     {
       id: 'fonts-display-swap',
       label: 'font-display: swap staat aan',
       status: hasSwap ? 'pass' : 'warn',
-      detail: hasSwap ? 'Gevonden in index.html en/of CSS' : 'Niet gevonden - FOIT-risico'
+      detail: hasSwap ? 'Gevonden in __root.tsx en/of CSS' : 'Niet gevonden - FOIT-risico'
     },
     {
       id: 'fonts-preload',
       label: 'Kritiek lettertype wordt gepreload',
       status: hasFontPreload ? 'pass' : 'warn',
-      detail: hasFontPreload ? '<link rel="preload" as="font"> aanwezig in index.html' : 'Geen font-preload gevonden in index.html'
+      detail: hasFontPreload ? 'Font-preload aanwezig in __root.tsx' : 'Geen font-preload gevonden in __root.tsx'
     },
     {
       id: 'fonts-no-blocking-import',
       label: 'Geen render-blocking @import voor Google Fonts in CSS',
       status: hasBlockingFontImport ? 'warn' : 'pass',
       detail: hasBlockingFontImport
-        ? 'src/index.css bevat een @import van fonts.googleapis.com - verplaats naar een <link> in index.html'
+        ? 'src/styles.css bevat een @import van fonts.googleapis.com - verplaats naar een head-link in __root.tsx'
         : 'Geen @import van Google Fonts in CSS gevonden'
     }
   ];
@@ -118,18 +122,17 @@ function checkFonts() {
 
 // ---------------------------------------------------------------------------
 // 3. JavaScript: route-based code splitting
+// (TanStack Start file-based routing code-split elke route automatisch)
 // ---------------------------------------------------------------------------
 function checkCodeSplitting() {
-  const appTsx = readFileSync(join(SRC, 'App.tsx'), 'utf8');
-  const routeCount = [...appTsx.matchAll(/<Route\s+path=/g)].length;
-  const lazyCount = [...appTsx.matchAll(/\blazy\(/g)].length;
+  const routeFiles = collectFiles(join(SRC, 'routes'), ['.tsx']).filter(f => !f.endsWith('__root.tsx'));
 
   return [
     {
       id: 'js-code-splitting',
-      label: 'Paginacomponenten zijn route-based code-split (lazy())',
-      status: lazyCount > 0 && lazyCount >= routeCount - 2 ? 'pass' : 'warn',
-      detail: `${lazyCount} lazy()-imports voor ${routeCount} routes in App.tsx`
+      label: 'Paginacomponenten zijn route-based code-split',
+      status: routeFiles.length > 0 ? 'pass' : 'warn',
+      detail: `${routeFiles.length} routebestanden in src/routes/ (automatisch gesplitst door TanStack Start)`
     }
   ];
 }
@@ -178,47 +181,48 @@ function checkUnusedDependencies() {
 function checkWebVitals() {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
   const hasPackage = 'web-vitals' in (pkg.dependencies ?? {});
-  const mainTsx = existsSync(join(SRC, 'main.tsx')) ? readFileSync(join(SRC, 'main.tsx'), 'utf8') : '';
-  const isWired = /reportWebVitals\s*\(/.test(mainTsx);
+  const isWired = readSource().some(({ content }) => /reportWebVitals\s*\(\s*\)/.test(content));
 
   return [
     {
       id: 'monitoring-web-vitals',
       label: 'Core Web Vitals worden gemeten (web-vitals package, aangesloten)',
       status: hasPackage && isWired ? 'pass' : 'warn',
-      detail: hasPackage && isWired ? 'web-vitals geïnstalleerd en reportWebVitals() aangeroepen in main.tsx' : 'Ontbreekt of niet aangesloten'
+      detail: hasPackage && isWired ? 'web-vitals geïnstalleerd en reportWebVitals() aangeroepen' : 'Ontbreekt of niet aangesloten'
     }
   ];
 }
 
 // ---------------------------------------------------------------------------
 // 6. Resource hints
+// (head-links leven in src/routes/__root.tsx; prefetch via router.tsx
+// defaultPreload: "intent")
 // ---------------------------------------------------------------------------
 function checkResourceHints() {
-  const indexHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const hasPreconnect = /rel=["']preconnect["']/.test(indexHtml);
-  const hasPreload = /rel=["']preload["']/.test(indexHtml);
-  const appTsx = readFileSync(join(SRC, 'App.tsx'), 'utf8');
-  const hasPrefetchLogic = /RoutePrefetcher|rel=["']prefetch["']/.test(appTsx) || /rel=["']prefetch["']/.test(indexHtml);
+  const head = rootRoute();
+  const routerTsx = existsSync(join(SRC, 'router.tsx')) ? readFileSync(join(SRC, 'router.tsx'), 'utf8') : '';
+  const hasPreconnect = /["']preconnect["']/.test(head);
+  const hasPreload = /["']preload["']/.test(head);
+  const hasPrefetchLogic = /defaultPreload:\s*["']intent["']/.test(routerTsx);
 
   return [
     {
       id: 'hints-preconnect',
       label: 'rel="preconnect" voor kritieke third-party domeinen',
       status: hasPreconnect ? 'pass' : 'warn',
-      detail: hasPreconnect ? 'Aanwezig in index.html' : 'Ontbreekt in index.html'
+      detail: hasPreconnect ? 'Aanwezig in __root.tsx' : 'Ontbreekt in __root.tsx'
     },
     {
       id: 'hints-preload',
       label: 'rel="preload" voor kritieke assets',
       status: hasPreload ? 'pass' : 'warn',
-      detail: hasPreload ? 'Aanwezig in index.html' : 'Ontbreekt in index.html'
+      detail: hasPreload ? 'Aanwezig in __root.tsx' : 'Ontbreekt in __root.tsx'
     },
     {
       id: 'hints-prefetch',
       label: 'Prefetch voor waarschijnlijke vervolgnavigatie',
       status: hasPrefetchLogic ? 'pass' : 'warn',
-      detail: hasPrefetchLogic ? 'RoutePrefetcher (hover/idle) actief in App.tsx' : 'Geen prefetch-mechanisme gevonden'
+      detail: hasPrefetchLogic ? 'defaultPreload: "intent" actief in router.tsx' : 'Geen prefetch-mechanisme gevonden'
     }
   ];
 }
@@ -238,7 +242,7 @@ function checkBundleSize() {
     ];
   }
 
-  const assetsDir = join(DIST, 'assets');
+  const assetsDir = existsSync(join(DIST, 'client', 'assets')) ? join(DIST, 'client', 'assets') : join(DIST, 'assets');
   if (!existsSync(assetsDir)) {
     return [{ id: 'bundle-size', label: 'Geen enkele JS-chunk is onnodig groot', status: 'skip', detail: 'dist/assets/ niet gevonden' }];
   }

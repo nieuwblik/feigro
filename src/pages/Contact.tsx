@@ -216,7 +216,7 @@ export default function Contact() {
                                 type="text"
                                 placeholder="Uw naam"
                                 disabled={isSubmitting}
-                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-hidden focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
                               />
                             </FormControl>
                             <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
@@ -235,7 +235,7 @@ export default function Contact() {
                                 type="email"
                                 placeholder="uw@email.nl"
                                 disabled={isSubmitting}
-                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-hidden focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
                               />
                             </FormControl>
                             <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
@@ -256,7 +256,7 @@ export default function Contact() {
                                 type="tel"
                                 placeholder="06 12345678"
                                 disabled={isSubmitting}
-                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-hidden focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
                               />
                             </FormControl>
                             <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
@@ -275,7 +275,7 @@ export default function Contact() {
                                 type="text"
                                 placeholder="Waar gaat het over?"
                                 disabled={isSubmitting}
-                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
+                                className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-hidden focus:border-brand-green transition-colors text-sm md:text-base disabled:opacity-50"
                               />
                             </FormControl>
                             <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />
@@ -295,7 +295,7 @@ export default function Contact() {
                               rows={5}
                               placeholder="Uw bericht..."
                               disabled={isSubmitting}
-                              className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:border-brand-green transition-colors resize-none text-sm md:text-base disabled:opacity-50"
+                              className="w-full bg-white border border-slate-200 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 text-slate-900 placeholder:text-slate-300 focus:outline-hidden focus:border-brand-green transition-colors resize-none text-sm md:text-base disabled:opacity-50"
                             />
                           </FormControl>
                           <FormMessage className="text-xs text-red-500 ml-3 md:ml-4" />

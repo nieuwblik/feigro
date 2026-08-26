@@ -1,6 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { Cookie } from 'lucide-react';
 import { useCookieConsent, CookiePreferences } from '@/hooks/useCookieConsent';
 import { Switch } from '@/components/ui/switch';

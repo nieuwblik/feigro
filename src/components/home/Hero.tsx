@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { PrimaryFlipButton, InversedFlipButton } from '@/components/buttons';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import heroSlide1 from '@/assets/hero-slide-1.webp';

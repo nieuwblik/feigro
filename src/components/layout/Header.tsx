@@ -211,7 +211,7 @@ export const Header = () => {
                           className="group flex items-start gap-4 px-5 py-5 hover:bg-slate-50 rounded-xl transition-all duration-300"
                         >
                           <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:bg-brand-green/20 group-hover:scale-110 transition-all duration-500 shrink-0">
-                            {React.cloneElement(service.icon as React.ReactElement, { size: 24 })}
+                            {React.cloneElement(service.icon as React.ReactElement<{ size?: number }>, { size: 24 })}
                           </div>
                           <div className="flex flex-col flex-1 pt-1">
                             <div className="flex items-center justify-between mb-1">

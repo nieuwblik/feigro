@@ -38,7 +38,7 @@ const formatDate = (dateString: string) => {
 };
 
 export const BlogSection = () => {
-  const featuredPost = blogPosts[0];
+  const featuredPost = blogPosts[0]!;
   const otherPosts = blogPosts.slice(1);
 
   return (

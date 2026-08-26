@@ -26,8 +26,8 @@ export function auditHeadings(levels: number[]): HeadingViolation[] {
   }
 
   for (let i = 1; i < levels.length; i++) {
-    const previous = levels[i - 1];
-    const current = levels[i];
+    const previous = levels[i - 1]!;
+    const current = levels[i]!;
     if (current > previous + 1) {
       violations.push({
         type: 'skipped-level',

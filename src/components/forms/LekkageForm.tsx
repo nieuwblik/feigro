@@ -62,7 +62,7 @@ async function filesToBase64(files: FileList): Promise<Array<{
         return new Promise<{ filename: string; content: string; contentType: string }>((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = () => {
-                const base64 = (reader.result as string).split(',')[1];
+                const base64 = (reader.result as string).split(',')[1] ?? '';
                 resolve({
                     filename: file.name,
                     content: base64,

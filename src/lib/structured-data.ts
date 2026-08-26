@@ -230,7 +230,7 @@ export function generateArticleSchema(article: {
     image: article.image.startsWith('http') ? article.image : `${BASE_URL}${article.image}`,
     datePublished: article.datePublished,
     ...(article.dateModified && { dateModified: article.dateModified }),
-    author: authorSchemas.length === 1 ? authorSchemas[0] : authorSchemas,
+    author: authorSchemas.length === 1 ? authorSchemas[0]! : authorSchemas,
     publisher: generateOrganizationSchema(),
     mainEntityOfPage: {
       '@type': 'WebPage',

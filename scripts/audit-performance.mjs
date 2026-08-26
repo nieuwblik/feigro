@@ -84,33 +84,37 @@ function checkImages() {
 
 // ---------------------------------------------------------------------------
 // 2. Fonts: font-display swap + preload van het kritieke lettertype
+// (head-tags leven sinds de TanStack-migratie in src/routes/__root.tsx)
 // ---------------------------------------------------------------------------
+const rootRoute = () => readFileSync(join(SRC, 'routes', '__root.tsx'), 'utf8');
+const stylesCss = () => (existsSync(join(SRC, 'styles.css')) ? readFileSync(join(SRC, 'styles.css'), 'utf8') : '');
+
 function checkFonts() {
-  const indexHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const indexCss = existsSync(join(SRC, 'index.css')) ? readFileSync(join(SRC, 'index.css'), 'utf8') : '';
-  const hasSwap = /display=swap/.test(indexHtml) || /font-display:\s*swap/.test(indexCss);
-  const hasFontPreload = /<link[^>]+rel=["']preload["'][^>]+as=["']font["']/.test(indexHtml);
-  const hasBlockingFontImport = /@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/.test(indexCss);
+  const head = rootRoute();
+  const css = stylesCss();
+  const hasSwap = /display=swap/.test(head) || /font-display:\s*swap/.test(css);
+  const hasFontPreload = /rel:\s*["']preload["'][^}]*as:\s*["']font["']|rel=["']preload["'][^>]+as=["']font["']/.test(head);
+  const hasBlockingFontImport = /@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/.test(css);
 
   return [
     {
       id: 'fonts-display-swap',
       label: 'font-display: swap staat aan',
       status: hasSwap ? 'pass' : 'warn',
-      detail: hasSwap ? 'Gevonden in index.html en/of CSS' : 'Niet gevonden - FOIT-risico'
+      detail: hasSwap ? 'Gevonden in __root.tsx en/of CSS' : 'Niet gevonden - FOIT-risico'
     },
     {
       id: 'fonts-preload',
       label: 'Kritiek lettertype wordt gepreload',
       status: hasFontPreload ? 'pass' : 'warn',
-      detail: hasFontPreload ? '<link rel="preload" as="font"> aanwezig in index.html' : 'Geen font-preload gevonden in index.html'
+      detail: hasFontPreload ? 'Font-preload aanwezig in __root.tsx' : 'Geen font-preload gevonden in __root.tsx'
     },
     {
       id: 'fonts-no-blocking-import',
       label: 'Geen render-blocking @import voor Google Fonts in CSS',
       status: hasBlockingFontImport ? 'warn' : 'pass',
       detail: hasBlockingFontImport
-        ? 'src/index.css bevat een @import van fonts.googleapis.com - verplaats naar een <link> in index.html'
+        ? 'src/styles.css bevat een @import van fonts.googleapis.com - verplaats naar een head-link in __root.tsx'
         : 'Geen @import van Google Fonts in CSS gevonden'
     }
   ];
@@ -118,18 +122,17 @@ function checkFonts() {
 
 // ---------------------------------------------------------------------------
 // 3. JavaScript: route-based code splitting
+// (TanStack Start file-based routing code-split elke route automatisch)
 // ---------------------------------------------------------------------------
 function checkCodeSplitting() {
-  const appTsx = readFileSync(join(SRC, 'App.tsx'), 'utf8');
-  const routeCount = [...appTsx.matchAll(/<Route\s+path=/g)].length;
-  const lazyCount = [...appTsx.matchAll(/\blazy\(/g)].length;
+  const routeFiles = collectFiles(join(SRC, 'routes'), ['.tsx']).filter(f => !f.endsWith('__root.tsx'));
 
   return [
     {
       id: 'js-code-splitting',
-      label: 'Paginacomponenten zijn route-based code-split (lazy())',
-      status: lazyCount > 0 && lazyCount >= routeCount - 2 ? 'pass' : 'warn',
-      detail: `${lazyCount} lazy()-imports voor ${routeCount} routes in App.tsx`
+      label: 'Paginacomponenten zijn route-based code-split',
+      status: routeFiles.length > 0 ? 'pass' : 'warn',
+      detail: `${routeFiles.length} routebestanden in src/routes/ (automatisch gesplitst door TanStack Start)`
     }
   ];
 }

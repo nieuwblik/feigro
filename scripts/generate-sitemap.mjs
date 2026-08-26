@@ -10,7 +10,7 @@
  * Draait automatisch voor elke build (npm run build).
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -47,7 +47,6 @@ function read(relativePath) {
 /** Alle statische routes uit src/routes/ (TanStack file-based routing),
  *  dus zonder $params en zonder __root. */
 function getStaticRoutes() {
-  const { readdirSync } = await_import_fs();
   const routes = [];
   const walk = (dir, prefix) => {
     for (const entry of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
@@ -63,10 +62,6 @@ function getStaticRoutes() {
   };
   walk('src/routes', '');
   return routes.filter(path => !EXCLUDED.has(path));
-}
-
-function await_import_fs() {
-  return { readdirSync };
 }
 
 /** Projectslugs uit de projectdata. */

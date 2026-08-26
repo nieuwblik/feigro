@@ -242,7 +242,7 @@ function checkBundleSize() {
     ];
   }
 
-  const assetsDir = join(DIST, 'assets');
+  const assetsDir = existsSync(join(DIST, 'client', 'assets')) ? join(DIST, 'client', 'assets') : join(DIST, 'assets');
   if (!existsSync(assetsDir)) {
     return [{ id: 'bundle-size', label: 'Geen enkele JS-chunk is onnodig groot', status: 'skip', detail: 'dist/assets/ niet gevonden' }];
   }

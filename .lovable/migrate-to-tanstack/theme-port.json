@@ -1,0 +1,28 @@
+{
+  "customizations": [
+    { "token": "--feigro-dark", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--feigro-accent", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--feigro-light", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--feigro-grey", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--feigro-white", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "semantic color set (background/foreground/card/popover/primary/secondary/muted/accent/destructive/border/input/ring, light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "sidebar token set (8 vars)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--radius: 0.25rem", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--color-brand-green: #4CB26E", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "--font-sans (DM Sans)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "--font-heading (Lustra/Aldrich)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "@font-face Lustra", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "container (center, 2rem padding, 1400px cap)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "keyframes accordion-down/accordion-up", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "keyframes fade-in / fade-in-up", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "keyframes slide-in-left / slide-in-right", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "keyframes slow-zoom + .animate-slow-zoom", "source": "tailwind.config.ts + src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "base layer (body font, heading font, img, focus-visible, smooth scroll, overflow-x hidden)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".media-zoom component", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".cookie-bar component", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "card user-select rules", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".parallax-slow/.parallax-fast/[data-parallax-speed]", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".fade-in-scroll utilities", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "prefers-reduced-motion media-zoom override", "source": "src/index.css", "reappliedIn": "src/styles.css" }
+  ]
+}

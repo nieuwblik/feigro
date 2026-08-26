@@ -9,6 +9,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Vervangt de oude RoutePrefetcher (hover/touch preloading) uit App.tsx.
+    defaultPreload: "intent",
     defaultPreloadStaleTime: 0,
   });
 

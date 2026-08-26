@@ -208,7 +208,6 @@ export interface LocalBusinessSchema {
     description?: string;
   }[];
   areaServed?: string[];
-  sameAs?: string[];
 }
 
 export interface ServiceSchema {

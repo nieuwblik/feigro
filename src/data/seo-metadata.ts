@@ -5,7 +5,7 @@ import { PageSEO } from "@/types";
  * Structuur van elke description: dienst + werkgebied + onderscheidend voordeel + call-to-action.
  * Lengte: 140-158 tekens. Titels: max 60 tekens inclusief merknaam.
  */
-export const seoMetadata: Record<string, PageSEO> = {
+export const seoMetadata = {
   home: {
     title: "Dakdekker Noord-Holland, Flevoland & Utrecht | Feigro",
     description:
@@ -285,4 +285,4 @@ export const seoMetadata: Record<string, PageSEO> = {
     keywords: ["privacybeleid", "cookiebeleid", "AVG", "Feigro Dakwerken"],
     noindex: true,
   },
-};
+} satisfies Record<string, PageSEO>;

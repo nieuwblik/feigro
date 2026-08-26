@@ -21,10 +21,10 @@ const OG_IMAGES: Record<string, string> = {
  * Get page-specific OG image path or fallback to default
  */
 export function getOgImagePath(pageName?: string): string {
-  if (!pageName) return OG_IMAGES.default;
+  if (!pageName) return OG_IMAGES['default'] ?? '/og/default.png';
   
   const normalizedName = pageName.toLowerCase().replace(/\s+/g, '-');
-  return OG_IMAGES[normalizedName] || OG_IMAGES.default;
+  return OG_IMAGES[normalizedName] ?? OG_IMAGES['default'] ?? '/og/default.png';
 }
 
 /**

@@ -25,7 +25,7 @@ const SERVICE_KEYS = [
 
 /** Knipt de " | Feigro..."-merksuffix van een SEO-titel voor gebruik als korte kaarttitel. */
 function shortTitle(fullTitle: string): string {
-  return fullTitle.split(' | ')[0];
+  return fullTitle.split(' | ')[0] ?? fullTitle;
 }
 
 /**
@@ -48,7 +48,7 @@ export function getRelatedServices(currentPath: string, count = 4): RelatedConte
 
   const selected: (typeof SERVICE_KEYS)[number][] = [];
   for (let offset = 1; offset <= windowSize; offset++) {
-    selected.push(SERVICE_KEYS[(startIndex + offset) % total]);
+    selected.push(SERVICE_KEYS[(startIndex + offset) % total]!);
   }
 
   return selected

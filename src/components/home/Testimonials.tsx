@@ -109,7 +109,7 @@ export const Testimonials = () => {
                   className="w-full flex flex-col md:flex-row gap-6 md:h-[500px]"
                 >
                   <div className="w-full md:w-[40%] h-64 md:h-auto rounded-3xl overflow-hidden relative shadow-xl">
-                    <img loading="lazy" decoding="async" src={TESTIMONIALS[activeIndex].image} alt="Dakproject van Feigro waar deze klant over vertelt" className="w-full h-full object-cover" />
+                    <img loading="lazy" decoding="async" src={TESTIMONIALS[activeIndex]!.image} alt="Dakproject van Feigro waar deze klant over vertelt" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/10"></div>
                   </div>
 
@@ -120,7 +120,7 @@ export const Testimonials = () => {
 
                     <div className="relative z-10">
                       <p className="text-slate-600 md:text-lg leading-relaxed italic mb-8">
-                        "{TESTIMONIALS[activeIndex].text}"
+                        "{TESTIMONIALS[activeIndex]!.text}"
                       </p>
                     </div>
 
@@ -129,8 +129,8 @@ export const Testimonials = () => {
                         <GoogleIcon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-heading text-slate-900 text-lg uppercase tracking-tight">{TESTIMONIALS[activeIndex].author}</h4>
-                        <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">{TESTIMONIALS[activeIndex].source}</p>
+                        <h4 className="font-heading text-slate-900 text-lg uppercase tracking-tight">{TESTIMONIALS[activeIndex]!.author}</h4>
+                        <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">{TESTIMONIALS[activeIndex]!.source}</p>
                       </div>
                     </div>
 

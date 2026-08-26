@@ -133,7 +133,7 @@ export const RecentProjects = () => {
         {Array.from({
           length: numCols
         }).map((_, colIndex) => {
-          const multiplier = COL_MULTIPLIERS[colIndex % 3];
+          const multiplier = COL_MULTIPLIERS[colIndex % 3] ?? 1;
           const parallaxOffset = BASE_DEVIATION * (multiplier - 1) * (1 - scrollProgress) * 4;
 
           // Initial offsets
@@ -154,7 +154,7 @@ export const RecentProjects = () => {
           return <div key={colIndex} className="flex flex-col gap-1 transition-transform duration-300 ease-out will-change-transform" style={{
             transform: `translate3d(0, ${totalOffset}px, 0)`
           }}>
-            {colImages.map((item, rowIdx) => <GalleryItem key={`${colIndex}-${rowIdx}`} item={item} aspectRatio={colConfigs[rowIdx % 3].height} />)}
+            {colImages.map((item, rowIdx) => <GalleryItem key={`${colIndex}-${rowIdx}`} item={item} aspectRatio={colConfigs[rowIdx % 3]!.height} />)}
           </div>;
         })}
       </div>

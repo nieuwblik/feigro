@@ -181,47 +181,48 @@ function checkUnusedDependencies() {
 function checkWebVitals() {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
   const hasPackage = 'web-vitals' in (pkg.dependencies ?? {});
-  const mainTsx = existsSync(join(SRC, 'main.tsx')) ? readFileSync(join(SRC, 'main.tsx'), 'utf8') : '';
-  const isWired = /reportWebVitals\s*\(/.test(mainTsx);
+  const isWired = readSource().some(({ content }) => /reportWebVitals\s*\(\s*\)/.test(content));
 
   return [
     {
       id: 'monitoring-web-vitals',
       label: 'Core Web Vitals worden gemeten (web-vitals package, aangesloten)',
       status: hasPackage && isWired ? 'pass' : 'warn',
-      detail: hasPackage && isWired ? 'web-vitals geïnstalleerd en reportWebVitals() aangeroepen in main.tsx' : 'Ontbreekt of niet aangesloten'
+      detail: hasPackage && isWired ? 'web-vitals geïnstalleerd en reportWebVitals() aangeroepen' : 'Ontbreekt of niet aangesloten'
     }
   ];
 }
 
 // ---------------------------------------------------------------------------
 // 6. Resource hints
+// (head-links leven in src/routes/__root.tsx; prefetch via router.tsx
+// defaultPreload: "intent")
 // ---------------------------------------------------------------------------
 function checkResourceHints() {
-  const indexHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const hasPreconnect = /rel=["']preconnect["']/.test(indexHtml);
-  const hasPreload = /rel=["']preload["']/.test(indexHtml);
-  const appTsx = readFileSync(join(SRC, 'App.tsx'), 'utf8');
-  const hasPrefetchLogic = /RoutePrefetcher|rel=["']prefetch["']/.test(appTsx) || /rel=["']prefetch["']/.test(indexHtml);
+  const head = rootRoute();
+  const routerTsx = existsSync(join(SRC, 'router.tsx')) ? readFileSync(join(SRC, 'router.tsx'), 'utf8') : '';
+  const hasPreconnect = /["']preconnect["']/.test(head);
+  const hasPreload = /["']preload["']/.test(head);
+  const hasPrefetchLogic = /defaultPreload:\s*["']intent["']/.test(routerTsx);
 
   return [
     {
       id: 'hints-preconnect',
       label: 'rel="preconnect" voor kritieke third-party domeinen',
       status: hasPreconnect ? 'pass' : 'warn',
-      detail: hasPreconnect ? 'Aanwezig in index.html' : 'Ontbreekt in index.html'
+      detail: hasPreconnect ? 'Aanwezig in __root.tsx' : 'Ontbreekt in __root.tsx'
     },
     {
       id: 'hints-preload',
       label: 'rel="preload" voor kritieke assets',
       status: hasPreload ? 'pass' : 'warn',
-      detail: hasPreload ? 'Aanwezig in index.html' : 'Ontbreekt in index.html'
+      detail: hasPreload ? 'Aanwezig in __root.tsx' : 'Ontbreekt in __root.tsx'
     },
     {
       id: 'hints-prefetch',
       label: 'Prefetch voor waarschijnlijke vervolgnavigatie',
       status: hasPrefetchLogic ? 'pass' : 'warn',
-      detail: hasPrefetchLogic ? 'RoutePrefetcher (hover/idle) actief in App.tsx' : 'Geen prefetch-mechanisme gevonden'
+      detail: hasPrefetchLogic ? 'defaultPreload: "intent" actief in router.tsx' : 'Geen prefetch-mechanisme gevonden'
     }
   ];
 }

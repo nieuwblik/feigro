@@ -126,6 +126,11 @@ function buildSitemap() {
   const urls = unique
     .map(({ path, changefreq, priority }) => {
       const loc = path === '/' ? `${BASE_URL}/` : `${BASE_URL}${path}`;
+      // Laatste verdedigingslijn: zonder geldige absolute loc nooit een blok schrijven.
+      if (!loc.startsWith(`${BASE_URL}/`)) {
+        console.warn(`sitemap.xml: entry overgeslagen, ongeldige loc '${loc}' voor pad ${JSON.stringify(path)}`);
+        return null;
+      }
       return [
         '  <url>',
         `    <loc>${loc}</loc>`,

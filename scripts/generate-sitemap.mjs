@@ -82,15 +82,36 @@ function hintFor(path, isDetail) {
   return isDetail ? DETAIL_HINT : DEFAULT_HINT;
 }
 
+/**
+ * Guard: een entry zonder geldig pad mag nooit een (leeg) <url>-blok worden.
+ * Een <url> zonder <loc> is ongeldig volgens het sitemap-protocol en zorgt
+ * ervoor dat Google de hele sitemap als onleesbaar verwerpt. Ongeldige items
+ * worden overgeslagen met een waarschuwing zodat de oorzaak zichtbaar blijft.
+ */
+function isValidPath(path) {
+  return typeof path === 'string' && path.trim().length > 0 && path.startsWith('/');
+}
+
 function buildSitemap() {
   // Bewust geen <lastmod>: we hebben geen betrouwbare, pagina-specifieke
   // wijzigingsdatum. Een builddatum voor alle URL's is een vals signaal dat
   // Google en Bing leren negeren, wat erger is dan geen lastmod.
-  const entries = [
-    ...getStaticRoutes().map(path => ({ path, ...hintFor(path, false) })),
-    ...getProjectUrls().map(path => ({ path, ...hintFor(path, true) })),
-    ...getBlogUrls().map(path => ({ path, ...hintFor(path, true) })),
+  const sources = [
+    ['routes', getStaticRoutes().map(path => ({ path, ...hintFor(path, false) }))],
+    ['projects', getProjectUrls().map(path => ({ path, ...hintFor(path, true) }))],
+    ['blog', getBlogUrls().map(path => ({ path, ...hintFor(path, true) }))],
   ];
+
+  const entries = [];
+  for (const [source, items] of sources) {
+    for (const item of items) {
+      if (!isValidPath(item.path)) {
+        console.warn(`sitemap.xml: item uit '${source}' overgeslagen, ongeldig pad: ${JSON.stringify(item.path)}`);
+        continue;
+      }
+      entries.push(item);
+    }
+  }
 
   const seen = new Set();
   const unique = entries.filter(entry => {

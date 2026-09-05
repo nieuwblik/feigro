@@ -139,6 +139,7 @@ function buildSitemap() {
         '  </url>',
       ].join('\n');
     })
+    .filter(Boolean)
     .join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

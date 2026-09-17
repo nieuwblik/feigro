@@ -25,30 +25,12 @@ import appCss from "../styles.css?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
+    // Alleen sitebrede basics. Title, description, robots, canonical, og:* en
+    // twitter:* worden per route door buildRouteHead gezet - hier niets van
+    // dupliceren, anders staan er twee sets tags in dezelfde head.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=5.0" },
-      // Basis-title; description/robots/canonical worden per route door buildRouteHead gezet
-      { title: "Dakdekker Noord-Holland, Flevoland & Utrecht | Feigro" },
-      {
-        name: "description",
-        content:
-          "FEIGRO Dakwerken - Specialist in dakinspectie, dakonderhoud, dakrenovatie en spoedservice in Noord-Holland. Meer dan 25 jaar ervaring. Bel direct: 06-13731303.",
-      },
-      {
-        name: "robots",
-        content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-      },
-      // Open Graph (fallback; per-route tags worden door buildRouteHead gezet)
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "nl_NL" },
-      { property: "og:site_name", content: "FEIGRO Dakwerken" },
-      { property: "og:image", content: "https://feigro.nl/og-image.png" },
-      { property: "og:image:width", content: "750" },
-      { property: "og:image:height", content: "600" },
-      { property: "og:image:alt", content: "FEIGRO Dakwerken" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://feigro.nl/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

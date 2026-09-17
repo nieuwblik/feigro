@@ -1,4 +1,9 @@
 import { PageSEO } from "@/types";
+import {
+  generateLocalBusinessSchema,
+  generateOrganizationSchema,
+  generateWebsiteSchema,
+} from "@/lib/structured-data";
 
 /**
  * Centrale meta-data per pagina.
@@ -20,6 +25,12 @@ export const seoMetadata = {
       "plat dak specialist",
       "24/7 noodreparatie dak",
       "Feigro Dakwerken",
+    ],
+    // Sitebrede entiteiten staan hier, server-side in de homepage-head.
+    structuredData: [
+      generateOrganizationSchema(),
+      generateWebsiteSchema(),
+      generateLocalBusinessSchema(),
     ],
   },
 

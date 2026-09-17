@@ -26,6 +26,12 @@ export const seoMetadata = {
       "24/7 noodreparatie dak",
       "Feigro Dakwerken",
     ],
+    // Sitebrede entiteiten staan hier, server-side in de homepage-head.
+    structuredData: [
+      generateOrganizationSchema(),
+      generateWebsiteSchema(),
+      generateLocalBusinessSchema(),
+    ],
   },
 
   dakinspectie: {

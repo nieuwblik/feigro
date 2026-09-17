@@ -1,4 +1,9 @@
 import { PageSEO } from "@/types";
+import {
+  generateLocalBusinessSchema,
+  generateOrganizationSchema,
+  generateWebsiteSchema,
+} from "@/lib/structured-data";
 
 /**
  * Centrale meta-data per pagina.

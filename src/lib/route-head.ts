@@ -63,6 +63,8 @@ export function buildRouteHead(input: RouteHeadInput) {
     { property: 'og:description', content: desc },
     { property: 'og:url', content: canonical },
     { property: 'og:image', content: image },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
     { property: 'og:image:alt', content: fullTitle },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: fullTitle },

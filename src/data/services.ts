@@ -1,6 +1,6 @@
 import { PageSEO, ServicePageData } from '@/types';
 import { seoMetadata } from './seo-metadata';
-import { generateServiceSchema } from '@/lib/structured-data';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/structured-data';
 import imgWestfriesland from '@/assets/feigro-dakdekking-westfriesland.webp';
 import imgInspectie from '@/assets/dakinspectie-noord-holland.webp';
 import imgEnkhuizen from '@/assets/epdm-dakbedekking.webp';
@@ -761,3 +761,30 @@ export const valbeveiligingssysteemData: ServicePageData = {
     },
   ],
 };
+
+/**
+ * Hangt een FAQPage-schema aan elke dienstpagina die FAQ's toont, zodat de
+ * zichtbare vragen ook als structured data in de server-side head staan.
+ * Gebeurt hier centraal omdat `seo` in het object-literal boven de `faqs`
+ * gedefinieerd wordt en er dus nog geen toegang tot de vragen is.
+ */
+const servicePages: ServicePageData[] = [
+  vveVastgoedbeheerData,
+  dakinspectieData,
+  dakonderhoudData,
+  dakrenovatieData,
+  dakbedekkingVervangenData,
+  bitumenDakbedekkingData,
+  epdmDakbedekkingData,
+  daklekkageData,
+  dakreparatieData,
+  valbeveiligingssysteemData,
+];
+
+for (const page of servicePages) {
+  if (!page.faqs?.length) continue;
+  page.seo = {
+    ...page.seo,
+    structuredData: [...(page.seo.structuredData ?? []), generateFAQSchema(page.faqs)],
+  };
+}

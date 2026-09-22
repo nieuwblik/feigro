@@ -55,6 +55,8 @@ export function buildRouteHead(input: RouteHeadInput) {
     noindex = false,
     structuredData = [],
     article,
+    breadcrumbs,
+    autoSchema = true,
   } = input;
 
   const fullTitle = formatTitle(title || SITE_NAME);
@@ -103,10 +105,31 @@ export function buildRouteHead(input: RouteHeadInput) {
     );
   }
 
+  // Automatische basis-schema's: WebPage voor elke geïndexeerde pagina en een
+  // BreadcrumbList zodat Google het pad Home > Pagina in de resultaten toont.
+  const schemas = [...structuredData];
+  const types = new Set(
+    schemas.map((s) => (s as { '@type'?: string })['@type']).filter(Boolean),
+  );
+
+  if (autoSchema && !noindex && canonicalUrl !== '/') {
+    const crumbs =
+      breadcrumbs ??
+      (canonicalUrl.split('/').filter(Boolean).length === 1
+        ? generateBreadcrumbsFromPath(canonicalUrl)
+        : undefined);
+    if (crumbs && !types.has('BreadcrumbList')) {
+      schemas.push(generateBreadcrumbSchema(crumbs));
+    }
+    if (!types.has('WebPage')) {
+      schemas.push(generateWebPageSchema(fullTitle, desc, canonicalUrl));
+    }
+  }
+
   return {
     meta,
     links: [{ rel: 'canonical', href: canonical }],
-    scripts: structuredData.map((schema) => ({
+    scripts: schemas.map((schema) => ({
       type: 'application/ld+json',
       children: JSON.stringify(schema),
     })),

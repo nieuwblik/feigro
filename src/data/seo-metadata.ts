@@ -197,6 +197,8 @@ export const seoMetadata = {
       "dakdekker Flevoland",
       "dakdekker Utrecht",
     ],
+    // Contactpagina draagt de volledige bedrijfsgegevens (NAP) voor lokale SEO.
+    structuredData: [generateLocalBusinessSchema()],
   },
 
   dakreparatie: {

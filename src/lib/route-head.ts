@@ -32,6 +32,13 @@ export interface RouteHeadInput {
   noindex?: boolean;
   structuredData?: object[];
   article?: ArticleMeta;
+  /**
+   * Kruimelpad voor BreadcrumbList. Niet opgegeven: afgeleid uit het pad
+   * (alleen bij één niveau diep, want dieper zijn de labels slugs).
+   */
+  breadcrumbs?: BreadcrumbItem[];
+  /** Zet op false om de automatische WebPage/BreadcrumbList-schema's over te slaan. */
+  autoSchema?: boolean;
 }
 
 type MetaTag = Record<string, string>;

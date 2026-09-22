@@ -10,7 +10,13 @@ import {
   truncateDescription,
 } from './seo-utils';
 import { getAbsoluteOgUrl } from './og-images';
+import {
+  generateBreadcrumbSchema,
+  generateBreadcrumbsFromPath,
+  generateWebPageSchema,
+} from './structured-data';
 import type { ArticleMeta } from '@/types/seo';
+import type { BreadcrumbItem } from '@/types/seo';
 
 const SITE_NAME = getSiteName();
 

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import BlogDetail, { blogPosts } from "@/pages/BlogDetail";
 import { buildRouteHead } from "@/lib/route-head";
-import { generateArticleSchema } from "@/lib/structured-data";
+import { generateArticleBreadcrumbs, generateArticleSchema } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/nieuws/$slug")({
   head: ({ params }) => {
@@ -26,6 +26,11 @@ export const Route = createFileRoute("/nieuws/$slug")({
         section: post.category,
         ...(post.tags ? { tags: post.tags } : {}),
       },
+      breadcrumbs: generateArticleBreadcrumbs({
+        category: post.category,
+        title: post.title,
+        slug: post.id,
+      }),
       structuredData: [
         generateArticleSchema({
           headline: post.title,

@@ -182,6 +182,8 @@ export const seoMetadata = {
       "stormschade dak",
       "spoedservice Noord-Holland",
     ],
+    // 24/7 spoedhulp: bedrijfsgegevens en openingstijden ook hier expliciet.
+    structuredData: [generateLocalBusinessSchema()],
   },
 
   contact: {

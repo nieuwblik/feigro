@@ -182,6 +182,8 @@ export const seoMetadata = {
       "stormschade dak",
       "spoedservice Noord-Holland",
     ],
+    // 24/7 spoedhulp: bedrijfsgegevens en openingstijden ook hier expliciet.
+    structuredData: [generateLocalBusinessSchema()],
   },
 
   contact: {
@@ -197,6 +199,8 @@ export const seoMetadata = {
       "dakdekker Flevoland",
       "dakdekker Utrecht",
     ],
+    // Contactpagina draagt de volledige bedrijfsgegevens (NAP) voor lokale SEO.
+    structuredData: [generateLocalBusinessSchema()],
   },
 
   dakreparatie: {

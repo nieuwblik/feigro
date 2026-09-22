@@ -18,6 +18,11 @@ export const Route = createFileRoute("/projecten/$slug")({
       description: project.shortDescription,
       canonicalUrl: `/projecten/${project.slug}`,
       ogImage: project.imageAfter,
+      breadcrumbs: [
+        { label: "Home", href: "/" },
+        { label: "Projecten", href: "/projecten" },
+        { label: project.title, href: `/projecten/${project.slug}` },
+      ],
     });
   },
   component: ProjectDetail,

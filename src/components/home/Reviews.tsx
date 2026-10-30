@@ -42,6 +42,8 @@ const compactReviews: Review[] = [
 
 const featuredReview = {
   name: 'Mohammed Elfarissi',
+  initial: 'M',
+  avatarColor: 'bg-brand-green',
   meta: '5 reviews · 6 foto\'s',
   timeAgo: '2 uur geleden',
   text: 'Wij zijn ontzettend tevreden over het werk van Feigro Dakwerken!\n\nNa veel ellende met lekkages op ons platte dak van maar liefst 200 m² heeft Feigro Dakwerken het probleem eindelijk goed opgelost. Ze hebben het dak vakkundig geïsoleerd en vervolgens opnieuw voorzien van een mooie, nieuwe gebrande bitumen dakbedekking.\n\nHet dak is weer helemaal lekvrij en ziet er prachtig uit! Er is netjes en professioneel gewerkt en het resultaat mag er zeker zijn.\n\nNa alle problemen die we hebben gehad, zijn we ontzettend blij dat we weer een goed en waterdicht dak boven ons hoofd hebben.\n\nFeigro Dakwerken is absoluut een aanrader! Bedankt voor het vakwerk en de goede service!',

@@ -91,7 +91,6 @@ export default function Cookies() {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em]">Juridisch</span>
           </motion.div>
           <motion.h1

@@ -44,7 +44,6 @@ export const Services = () => {
           <div className="max-w-3xl">
             <FadeIn>
               <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Onze Expertise</span>
               </div>
             </FadeIn>
@@ -106,7 +105,6 @@ export const Services = () => {
           {/* Left: Text Content */}
           <FadeIn>
             <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gratis Advies</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-4 md:mb-6">

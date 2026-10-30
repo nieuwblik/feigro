@@ -40,7 +40,6 @@ export const About = () => {
           <div className="flex flex-col">
             <FadeIn>
               <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
-                <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
                   VAKMANSCHAP
                 </span>

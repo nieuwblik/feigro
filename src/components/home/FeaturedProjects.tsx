@@ -16,7 +16,6 @@ export const FeaturedProjects = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 md:mb-20">
           <FadeIn>
             <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
                 VAKMANSCHAP
               </span>

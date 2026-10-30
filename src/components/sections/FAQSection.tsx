@@ -55,7 +55,6 @@ export function FAQSection({
               viewport={{ once: true }}
               className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8"
             >
-              <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Support</span>
             </motion.div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter">

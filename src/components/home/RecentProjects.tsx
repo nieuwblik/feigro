@@ -114,7 +114,6 @@ export const RecentProjects = () => {
         <div className="max-w-3xl">
           <FadeIn>
             <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-6">
-              <div className="w-6 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-widest">Gerealiseerd Werk</span>
             </div>
           </FadeIn>

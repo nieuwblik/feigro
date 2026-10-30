@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { PrimaryFlipButton } from '@/components/buttons';
+import { GOOGLE_BUSINESS_PROFILE_URL } from '@/lib/business-profile';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import testimonialImg1 from '@/assets/dakrenovatie.webp';
 import testimonialImg2 from '@/assets/dak-valbeveiliging-montage.webp';
@@ -72,7 +73,7 @@ export const Testimonials = () => {
                 <PrimaryFlipButton 
                   label="Plaats review voor FEIGRO" 
                   size="default" 
-                  onClick={() => window.open('https://www.google.com/search?client=firefox-b-d&hs=fpCp&sca_esv=20541e4f21a9d7f7&q=Feitsma+Dakwerken+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2NDMxtzAxMDE0MbMwMTU3MjIy38DI-IpR0i01s6Q4N1HBJTG7PLUoOzVPISi1LDO1vHgRK245AKTYdrtSAAAA&rldimm=9647840414684572227&tbm=lcl&hl=nl-NL&sa=X&ved=2ahUKEwjN6eaW95ySAxVd3AIHHfHbKcMQ9fQKegQIMBAG&biw=2422&bih=1171&dpr=1.54&aic=0#lkt=LocalPoiReviews', '_blank')} 
+                  onClick={() => window.open(GOOGLE_BUSINESS_PROFILE_URL, '_blank', 'noopener,noreferrer')} 
                 />
               </div>
             </FadeIn>

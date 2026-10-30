@@ -1,0 +1,2 @@
+// The exact Google listing supplied by FEIGRO; shared by review buttons and SEO.
+export const GOOGLE_BUSINESS_PROFILE_URL = 'https://www.google.com/maps/place//data=!4m3!3m2!1s0x9bc94068b7eadab:0x71901b1d16ad7592!12e1?source=g.page.m.nd._&laa=nmx-reviews-dialog';

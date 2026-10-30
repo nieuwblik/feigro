@@ -3,6 +3,7 @@ import { Star } from 'lucide-react';
 import { FadeIn } from '@/components/ui/ParallaxImage';
 import { GoogleReviewCard } from '@/components/ui/GoogleReviewCard';
 import { PrimaryFlipButton } from '@/components/buttons';
+import { GOOGLE_BUSINESS_PROFILE_URL } from '@/lib/business-profile';
 
 const COMPANY_DATA = {
   feitsma: {
@@ -118,7 +119,7 @@ export const CompanyHeritage = () => {
             <PrimaryFlipButton
               label="Plaats een review"
               onClick={() => {
-                window.open('https://g.page/r/CdIXIr0TrqC8EBM/review', '_blank');
+                window.open(GOOGLE_BUSINESS_PROFILE_URL, '_blank', 'noopener,noreferrer');
               }}
             />
           </div>

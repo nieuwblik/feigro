@@ -21,6 +21,7 @@ import {
 } from '@/types/seo';
 import { FAQItem } from '@/types';
 import { getBaseUrl, getSiteName } from './seo-utils';
+import { GOOGLE_BUSINESS_PROFILE_URL } from './business-profile';
 
 const BASE_URL = getBaseUrl();
 const SITE_NAME = getSiteName();
@@ -36,9 +37,8 @@ const PHONE = '+31613731303';
 /**
  * Profielen waarop hetzelfde bedrijf te vinden is. Zoekmachines en LLM's
  * gebruiken sameAs om de website aan de juiste entiteit te koppelen.
- * Vul aan zodra de Google Business Profile- en social-URL's bekend zijn.
  */
-const SAME_AS: string[] = [];
+const SAME_AS: string[] = [GOOGLE_BUSINESS_PROFILE_URL];
 
 /**
  * Geocode van Kruitmolen 28c, 1601 MC Enkhuizen (het echte vestigingsadres,

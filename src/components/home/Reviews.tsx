@@ -187,7 +187,7 @@ export const Reviews = () => {
               </p>
 
               <div className="mt-8 pt-6 border-t border-feigro-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <ReviewerMeta review={featuredReview as unknown as Review} light />
+                <ReviewerMeta review={featuredReview} light />
                 <div className="flex items-center gap-2">
                   <GoogleG className="w-4 h-4" />
                   <span className="text-[11px] text-feigro-white/50 font-medium uppercase tracking-wider">

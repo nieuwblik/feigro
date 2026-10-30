@@ -28,7 +28,6 @@ export default function VveVastgoedbeheer() {
         <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[2px] bg-brand-green/30"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-[0.2em]">Vrijblijvend advies</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6 leading-[1.1] uppercase tracking-tighter">

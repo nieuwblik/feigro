@@ -34,7 +34,6 @@ export default function Dakrenovatie() {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-8"
             >
-              <div className="w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em]">
                 Uit de praktijk
               </span>

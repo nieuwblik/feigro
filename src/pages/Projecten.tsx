@@ -35,7 +35,6 @@ export default function Projecten() {
           opacity: 1,
           y: 0
         }} className="flex items-center gap-4 mb-6 md:mb-8">
-          <div className="w-12 h-[2px] bg-brand-green"></div>
           <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Portfolio</span>
         </motion.div>
         <motion.h1 initial={{

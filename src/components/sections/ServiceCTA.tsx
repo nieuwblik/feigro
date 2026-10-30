@@ -8,9 +8,7 @@ export const ServiceCTA = () => {
 
                 {/* Header Group */}
                 <div className="flex items-center gap-4 mb-8 md:mb-10">
-                    <div className="w-12 h-[2px] bg-brand-green/30"></div>
                     <span className="text-brand-green font-bold text-xs uppercase tracking-[0.2em]">Wij helpen je graag verder</span>
-                    <div className="w-12 h-[2px] bg-brand-green/30"></div>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-10 md:mb-12 leading-[1.1] uppercase tracking-tighter">

@@ -103,7 +103,6 @@ export default function Contact() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-[1] text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4 mb-6 md:mb-8">
-            <div className="w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Contact</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-white text-3xl md:text-4xl lg:text-5xl font-heading tracking-tighter leading-none mb-6 md:mb-10 uppercase">

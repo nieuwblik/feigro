@@ -60,7 +60,6 @@ export default function Nieuws() {
           opacity: 1,
           x: 0
         }} className="flex items-center gap-4 mb-6">
-          <div className="w-12 h-[2px] bg-brand-green"></div>
           <span className="text-brand-green font-bold text-xs uppercase tracking-[0.3em]">​feigro's
           </span>
         </motion.div>
@@ -170,7 +169,6 @@ export default function Nieuws() {
         }} viewport={{
           once: true
         }} className="flex items-center gap-4 mb-12">
-          <div className="w-8 h-[2px] bg-brand-green"></div>
           <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Recente Artikelen</span>
         </motion.div>
 

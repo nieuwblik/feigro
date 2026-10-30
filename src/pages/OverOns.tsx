@@ -55,7 +55,6 @@ export default function OverOns() {
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-left">
           <FadeIn>
             <div className="flex items-center gap-4 mb-6 md:mb-8">
-              <div className="w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-xs uppercase tracking-widest">Wie wij zijn</span>
             </div>
           </FadeIn>
@@ -123,11 +122,9 @@ export default function OverOns() {
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn className="text-center mb-12 md:mb-20">
             <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
               <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
                 ONZE OORSPRONG
               </span>
-              <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-slate-900 leading-[0.9] tracking-tighter uppercase mb-6 md:mb-8">
               De Kracht van <span className="text-brand-green italic">Twee</span>

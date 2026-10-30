@@ -126,7 +126,6 @@ export const Reviews = () => {
           <div>
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[2px] bg-brand-green"></div>
                 <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.35em]">
                   Reviews
                 </span>

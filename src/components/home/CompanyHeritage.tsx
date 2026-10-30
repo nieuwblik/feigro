@@ -34,11 +34,9 @@ export const CompanyHeritage = () => {
         {/* Header */}
         <FadeIn className="text-center mb-12 md:mb-20">
           <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
-            <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
             <span className="text-brand-green font-bold text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em]">
               ONZE OORSPRONG
             </span>
-            <div className="w-8 md:w-12 h-[2px] bg-brand-green"></div>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-white leading-[0.9] tracking-tighter uppercase mb-6 md:mb-8">
             De Kracht van <span className="text-brand-green italic">Twee</span>

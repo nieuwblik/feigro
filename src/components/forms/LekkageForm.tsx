@@ -184,7 +184,6 @@ export function LekkageForm() {
                     {/* Persoonlijke gegevens */}
                     <div>
                         <h4 className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-brand-green mb-6 md:mb-8 flex items-center gap-3">
-                            <span className="w-8 h-[1px] bg-brand-green/30"></span>
                             Persoonlijke gegevens
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -233,7 +232,6 @@ export function LekkageForm() {
                     {/* Locatie gegevens */}
                     <div>
                         <h4 className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-brand-green mb-6 md:mb-8 flex items-center gap-3">
-                            <span className="w-8 h-[1px] bg-brand-green/30"></span>
                             Locatie gegevens
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -282,7 +280,6 @@ export function LekkageForm() {
                     {/* Details van de lekkage */}
                     <div>
                         <h4 className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-brand-green mb-6 md:mb-8 flex items-center gap-3">
-                            <span className="w-8 h-[1px] bg-brand-green/30"></span>
                             Details van de lekkage
                         </h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -440,7 +437,6 @@ export function LekkageForm() {
                     {/* Bestanden & Extra's */}
                     <div>
                         <h4 className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-brand-green mb-6 md:mb-8 flex items-center gap-3">
-                            <span className="w-8 h-[1px] bg-brand-green/30"></span>
                             Bestanden & Extra's
                         </h4>
                         <div className="space-y-8">

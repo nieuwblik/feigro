@@ -18,6 +18,10 @@ FEIGRO is de samenwerking tussen Feitsma Dakwerken en Groen Dakwerken. Wij werke
 - [Dakonderhoud](https://feigro.nl/dakonderhoud): Periodiek onderhoud en onderhoudscontracten om lekkage te voorkomen.
 - [Dakreparatie](https://feigro.nl/dakreparatie): Herstel van scheuren, losse naden, stormschade en beschadigde details.
 - [Daklekkage](https://feigro.nl/daklekkage): Lekkage opsporen en direct verhelpen, 24/7 spoedservice.
+- [Dakinspectie](https://feigro.nl/dakinspectie): Grondige inspectie van de dakconditie met rapportage.
+- [Dakbedekking vervangen](https://feigro.nl/dakbedekking-vervangen): Oude dakbedekking volledig vervangen.
+- [Bitumen dakbedekking](https://feigro.nl/bitumen-dakbedekking): Bitumineuze dakbedekking voor platte daken.
+- [EPDM dakbedekking](https://feigro.nl/epdm-dakbedekking): Naadloze EPDM-rubber dakbedekking.
 - [Valbeveiliging](https://feigro.nl/valbeveiliging): Ankerpunten en lijnsystemen voor veilig werken op hoogte, inclusief keuring.
 - [VvE & vastgoedbeheer](https://feigro.nl/vve-vastgoedbeheer): Dakonderhoud op basis van meerjarenplanning voor VvE's en beheerders.
 - [Spoedservice](https://feigro.nl/spoedservice): Direct een acute daklekkage of stormschade melden.
@@ -28,6 +32,8 @@ FEIGRO is de samenwerking tussen Feitsma Dakwerken en Groen Dakwerken. Wij werke
 - [Over ons](https://feigro.nl/over-ons): Het verhaal achter FEIGRO, Feitsma Dakwerken en Groen Dakwerken.
 - [Projecten](https://feigro.nl/projecten): Uitgevoerde dakprojecten met foto's en toelichting.
 - [Contact](https://feigro.nl/contact): Contactgegevens en aanvraag voor een gratis offerte.
+- [Project: dakrenovatie Enkhuizen](https://feigro.nl/projecten/dakrenovatie-enkhuizen): Voorbeeld van een uitgevoerde dakrenovatie.
+- [Project: bitumensysteem Almere](https://feigro.nl/projecten/bitumensysteem-almere): Voorbeeld van een bitumen dak in Flevoland.
 - [Vacatures](https://feigro.nl/vacatures): Werken als dakdekker bij FEIGRO.
 
 ## Optional

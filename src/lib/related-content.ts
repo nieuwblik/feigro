@@ -14,6 +14,7 @@ const SERVICE_KEYS = [
   'dakinspectie',
   'dakonderhoud',
   'dakrenovatie',
+  'dakisolatie',
   'dakbedekkingVervangen',
   'bitumenDakbedekking',
   'epdmDakbedekking',

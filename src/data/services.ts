@@ -13,6 +13,8 @@ import imgReparatie from '@/assets/dakreparatie-nederland-enkhuizen.webp';
 import imgDakreparatieWerk from '@/assets/dakreparatie-werk.webp';
 import imgDakonderhoudWerk from '@/assets/dakonderhoud-werk.webp';
 import imgDakrenovatieWerk from '@/assets/dakrenovatie-werk.webp';
+import imgDakisolatieUrsem from '@/assets/projects/dakisolatie-ursem-1.webp';
+import imgDakisolatieWerk from '@/assets/projects/dakisolatie-ursem-3.webp';
 
 /**
  * Hangt een Service-schema aan de bestaande paginametadata.
@@ -341,6 +343,84 @@ export const dakrenovatieData: ServicePageData = {
     {
       question: 'Moet ik vergunning aanvragen voor dakrenovatie?',
       answer: 'In de meeste gevallen niet, als het bestaande dak wordt vervangen zonder constructiewijzigingen. We adviseren u hierover tijdens de offerte.',
+    },
+  ],
+};
+
+export const dakisolatieData: ServicePageData = {
+  seo: withServiceSchema(seoMetadata.dakisolatie, 'Dakisolatie'),
+  hero: {
+    title: 'Vakkundige Dakisolatie',
+    subtitle: 'Een goed geïsoleerd dak verlaagt uw stookkosten en maakt het binnen merkbaar comfortabeler. FEIGRO isoleert platte daken in Noord-Holland, Flevoland en Utrecht.',
+    ctaText: 'Vraag Offerte Aan',
+    ctaHref: '/contact',
+    backgroundImage: imgDakisolatieUrsem,
+  },
+  featureTitle: 'Waarom Isoleren',
+  featureHighlight: 'Isoleren',
+  features: [
+    {
+      icon: 'Euro',
+      title: 'Lagere Stookkosten',
+      description: 'Een ongeïsoleerd dak laat warmte ontsnappen. Isolatie vertaalt zich direct naar een lagere energierekening.',
+    },
+    {
+      icon: 'Thermometer',
+      title: 'Comfort in Elk Seizoen',
+      description: 'Isolatie houdt de warmte binnen in de winter en buiten in de zomer. Vooral onder een plat dak scheelt dat veel.',
+    },
+    {
+      icon: 'Layers',
+      title: 'Hoogwaardig PIR',
+      description: 'Wij werken met PIR-isolatieplaten: een hoge isolatiewaarde bij een beperkte opbouwhoogte van het dakpakket.',
+    },
+    {
+      icon: 'Shield',
+      title: 'In Één Werkgang',
+      description: 'Isolatie en nieuwe dakbedekking brengen we in één keer aan. Uw dak hoeft daardoor maar één keer open.',
+    },
+    {
+      icon: 'FileText',
+      title: 'Hulp bij Subsidie',
+      description: 'Wij leveren de documentatie die u nodig heeft om een subsidieaanvraag voor uw isolatiewerk in te dienen.',
+    },
+    {
+      icon: 'Home',
+      title: 'Beter Energielabel',
+      description: 'Een geïsoleerd dak verbetert het energielabel en daarmee de waarde van uw woning of pand.',
+    },
+  ],
+  info: {
+    title: 'Isoleren bij renovatie',
+    titleHighlight: 'renovatie',
+    description: 'Het gunstigste moment om uw dak te isoleren is wanneer de dakbedekking toch aan vervanging toe is.',
+    image: imgDakisolatieWerk,
+    paragraphs: [
+      'Ligt het dak toch open voor nieuwe dakbedekking, dan kost het aanbrengen van isolatie relatief weinig extra werk. U betaalt dan één keer voor de voorbereiding, de kraan en de afwerking in plaats van twee keer. Daarom nemen wij bij elke renovatie-offerte de isolatie als optie mee.',
+      'Op platte daken werken we met PIR-isolatieplaten. Die hebben een hoge isolatiewaarde per centimeter, waardoor het dakpakket beperkt in dikte blijft - belangrijk bij dakranden, dorpels en aansluitingen die niet zomaar hoger kunnen. In Ursem brachten we zo 140 mm PIR aan onder een nieuwe witte bitumen dakbedekking.',
+      'Vanuit Enkhuizen werken we door heel West-Friesland en verder in Noord-Holland, Flevoland en Utrecht. Of het nu gaat om een woning, een bedrijfspand of het dak van een VvE: we komen langs, bekijken de bestaande opbouw en rekenen uit wat isolatie in uw situatie oplevert.',
+    ],
+  },
+  faqs: [
+    {
+      question: 'Kan ik mijn dak isoleren zonder de dakbedekking te vervangen?',
+      answer: 'Bij een plat dak wordt isolatie meestal onder de dakbedekking aangebracht, dus dan gaat het samen. Is de dakbedekking nog goed, dan kijken we of isoleren aan de binnenzijde een optie is. Tijdens de inspectie adviseren we wat in uw situatie verstandig is.',
+    },
+    {
+      question: 'Welk isolatiemateriaal gebruiken jullie?',
+      answer: 'Op platte daken werken we met PIR-isolatieplaten. Die combineren een hoge isolatiewaarde met een beperkte dikte, zodat de opbouw van het dak niet onnodig hoog wordt.',
+    },
+    {
+      question: 'Wat kost dakisolatie?',
+      answer: 'Dat hangt af van de oppervlakte, de gewenste isolatiewaarde en de staat van de bestaande dakopbouw. Omdat isolatie vaak samenvalt met het vervangen van de dakbedekking, maken we er één offerte van. Neem contact op voor een vrijblijvende berekening.',
+    },
+    {
+      question: 'Kan ik subsidie krijgen voor dakisolatie?',
+      answer: 'Voor isolatiemaatregelen bestaan landelijke subsidieregelingen, met voorwaarden die per situatie verschillen. Wij leveren de documentatie van het uitgevoerde werk die u bij een aanvraag nodig heeft.',
+    },
+    {
+      question: 'Hoe lang duurt het isoleren van een plat dak?',
+      answer: 'Voor een gemiddeld plat dak op een woning is het werk meestal binnen enkele dagen klaar, inclusief de nieuwe dakbedekking. We maken vooraf een planning en houden rekening met het weer.',
     },
   ],
 };

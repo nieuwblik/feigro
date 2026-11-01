@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DakbedekkingVervangenRouteImport } from './routes/dakbedekking-vervangen'
 import { Route as DakinspectieRouteImport } from './routes/dakinspectie'
+import { Route as DakisolatieRouteImport } from './routes/dakisolatie'
 import { Route as DaklekkageRouteImport } from './routes/daklekkage'
 import { Route as DakonderhoudRouteImport } from './routes/dakonderhoud'
 import { Route as DakrenovatieRouteImport } from './routes/dakrenovatie'
@@ -59,6 +60,11 @@ const DakbedekkingVervangenRoute = DakbedekkingVervangenRouteImport.update({
 const DakinspectieRoute = DakinspectieRouteImport.update({
   id: '/dakinspectie',
   path: '/dakinspectie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DakisolatieRoute = DakisolatieRouteImport.update({
+  id: '/dakisolatie',
+  path: '/dakisolatie',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DaklekkageRoute = DaklekkageRouteImport.update({
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/cookies': typeof CookiesRoute
   '/dakbedekking-vervangen': typeof DakbedekkingVervangenRoute
   '/dakinspectie': typeof DakinspectieRoute
+  '/dakisolatie': typeof DakisolatieRoute
   '/daklekkage': typeof DaklekkageRoute
   '/dakonderhoud': typeof DakonderhoudRoute
   '/dakrenovatie': typeof DakrenovatieRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/cookies': typeof CookiesRoute
   '/dakbedekking-vervangen': typeof DakbedekkingVervangenRoute
   '/dakinspectie': typeof DakinspectieRoute
+  '/dakisolatie': typeof DakisolatieRoute
   '/daklekkage': typeof DaklekkageRoute
   '/dakonderhoud': typeof DakonderhoudRoute
   '/dakrenovatie': typeof DakrenovatieRoute
@@ -191,6 +199,7 @@ export interface FileRoutesById {
   '/cookies': typeof CookiesRoute
   '/dakbedekking-vervangen': typeof DakbedekkingVervangenRoute
   '/dakinspectie': typeof DakinspectieRoute
+  '/dakisolatie': typeof DakisolatieRoute
   '/daklekkage': typeof DaklekkageRoute
   '/dakonderhoud': typeof DakonderhoudRoute
   '/dakrenovatie': typeof DakrenovatieRoute
@@ -216,6 +225,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/dakbedekking-vervangen'
     | '/dakinspectie'
+    | '/dakisolatie'
     | '/daklekkage'
     | '/dakonderhoud'
     | '/dakrenovatie'
@@ -239,6 +249,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/dakbedekking-vervangen'
     | '/dakinspectie'
+    | '/dakisolatie'
     | '/daklekkage'
     | '/dakonderhoud'
     | '/dakrenovatie'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/dakbedekking-vervangen'
     | '/dakinspectie'
+    | '/dakisolatie'
     | '/daklekkage'
     | '/dakonderhoud'
     | '/dakrenovatie'
@@ -286,6 +298,7 @@ export interface RootRouteChildren {
   CookiesRoute: typeof CookiesRoute
   DakbedekkingVervangenRoute: typeof DakbedekkingVervangenRoute
   DakinspectieRoute: typeof DakinspectieRoute
+  DakisolatieRoute: typeof DakisolatieRoute
   DaklekkageRoute: typeof DaklekkageRoute
   DakonderhoudRoute: typeof DakonderhoudRoute
   DakrenovatieRoute: typeof DakrenovatieRoute
@@ -345,6 +358,13 @@ declare module '@tanstack/react-router' {
       path: '/dakinspectie'
       fullPath: '/dakinspectie'
       preLoaderRoute: typeof DakinspectieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dakisolatie': {
+      id: '/dakisolatie'
+      path: '/dakisolatie'
+      fullPath: '/dakisolatie'
+      preLoaderRoute: typeof DakisolatieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/daklekkage': {
@@ -462,6 +482,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiesRoute: CookiesRoute,
   DakbedekkingVervangenRoute: DakbedekkingVervangenRoute,
   DakinspectieRoute: DakinspectieRoute,
+  DakisolatieRoute: DakisolatieRoute,
   DaklekkageRoute: DaklekkageRoute,
   DakonderhoudRoute: DakonderhoudRoute,
   DakrenovatieRoute: DakrenovatieRoute,

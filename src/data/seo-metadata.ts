@@ -79,6 +79,21 @@ export const seoMetadata = {
     ],
   },
 
+  dakisolatie: {
+    title: "Dakisolatie | Plat dak isoleren in Noord-Holland | Feigro",
+    description:
+      "Dakisolatie in Noord-Holland, Flevoland en Utrecht. FEIGRO isoleert platte daken met PIR, in één werkgang met de dakbedekking. Vraag een offerte aan.",
+    canonicalUrl: "/dakisolatie",
+    keywords: [
+      "dakisolatie",
+      "dak isoleren",
+      "plat dak isoleren",
+      "PIR isolatie",
+      "dakisolatie Enkhuizen",
+      "dakisolatie Noord-Holland",
+    ],
+  },
+
   dakbedekkingVervangen: {
     title: "Dakbedekking vervangen | EPDM, bitumen, PVC | Feigro",
     description:

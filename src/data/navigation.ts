@@ -22,6 +22,10 @@ export const mainNavigation: NavigationItem[] = [
         href: '/dakrenovatie',
       },
       {
+        label: 'Dakisolatie',
+        href: '/dakisolatie',
+      },
+      {
         label: 'Dakbedekking Vervangen',
         href: '/dakbedekking-vervangen',
       },
@@ -61,6 +65,7 @@ export const footerServices: NavigationItem[] = [
   { label: 'Dakinspectie', href: '/dakinspectie' },
   { label: 'Dakonderhoud', href: '/dakonderhoud' },
   { label: 'Dakrenovatie', href: '/dakrenovatie' },
+  { label: 'Dakisolatie', href: '/dakisolatie' },
   { label: 'Dakbedekking Vervangen', href: '/dakbedekking-vervangen' },
   { label: 'Bitumen Dakbedekking', href: '/bitumen-dakbedekking' },
   { label: 'EPDM Dakbedekking', href: '/epdm-dakbedekking' },

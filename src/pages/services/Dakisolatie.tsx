@@ -18,7 +18,7 @@ export default function Dakisolatie() {
             <SEOBreadcrumb />
             <HeroSection {...hero} />
             <InfoSection {...info} />
-            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} columns={3} />
+            <FeatureGrid features={features} title={featureTitle} titleHighlight={featureHighlight} columns={2} />
             <FAQSection faqs={faqs} />
             <RelatedContent title="Gerelateerde diensten" items={getRelatedServices('/dakisolatie')} />
             <ServiceCTA />

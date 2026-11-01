@@ -80,14 +80,13 @@ export const seoMetadata = {
   },
 
   dakisolatie: {
-    title: "Dakisolatie | Plat dak isoleren in Noord-Holland | Feigro",
+    title: "Dakisolatie | Noord-Holland, Flevoland, Utrecht | Feigro",
     description:
-      "Dakisolatie in Noord-Holland, Flevoland en Utrecht. FEIGRO isoleert platte daken met PIR, in één werkgang met de dakbedekking. Vraag een offerte aan.",
+      "Dakisolatie door Feigro in Noord-Holland, Flevoland en Utrecht. Wij nemen isolatie mee in de offerte voor uw dakwerk en leveren documentatie voor subsidie.",
     canonicalUrl: "/dakisolatie",
     keywords: [
       "dakisolatie",
       "dak isoleren",
-      "plat dak isoleren",
       "PIR isolatie",
       "dakisolatie Enkhuizen",
       "dakisolatie Noord-Holland",

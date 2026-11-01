@@ -1,4 +1,34 @@
-import * as LucideIcons from 'lucide-react';
+import {
+  Award, BadgeCheck, Calendar, Camera,
+  CheckCircle, Clock, Droplet, Droplets,
+  Euro, FileText, Flame, Hammer,
+  Home, Layers, Leaf, Phone,
+  Recycle, Search, Shield, ShieldCheck,
+  Sun, Thermometer, TrendingUp, Users,
+  Wind, Wrench, Zap,
+  type LucideIcon,
+} from 'lucide-react';
+
+/**
+ * De iconen die de dienstdata bij naam kan opvragen.
+ *
+ * Bewust een expliciete map en geen `import * as LucideIcons`: bij een
+ * namespace-import met een dynamische lookup kan de bundler niet zien welke
+ * iconen gebruikt worden, en belandt de complete iconenset (ruim 1500 stuks)
+ * in de bundel. Dat maakte de services-chunk 785 kB.
+ *
+ * Een naam die hier niet in staat levert geen icoon op (zie getIcon), dus een
+ * nieuw icoon in de data moet hier ook worden toegevoegd.
+ */
+const ICONS: Record<string, LucideIcon> = {
+  Award, BadgeCheck, Calendar, Camera,
+  CheckCircle, Clock, Droplet, Droplets,
+  Euro, FileText, Flame, Hammer,
+  Home, Layers, Leaf, Phone,
+  Recycle, Search, Shield, ShieldCheck,
+  Sun, Thermometer, TrendingUp, Users,
+  Wind, Wrench, Zap,
+};
 import { FeatureItem } from '@/types';
 import { cn } from '@/lib/utils';
 import { FadeIn } from '@/components/ui/ParallaxImage';
@@ -22,7 +52,7 @@ export function FeatureGrid({
   columns = 3
 }: FeatureGridProps) {
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as any)[iconName];
+    const IconComponent = ICONS[iconName];
     return IconComponent ? <IconComponent size={32} /> : null;
   };
 

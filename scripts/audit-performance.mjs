@@ -18,7 +18,9 @@ import { dirname, join, extname } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'src');
-const DIST = join(ROOT, 'dist');
+// De build schrijft naar .output (TanStack Start/nitro); dist/ is een
+// achtergebleven map van voor de SSR-migratie en zegt niets over de huidige bundel.
+const DIST = join(ROOT, '.output');
 
 /** @typedef {{ id: string; label: string; status: 'pass' | 'warn' | 'skip'; detail: string }} CheckResult */
 
@@ -242,7 +244,7 @@ function checkBundleSize() {
     ];
   }
 
-  const assetsDir = existsSync(join(DIST, 'client', 'assets')) ? join(DIST, 'client', 'assets') : join(DIST, 'assets');
+  const assetsDir = [join(DIST, 'public', 'assets'), join(DIST, 'client', 'assets'), join(DIST, 'assets')].find(existsSync) ?? join(DIST, 'assets');
   if (!existsSync(assetsDir)) {
     return [{ id: 'bundle-size', label: 'Geen enkele JS-chunk is onnodig groot', status: 'skip', detail: 'dist/assets/ niet gevonden' }];
   }

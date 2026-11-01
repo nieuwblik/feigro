@@ -71,7 +71,7 @@ export const vveVastgoedbeheerData: ServicePageData = {
     },
     {
       icon: 'Zap',
-      title: 'Snelle respondtijd bij noodsituaties',
+      title: 'Snelle responstijd bij noodsituaties',
       description: '24/7 beschikbaar voor acute dakproblemen.',
     },
     {

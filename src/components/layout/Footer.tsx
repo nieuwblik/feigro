@@ -31,6 +31,9 @@ export const Footer = () => {
     name: 'Dakrenovatie',
     href: '/dakrenovatie'
   }, {
+    name: 'Dakisolatie',
+    href: '/dakisolatie'
+  }, {
     name: 'Daklekkage',
     href: '/daklekkage'
   }, {
@@ -49,6 +52,9 @@ export const Footer = () => {
   }, {
     name: 'Lekkage melden',
     href: '/spoedservice'
+  }, {
+    name: 'Plaats een review',
+    href: '/review'
   }, {
     name: 'Contact Opnemen',
     href: '/contact'

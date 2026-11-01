@@ -85,6 +85,8 @@ export interface OrganizationSchema {
   '@context': string;
   '@type': 'Organization';
   name: string;
+  /** Naamvarianten waaronder het bedrijf gezocht wordt. */
+  alternateName?: string[];
   url: string;
   logo: string;
   sameAs?: string[];
@@ -184,6 +186,8 @@ export interface LocalBusinessSchema {
   '@type': 'LocalBusiness' | 'RoofingContractor';
   '@id': string;
   name: string;
+  /** Naamvarianten waaronder het bedrijf gezocht wordt. */
+  alternateName?: string[];
   description?: string;
   image: string;
   logo?: string;

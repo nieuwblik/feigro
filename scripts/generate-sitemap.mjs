@@ -18,7 +18,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE_URL = 'https://feigro.nl';
 
 /** Pagina's die bewust niet in de sitemap horen. */
-const EXCLUDED = new Set(['*', '/cookies']);
+const EXCLUDED = new Set(['*', '/cookies', '/review']);
 
 /**
  * Crawlprioriteit per pad. Alles wat hier niet in staat krijgt de default.

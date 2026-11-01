@@ -23,6 +23,7 @@ import { Route as DakreparatieRouteImport } from './routes/dakreparatie'
 import { Route as DienstenRouteImport } from './routes/diensten'
 import { Route as EpdmDakbedekkingRouteImport } from './routes/epdm-dakbedekking'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SpoedserviceRouteImport } from './routes/spoedservice'
 import { Route as VacaturesRouteImport } from './routes/vacatures'
 import { Route as ValbeveiligingRouteImport } from './routes/valbeveiliging'
@@ -102,6 +103,11 @@ const OverOnsRoute = OverOnsRouteImport.update({
   path: '/over-ons',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReviewRoute = ReviewRouteImport.update({
+  id: '/review',
+  path: '/review',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpoedserviceRoute = SpoedserviceRouteImport.update({
   id: '/spoedservice',
   path: '/spoedservice',
@@ -158,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/diensten': typeof DienstenRoute
   '/epdm-dakbedekking': typeof EpdmDakbedekkingRoute
   '/over-ons': typeof OverOnsRoute
+  '/review': typeof ReviewRoute
   '/spoedservice': typeof SpoedserviceRoute
   '/vacatures': typeof VacaturesRoute
   '/valbeveiliging': typeof ValbeveiligingRoute
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/diensten': typeof DienstenRoute
   '/epdm-dakbedekking': typeof EpdmDakbedekkingRoute
   '/over-ons': typeof OverOnsRoute
+  '/review': typeof ReviewRoute
   '/spoedservice': typeof SpoedserviceRoute
   '/vacatures': typeof VacaturesRoute
   '/valbeveiliging': typeof ValbeveiligingRoute
@@ -207,6 +215,7 @@ export interface FileRoutesById {
   '/diensten': typeof DienstenRoute
   '/epdm-dakbedekking': typeof EpdmDakbedekkingRoute
   '/over-ons': typeof OverOnsRoute
+  '/review': typeof ReviewRoute
   '/spoedservice': typeof SpoedserviceRoute
   '/vacatures': typeof VacaturesRoute
   '/valbeveiliging': typeof ValbeveiligingRoute
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | '/diensten'
     | '/epdm-dakbedekking'
     | '/over-ons'
+    | '/review'
     | '/spoedservice'
     | '/vacatures'
     | '/valbeveiliging'
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | '/diensten'
     | '/epdm-dakbedekking'
     | '/over-ons'
+    | '/review'
     | '/spoedservice'
     | '/vacatures'
     | '/valbeveiliging'
@@ -281,6 +292,7 @@ export interface FileRouteTypes {
     | '/diensten'
     | '/epdm-dakbedekking'
     | '/over-ons'
+    | '/review'
     | '/spoedservice'
     | '/vacatures'
     | '/valbeveiliging'
@@ -306,6 +318,7 @@ export interface RootRouteChildren {
   DienstenRoute: typeof DienstenRoute
   EpdmDakbedekkingRoute: typeof EpdmDakbedekkingRoute
   OverOnsRoute: typeof OverOnsRoute
+  ReviewRoute: typeof ReviewRoute
   SpoedserviceRoute: typeof SpoedserviceRoute
   VacaturesRoute: typeof VacaturesRoute
   ValbeveiligingRoute: typeof ValbeveiligingRoute
@@ -416,6 +429,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OverOnsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/review': {
+      id: '/review'
+      path: '/review'
+      fullPath: '/review'
+      preLoaderRoute: typeof ReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/spoedservice': {
       id: '/spoedservice'
       path: '/spoedservice'
@@ -490,6 +510,7 @@ const rootRouteChildren: RootRouteChildren = {
   DienstenRoute: DienstenRoute,
   EpdmDakbedekkingRoute: EpdmDakbedekkingRoute,
   OverOnsRoute: OverOnsRoute,
+  ReviewRoute: ReviewRoute,
   SpoedserviceRoute: SpoedserviceRoute,
   VacaturesRoute: VacaturesRoute,
   ValbeveiligingRoute: ValbeveiligingRoute,

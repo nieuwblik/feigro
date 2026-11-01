@@ -55,6 +55,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE_NAME,
+    alternateName: ['Feigro', 'Feigro Dakwerken', 'FEIGRO'],
     url: BASE_URL,
     logo: LOGO_URL,
     sameAs: SAME_AS,
@@ -290,6 +291,7 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
     '@type': 'RoofingContractor',
     '@id': `${BASE_URL}/#organisatie`,
     name: SITE_NAME,
+    alternateName: ['Feigro', 'Feigro Dakwerken', 'FEIGRO'],
     description:
       'FEIGRO Dakwerken is dakdekker voor platte en hellende daken in Noord-Holland, Flevoland en Utrecht. Dakrenovatie, dakonderhoud, dakreparatie, valbeveiliging en 24/7 spoedhulp bij daklekkage.',
     image: LOGO_URL,
